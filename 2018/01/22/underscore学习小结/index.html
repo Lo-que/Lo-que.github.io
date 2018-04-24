@@ -1,526 +1,508 @@
-
 <!DOCTYPE html>
-<html lang="zh">
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
 
 
 
-<head>
-  <script>
-    window.mduiVersion = "2.0.1"
-    window.oldVersion = [
-     '2.0.0',
-     '1.4.5',
-     'unknownVersion'
-    ]
-    window.themeRuntime = {
-      root: "/",
-      scriptsMap: {},
-      init: {
-        status: false
-      },
-      commentRest: {
-        status: false
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            underscore学习小结 | 
+        
+        Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="qudongqi&#39;s personal blog">
+    <meta name="keywords" content=",Learning summary">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
       }
-    };
-    console.info("%c如有疑虑请联系：\n"+'Lo-que@foxmail.com'+'%c\nhttp://github.com/Lo-que/Lo-que.github.io',"font-size: 14px;color: #3F51B5;","color: #448AFF;text-decoration: none");
-  </script>
 
-  <meta charset="UTF-8">
-  <meta https-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-  <title>underscore学习小结 - Blog</title>
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
 
-  <!-- Favicons -->
-  <link rel="icon shortcut" type="image/ico" href="/images/favicon.png">
-  <link rel="icon" sizes="192x192" href="/images/favicon.png">
-  <link rel="apple-touch-icon" href="/images/favicon.png">
 
-  <!-- Meta & Info -->
-  <meta https-equiv="X-UA-Compatible">
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-  <meta name="theme-color" content="#fff">
 
-  <meta name="author" content="屈东奇">
-  
-      <meta name="description" content="qudongqi&#39;s personal blog">
-  
-  <meta name="keywords" content="Lo-que, qudongqi, blog,Learning summary">
+<!-- Fade Effect -->
 
-  <!--iOS -->
-  <meta name="apple-mobile-web-app-title" content="Blog">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="480">
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
 
-  <!-- Add to homescreen for Chrome on Android -->
-  <meta name="mobile-web-app-capable" content="yes">
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
 
-  <!-- The Open Graph protocol -->
-  <meta property="og:url" content="http://lo-que.github.io">
-  <meta property="og:type" content="blog">
-  <meta property="og:title" content="underscore学习小结 - Blog | Blog">
-  <meta property="og:image" content="/images/favicon.png" />
-  
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Blog">
+    <meta name="msapplication-starturl" content="http://lo-que.github.io/2018/01/22/underscore学习小结/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://lo-que.github.io/2018/01/22/underscore学习小结/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="underscore学习小结 | Blog">
+    <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="qudongqi&#39;s personal blog">
-  
+    <meta property="og:article:tag" content="Learning summary"> 
 
-  
-    <meta property="og:article:tag" content="Learning summary">
-  
+    
+        <meta property="article:published_time" content="Mon Jan 22 2018 20:38:34 GMT+0800">
+        <meta property="article:modified_time" content="Tue Apr 24 2018 18:41:21 GMT+0800">
+    
 
-  
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Import CSS -->
-  
-    <link rel="stylesheet" href="/css/mdui.css">
-  
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://lo-que.github.io/2018/01/22/underscore学习小结/index.html" />
+    
 
-  
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://lo-que.github.io/2018/01/22/underscore学习小结/index.html",
+    "headline": "underscore学习小结",
+    "datePublished": "Mon Jan 22 2018 20:38:34 GMT+0800",
+    "dateModified": "Tue Apr 24 2018 18:41:21 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "屈东奇",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "自童年起，我便独自一人，照顾着历代星辰。"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",Learning summary",
+    "description": "qudongqi&#39;s personal blog",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
 
 </head>
 
 
-<body class="mdui-drawer-body-left mdui-theme-primary-#0097A7 mdui-theme-accent-#00838F">
-
-  <style>
-    #spinner {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-          opacity: 1;
-      -webkit-transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1);
-          transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1);
-    }
-    main {
-      opacity: 0;
-      -webkit-transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1);
-      transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1);
-      display: none;
-    }
-  </style>
-  <div id="spinner">
-    <style>
-      .spinner {
-
-      -webkit-animation: rotator 1.4s linear infinite;
-              animation: rotator 1.4s linear infinite;
-      }
-
-      @-webkit-keyframes rotator {
-      0% {
-        -webkit-transform: rotate(0deg);
-                transform: rotate(0deg);
-      }
-      100% {
-        -webkit-transform: rotate(270deg);
-                transform: rotate(270deg);
-      }
-      }
-
-      @keyframes rotator {
-      0% {
-        -webkit-transform: rotate(0deg);
-                transform: rotate(0deg);
-      }
-      100% {
-        -webkit-transform: rotate(270deg);
-                transform: rotate(270deg);
-      }
-      }
-
-      .path {
-      stroke-dasharray: 187;
-      stroke-dashoffset: 0;
-      -webkit-transform-origin: center;
-              transform-origin: center;
-      -webkit-animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
-              animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
-      }
-
-      @-webkit-keyframes colors {
-      0% {
-        stroke: #4285F4;
-      }
-      25% {
-        stroke: #DE3E35;
-      }
-      50% {
-        stroke: #F7C223;
-      }
-      75% {
-        stroke: #1B9A59;
-      }
-      100% {
-        stroke: #4285F4;
-      }
-      }
-
-      @keyframes colors {
-      0% {
-        stroke: #4285F4;
-      }
-      25% {
-        stroke: #DE3E35;
-      }
-      50% {
-        stroke: #F7C223;
-      }
-      75% {
-        stroke: #1B9A59;
-      }
-      100% {
-        stroke: #4285F4;
-      }
-      }
-
-      @-webkit-keyframes dash {
-      0% {
-        stroke-dashoffset: 187;
-      }
-      50% {
-        stroke-dashoffset: 46.75;
-        -webkit-transform: rotate(135deg);
-                transform: rotate(135deg);
-      }
-      100% {
-        stroke-dashoffset: 187;
-        -webkit-transform: rotate(450deg);
-                transform: rotate(450deg);
-      }
-      }
-
-      @keyframes dash {
-      0% {
-        stroke-dashoffset: 187;
-      }
-      50% {
-        stroke-dashoffset: 46.75;
-        -webkit-transform: rotate(135deg);
-                transform: rotate(135deg);
-      }
-      100% {
-        stroke-dashoffset: 187;
-        -webkit-transform: rotate(450deg);
-                transform: rotate(450deg);
-      }
-      }
-    </style>
-    <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-      <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
-    </svg>
-  </div>
-
-  <main>
-    <div class="mdui-appbar mdui-appbar-fixed mdui-color-white mdui-shadow-0 theme-appbar">
-  <div class="mdui-toolbar theme-toolbar-top">
     
-      <a href="/" class="mdui-btn mdui-btn-icon mdui-ripple theme-appbar__burger theme-appbar__burger--arrow">
-        <i class="mdui-icon">
-          <span></span>
-        </i>
-      </a>
-    
-  </div>
-  <div class="mdui-toolbar theme-toolbar-bottom">
-    <span class="theme-toolbar-bottom__title">Blog</span>
-    
-      <a href="/search.html" class="mdui-textfield-icon mdui-btn mdui-btn-icon theme-toolbar-bottom__search">
-        <i class="mdui-icon material-icons">&#xe8b6;</i>
-      </a>
-    
-  </div>
-  <div class="mdui-progress theme-appbar__progress" id="progressBar">
-    <div class="mdui-progress-indeterminate"></div>
-  </div>
-</div>
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
 
-    <div class="mdui-drawer mdui-drawer-full-height theme-drawer" id="drawer">
-  <!-- header -->
-  <div class="theme-drawer__header">
-  <div class="theme-drawer__header__layer-1">
-    <div class="mdui-toolbar theme-toolbar-top">
-      
-        <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple theme-appbar__burger theme-appbar__burger--drawer theme-appbar__burger--arrow" id="drawer-back">
-          <i class="mdui-icon">
-            <span></span>
-          </i>
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
         </a>
-      
     </div>
-    <div class="mdui-toolbar theme-toolbar-bottom">
-      <span class="theme-toolbar-bottom__title">Blog</span>
-    </div>
-  </div>
-  <div class="theme-drawer__header__layer-2" style="background-image: url(/images/bg.png)">
-    <img class="mdui-img-circle theme-drawer__header__layer-2__user__avatar" src="/images/avatar.png"/>
-    <div class="theme-drawer__header__layer-2__user__info">
-      <div class="theme-drawer__header__layer-2__user__info__author mdui-text-color-white-text">
-        屈东奇
-      </div>
-      <div class="theme-drawer__header__layer-2__user__info__slogan mdui-text-color-white-secondary">
-        自童年起，我便独自一人，照顾历代星辰。
-      </div>
-    </div>
-  </div>
-</div>
+    -->
 
-  <div class="theme-drawer__warpper">
-    <!-- content -->
-    <div class="theme-drawer__warpper__content">
-  <ul class="mdui-list">
-    <a href="/" class="mdui-list-item mdui-ripple mdui-ripple-white">
-      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe88a;</i>
-      <div class="mdui-list-item-content">首页</div>
-    </a>
-    <a href="/archives/" class="mdui-list-item mdui-ripple mdui-ripple-white">
-      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe149;</i>
-      <div class="mdui-list-item-content">归档</div>
-    </a>
-    <ul class="mdui-list mdui-collapse" mdui-collapse="{accordion: true}" mdui-collapse>
-      
-      
-        <div class="mdui-collapse-item ">
-          <div class="mdui-collapse-item-header mdui-list-item mdui-ripple mdui-ripple-white">
-            <i class="mdui-list-item-icon mdui-icon fa fa-tags mdui-text-center"></i>
-            <div class="mdui-list-item-content">标签</div>
-            <i class="mdui-collapse-item-arrow mdui-icon material-icons">&#xe5c5;</i>
-          </div>
-          <div class="mdui-collapse-item-body mdui-list">
-            
-              <a href="/tags/Learning-Note/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                Learning Note
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">13</span>
-              </a>
-            
-              <a href="/tags/Learning-summary/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                Learning summary
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-          </div>
-        </div>
-      
-      <div class="mdui-collapse-item ">
-        <div class="mdui-collapse-item-header mdui-list-item mdui-ripple mdui-ripple-white">
-          <i class="mdui-list-item-icon mdui-icon material-icons">&#xe916;</i>
-          <div class="mdui-list-item-content">年份</div>
-          <i class="mdui-collapse-item-arrow mdui-icon material-icons">&#xe5c5;</i>
-        </div>
-        <div class="mdui-collapse-item-body mdui-list">
-          
-          
-            <a href="/archives/2018/" class="mdui-list-item mdui-ripple">
-              2018
-            </a>
-          
-            <a href="/archives/2017/" class="mdui-list-item mdui-ripple">
-              2017
-            </a>
-          
-        </div>
-      </div>
-    </ul>
-  </ul>
-  
-    <div class="mdui-divider"></div>
-    <ul class="mdui-list" mdui-collapse="{accordion: true}" mdui-collapse>
-      
-    </ul>
-  
-</div>
 
-    <div class="theme-spacer"></div>
-    <!-- footer -->
-    <div class="theme-drawer__warpper__footer">
-  <div class="mdui-typo mdui-typo-caption-opacity">
-    Powered by <a href="http://hexo.io" target="_blank">Hexo</a>
-    <br />
-    Theme - <a href="//github.com/Halyul/hexo-theme-mdui" target="_blank">Halyul/MDUI</a>
-    <br />
-    <span>
-      Copyright ©
-      <span year></span>
-      屈东奇
-    </span>
+    <!-- Left aligned menu below button -->
     
     
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#underscore-js"><span class="post-toc-number">1.</span> <span class="post-toc-text">underscore.js</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数组"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">数组</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Iterate"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">Iterate</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Map"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">Map</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Use-a-function-to-accumulate-a-single-value-from-an-array-left-to-right"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">Use a function to accumulate a single value from an array (left-to-right)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Use-a-function-to-accumulate-a-single-value-from-an-array-right-to-left"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">Use a function to accumulate a single value from an array (right-to-left)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Test-whether-all-elements-in-an-array-pass-a-predicate"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">Test whether all elements in an array pass a predicate</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Test-whether-some-element-in-an-array-passes-a-predicate"><span class="post-toc-number">1.1.6.</span> <span class="post-toc-text">Test whether some element in an array passes a predicate</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Find-a-value-in-an-array"><span class="post-toc-number">1.1.7.</span> <span class="post-toc-text">Find a value in an array</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Get-a-property-from-each-element-in-an-array"><span class="post-toc-number">1.1.8.</span> <span class="post-toc-text">Get a property from each element in an array</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Check-if-array-includes-an-element"><span class="post-toc-number">1.1.9.</span> <span class="post-toc-text">Check if array includes an element</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Convert-an-array-like-object-to-array"><span class="post-toc-number">1.1.10.</span> <span class="post-toc-text">Convert an array-like object to array</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Convert-an-array-of-keys-and-values-to-an-object"><span class="post-toc-number">1.1.11.</span> <span class="post-toc-text">Convert an array of keys and values to an object</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Create-a-copy-of-an-array-with-all-falsy-values-removed"><span class="post-toc-number">1.1.12.</span> <span class="post-toc-text">Create a copy of an array with all falsy values removed</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Create-a-copy-of-an-array-with-duplicates-removed"><span class="post-toc-number">1.1.13.</span> <span class="post-toc-text">Create a copy of an array with duplicates removed</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Find-the-index-of-a-value-in-an-array"><span class="post-toc-number">1.1.14.</span> <span class="post-toc-text">Find the index of a value in an array</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Find-the-index-in-an-array-by-predicate"><span class="post-toc-number">1.1.15.</span> <span class="post-toc-text">Find the index in an array by predicate</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Create-an-array-with-n-numbers-starting-from-x"><span class="post-toc-number">1.1.16.</span> <span class="post-toc-text">Create an array with n numbers, starting from x</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Objects"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Objects</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Names-of-own-enumerable-properties-as-an-array"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">Names of own enumerable properties as an array</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Number-of-keys-in-an-object"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">Number of keys in an object</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Names-of-all-enumerable-properties-as-an-array"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">Names of all enumerable properties as an array</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Values"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">Values</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Create-a-new-object-with-the-given-prototype-and-properties"><span class="post-toc-number">1.2.5.</span> <span class="post-toc-text">Create a new object with the given prototype and properties</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Create-a-new-object-from-merged-own-properties"><span class="post-toc-number">1.2.6.</span> <span class="post-toc-text">Create a new object from merged own properties</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Create-a-shallow-clone-of-own-properties-of-an-object"><span class="post-toc-number">1.2.7.</span> <span class="post-toc-text">Create a shallow clone of own properties of an object</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Check-if-an-object-is-an-array"><span class="post-toc-number">1.2.8.</span> <span class="post-toc-text">Check if an object is an array</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Check-if-an-object-is-a-finite-Number"><span class="post-toc-number">1.2.9.</span> <span class="post-toc-text">Check if an object is a finite Number</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Functions"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Functions</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Bind-a-function-to-an-object"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">Bind a function to an object</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Utility"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Utility</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Identity-function"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">Identity function</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#A-function-that-returns-a-value"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">A function that returns a value</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#The-empty-function"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">The empty function</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Get-the-current-time-in-milliseconds-since-the-epoch"><span class="post-toc-number">1.4.4.</span> <span class="post-toc-text">Get the current time in milliseconds since the epoch</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Template"><span class="post-toc-number">1.4.5.</span> <span class="post-toc-text">Template</span></a></li></ol></li></ol></li></ol>
+    </ul>
     
-  </div>
-</div>
-<script type="text/javascript">
-  var copyrightNow = new Date().getFullYear();
-  var textContent = document.querySelector('span[year]')
-  
-    copyrightSince = 2017;
-    if (copyrightSince === copyrightNow) {
-      textContent.textContent = copyrightNow
-    } else {
-      textContent.textContent = copyrightSince + ' - ' + copyrightNow
-    }
-  
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
 </script>
 
-  </div>
+        
+    
+            <p class="article-headline-p">
+                underscore学习小结
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>屈东奇</strong>
+        <span>1月 22, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Learning-summary/">Learning summary</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=underscore学习小结&url=http://lo-que.github.io/2018/01/22/underscore学习小结/index.html&pic=http://lo-que.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=underscore学习小结&url=http://lo-que.github.io/2018/01/22/underscore学习小结/index.html&via=屈东奇" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://lo-que.github.io/2018/01/22/underscore学习小结/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://lo-que.github.io/2018/01/22/underscore学习小结/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Blog&title=underscore学习小结&summary=qudongqi&#39;s personal blog&pics=http://lo-que.github.io/img/favicon.png&url=http://lo-que.github.io/2018/01/22/underscore学习小结/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+        <a class="post_share-link" href="https://telegram.me/share/url?url=http://lo-que.github.io/2018/01/22/underscore学习小结/index.html&text=underscore学习小结" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
+    
 </div>
 
-    <div id="top"></div>
+                
 
-    <script src="/js/lightgallery.min.js"></script>
-
-    <div id="barba-wrapper">
-      <div class="barba-container"  data-namespace="post">
-        
-
-
-
-  <link rel="stylesheet" href="/css/prism/darcula.min.css">
-
-
-  <link rel="stylesheet" href="/css/prism/line-number.min.css">
-
-
-<div class="theme-post">
-  <div class="theme-post__background mdui-color-theme"></div>
-  <div class="theme-post__header mdui-color-theme">
-    <div class="theme-post__header__title mdui-text-truncate">
-      underscore学习小结
-    </div>
-    <div class="theme-spacer"></div>
-    <div class="theme-post__header__actions mdui-valign">
-      <div>
-        <span>编写时间：</span>
-        <span style="float: right">1月 22, 2018</span>
-        
-        <br>
-          <span>最后修改时间：</span>
-          <span>4月 24, 2018</span>
-        
-      </div>
-      
-  <div class="theme-post__qrcode">
-    <button class="mdui-btn mdui-ripple mdui-btn-icon mdui-hidden-xs-down" mdui-menu="{target: '#qrcode-menu'}">
-      <i class="mdui-icon material-icons">&#xe337;</i>
-    </button>
-    <ul class="mdui-menu" id="qrcode-menu">
-      <li class="mdui-list-item" style="cursor: auto">
-        文章二维码
-      </li>
-        <img class="mdui-img-fluid" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC0ElEQVR42u3aQXIbMQwEQP3/08k1FzszwLoskc2Ty5J22asqwxzg9efK9cLGxsbGxsbGxsZ+S/YrXv++/6sr7H///d5me8bGxsa+gf2fP/1fvCchtQ/x++ts9oyNjY19A3uzubz8JOUzf9xFocXGxsbGDkpUEfEE108KGDY2Njb2/pazIKkIg+KvARsbGxs7Lzab8jZrOfxyloaNjY399uxZo/d3f/61/jY2Njb2m7HblTyUpDg9VaiKnWNjY2Mfyp41U9tPzYKn/KFHo5zY2NjYF7Bn4zVtSLQZxGnbxtjY2Nj3sPONvsrVtnvzvSUtAWxsbOwb2G3c07ZyZ2tWoooCho2NjX0cexP0PFty8oNHe+DBxsbGPpXdNlnzW24iqjaKih4WNjY29tHsfMgmPx6015wdUYomMTY2NvbR7DxUSm6ZB0xtYLRqNmBjY2Mfyv6J+KYO7keHjfZLwsbGxr6BvWkGtA2A/HDSRmDD/jY2Njb2x7LzoZxZa7Yd4vyJdjI2Njb2Pey28Ozj+wdGKvPwCxsbG/tQdlJOhgWjHMRpw6NVAcPGxsY+lJ2H9UkTt23uzgKjYsAIGxsb+wJ2PhA5O6LMRnnaKwzrNjY2NvaHs9t/9BNYGxXlJTM/PmFjY2PfwJ7FSW0LoS2WeXsgb1RgY2Nj38BOBmXa0GffKmgPP8XIDjY2NvYR7Bw52/pm6GdzsMHGxsa+mf3UUSF/TG05HBZRbGxs7EPZ+23ljYS8TCaHmbocYmNjYx/KbteG8dSrbasYGxsb+2z2K15t0JNvKLlyW0SxsbGxb2M/taGnDiRPtZCxsbGxb2PPgqT22JA3EmahEjY2NjZ2O3zTHlQ2oz+r+2JjY2Njx5966pqzV+tQCRsbG/sg9ixU2ry/DaeSo0sxfImNjY19ELtt9G5ipllclTR0hzOn2NjY2B/OvmdhY2NjY2NjY2Njv836CyuPSUuJW/YJAAAAAElFTkSuQmCC" style="cursor: auto">
-    </ul>
-  </div>
-
-
-      
-  <div class="theme-post__share">
-    <button class="mdui-btn mdui-ripple mdui-btn-icon" mdui-menu="{target: '#post-share-menu'}">
-      <i class="mdui-icon material-icons">&#xe80d;</i>
-    </button>
-
-    <ul class="mdui-menu" id="post-share-menu">
-
-      
-        <li class="mdui-menu-item">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=http://lo-que.github.io//2018/01/22/underscore学习小结/index.html" target="_blank" class="mdui-ripple">
-                分享到Facebook
-            </a>
-        </li>
-      
-
-      
-        <li class="mdui-menu-item">
-            <a href="https://plus.google.com/share?url=http://lo-que.github.io//2018/01/22/underscore学习小结/index.html" target="_blank" class="mdui-ripple">
-                分享到Google+
-            </a>
-        </li>
-      
-
-      
-        <li class="mdui-menu-item">
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lo-que.github.io//2018/01/22/underscore学习小结/index.html&title=underscore学习小结" target="_blank" class="mdui-ripple">
-                分享到Linkedin
-            </a>
-        </li>
-      
-
-      
-        <li class="mdui-menu-item">
-            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Blog&title=underscore学习小结&summary=qudongqi&#39;s personal blog&pics=http://lo-que.github.io/images/favicon.png&url=http://lo-que.github.io/2018/01/22/underscore学习小结/index.html" target="_blank" class="mdui-ripple">
-                分享到QQ
-            </a>
-        </li>
-      
-
-      
-        <li class="mdui-menu-item">
-            <a href="https://telegram.me/url?url=http://lo-que.github.io//2018/01/22/underscore学习小结/index.html&text=underscore学习小结" target="_blank" class="mdui-ripple">
-                分享到Telegram
-            </a>
-        </li>
-      
-
-      
-        <li class="mdui-menu-item">
-            <a href="https://twitter.com/intent/tweet?text=underscore学习小结&url=http://lo-que.github.io//2018/01/22/underscore学习小结/index.html&via=屈东奇" target="_blank" class="mdui-ripple">
-                分享到Twitter
-            </a>
-        </li>
-      
-
-      
-        <li class="mdui-menu-item">
-            <a href="http://service.weibo.com/share.php?appkey=&title=underscore学习小结&url=http://lo-que.github.io//2018/01/22/underscore学习小结/index.html&pic=&searchPic=false&style=simple" target="_blank" class="mdui-ripple">
-                分享到微博
-            </a>
-        </li>
-      
-
-    </ul>
-  </div>
-
-
-    </div>
-  </div>
-  <div class="theme-post__warpper
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-  ">
-    <div class="theme-post__warpper__container">
-      <article class="mdui-card theme-post__card mdui-hoverable">
-        <section class="theme-post__card__warning">
-          这篇文章最后修改于
-          <span id="content-warning"></span>
-          天之前。
-          本页内容可能已经过时！
-        </section>
-        
-          <section class="theme-post__card__count">
-            
-              <span>
-                本文共4,458字。
-              </span>
-            
-            
-              <span>
-                阅读大约需要18分钟。
-              </span>
-            
-          </section>
-        
-        
-          <section class="mdui-card-media">
-            <img src="/images/random/12.png"/>
-          </section>
-        
-        <section class="mdui-typo theme-post__card__content">
-          <h2 id="underscore-js"><a href="#underscore-js" class="headerlink" title="underscore.js"></a>underscore.js</h2><p><strong>Underscore.js</strong> 是一个由<strong>Jeremy Ashkenas</strong>开发的<strong>JavaScript</strong>库，提供了许多作为开发者在开发Web项目时所需要的实用功能。</p>
+        <h2 id="underscore-js"><a href="#underscore-js" class="headerlink" title="underscore.js"></a>underscore.js</h2><p><strong>Underscore.js</strong> 是一个由<strong>Jeremy Ashkenas</strong>开发的<strong>JavaScript</strong>库，提供了许多作为开发者在开发Web项目时所需要的实用功能。</p>
 <p>代码变得更加易读：</p>
 <p> <code>_.isEmpty({})  //true</code></p>
 <p>代码更容易编写：</p>
@@ -538,67 +520,67 @@
 <li><p>集合：数组或对象</p>
 <ol>
 <li><p>each 对集合循环操作，只针对function</p>
-<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript">  <span class="token comment" spellcheck="true">//遍历数组或者对象的每个元素</span>
-  <span class="token comment" spellcheck="true">// 第一个参数为数组（包括类数组）或者对象</span>
-  <span class="token comment" spellcheck="true">// 第二个参数为迭代方法，对数组或者对象每个元素都执行该方法</span>
-  <span class="token comment" spellcheck="true">// 该方法又能传入三个参数，分别为 (item, index, array)（(value, key, obj) for object）</span>
-  <span class="token comment" spellcheck="true">// 与 ES5 中 Array.prototype.forEach 方法传参格式一致</span>
-  <span class="token comment" spellcheck="true">// 第三个参数（可省略）确定第二个参数 iteratee 函数中的（可能有的）this 指向</span>
-  <span class="token comment" spellcheck="true">// 即 iteratee 中出现的（如果有）所有 this 都指向 context</span>
-  <span class="token comment" spellcheck="true">// notice: _.each 方法不能用 return 跳出循环（同样，Array.prototype.forEach 也不行）</span>
-_<span class="token punctuation">.</span><span class="token function">each</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>ele<span class="token punctuation">,</span> idx<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>idx <span class="token operator">+</span> <span class="token string">":"</span> <span class="token operator">+</span> ele<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">=</span><span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span><span class="token number">1</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token number">2</span> <span class="token number">2</span><span class="token punctuation">:</span><span class="token number">3</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code class="javascript">  //遍历数组或者对象的每个元素
+  // 第一个参数为数组（包括类数组）或者对象
+  // 第二个参数为迭代方法，对数组或者对象每个元素都执行该方法
+  // 该方法又能传入三个参数，分别为 (item, index, array)（(value, key, obj) for object）
+  // 与 ES5 中 Array.prototype.forEach 方法传参格式一致
+  // 第三个参数（可省略）确定第二个参数 iteratee 函数中的（可能有的）this 指向
+  // 即 iteratee 中出现的（如果有）所有 this 都指向 context
+  // notice: _.each 方法不能用 return 跳出循环（同样，Array.prototype.forEach 也不行）
+_.each([1, 2, 3], function (ele, idx) {
+    console.log(idx + &quot;:&quot; + ele);
+});
+=&gt; 0:1 1:2 2:3
+</code></pre>
 </li>
 <li><p>map 对集合以map方式进行遍历，返回一个新数组  iteratee 可以是对象或字符串</p>
-<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
-_<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">{</span>
-<span class="token keyword">return</span> num <span class="token operator">*</span> <span class="token number">3</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">]</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code class="javascript">console.log(
+_.map([1, 2, 3], function(num){
+return num * 3;
+})
+);
+=&gt; [3, 6, 9]
+</code></pre>
 </li>
 <li><p>reduce: 按callback缩减集合</p>
-<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
-_<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>memo<span class="token punctuation">,</span> num<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-<span class="token keyword">return</span> memo <span class="token operator">+</span> num<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">=</span><span class="token operator">></span> <span class="token number">6</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code class="javascript">console.log(
+_.reduce([1, 2, 3], function (memo, num) {
+return memo + num;
+}, 0)
+);
+=&gt; 6
+</code></pre>
 </li>
 <li><p>filter: 过滤器  _.find =  _.detect 返回第一个</p>
-<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
-_<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">{</span>
-<span class="token keyword">return</span> num <span class="token operator">&amp;</span> <span class="token number">1</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">6</span> <span class="token punctuation">]</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code class="javascript">console.log(
+_.filter([1, 2, 3, 4, 5, 6], function(num){
+return num &amp; 1 == 0;
+})
+);
+=&gt; [ 2, 4, 6 ]
+</code></pre>
 </li>
 <li><p>reject: 过滤不符合要求的</p>
-<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
-_<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">{</span>
-<span class="token keyword">return</span> num <span class="token operator">&amp;</span> <span class="token number">1</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span> <span class="token punctuation">]</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code class="javascript">console.log(
+_.reject([1, 2, 3, 4, 5, 6], function(num){
+return num &amp; 1 == 0;
+})
+);
+=&gt; [ 1, 3, 5 ]
+</code></pre>
 </li>
 <li><p>where: 根据指定键值对 遍历list，返回新的数组。（类似于sql语句中的where）&amp;： find 返回第一个</p>
-<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript"><span class="token keyword">var</span> list <span class="token operator">=</span> <span class="token punctuation">[</span>
-<span class="token punctuation">{</span>title<span class="token punctuation">:</span><span class="token string">"AAA"</span><span class="token punctuation">,</span>year<span class="token punctuation">:</span> <span class="token number">1982</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span class="token punctuation">{</span>title<span class="token punctuation">:</span><span class="token string">"BBB"</span><span class="token punctuation">,</span>year<span class="token punctuation">:</span> <span class="token number">1900</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span class="token punctuation">{</span>title<span class="token punctuation">:</span><span class="token string">"CCC"</span><span class="token punctuation">,</span>year<span class="token punctuation">:</span> <span class="token number">1982</span><span class="token punctuation">}</span>
-<span class="token punctuation">]</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
-_<span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span><span class="token punctuation">{</span>year<span class="token punctuation">:</span> <span class="token number">1982</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span> <span class="token punctuation">{</span> title<span class="token punctuation">:</span> <span class="token string">'AAA'</span><span class="token punctuation">,</span> year<span class="token punctuation">:</span> <span class="token number">1982</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> title<span class="token punctuation">:</span> <span class="token string">'CCC'</span><span class="token punctuation">,</span> year<span class="token punctuation">:</span> <span class="token number">1982</span> <span class="token punctuation">}</span> <span class="token punctuation">]</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code class="javascript">var list = [
+{title:&quot;AAA&quot;,year: 1982},
+{title:&quot;BBB&quot;,year: 1900},
+{title:&quot;CCC&quot;,year: 1982}
+];
+console.log(
+_.where(list,{year: 1982})
+);
+=&gt; [ { title: &#39;AAA&#39;, year: 1982 }, { title: &#39;CCC&#39;, year: 1982 } ]
+</code></pre>
 </li>
 <li><p>_.contains = _.includes = _.include: 判断数组或者对象中（value 值）是否有指定元素</p>
 </li>
@@ -609,70 +591,70 @@ _<span class="token punctuation">.</span><span class="token function">where</spa
 <li><p>invoke:  数组或者对象中的每个元素都调用 method 方法，返回调用后的结果（数组或者关联数组）</p>
 </li>
 <li><p>pluck: 提取一个集合里指定的属性值</p>
-<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript"><span class="token keyword">var</span> users <span class="token operator">=</span> <span class="token punctuation">[</span>
-<span class="token punctuation">{</span>name<span class="token punctuation">:</span> <span class="token string">'moe'</span><span class="token punctuation">,</span> age<span class="token punctuation">:</span> <span class="token number">40</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span class="token punctuation">{</span>name<span class="token punctuation">:</span> <span class="token string">'larry'</span><span class="token punctuation">,</span> age<span class="token punctuation">:</span> <span class="token number">50</span><span class="token punctuation">}</span>
-<span class="token punctuation">]</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
-_<span class="token punctuation">.</span><span class="token function">pluck</span><span class="token punctuation">(</span>users<span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span> <span class="token string">'moe'</span><span class="token punctuation">,</span> <span class="token string">'larry'</span> <span class="token punctuation">]</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code class="javascript">var users = [
+{name: &#39;moe&#39;, age: 40},
+{name: &#39;larry&#39;, age: 50}
+];
+console.log(
+_.pluck(users, &#39;name&#39;)
+);
+=&gt; [ &#39;moe&#39;, &#39;larry&#39; ]
+</code></pre>
 </li>
 <li><p>max,min,sortBy: 取list中的最大，最小元素，自定义比较器</p>
-<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
-_<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>users<span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>stooge<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-<span class="token keyword">return</span> stooge<span class="token punctuation">.</span>age<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">'larry'</span><span class="token punctuation">,</span> age<span class="token punctuation">:</span> <span class="token number">50</span> <span class="token punctuation">}</span>
+<pre><code class="javascript">console.log(
+_.max(users, function (stooge) {
+return stooge.age;
+})
+);
+=&gt; { name: &#39;larry&#39;, age: 50 }
 
-<span class="token keyword">var</span> numbers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
-_<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>numbers<span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">=</span><span class="token operator">></span> <span class="token number">2</span>
+var numbers = [10, 5, 100, 2, 1000];
+console.log(
+_.min(numbers)
+);
+=&gt; 2
 
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
-_<span class="token punctuation">.</span><span class="token function">sortBy</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span> <span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-<span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">6</span> <span class="token punctuation">]</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+console.log(
+_.sortBy([3, 4, 2, 1 , 6], function (num) {
+return Math.max(num);
+})
+);
+=&gt; [ 1, 2, 3, 4, 6 ]
+</code></pre>
 <p>​</p>
 </li>
-<li><pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript">groupBy<span class="token punctuation">:</span> 把一个集合分组成多个集合
+<li><pre><code class="javascript">groupBy: 把一个集合分组成多个集合
 
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
-_<span class="token punctuation">.</span><span class="token function">groupBy</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'one'</span><span class="token punctuation">,</span> <span class="token string">'two'</span><span class="token punctuation">,</span> <span class="token string">'three'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'length'</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> <span class="token string">'3'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token string">'one'</span><span class="token punctuation">,</span> <span class="token string">'two'</span> <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'5'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token string">'three'</span> <span class="token punctuation">]</span> <span class="token punctuation">}</span>
-countBy<span class="token punctuation">:</span> 把一个数据分组后计数
+console.log(
+_.groupBy([&#39;one&#39;, &#39;two&#39;, &#39;three&#39;], &#39;length&#39;)
+);
+=&gt; { &#39;3&#39;: [ &#39;one&#39;, &#39;two&#39; ], &#39;5&#39;: [ &#39;three&#39; ] }
+countBy: 把一个数据分组后计数
 
-onsole<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
-_<span class="token punctuation">.</span><span class="token function">countBy</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-<span class="token keyword">return</span> num <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">?</span> <span class="token string">'even'</span> <span class="token punctuation">:</span> <span class="token string">'odd'</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> odd<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span> even<span class="token punctuation">:</span> <span class="token number">2</span> <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+onsole.log(
+_.countBy([1, 2, 3, 4, 5], function (num) {
+return num % 2 == 0 ? &#39;even&#39; : &#39;odd&#39;;
+})
+);
+=&gt; { odd: 3, even: 2 }
+</code></pre>
 </li>
-<li><pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript">toArray<span class="token punctuation">:</span> 将list转换成一个数组
+<li><pre><code class="javascript">toArray: 将list转换成一个数组
 
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
-<span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-<span class="token keyword">return</span> _<span class="token punctuation">.</span><span class="token function">toArray</span><span class="token punctuation">(</span>arguments<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span> <span class="token punctuation">]</span>
-size<span class="token punctuation">:</span> 得到list中元素个数
+console.log(
+(function () {
+return _.toArray(arguments).slice(1);
+})(1, 2, 3, 4)
+);
+=&gt; [ 2, 3, 4 ]
+size: 得到list中元素个数
 
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
-_<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">{</span>one<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> two<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span> three<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console.log(
+_.size({one: 1, two: 2, three: 3})
+);
 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 </li>
 <li><p>shuffle 随机打乱 洗牌算法</p>
 </li>
@@ -693,66 +675,66 @@ _<span class="token punctuation">.</span><span class="token function">size</span
 <li><p>compact  去除数组中所有的假值 false null undefined ‘’ NaN 0</p>
 </li>
 <li><p>√ flatten 将数组展开  </p>
-<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript">  <span class="token comment" spellcheck="true">//input => Array 或者 arguments</span>
-  <span class="token comment" spellcheck="true">// shallow => 是否只展开一层</span>
-  <span class="token comment" spellcheck="true">// strict === true，通常和 shallow === true 配合使用</span>
-  <span class="token comment" spellcheck="true">// 表示只展开一层，但是不保存非数组元素（即无法展开的基础类型）</span>
-  <span class="token comment" spellcheck="true">// flatten([[1, 2], 3, 4], true, true) => [1, 2]</span>
-  <span class="token comment" spellcheck="true">// flatten([[1, 2], 3, 4], false, true) = > []</span>
-  <span class="token comment" spellcheck="true">// startIndex => 从 input 的第几项开始展开</span>
-  <span class="token comment" spellcheck="true">// ===== //</span>
-  <span class="token comment" spellcheck="true">// 可以看到，如果 strict 参数为 true，那么 shallow 也为 true</span>
-  <span class="token comment" spellcheck="true">// 也就是展开一层，同时把非数组过滤</span>
-  <span class="token comment" spellcheck="true">// [[1, 2], [3, 4], 5, 6] => [1, 2, 3, 4]</span>
-  <span class="token keyword">var</span> flatten <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>input<span class="token punctuation">,</span> shallow<span class="token punctuation">,</span> strict<span class="token punctuation">,</span> startIndex<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// output 数组保存结果</span>
-    <span class="token comment" spellcheck="true">// 即 flatten 方法返回数据</span>
-    <span class="token comment" spellcheck="true">// idx 为 output 的累计数组下标</span>
-    <span class="token keyword">var</span> output <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> idx <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<pre><code class="javascript">  //input =&gt; Array 或者 arguments
+  // shallow =&gt; 是否只展开一层
+  // strict === true，通常和 shallow === true 配合使用
+  // 表示只展开一层，但是不保存非数组元素（即无法展开的基础类型）
+  // flatten([[1, 2], 3, 4], true, true) =&gt; [1, 2]
+  // flatten([[1, 2], 3, 4], false, true) = &gt; []
+  // startIndex =&gt; 从 input 的第几项开始展开
+  // ===== //
+  // 可以看到，如果 strict 参数为 true，那么 shallow 也为 true
+  // 也就是展开一层，同时把非数组过滤
+  // [[1, 2], [3, 4], 5, 6] =&gt; [1, 2, 3, 4]
+  var flatten = function(input, shallow, strict, startIndex) {
+    // output 数组保存结果
+    // 即 flatten 方法返回数据
+    // idx 为 output 的累计数组下标
+    var output = [], idx = 0;
 
-    <span class="token comment" spellcheck="true">// 根据 startIndex 变量确定需要展开的起始位置</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> startIndex <span class="token operator">||</span> <span class="token number">0</span><span class="token punctuation">,</span> length <span class="token operator">=</span> <span class="token function">getLength</span><span class="token punctuation">(</span>input<span class="token punctuation">)</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">var</span> value <span class="token operator">=</span> input<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-      <span class="token comment" spellcheck="true">// 数组 或者 arguments</span>
-      <span class="token comment" spellcheck="true">// 注意 isArrayLike 还包括 {length: 10} 这样的，过滤掉</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isArrayLike</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>_<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">||</span> _<span class="token punctuation">.</span><span class="token function">isArguments</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// flatten current level of array or arguments object</span>
-        <span class="token comment" spellcheck="true">// (!shallow === true) => (shallow === false)</span>
-        <span class="token comment" spellcheck="true">// 则表示需深度展开</span>
-        <span class="token comment" spellcheck="true">// 继续递归展开</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>shallow<span class="token punctuation">)</span>
-          <span class="token comment" spellcheck="true">// flatten 方法返回数组</span>
-          <span class="token comment" spellcheck="true">// 将上面定义的 value 重新赋值</span>
-          value <span class="token operator">=</span> <span class="token function">flatten</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> shallow<span class="token punctuation">,</span> strict<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    // 根据 startIndex 变量确定需要展开的起始位置
+    for (var i = startIndex || 0, length = getLength(input); i &lt; length; i++) {
+      var value = input[i];
+      // 数组 或者 arguments
+      // 注意 isArrayLike 还包括 {length: 10} 这样的，过滤掉
+      if (isArrayLike(value) &amp;&amp; (_.isArray(value) || _.isArguments(value))) {
+        // flatten current level of array or arguments object
+        // (!shallow === true) =&gt; (shallow === false)
+        // 则表示需深度展开
+        // 继续递归展开
+        if (!shallow)
+          // flatten 方法返回数组
+          // 将上面定义的 value 重新赋值
+          value = flatten(value, shallow, strict);
 
-        <span class="token comment" spellcheck="true">// 递归展开到最后一层（没有嵌套的数组了）</span>
-        <span class="token comment" spellcheck="true">// 或者 (shallow === true) => 只展开一层</span>
-        <span class="token comment" spellcheck="true">// value 值肯定是一个数组</span>
-        <span class="token keyword">var</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> len <span class="token operator">=</span> value<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+        // 递归展开到最后一层（没有嵌套的数组了）
+        // 或者 (shallow === true) =&gt; 只展开一层
+        // value 值肯定是一个数组
+        var j = 0, len = value.length;
 
-        <span class="token comment" spellcheck="true">// 这一步貌似没有必要</span>
-        <span class="token comment" spellcheck="true">// 毕竟 JavaScript 的数组会自动扩充</span>
-        <span class="token comment" spellcheck="true">// 但是这样写，感觉比较好，对于元素的 push 过程有个比较清晰的认识</span>
-        output<span class="token punctuation">.</span>length <span class="token operator">+</span><span class="token operator">=</span> len<span class="token punctuation">;</span>
+        // 这一步貌似没有必要
+        // 毕竟 JavaScript 的数组会自动扩充
+        // 但是这样写，感觉比较好，对于元素的 push 过程有个比较清晰的认识
+        output.length += len;
 
-        <span class="token comment" spellcheck="true">// 将 value 数组的元素添加到 output 数组中</span>
-        <span class="token keyword">while</span> <span class="token punctuation">(</span>j <span class="token operator">&lt;</span> len<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-          output<span class="token punctuation">[</span>idx<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> value<span class="token punctuation">[</span>j<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>strict<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// (!strict === true) => (strict === false)</span>
-        <span class="token comment" spellcheck="true">// 如果是深度展开，即 shallow 参数为 false</span>
-        <span class="token comment" spellcheck="true">// 那么当最后 value 不是数组，是基本类型时</span>
-        <span class="token comment" spellcheck="true">// 肯定会走到这个 else-if 判断中</span>
-        <span class="token comment" spellcheck="true">// 而如果此时 strict 为 true，则不能跳到这个分支内部</span>
-        <span class="token comment" spellcheck="true">// 所以 shallow === false 如果和 strict === true 搭配</span>
-        <span class="token comment" spellcheck="true">// 调用 flatten 方法得到的结果永远是空数组 []</span>
-        output<span class="token punctuation">[</span>idx<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> value<span class="token punctuation">;</span>
-      <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> output<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        // 将 value 数组的元素添加到 output 数组中
+        while (j &lt; len) {
+          output[idx++] = value[j++];
+        }
+      } else if (!strict) {
+        // (!strict === true) =&gt; (strict === false)
+        // 如果是深度展开，即 shallow 参数为 false
+        // 那么当最后 value 不是数组，是基本类型时
+        // 肯定会走到这个 else-if 判断中
+        // 而如果此时 strict 为 true，则不能跳到这个分支内部
+        // 所以 shallow === false 如果和 strict === true 搭配
+        // 调用 flatten 方法得到的结果永远是空数组 []
+        output[idx++] = value;
+      }
+    }
+    return output;
+  };
+</code></pre>
 </li>
 <li><p>without 从数组中移除指定的元素，返回移除后的数组副本</p>
 </li>
@@ -761,8 +743,8 @@ _<span class="token punctuation">.</span><span class="token function">size</span
 <li><p>zip unzip 合并数组中的元素 是group的反向操作</p>
 </li>
 <li><p>indexOf,lastIndexOf, 取索引位置 sortedIndex 二分查找</p>
-<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">createIndexFinder</span><span class="token punctuation">(</span>dir<span class="token punctuation">,</span> predicateFind<span class="token punctuation">,</span> sortedIndex<span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code class="javascript">function createIndexFinder(dir, predicateFind, sortedIndex)
+</code></pre>
 </li>
 <li><p>​</p>
 </li>
@@ -771,82 +753,82 @@ _<span class="token punctuation">.</span><span class="token function">size</span
 <li><p>函数</p>
 <ol>
 <li><p>bind: this指向不变  bindAll 绑定方法名到对象上, 当这些方法被执行时将在对象的上下文执行. 绑定函数用作事件处理时非常方便, 否则函数调用时 this 关键字根本没什么用</p>
-<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript"><span class="token keyword">var</span> func <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>greeting<span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token keyword">return</span> greeting <span class="token operator">+</span> <span class="token string">': '</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token punctuation">}</span><span class="token punctuation">;</span>
-func <span class="token operator">=</span> _<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>func<span class="token punctuation">,</span> <span class="token punctuation">{</span>name <span class="token punctuation">:</span> <span class="token string">'moe'</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'hi'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">=</span><span class="token operator">></span> hi<span class="token punctuation">:</span> moe
+<pre><code class="javascript">var func = function(greeting){ return greeting + &#39;: &#39; + this.name };
+func = _.bind(func, {name : &#39;moe&#39;}, &#39;hi&#39;);
+console.log(func());
+=&gt; hi: moe
 
-<span class="token keyword">var</span> buttonView <span class="token operator">=</span> <span class="token punctuation">{</span>
-label <span class="token punctuation">:</span> <span class="token string">'underscore'</span><span class="token punctuation">,</span>
-onClick <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'clicked: '</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>label<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
-onHover <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hovering: '</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>label<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> func <span class="token operator">=</span> _<span class="token punctuation">.</span><span class="token function">bindAll</span><span class="token punctuation">(</span>buttonView<span class="token punctuation">,</span> <span class="token string">'onClick'</span><span class="token punctuation">,</span> <span class="token string">'onHover'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-func<span class="token punctuation">.</span><span class="token function">onClick</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">=</span><span class="token operator">></span> clicked<span class="token punctuation">:</span> underscore
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+var buttonView = {
+label : &#39;underscore&#39;,
+onClick : function(){ console.log(&#39;clicked: &#39; + this.label); },
+onHover : function(){ console.log(&#39;hovering: &#39; + this.label); }
+};
+var func = _.bindAll(buttonView, &#39;onClick&#39;, &#39;onHover&#39;);
+func.onClick();
+=&gt; clicked: underscore
+</code></pre>
 <p>​</p>
 </li>
 <li><p>partial:在不改变this的情况下，通过参数填充数据  <del>可以使方法设定默认值</del> <a href="https://en.wikipedia.org/wiki/Currying" target="_blank" rel="noopener">柯里化(Currying)</a></p>
-<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript"><span class="token keyword">var</span> add <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
-add5 <span class="token operator">=</span> _<span class="token punctuation">.</span><span class="token function">partial</span><span class="token punctuation">(</span>add<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">add5</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">=</span><span class="token operator">></span> <span class="token number">15</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code class="javascript">var add = function(a, b) { return a + b; };
+add5 = _.partial(add, 5);
+console.log(add5(10));
+=&gt; 15
+</code></pre>
 <p>​</p>
 </li>
 <li><p>memoize 记忆化，存储中间运算结果，提高效率</p>
-<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript">  <span class="token comment" spellcheck="true">// 参数 hasher 是个 function，用来计算 key</span>
-  <span class="token comment" spellcheck="true">// 如果传入了 hasher，则用 hasher 来计算 key</span>
-  <span class="token comment" spellcheck="true">// 否则用 key 参数直接当 key（即 memoize 方法传入的第一个参数）</span>
-  <span class="token comment" spellcheck="true">// _.memoize(function, [hashFunction])</span>
-  <span class="token comment" spellcheck="true">// 适用于需要大量重复求值的场景</span>
-  <span class="token comment" spellcheck="true">// 比如递归求解菲波那切数</span>
-  <span class="token keyword">var</span> fibonacci <span class="token operator">=</span> _<span class="token punctuation">.</span><span class="token function">memoize</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> n <span class="token operator">&lt;</span> <span class="token number">2</span> <span class="token operator">?</span> n <span class="token punctuation">:</span> <span class="token function">fibonacci</span><span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">fibonacci</span><span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">fibonacci</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token operator">=</span><span class="token operator">></span> <span class="token number">55</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code class="javascript">  // 参数 hasher 是个 function，用来计算 key
+  // 如果传入了 hasher，则用 hasher 来计算 key
+  // 否则用 key 参数直接当 key（即 memoize 方法传入的第一个参数）
+  // _.memoize(function, [hashFunction])
+  // 适用于需要大量重复求值的场景
+  // 比如递归求解菲波那切数
+  var fibonacci = _.memoize(function(n) {
+    return n &lt; 2 ? n : fibonacci(n - 1) + fibonacci(n - 2);
+  });
+  console.log(fibonacci(10));
+  =&gt; 55
+</code></pre>
 <p>​</p>
 </li>
 <li><p>delay: 延迟触发 setTimeout   _.defer = _.partial ( _.delay, _, 1);</p>
 </li>
 <li><p>throttle: 函数节流（如果有连续事件响应，则每间隔一定时间段触发）</p>
-<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript">  <span class="token comment" spellcheck="true">// 每间隔 wait(Number) milliseconds 触发一次 func 方法</span>
-  <span class="token comment" spellcheck="true">// 如果 options 参数传入 {leading: false}</span>
-  <span class="token comment" spellcheck="true">// 那么不会马上触发（等待 wait milliseconds 后第一次触发 func）</span>
-  <span class="token comment" spellcheck="true">// 如果 options 参数传入 {trailing: false}</span>
-  <span class="token comment" spellcheck="true">// 那么最后一次回调不会被触发</span>
-  <span class="token comment" spellcheck="true">// options 不能同时设置 leading 和 trailing 为 false</span>
-  <span class="token comment" spellcheck="true">// 示例：</span>
-  <span class="token comment" spellcheck="true">// var throttled = _.throttle(updatePosition, 100);</span>
-  <span class="token comment" spellcheck="true">// $(window).scroll(throttled);</span>
-  <span class="token comment" spellcheck="true">// 调用方式（注意看 A 和 B console.log 打印的位置）：</span>
-  <span class="token comment" spellcheck="true">// _.throttle(function, wait, [options])</span>
-  <span class="token comment" spellcheck="true">// sample 1: _.throttle(function(){}, 1000)</span>
-  <span class="token comment" spellcheck="true">// print: A, B, B, B ...</span>
-  <span class="token comment" spellcheck="true">// sample 2: _.throttle(function(){}, 1000, {leading: false})</span>
-  <span class="token comment" spellcheck="true">// print: B, B, B, B ...</span>
-  <span class="token comment" spellcheck="true">// sample 3: _.throttle(function(){}, 1000, {trailing: false})</span>
-  <span class="token comment" spellcheck="true">// print: A, A, A, A ...</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code class="javascript">  // 每间隔 wait(Number) milliseconds 触发一次 func 方法
+  // 如果 options 参数传入 {leading: false}
+  // 那么不会马上触发（等待 wait milliseconds 后第一次触发 func）
+  // 如果 options 参数传入 {trailing: false}
+  // 那么最后一次回调不会被触发
+  // options 不能同时设置 leading 和 trailing 为 false
+  // 示例：
+  // var throttled = _.throttle(updatePosition, 100);
+  // $(window).scroll(throttled);
+  // 调用方式（注意看 A 和 B console.log 打印的位置）：
+  // _.throttle(function, wait, [options])
+  // sample 1: _.throttle(function(){}, 1000)
+  // print: A, B, B, B ...
+  // sample 2: _.throttle(function(){}, 1000, {leading: false})
+  // print: B, B, B, B ...
+  // sample 3: _.throttle(function(){}, 1000, {trailing: false})
+  // print: A, A, A, A ...
+</code></pre>
 </li>
 <li><p>debounce: 函数去抖（连续事件触发结束后只触发一次）</p>
-<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript"><span class="token comment" spellcheck="true">// sample 1: _.debounce(function(){}, 1000)</span>
-<span class="token comment" spellcheck="true">// 连续事件结束后的 1000ms 后触发</span>
-<span class="token comment" spellcheck="true">// sample 1: _.debounce(function(){}, 1000, true)</span>
-<span class="token comment" spellcheck="true">// 连续事件触发后立即触发（此时会忽略第二个参数）</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code class="javascript">// sample 1: _.debounce(function(){}, 1000)
+// 连续事件结束后的 1000ms 后触发
+// sample 1: _.debounce(function(){}, 1000, true)
+// 连续事件触发后立即触发（此时会忽略第二个参数）
+</code></pre>
 </li>
 <li><p>wrap 以函数作为函数传递，可以增加函数前后的控制</p>
-<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript"><span class="token keyword">var</span> hello <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token string">"hello: "</span> <span class="token operator">+</span> name<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
-hello <span class="token operator">=</span> _<span class="token punctuation">.</span><span class="token function">wrap</span><span class="token punctuation">(</span>hello<span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>func<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-<span class="token keyword">return</span> <span class="token string">"before, "</span> <span class="token operator">+</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token string">"moe"</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">", after"</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">=</span><span class="token operator">></span> before<span class="token punctuation">,</span> hello<span class="token punctuation">:</span> moe<span class="token punctuation">,</span> after
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code class="javascript">var hello = function(name) { return &quot;hello: &quot; + name; };
+hello = _.wrap(hello, function(func) {
+return &quot;before, &quot; + func(&quot;moe&quot;) + &quot;, after&quot;;
+});
+console.log(hello());
+=&gt; before, hello: moe, after
+</code></pre>
 <p>​</p>
 </li>
 <li><p>compose: 组合函数调用关系，把单独的f(),g(),h()组合成f(g(h()))</p>
@@ -854,46 +836,46 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </ol>
 </li>
 <li><p>对象</p>
-<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript"><span class="token comment" spellcheck="true">// Keys in IE &lt; 9 that won't be iterated by `for key in ...` and thus missed.</span>
-  <span class="token comment" spellcheck="true">// IE &lt; 9 下 不能用 for key in ... 来枚举对象的某些 key</span>
-  <span class="token comment" spellcheck="true">// 比如重写了对象的 `toString` 方法，这个 key 值就不能在 IE &lt; 9 下用 for in 枚举到</span>
-  <span class="token comment" spellcheck="true">// IE &lt; 9，{toString: null}.propertyIsEnumerable('toString') 返回 false</span>
-  <span class="token comment" spellcheck="true">// IE &lt; 9，重写的 `toString` 属性被认为不可枚举</span>
-  <span class="token comment" spellcheck="true">// 据此可以判断是否在 IE &lt; 9 浏览器环境中</span>
-  <span class="token keyword">var</span> hasEnumBug <span class="token operator">=</span> <span class="token operator">!</span><span class="token punctuation">{</span>toString<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">}</span><span class="token punctuation">.</span><span class="token function">propertyIsEnumerable</span><span class="token punctuation">(</span><span class="token string">'toString'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="javascript">// Keys in IE &lt; 9 that won&#39;t be iterated by `for key in ...` and thus missed.
+  // IE &lt; 9 下 不能用 for key in ... 来枚举对象的某些 key
+  // 比如重写了对象的 `toString` 方法，这个 key 值就不能在 IE &lt; 9 下用 for in 枚举到
+  // IE &lt; 9，{toString: null}.propertyIsEnumerable(&#39;toString&#39;) 返回 false
+  // IE &lt; 9，重写的 `toString` 属性被认为不可枚举
+  // 据此可以判断是否在 IE &lt; 9 浏览器环境中
+  var hasEnumBug = !{toString: null}.propertyIsEnumerable(&#39;toString&#39;);
 
-  <span class="token comment" spellcheck="true">// IE &lt; 9 下不能用 for in 来枚举的 key 值集合</span>
-  <span class="token comment" spellcheck="true">//为什么constructor要和nonEnumerableProps区分处理</span>
-  <span class="token comment" spellcheck="true">// 个人觉得可能是 `constructor` 和其他属性不属于一类</span>
-  <span class="token comment" spellcheck="true">// nonEnumerableProps[] 中都是方法</span>
-  <span class="token comment" spellcheck="true">// 而 constructor 表示的是对象的构造函数</span>
-  <span class="token comment" spellcheck="true">// 所以区分开来了</span>
-  <span class="token keyword">var</span> nonEnumerableProps <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'valueOf'</span><span class="token punctuation">,</span> <span class="token string">'isPrototypeOf'</span><span class="token punctuation">,</span> <span class="token string">'toString'</span><span class="token punctuation">,</span>
-                      <span class="token string">'propertyIsEnumerable'</span><span class="token punctuation">,</span> <span class="token string">'hasOwnProperty'</span><span class="token punctuation">,</span> <span class="token string">'toLocaleString'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  // IE &lt; 9 下不能用 for in 来枚举的 key 值集合
+  //为什么constructor要和nonEnumerableProps区分处理
+  // 个人觉得可能是 `constructor` 和其他属性不属于一类
+  // nonEnumerableProps[] 中都是方法
+  // 而 constructor 表示的是对象的构造函数
+  // 所以区分开来了
+  var nonEnumerableProps = [&#39;valueOf&#39;, &#39;isPrototypeOf&#39;, &#39;toString&#39;,
+                      &#39;propertyIsEnumerable&#39;, &#39;hasOwnProperty&#39;, &#39;toLocaleString&#39;];
 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p>​</p>
 <ol>
 <li><p>keys,values,paris,invert: 取属性名，取属性值，把对象转换成[key,value]数组，对调键值</p>
-<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript"><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>one<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> two<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span> three<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">}</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>_<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>_<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>_<span class="token punctuation">.</span><span class="token function">pairs</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>_<span class="token punctuation">.</span><span class="token function">invert</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span> <span class="token string">'one'</span><span class="token punctuation">,</span> <span class="token string">'two'</span><span class="token punctuation">,</span> <span class="token string">'three'</span> <span class="token punctuation">]</span>
-<span class="token punctuation">[</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span> <span class="token punctuation">]</span>
-<span class="token punctuation">[</span> <span class="token punctuation">[</span> <span class="token string">'one'</span><span class="token punctuation">,</span> <span class="token number">1</span> <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span> <span class="token string">'two'</span><span class="token punctuation">,</span> <span class="token number">2</span> <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span> <span class="token string">'three'</span><span class="token punctuation">,</span> <span class="token number">3</span> <span class="token punctuation">]</span> <span class="token punctuation">]</span>
-<span class="token punctuation">{</span> <span class="token string">'1'</span><span class="token punctuation">:</span> <span class="token string">'one'</span><span class="token punctuation">,</span> <span class="token string">'2'</span><span class="token punctuation">:</span> <span class="token string">'two'</span><span class="token punctuation">,</span> <span class="token string">'3'</span><span class="token punctuation">:</span> <span class="token string">'three'</span> <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code class="javascript">var obj = {one: 1, two: 2, three: 3}
+console.log(_.keys(obj));
+console.log(_.values(obj));
+console.log(_.pairs(obj));
+console.log(_.invert(obj));
+=&gt; [ &#39;one&#39;, &#39;two&#39;, &#39;three&#39; ]
+[ 1, 2, 3 ]
+[ [ &#39;one&#39;, 1 ], [ &#39;two&#39;, 2 ], [ &#39;three&#39;, 3 ] ]
+{ &#39;1&#39;: &#39;one&#39;, &#39;2&#39;: &#39;two&#39;, &#39;3&#39;: &#39;three&#39; }
+</code></pre>
 <p>​</p>
 </li>
 <li><p>extend: 复制对象的所有属性到目标对象上，覆盖已有属性</p>
 <p>defaults: 复制对象的所有属性到目标对象上，跳过已有属性</p>
-<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
-_<span class="token punctuation">.</span><span class="token function">extend</span><span class="token punctuation">(</span><span class="token punctuation">{</span>name <span class="token punctuation">:</span> <span class="token string">'moe'</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>age <span class="token punctuation">:</span> <span class="token number">50</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">'moe'</span><span class="token punctuation">,</span> age<span class="token punctuation">:</span> <span class="token number">50</span> <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code class="javascript">console.log(
+_.extend({name : &#39;moe&#39;}, {age : 50})
+);
+=&gt; { name: &#39;moe&#39;, age: 50 }
+</code></pre>
 </li>
 </ol>
 </li>
@@ -1128,15 +1110,15 @@ _<span class="token punctuation">.</span><span class="token function">extend</sp
 <li><p>链式</p>
 <ol>
 <li><p>chain: 返回一个封装的对象。在封装的对象上调用方法会返回封装的对象本身，直到value()方法调用为止。</p>
-<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript"><span class="token keyword">var</span> stooges <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>name <span class="token punctuation">:</span> <span class="token string">'curly'</span><span class="token punctuation">,</span> age <span class="token punctuation">:</span> <span class="token number">25</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>name <span class="token punctuation">:</span> <span class="token string">'moe'</span><span class="token punctuation">,</span> age <span class="token punctuation">:</span> <span class="token number">21</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>name <span class="token punctuation">:</span> <span class="token string">'larry'</span><span class="token punctuation">,</span> age <span class="token punctuation">:</span> <span class="token number">23</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> youngest <span class="token operator">=</span> _<span class="token punctuation">.</span><span class="token function">chain</span><span class="token punctuation">(</span>stooges<span class="token punctuation">)</span>
-<span class="token punctuation">.</span><span class="token function">sortBy</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>stooge<span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token keyword">return</span> stooge<span class="token punctuation">.</span>age<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>stooge<span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token keyword">return</span> stooge<span class="token punctuation">.</span>name <span class="token operator">+</span> <span class="token string">' is '</span> <span class="token operator">+</span> stooge<span class="token punctuation">.</span>age<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">.</span><span class="token function">first</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">.</span><span class="token function">value</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>youngest<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">=</span><span class="token operator">></span> moe is <span class="token number">21</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code class="javascript">var stooges = [{name : &#39;curly&#39;, age : 25}, {name : &#39;moe&#39;, age : 21}, {name : &#39;larry&#39;, age : 23}];
+var youngest = _.chain(stooges)
+.sortBy(function(stooge){ return stooge.age; })
+.map(function(stooge){ return stooge.name + &#39; is &#39; + stooge.age; })
+.first()
+.value();
+console.log(youngest);
+=&gt; moe is 21
+</code></pre>
 <p>​</p>
 </li>
 </ol>
@@ -1412,296 +1394,333 @@ greeting({ name: &#39;moe&#39; });
 </li>
 </ol>
 
-        </section>
-
         
-          <section class="theme-post__card__license mdui-typo">
-            <span>
-              本文许可协议：
-              
-                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a>
-              
-            </span>
-            <br />
-            <span>本文永久链接：<a href="http://lo-que.github.io/2018/01/22/underscore学习小结/">http://lo-que.github.io/2018/01/22/underscore学习小结/</a></span>
-            
-              <br />
-              <span>本文Markdown：<a href="http://lo-que.github.io/2018/01/22/underscore学习小结/underscore学习小结.md">http://lo-que.github.io/2018/01/22/underscore学习小结/underscore学习小结.md</a></span>
-            
-          </section>
-        
+    
 
-        
-          <section class="mdui-card-actions theme-post__card__actions">
-            
-              <button class="mdui-btn mdui-btn-icon mdui-btn-dense mdui-ripple  mdui-color-red" mdui-tooltip="{content: '打赏', position: 'right'}" mdui-dialog="{target: '#donateDialog'}">
-                <i class="mdui-icon fa fa-beer"></i>
-              </button>
-            
-            <div class="theme-spacer"></div>
-            
-            
-              <div class="mdui-chip theme-post__card__chip--bg theme-post__card__chip--margin">
-                <span class="mdui-chip-icon theme-post__card__chip--bg"><i class="mdui-icon mdui-text-color-black-icon fa fa-tags"></i></span>
-              </div>
-              <div class="mdui-typo">
-                
-                  <a href="/tags/Learning-summary/">
-                    <span>Learning summary</span>
-                  </a>
-                
-              </div>
-            
-          </section>
-        
-
-        
-          
-            <script type="text/javascript">
-              themeRuntime.commentRest.function = function (newIdentifier, newUrl, newTitle) {
-                return
-              }
-            </script>
-          
-        
-      </article>
-      
-        <div class="mdui-color-theme theme-post__toc">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#underscore-js" data-href="#underscore-js"><span class="toc-number"></span> <span class="toc-text">1. underscore.js</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x6570;&#x7EC4;" data-href="#&#x6570;&#x7EC4;"><span class="toc-number"></span> <span class="toc-text">1.1. &#x6570;&#x7EC4;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Iterate" data-href="#Iterate"><span class="toc-number"></span> <span class="toc-text">1.1.1. Iterate</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Map" data-href="#Map"><span class="toc-number"></span> <span class="toc-text">1.1.2. Map</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Use-a-function-to-accumulate-a-single-value-from-an-array-left-to-right" data-href="#Use-a-function-to-accumulate-a-single-value-from-an-array-left-to-right"><span class="toc-number"></span> <span class="toc-text">1.1.3. Use a function to accumulate a single value from an array (left-to-right)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Use-a-function-to-accumulate-a-single-value-from-an-array-right-to-left" data-href="#Use-a-function-to-accumulate-a-single-value-from-an-array-right-to-left"><span class="toc-number"></span> <span class="toc-text">1.1.4. Use a function to accumulate a single value from an array (right-to-left)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Test-whether-all-elements-in-an-array-pass-a-predicate" data-href="#Test-whether-all-elements-in-an-array-pass-a-predicate"><span class="toc-number"></span> <span class="toc-text">1.1.5. Test whether all elements in an array pass a predicate</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Test-whether-some-element-in-an-array-passes-a-predicate" data-href="#Test-whether-some-element-in-an-array-passes-a-predicate"><span class="toc-number"></span> <span class="toc-text">1.1.6. Test whether some element in an array passes a predicate</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Find-a-value-in-an-array" data-href="#Find-a-value-in-an-array"><span class="toc-number"></span> <span class="toc-text">1.1.7. Find a value in an array</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Get-a-property-from-each-element-in-an-array" data-href="#Get-a-property-from-each-element-in-an-array"><span class="toc-number"></span> <span class="toc-text">1.1.8. Get a property from each element in an array</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Check-if-array-includes-an-element" data-href="#Check-if-array-includes-an-element"><span class="toc-number"></span> <span class="toc-text">1.1.9. Check if array includes an element</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Convert-an-array-like-object-to-array" data-href="#Convert-an-array-like-object-to-array"><span class="toc-number"></span> <span class="toc-text">1.1.10. Convert an array-like object to array</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Convert-an-array-of-keys-and-values-to-an-object" data-href="#Convert-an-array-of-keys-and-values-to-an-object"><span class="toc-number"></span> <span class="toc-text">1.1.11. Convert an array of keys and values to an object</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Create-a-copy-of-an-array-with-all-falsy-values-removed" data-href="#Create-a-copy-of-an-array-with-all-falsy-values-removed"><span class="toc-number"></span> <span class="toc-text">1.1.12. Create a copy of an array with all falsy values removed</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Create-a-copy-of-an-array-with-duplicates-removed" data-href="#Create-a-copy-of-an-array-with-duplicates-removed"><span class="toc-number"></span> <span class="toc-text">1.1.13. Create a copy of an array with duplicates removed</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Find-the-index-of-a-value-in-an-array" data-href="#Find-the-index-of-a-value-in-an-array"><span class="toc-number"></span> <span class="toc-text">1.1.14. Find the index of a value in an array</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Find-the-index-in-an-array-by-predicate" data-href="#Find-the-index-in-an-array-by-predicate"><span class="toc-number"></span> <span class="toc-text">1.1.15. Find the index in an array by predicate</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Create-an-array-with-n-numbers-starting-from-x" data-href="#Create-an-array-with-n-numbers-starting-from-x"><span class="toc-number"></span> <span class="toc-text">1.1.16. Create an array with n numbers, starting from x</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Objects" data-href="#Objects"><span class="toc-number"></span> <span class="toc-text">1.2. Objects</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Names-of-own-enumerable-properties-as-an-array" data-href="#Names-of-own-enumerable-properties-as-an-array"><span class="toc-number"></span> <span class="toc-text">1.2.1. Names of own enumerable properties as an array</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Number-of-keys-in-an-object" data-href="#Number-of-keys-in-an-object"><span class="toc-number"></span> <span class="toc-text">1.2.2. Number of keys in an object</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Names-of-all-enumerable-properties-as-an-array" data-href="#Names-of-all-enumerable-properties-as-an-array"><span class="toc-number"></span> <span class="toc-text">1.2.3. Names of all enumerable properties as an array</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Values" data-href="#Values"><span class="toc-number"></span> <span class="toc-text">1.2.4. Values</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Create-a-new-object-with-the-given-prototype-and-properties" data-href="#Create-a-new-object-with-the-given-prototype-and-properties"><span class="toc-number"></span> <span class="toc-text">1.2.5. Create a new object with the given prototype and properties</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Create-a-new-object-from-merged-own-properties" data-href="#Create-a-new-object-from-merged-own-properties"><span class="toc-number"></span> <span class="toc-text">1.2.6. Create a new object from merged own properties</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Create-a-shallow-clone-of-own-properties-of-an-object" data-href="#Create-a-shallow-clone-of-own-properties-of-an-object"><span class="toc-number"></span> <span class="toc-text">1.2.7. Create a shallow clone of own properties of an object</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Check-if-an-object-is-an-array" data-href="#Check-if-an-object-is-an-array"><span class="toc-number"></span> <span class="toc-text">1.2.8. Check if an object is an array</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Check-if-an-object-is-a-finite-Number" data-href="#Check-if-an-object-is-a-finite-Number"><span class="toc-number"></span> <span class="toc-text">1.2.9. Check if an object is a finite Number</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Functions" data-href="#Functions"><span class="toc-number"></span> <span class="toc-text">1.3. Functions</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Bind-a-function-to-an-object" data-href="#Bind-a-function-to-an-object"><span class="toc-number"></span> <span class="toc-text">1.3.1. Bind a function to an object</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Utility" data-href="#Utility"><span class="toc-number"></span> <span class="toc-text">1.4. Utility</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Identity-function" data-href="#Identity-function"><span class="toc-number"></span> <span class="toc-text">1.4.1. Identity function</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#A-function-that-returns-a-value" data-href="#A-function-that-returns-a-value"><span class="toc-number"></span> <span class="toc-text">1.4.2. A function that returns a value</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#The-empty-function" data-href="#The-empty-function"><span class="toc-number"></span> <span class="toc-text">1.4.3. The empty function</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Get-the-current-time-in-milliseconds-since-the-epoch" data-href="#Get-the-current-time-in-milliseconds-since-the-epoch"><span class="toc-number"></span> <span class="toc-text">1.4.4. Get the current time in milliseconds since the epoch</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Template" data-href="#Template"><span class="toc-number"></span> <span class="toc-text">1.4.5. Template</span></a></li></ol></li></ol></li></ol>
-        </div>
-      
-    </div>
-  </div>
-
-  <div class="theme-spacer"></div>
-
-  
-    <div class="mdui-color-theme theme-post__toc-fab">
-  <button class="mdui-fab mdui-color-theme-accent mdui-ripple mdui-fab-fixed mdui-hidden-md-up" mdui-menu="{target: '#toc-fab-menu', fixed: true}" id="toc-fab">
-    <i class="mdui-icon material-icons">&#xe242;</i>
-  </button>
-  <ul class="mdui-menu mdui-typo theme-post__toc-fab__menu" id="toc-fab-menu" style="padding: 8px;max-height: 80%">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#underscore-js" data-href="#underscore-js"><span class="toc-number"></span> <span class="toc-text">1. underscore.js</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x6570;&#x7EC4;" data-href="#&#x6570;&#x7EC4;"><span class="toc-number"></span> <span class="toc-text">1.1. &#x6570;&#x7EC4;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Iterate" data-href="#Iterate"><span class="toc-number"></span> <span class="toc-text">1.1.1. Iterate</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Map" data-href="#Map"><span class="toc-number"></span> <span class="toc-text">1.1.2. Map</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Use-a-function-to-accumulate-a-single-value-from-an-array-left-to-right" data-href="#Use-a-function-to-accumulate-a-single-value-from-an-array-left-to-right"><span class="toc-number"></span> <span class="toc-text">1.1.3. Use a function to accumulate a single value from an array (left-to-right)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Use-a-function-to-accumulate-a-single-value-from-an-array-right-to-left" data-href="#Use-a-function-to-accumulate-a-single-value-from-an-array-right-to-left"><span class="toc-number"></span> <span class="toc-text">1.1.4. Use a function to accumulate a single value from an array (right-to-left)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Test-whether-all-elements-in-an-array-pass-a-predicate" data-href="#Test-whether-all-elements-in-an-array-pass-a-predicate"><span class="toc-number"></span> <span class="toc-text">1.1.5. Test whether all elements in an array pass a predicate</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Test-whether-some-element-in-an-array-passes-a-predicate" data-href="#Test-whether-some-element-in-an-array-passes-a-predicate"><span class="toc-number"></span> <span class="toc-text">1.1.6. Test whether some element in an array passes a predicate</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Find-a-value-in-an-array" data-href="#Find-a-value-in-an-array"><span class="toc-number"></span> <span class="toc-text">1.1.7. Find a value in an array</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Get-a-property-from-each-element-in-an-array" data-href="#Get-a-property-from-each-element-in-an-array"><span class="toc-number"></span> <span class="toc-text">1.1.8. Get a property from each element in an array</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Check-if-array-includes-an-element" data-href="#Check-if-array-includes-an-element"><span class="toc-number"></span> <span class="toc-text">1.1.9. Check if array includes an element</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Convert-an-array-like-object-to-array" data-href="#Convert-an-array-like-object-to-array"><span class="toc-number"></span> <span class="toc-text">1.1.10. Convert an array-like object to array</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Convert-an-array-of-keys-and-values-to-an-object" data-href="#Convert-an-array-of-keys-and-values-to-an-object"><span class="toc-number"></span> <span class="toc-text">1.1.11. Convert an array of keys and values to an object</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Create-a-copy-of-an-array-with-all-falsy-values-removed" data-href="#Create-a-copy-of-an-array-with-all-falsy-values-removed"><span class="toc-number"></span> <span class="toc-text">1.1.12. Create a copy of an array with all falsy values removed</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Create-a-copy-of-an-array-with-duplicates-removed" data-href="#Create-a-copy-of-an-array-with-duplicates-removed"><span class="toc-number"></span> <span class="toc-text">1.1.13. Create a copy of an array with duplicates removed</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Find-the-index-of-a-value-in-an-array" data-href="#Find-the-index-of-a-value-in-an-array"><span class="toc-number"></span> <span class="toc-text">1.1.14. Find the index of a value in an array</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Find-the-index-in-an-array-by-predicate" data-href="#Find-the-index-in-an-array-by-predicate"><span class="toc-number"></span> <span class="toc-text">1.1.15. Find the index in an array by predicate</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Create-an-array-with-n-numbers-starting-from-x" data-href="#Create-an-array-with-n-numbers-starting-from-x"><span class="toc-number"></span> <span class="toc-text">1.1.16. Create an array with n numbers, starting from x</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Objects" data-href="#Objects"><span class="toc-number"></span> <span class="toc-text">1.2. Objects</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Names-of-own-enumerable-properties-as-an-array" data-href="#Names-of-own-enumerable-properties-as-an-array"><span class="toc-number"></span> <span class="toc-text">1.2.1. Names of own enumerable properties as an array</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Number-of-keys-in-an-object" data-href="#Number-of-keys-in-an-object"><span class="toc-number"></span> <span class="toc-text">1.2.2. Number of keys in an object</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Names-of-all-enumerable-properties-as-an-array" data-href="#Names-of-all-enumerable-properties-as-an-array"><span class="toc-number"></span> <span class="toc-text">1.2.3. Names of all enumerable properties as an array</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Values" data-href="#Values"><span class="toc-number"></span> <span class="toc-text">1.2.4. Values</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Create-a-new-object-with-the-given-prototype-and-properties" data-href="#Create-a-new-object-with-the-given-prototype-and-properties"><span class="toc-number"></span> <span class="toc-text">1.2.5. Create a new object with the given prototype and properties</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Create-a-new-object-from-merged-own-properties" data-href="#Create-a-new-object-from-merged-own-properties"><span class="toc-number"></span> <span class="toc-text">1.2.6. Create a new object from merged own properties</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Create-a-shallow-clone-of-own-properties-of-an-object" data-href="#Create-a-shallow-clone-of-own-properties-of-an-object"><span class="toc-number"></span> <span class="toc-text">1.2.7. Create a shallow clone of own properties of an object</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Check-if-an-object-is-an-array" data-href="#Check-if-an-object-is-an-array"><span class="toc-number"></span> <span class="toc-text">1.2.8. Check if an object is an array</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Check-if-an-object-is-a-finite-Number" data-href="#Check-if-an-object-is-a-finite-Number"><span class="toc-number"></span> <span class="toc-text">1.2.9. Check if an object is a finite Number</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Functions" data-href="#Functions"><span class="toc-number"></span> <span class="toc-text">1.3. Functions</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Bind-a-function-to-an-object" data-href="#Bind-a-function-to-an-object"><span class="toc-number"></span> <span class="toc-text">1.3.1. Bind a function to an object</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Utility" data-href="#Utility"><span class="toc-number"></span> <span class="toc-text">1.4. Utility</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Identity-function" data-href="#Identity-function"><span class="toc-number"></span> <span class="toc-text">1.4.1. Identity function</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#A-function-that-returns-a-value" data-href="#A-function-that-returns-a-value"><span class="toc-number"></span> <span class="toc-text">1.4.2. A function that returns a value</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#The-empty-function" data-href="#The-empty-function"><span class="toc-number"></span> <span class="toc-text">1.4.3. The empty function</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Get-the-current-time-in-milliseconds-since-the-epoch" data-href="#Get-the-current-time-in-milliseconds-since-the-epoch"><span class="toc-number"></span> <span class="toc-text">1.4.4. Get the current time in milliseconds since the epoch</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Template" data-href="#Template"><span class="toc-number"></span> <span class="toc-text">1.4.5. Template</span></a></li></ol></li></ol></li></ol>
-  </ul>
-</div>
-
-  
-
-  
-    <div class="theme-post__pagination mdui-color-theme">
-  
-    <div class="theme-post__pagination__prev mdui-ripple mdui-valign">
-      <a href="/2018/01/24/css-命名规范/" class="theme-post__pagination__prev__content mdui-text-left">
-        <div>
-          <i class="mdui-icon material-icons mdui-text-center">&#xe5cb;</i>
-          <span class="mdui-typo-body-2-opacity mdui-text-center">新的文章</span>
-        </div>
-        <div class="mdui-typo-title mdui-text-truncate">
-          css 命名规范
-        </div>
-      </a>
-    </div>
-  
-
-  
-    <div class="theme-post__pagination__next mdui-ripple mdui-valign">
-      <a href="/2017/12/16/get-post-的八个方法-状态码/" class="theme-post__pagination__next__content mdui-text-right">
-        <div>
-          <span class="mdui-typo-body-2-opacity mdui-text-center">旧的文章</span>
-          <i class="mdui-icon material-icons mdui-text-center">&#xe5cc;</i>
-        </div>
-        <div class="mdui-typo-title mdui-text-truncate">
-          get post 的八个方法&amp;&amp;状态码
-        </div>
-      </a>
-    </div>
     
 </div>
 
-  
 
-  
-    <div class="mdui-dialog" id="donateDialog">
-      <div class="mdui-dialog-title">打赏</div>
-      <div class="mdui-dialog-content">
-        <div class="mdui-list">
-          
-            <a href="/img/avatar.png" title="wechat" class="mdui-list-item mdui-ripple" target="_blank">
-              
-                <i class="mdui-list-item-icon mdui-icon fa fa-wechat mdui-text-center"></i>&emsp;
-              
-              
-              
-              wechat
-            </a>
-          
-            <a href="https://paypal.com" title="paypay" class="mdui-list-item mdui-ripple" target="_blank">
-              
-                <i class="mdui-list-item-icon mdui-icon fa fa-paypal mdui-text-center"></i>&emsp;
-              
-              
-              
-              paypay
-            </a>
-          
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2018/01/24/css-命名规范/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/12/16/get-post-的八个方法-状态码/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
         </div>
-      </div>
-      <div class="mdui-dialog-actions">
-        <button class="mdui-btn mdui-ripple mdui-ripple" mdui-dialog-close>不要</button>
-      </div>
     </div>
-  
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="屈东奇's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        lo-que@foxmail.com
+        <b class="caret"></b>
+    </a>
 </div>
-<script type="text/javascript">
-  themeRuntime.scriptsMap.post = [];
-  if (document.querySelector('.theme-post__toc-fab__menu > ol') !== null && document.querySelector('.theme-post__toc > ol') !== null) {
-    tocHighlight()
-    function tocHighlight() {
-      var timer;
-      function doWork() {
-        listens.forEach(function(value, index) {
-          value[1]();
-          value[0].classList.remove("mdui-list-item-active");
-        })
-        let actionToc = (listens[listens.reduce(function(r, v, index) {
-          if (v[2] == true) {
-            return index;
-          } else return r;
-        }, undefined)] || [])[0] || listens[0][0];
-        actionToc.classList.add("mdui-list-item-active");
-        if(actionToc.getClientRects().length == 0)return;
-        showToc(actionToc);
-      }
-      function showToc(toc) {
-        let offsetTop = toc.getClientRects()[0].top - cardToc.getClientRects()[0].top - 40;
-        let offsetBottom = toc.getClientRects()[0].bottom - cardToc.getClientRects()[0].bottom + 40;
-        let offset = 0;
-        if (offsetTop < 0) offset = offsetTop;
-        if (offsetBottom > 0) offset = offsetBottom;
-        var targetTop = Math.max(0, Math.min(cardToc.scrollTop + offset, toclist.offsetHeight - cardToc.offsetHeight));
-        clearInterval(timer);
-        timer = setInterval(function() {
-          var now = cardToc.scrollTop;
-          var speed = (targetTop - now) / 10;
-          speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
-          if (Math.abs(now - targetTop) < 1) {
-            clearInterval(timer);
-          }
-          cardToc.scrollTop = now + speed;
-        }, 30);
-      }
-      var listens = [];
-      var cardToc = document.querySelector('.theme-post__toc');
-      var links = cardToc.querySelectorAll(".theme-post__toc__content__link");
-      var toclist = document.querySelector(".theme-post__toc > ol");
-      Array.prototype.forEach.call(links, function(value, index) {
-        var id = (value.getAttribute("href") || "#").slice(1);
-        var element = document.getElementById(id);
-        listens.push([value, function() {
-          var readed = false;
-          var scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
-          if (element.offsetTop <= scrollTop + element.clientHeight + 64) {
-            readed = true;
-          } else {
-            readed = false;
-          }
-          listens[index][2] = readed;
-        }, false])
-      })
-      doWork();
-      window.addEventListener("scroll", doWork)
-      var listener = {
-        function:  doWork,
-        event: 'scroll',
-        el: window,
-        removed: false
-      }
-      themeRuntime.scriptsMap.post.push(listener)
-    }
-  }
-</script>
-
-<script type="text/javascript">
-  (function() {
-    var postLastModifiedDate = 1524566481000
-    var today = (new Date()).getTime()
-    var difference = Math.floor((today - postLastModifiedDate)/(24*60*60*1000))
-    if (difference >= 100) {
-      document.querySelector('.theme-post__card__warning').style.display = 'block'
-      document.querySelector('#content-warning').textContent = difference
-    }
-  })();
-</script>
-
-<script type="text/javascript">
-  var images = document.querySelectorAll('.theme-post__card__content img')
-  for (i = 0; i < images.length; i++) {
-    //console.log('image added', i)
-    images[i].addEventListener("click", openLG);
-    var listener = {
-      function:  openLG,
-      event: 'click',
-      el: images[i],
-      removed: false
-    }
-    themeRuntime.scriptsMap.post.push(listener)
-  }
-  function openLG() {
-    var img_src = this.getAttribute('src');
-    var img_alt = this.getAttribute('alt');
-    lightGallery(this, {
-      dynamic: true,
-      counter: false,
-      dynamicEl: [{
-        "src": img_src,
-        'subHtml': "<span author>屈东奇</span><div descr>" + img_alt + "</div>"
-      }],
-    });
-  }
-</script>
 
 
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/01/">一月 2017<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
 
 
-      </div>
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
     </div>
-  </main>
 
-  <div id="outdated" style="z-index: 9999;">
-    <h6>你的浏览器已经过气辣！</h6>
-    <p>赶紧升级浏览器来访问本站吧！<a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">现在就去</a></p>
-    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="关闭">&times;</a></p>
-  </div>
-  <!-- import js -->
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/Lo-que" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
 
 
-  <script src="/js/outdatedbrowser.min.js"></script>
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2017&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
 
 
 
-  
-    <script src="/js/js.pure.min.js"></script>
-  
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
 
 
-<!-- theme js -->
-<script type="text/javascript">
-  (function() {
-    var appbarTopFlag = false;
-    var appbarEl = document.querySelector('.theme-appbar');
-    function appbarShadow() {
-      var bodyScrolled = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
-      if (bodyScrolled > 0 && !appbarTopFlag) {
-        appbarEl.classList.add('theme-appbar--shadow');
-        appbarTopFlag = true;
-      } else if (bodyScrolled === 0 && appbarTopFlag) {
-        appbarEl.classList.remove('theme-appbar--shadow');
-        appbarTopFlag = false;
-      }
-    }
-    appbarShadow()
-    window.addEventListener('scroll', appbarShadow);
-  })();
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
 </script>
 
 
@@ -1709,10 +1728,78 @@ greeting({ name: &#39;moe&#39; });
 
 
 
-<script type="text/javascript">
-  document.querySelector('body').classList.add('theme-loaded')
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
 </script>
 
+<!-- Import prettify js  -->
 
-</body>
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
 </html>
