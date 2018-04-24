@@ -1,0 +1,1721 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+
+
+
+<head>
+  <script>
+    window.mduiVersion = "2.0.1"
+    window.oldVersion = [
+     '2.0.0',
+     '1.4.5',
+     'unknownVersion'
+    ]
+    window.themeRuntime = {
+      root: "/",
+      scriptsMap: {},
+      init: {
+        status: false
+      },
+      commentRest: {
+        status: false
+      }
+    };
+    console.info("%cCopyright © 2018 Halyul\n"+'Theme Version: 2.0.1'+'%c\nhttps://github.com/Halyul/hexo-theme-mdui',"font-size: 14px;color: #3F51B5;","color: #448AFF;text-decoration: none");
+  </script>
+  <!--
+        © HEXO MDUI Theme
+        https://github.com/Halyul/hexo-theme-mdui
+        Version: 2.0.1 -->
+
+  <meta charset="UTF-8">
+  <title>underscore学习小结 - Hexo</title>
+
+  <!-- Favicons -->
+  <link rel="icon shortcut" type="image/ico" href="/images/favicon.png">
+  <link rel="icon" sizes="192x192" href="/images/favicon.png">
+  <link rel="apple-touch-icon" href="/images/favicon.png">
+
+  <!-- Meta & Info -->
+  <meta http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <meta name="theme-color" content="#fff">
+
+  <meta name="author" content="屈东奇">
+  
+      <meta name="description" content="my personal blog">
+  
+  <meta name="keywords" content="Lo-que, qudongqi, blog,Learning summary">
+
+  <!--iOS -->
+  <meta name="apple-mobile-web-app-title" content="Hexo">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="480">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <!-- The Open Graph protocol -->
+  <meta property="og:url" content="http://lo-que.github.io">
+  <meta property="og:type" content="blog">
+  <meta property="og:title" content="underscore学习小结 - Hexo | Hexo">
+  <meta property="og:image" content="/images/favicon.png" />
+  
+    <meta property="og:description" content="my personal blog">
+  
+
+  
+    <meta property="og:article:tag" content="Learning summary">
+  
+
+  
+
+  <!-- Import CSS -->
+  
+    <link rel="stylesheet" href="/css/mdui.css">
+  
+
+  
+
+</head>
+
+
+<body class="mdui-drawer-body-left mdui-theme-primary-#0097A7 mdui-theme-accent-#00838F">
+
+  <style>
+    #spinner {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+          opacity: 1;
+      -webkit-transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1);
+          transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1);
+    }
+    main {
+      opacity: 0;
+      -webkit-transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1);
+      transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1);
+      display: none;
+    }
+  </style>
+  <div id="spinner">
+    <style>
+      .spinner {
+
+      -webkit-animation: rotator 1.4s linear infinite;
+              animation: rotator 1.4s linear infinite;
+      }
+
+      @-webkit-keyframes rotator {
+      0% {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(270deg);
+                transform: rotate(270deg);
+      }
+      }
+
+      @keyframes rotator {
+      0% {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(270deg);
+                transform: rotate(270deg);
+      }
+      }
+
+      .path {
+      stroke-dasharray: 187;
+      stroke-dashoffset: 0;
+      -webkit-transform-origin: center;
+              transform-origin: center;
+      -webkit-animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+              animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+      }
+
+      @-webkit-keyframes colors {
+      0% {
+        stroke: #4285F4;
+      }
+      25% {
+        stroke: #DE3E35;
+      }
+      50% {
+        stroke: #F7C223;
+      }
+      75% {
+        stroke: #1B9A59;
+      }
+      100% {
+        stroke: #4285F4;
+      }
+      }
+
+      @keyframes colors {
+      0% {
+        stroke: #4285F4;
+      }
+      25% {
+        stroke: #DE3E35;
+      }
+      50% {
+        stroke: #F7C223;
+      }
+      75% {
+        stroke: #1B9A59;
+      }
+      100% {
+        stroke: #4285F4;
+      }
+      }
+
+      @-webkit-keyframes dash {
+      0% {
+        stroke-dashoffset: 187;
+      }
+      50% {
+        stroke-dashoffset: 46.75;
+        -webkit-transform: rotate(135deg);
+                transform: rotate(135deg);
+      }
+      100% {
+        stroke-dashoffset: 187;
+        -webkit-transform: rotate(450deg);
+                transform: rotate(450deg);
+      }
+      }
+
+      @keyframes dash {
+      0% {
+        stroke-dashoffset: 187;
+      }
+      50% {
+        stroke-dashoffset: 46.75;
+        -webkit-transform: rotate(135deg);
+                transform: rotate(135deg);
+      }
+      100% {
+        stroke-dashoffset: 187;
+        -webkit-transform: rotate(450deg);
+                transform: rotate(450deg);
+      }
+      }
+    </style>
+    <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+      <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+    </svg>
+  </div>
+
+  <main>
+    <div class="mdui-appbar mdui-appbar-fixed mdui-color-white mdui-shadow-0 theme-appbar">
+  <div class="mdui-toolbar theme-toolbar-top">
+    
+      <a href="/" class="mdui-btn mdui-btn-icon mdui-ripple theme-appbar__burger theme-appbar__burger--arrow">
+        <i class="mdui-icon">
+          <span></span>
+        </i>
+      </a>
+    
+  </div>
+  <div class="mdui-toolbar theme-toolbar-bottom">
+    <span class="theme-toolbar-bottom__title">Hexo</span>
+    
+      <a href="/search.html" class="mdui-textfield-icon mdui-btn mdui-btn-icon theme-toolbar-bottom__search">
+        <i class="mdui-icon material-icons">&#xe8b6;</i>
+      </a>
+    
+  </div>
+  <div class="mdui-progress theme-appbar__progress" id="progressBar">
+    <div class="mdui-progress-indeterminate"></div>
+  </div>
+</div>
+
+    <div class="mdui-drawer mdui-drawer-full-height theme-drawer" id="drawer">
+  <!-- header -->
+  <div class="theme-drawer__header">
+  <div class="theme-drawer__header__layer-1">
+    <div class="mdui-toolbar theme-toolbar-top">
+      
+        <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple theme-appbar__burger theme-appbar__burger--drawer theme-appbar__burger--arrow" id="drawer-back">
+          <i class="mdui-icon">
+            <span></span>
+          </i>
+        </a>
+      
+    </div>
+    <div class="mdui-toolbar theme-toolbar-bottom">
+      <span class="theme-toolbar-bottom__title">Hexo</span>
+    </div>
+  </div>
+  <div class="theme-drawer__header__layer-2" style="background-image: url(/images/bg.png)">
+    <img class="mdui-img-circle theme-drawer__header__layer-2__user__avatar" src="/images/avatar.png"/>
+    <div class="theme-drawer__header__layer-2__user__info">
+      <div class="theme-drawer__header__layer-2__user__info__author mdui-text-color-white-text">
+        屈东奇
+      </div>
+      <div class="theme-drawer__header__layer-2__user__info__slogan mdui-text-color-white-secondary">
+        自童年起，我便独自一人，照顾历代星辰。
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="theme-drawer__warpper">
+    <!-- content -->
+    <div class="theme-drawer__warpper__content">
+  <ul class="mdui-list">
+    <a href="/" class="mdui-list-item mdui-ripple mdui-ripple-white">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe88a;</i>
+      <div class="mdui-list-item-content">首页</div>
+    </a>
+    <a href="/archives/" class="mdui-list-item mdui-ripple mdui-ripple-white">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe149;</i>
+      <div class="mdui-list-item-content">归档</div>
+    </a>
+    <ul class="mdui-list mdui-collapse" mdui-collapse="{accordion: true}" mdui-collapse>
+      
+      
+        <div class="mdui-collapse-item ">
+          <div class="mdui-collapse-item-header mdui-list-item mdui-ripple mdui-ripple-white">
+            <i class="mdui-list-item-icon mdui-icon fa fa-tags mdui-text-center"></i>
+            <div class="mdui-list-item-content">标签</div>
+            <i class="mdui-collapse-item-arrow mdui-icon material-icons">&#xe5c5;</i>
+          </div>
+          <div class="mdui-collapse-item-body mdui-list">
+            
+              <a href="/tags/Learning-Note/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                Learning Note
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">13</span>
+              </a>
+            
+              <a href="/tags/Learning-summary/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                Learning summary
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+          </div>
+        </div>
+      
+      <div class="mdui-collapse-item ">
+        <div class="mdui-collapse-item-header mdui-list-item mdui-ripple mdui-ripple-white">
+          <i class="mdui-list-item-icon mdui-icon material-icons">&#xe916;</i>
+          <div class="mdui-list-item-content">年份</div>
+          <i class="mdui-collapse-item-arrow mdui-icon material-icons">&#xe5c5;</i>
+        </div>
+        <div class="mdui-collapse-item-body mdui-list">
+          
+          
+            <a href="/archives/2018/" class="mdui-list-item mdui-ripple">
+              2018
+            </a>
+          
+            <a href="/archives/2017/" class="mdui-list-item mdui-ripple">
+              2017
+            </a>
+          
+        </div>
+      </div>
+    </ul>
+  </ul>
+  
+    <div class="mdui-divider"></div>
+    <ul class="mdui-list" mdui-collapse="{accordion: true}" mdui-collapse>
+      
+    </ul>
+  
+</div>
+
+    <div class="theme-spacer"></div>
+    <!-- footer -->
+    <div class="theme-drawer__warpper__footer">
+  <div class="mdui-typo mdui-typo-caption-opacity">
+    Powered by <a href="http://hexo.io" target="_blank">Hexo</a>
+    <br />
+    Theme - <a href="//github.com/Halyul/hexo-theme-mdui" target="_blank">Halyul/MDUI</a>
+    <br />
+    <span>
+      Copyright ©
+      <span year></span>
+      屈东奇
+    </span>
+    
+    
+    
+  </div>
+</div>
+<script type="text/javascript">
+  var copyrightNow = new Date().getFullYear();
+  var textContent = document.querySelector('span[year]')
+  
+    copyrightSince = 2017;
+    if (copyrightSince === copyrightNow) {
+      textContent.textContent = copyrightNow
+    } else {
+      textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+  
+</script>
+
+  </div>
+</div>
+
+    <div id="top"></div>
+
+    <script src="/js/lightgallery.min.js"></script>
+
+    <div id="barba-wrapper">
+      <div class="barba-container"  data-namespace="post">
+        
+
+
+
+  <link rel="stylesheet" href="/css/prism/darcula.min.css">
+
+
+  <link rel="stylesheet" href="/css/prism/line-number.min.css">
+
+
+<div class="theme-post">
+  <div class="theme-post__background mdui-color-theme"></div>
+  <div class="theme-post__header mdui-color-theme">
+    <div class="theme-post__header__title mdui-text-truncate">
+      underscore学习小结
+    </div>
+    <div class="theme-spacer"></div>
+    <div class="theme-post__header__actions mdui-valign">
+      <div>
+        <span>编写时间：</span>
+        <span style="float: right">1月 22, 2018</span>
+        
+        <br>
+          <span>最后修改时间：</span>
+          <span>4月 24, 2018</span>
+        
+      </div>
+      
+  <div class="theme-post__qrcode">
+    <button class="mdui-btn mdui-ripple mdui-btn-icon mdui-hidden-xs-down" mdui-menu="{target: '#qrcode-menu'}">
+      <i class="mdui-icon material-icons">&#xe337;</i>
+    </button>
+    <ul class="mdui-menu" id="qrcode-menu">
+      <li class="mdui-list-item" style="cursor: auto">
+        文章二维码
+      </li>
+        <img class="mdui-img-fluid" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC0ElEQVR42u3aQXIbMQwEQP3/08k1FzszwLoskc2Ty5J22asqwxzg9efK9cLGxsbGxsbGxsZ+S/YrXv++/6sr7H///d5me8bGxsa+gf2fP/1fvCchtQ/x++ts9oyNjY19A3uzubz8JOUzf9xFocXGxsbGDkpUEfEE108KGDY2Njb2/pazIKkIg+KvARsbGxs7Lzab8jZrOfxyloaNjY399uxZo/d3f/61/jY2Njb2m7HblTyUpDg9VaiKnWNjY2Mfyp41U9tPzYKn/KFHo5zY2NjYF7Bn4zVtSLQZxGnbxtjY2Nj3sPONvsrVtnvzvSUtAWxsbOwb2G3c07ZyZ2tWoooCho2NjX0cexP0PFty8oNHe+DBxsbGPpXdNlnzW24iqjaKih4WNjY29tHsfMgmPx6015wdUYomMTY2NvbR7DxUSm6ZB0xtYLRqNmBjY2Mfyv6J+KYO7keHjfZLwsbGxr6BvWkGtA2A/HDSRmDD/jY2Njb2x7LzoZxZa7Yd4vyJdjI2Njb2Pey28Ozj+wdGKvPwCxsbG/tQdlJOhgWjHMRpw6NVAcPGxsY+lJ2H9UkTt23uzgKjYsAIGxsb+wJ2PhA5O6LMRnnaKwzrNjY2NvaHs9t/9BNYGxXlJTM/PmFjY2PfwJ7FSW0LoS2WeXsgb1RgY2Nj38BOBmXa0GffKmgPP8XIDjY2NvYR7Bw52/pm6GdzsMHGxsa+mf3UUSF/TG05HBZRbGxs7EPZ+23ljYS8TCaHmbocYmNjYx/KbteG8dSrbasYGxsb+2z2K15t0JNvKLlyW0SxsbGxb2M/taGnDiRPtZCxsbGxb2PPgqT22JA3EmahEjY2NjZ2O3zTHlQ2oz+r+2JjY2Njx5966pqzV+tQCRsbG/sg9ixU2ry/DaeSo0sxfImNjY19ELtt9G5ipllclTR0hzOn2NjY2B/OvmdhY2NjY2NjY2Njv836CyuPSUuJW/YJAAAAAElFTkSuQmCC" style="cursor: auto">
+    </ul>
+  </div>
+
+
+      
+  <div class="theme-post__share">
+    <button class="mdui-btn mdui-ripple mdui-btn-icon" mdui-menu="{target: '#post-share-menu'}">
+      <i class="mdui-icon material-icons">&#xe80d;</i>
+    </button>
+
+    <ul class="mdui-menu" id="post-share-menu">
+
+      
+        <li class="mdui-menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://lo-que.github.io//2018/01/22/underscore学习小结/index.html" target="_blank" class="mdui-ripple">
+                分享到Facebook
+            </a>
+        </li>
+      
+
+      
+        <li class="mdui-menu-item">
+            <a href="https://plus.google.com/share?url=http://lo-que.github.io//2018/01/22/underscore学习小结/index.html" target="_blank" class="mdui-ripple">
+                分享到Google+
+            </a>
+        </li>
+      
+
+      
+        <li class="mdui-menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lo-que.github.io//2018/01/22/underscore学习小结/index.html&title=underscore学习小结" target="_blank" class="mdui-ripple">
+                分享到Linkedin
+            </a>
+        </li>
+      
+
+      
+        <li class="mdui-menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Hexo&title=underscore学习小结&summary=my personal blog&pics=http://lo-que.github.io/images/favicon.png&url=http://lo-que.github.io/2018/01/22/underscore学习小结/index.html" target="_blank" class="mdui-ripple">
+                分享到QQ
+            </a>
+        </li>
+      
+
+      
+        <li class="mdui-menu-item">
+            <a href="https://telegram.me/url?url=http://lo-que.github.io//2018/01/22/underscore学习小结/index.html&text=underscore学习小结" target="_blank" class="mdui-ripple">
+                分享到Telegram
+            </a>
+        </li>
+      
+
+      
+        <li class="mdui-menu-item">
+            <a href="https://twitter.com/intent/tweet?text=underscore学习小结&url=http://lo-que.github.io//2018/01/22/underscore学习小结/index.html&via=屈东奇" target="_blank" class="mdui-ripple">
+                分享到Twitter
+            </a>
+        </li>
+      
+
+      
+        <li class="mdui-menu-item">
+            <a href="http://service.weibo.com/share.php?appkey=&title=underscore学习小结&url=http://lo-que.github.io//2018/01/22/underscore学习小结/index.html&pic=&searchPic=false&style=simple" target="_blank" class="mdui-ripple">
+                分享到微博
+            </a>
+        </li>
+      
+
+    </ul>
+  </div>
+
+
+    </div>
+  </div>
+  <div class="theme-post__warpper
+    
+  ">
+    <div class="theme-post__warpper__container">
+      <article class="mdui-card theme-post__card mdui-hoverable">
+        <section class="theme-post__card__warning">
+          这篇文章最后修改于
+          <span id="content-warning"></span>
+          天之前。
+          本页内容可能已经过时！
+        </section>
+        
+          <section class="theme-post__card__count">
+            
+              <span>
+                本文共4,458字。
+              </span>
+            
+            
+              <span>
+                阅读大约需要18分钟。
+              </span>
+            
+          </section>
+        
+        
+          <section class="mdui-card-media">
+            <img src="/images/random/28.png"/>
+          </section>
+        
+        <section class="mdui-typo theme-post__card__content">
+          <h2 id="underscore-js"><a href="#underscore-js" class="headerlink" title="underscore.js"></a>underscore.js</h2><p><strong>Underscore.js</strong> 是一个由<strong>Jeremy Ashkenas</strong>开发的<strong>JavaScript</strong>库，提供了许多作为开发者在开发Web项目时所需要的实用功能。</p>
+<p>代码变得更加易读：</p>
+<p> <code>_.isEmpty({})  //true</code></p>
+<p>代码更容易编写：</p>
+<p><code>_.flatten([[0, 1], [2, 3], [4, 5]]) // [0, 1, 2, 3, 4, 5]</code> </p>
+<p>提供了原生没有的方法：</p>
+<p><code>_.range(5)  //[0, 1, 2, 3, 4]</code></p>
+<p>甚至可以作为模版引擎：</p>
+<p><code>_.template(&#39;&lt;p&gt;&lt;%= text %&gt;&lt;/p&gt;&#39;, {text: &#39;SitePoint Rocks!&#39;}) //   &lt;p&gt;SitePoint Rocks!&lt;/p&gt;</code></p>
+<ul>
+<li><a href="https://www.usatoday.com/" title="USA Today" target="_blank" rel="noopener">USA Today</a>   今日美国</li>
+<li><a href="https://www.linkedin.com" title="LinkedIn" target="_blank" rel="noopener">LinkedIn</a>  领英</li>
+<li><a href="https://www.khanacademy.org" title="Khan Academy" target="_blank" rel="noopener">Khan Academy</a>  可汗学院</li>
+</ul>
+<ol>
+<li><p>集合：数组或对象</p>
+<ol>
+<li><p>each 对集合循环操作，只针对function</p>
+<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript">  <span class="token comment" spellcheck="true">//遍历数组或者对象的每个元素</span>
+  <span class="token comment" spellcheck="true">// 第一个参数为数组（包括类数组）或者对象</span>
+  <span class="token comment" spellcheck="true">// 第二个参数为迭代方法，对数组或者对象每个元素都执行该方法</span>
+  <span class="token comment" spellcheck="true">// 该方法又能传入三个参数，分别为 (item, index, array)（(value, key, obj) for object）</span>
+  <span class="token comment" spellcheck="true">// 与 ES5 中 Array.prototype.forEach 方法传参格式一致</span>
+  <span class="token comment" spellcheck="true">// 第三个参数（可省略）确定第二个参数 iteratee 函数中的（可能有的）this 指向</span>
+  <span class="token comment" spellcheck="true">// 即 iteratee 中出现的（如果有）所有 this 都指向 context</span>
+  <span class="token comment" spellcheck="true">// notice: _.each 方法不能用 return 跳出循环（同样，Array.prototype.forEach 也不行）</span>
+_<span class="token punctuation">.</span><span class="token function">each</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>ele<span class="token punctuation">,</span> idx<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>idx <span class="token operator">+</span> <span class="token string">":"</span> <span class="token operator">+</span> ele<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">=</span><span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span><span class="token number">1</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token number">2</span> <span class="token number">2</span><span class="token punctuation">:</span><span class="token number">3</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>map 对集合以map方式进行遍历，返回一个新数组  iteratee 可以是对象或字符串</p>
+<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
+_<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token keyword">return</span> num <span class="token operator">*</span> <span class="token number">3</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>reduce: 按callback缩减集合</p>
+<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
+_<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>memo<span class="token punctuation">,</span> num<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">return</span> memo <span class="token operator">+</span> num<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">=</span><span class="token operator">></span> <span class="token number">6</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>filter: 过滤器  _.find =  _.detect 返回第一个</p>
+<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
+_<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token keyword">return</span> num <span class="token operator">&amp;</span> <span class="token number">1</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">6</span> <span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>reject: 过滤不符合要求的</p>
+<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
+_<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token keyword">return</span> num <span class="token operator">&amp;</span> <span class="token number">1</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span> <span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>where: 根据指定键值对 遍历list，返回新的数组。（类似于sql语句中的where）&amp;： find 返回第一个</p>
+<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript"><span class="token keyword">var</span> list <span class="token operator">=</span> <span class="token punctuation">[</span>
+<span class="token punctuation">{</span>title<span class="token punctuation">:</span><span class="token string">"AAA"</span><span class="token punctuation">,</span>year<span class="token punctuation">:</span> <span class="token number">1982</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">{</span>title<span class="token punctuation">:</span><span class="token string">"BBB"</span><span class="token punctuation">,</span>year<span class="token punctuation">:</span> <span class="token number">1900</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">{</span>title<span class="token punctuation">:</span><span class="token string">"CCC"</span><span class="token punctuation">,</span>year<span class="token punctuation">:</span> <span class="token number">1982</span><span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
+_<span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span><span class="token punctuation">{</span>year<span class="token punctuation">:</span> <span class="token number">1982</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span> <span class="token punctuation">{</span> title<span class="token punctuation">:</span> <span class="token string">'AAA'</span><span class="token punctuation">,</span> year<span class="token punctuation">:</span> <span class="token number">1982</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> title<span class="token punctuation">:</span> <span class="token string">'CCC'</span><span class="token punctuation">,</span> year<span class="token punctuation">:</span> <span class="token number">1982</span> <span class="token punctuation">}</span> <span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>_.contains = _.includes = _.include: 判断数组或者对象中（value 值）是否有指定元素</p>
+</li>
+<li><p>every = all  所有满足 返回true</p>
+</li>
+<li><p>some = any  只有有一个满足 返回true</p>
+</li>
+<li><p>invoke:  数组或者对象中的每个元素都调用 method 方法，返回调用后的结果（数组或者关联数组）</p>
+</li>
+<li><p>pluck: 提取一个集合里指定的属性值</p>
+<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript"><span class="token keyword">var</span> users <span class="token operator">=</span> <span class="token punctuation">[</span>
+<span class="token punctuation">{</span>name<span class="token punctuation">:</span> <span class="token string">'moe'</span><span class="token punctuation">,</span> age<span class="token punctuation">:</span> <span class="token number">40</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">{</span>name<span class="token punctuation">:</span> <span class="token string">'larry'</span><span class="token punctuation">,</span> age<span class="token punctuation">:</span> <span class="token number">50</span><span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
+_<span class="token punctuation">.</span><span class="token function">pluck</span><span class="token punctuation">(</span>users<span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span> <span class="token string">'moe'</span><span class="token punctuation">,</span> <span class="token string">'larry'</span> <span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>max,min,sortBy: 取list中的最大，最小元素，自定义比较器</p>
+<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
+_<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>users<span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>stooge<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">return</span> stooge<span class="token punctuation">.</span>age<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">'larry'</span><span class="token punctuation">,</span> age<span class="token punctuation">:</span> <span class="token number">50</span> <span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> numbers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
+_<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>numbers<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">=</span><span class="token operator">></span> <span class="token number">2</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
+_<span class="token punctuation">.</span><span class="token function">sortBy</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span> <span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">6</span> <span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>​</p>
+</li>
+<li><pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript">groupBy<span class="token punctuation">:</span> 把一个集合分组成多个集合
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
+_<span class="token punctuation">.</span><span class="token function">groupBy</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'one'</span><span class="token punctuation">,</span> <span class="token string">'two'</span><span class="token punctuation">,</span> <span class="token string">'three'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'length'</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> <span class="token string">'3'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token string">'one'</span><span class="token punctuation">,</span> <span class="token string">'two'</span> <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'5'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token string">'three'</span> <span class="token punctuation">]</span> <span class="token punctuation">}</span>
+countBy<span class="token punctuation">:</span> 把一个数据分组后计数
+
+onsole<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
+_<span class="token punctuation">.</span><span class="token function">countBy</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">return</span> num <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">?</span> <span class="token string">'even'</span> <span class="token punctuation">:</span> <span class="token string">'odd'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> odd<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span> even<span class="token punctuation">:</span> <span class="token number">2</span> <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript">toArray<span class="token punctuation">:</span> 将list转换成一个数组
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
+<span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">return</span> _<span class="token punctuation">.</span><span class="token function">toArray</span><span class="token punctuation">(</span>arguments<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span> <span class="token punctuation">]</span>
+size<span class="token punctuation">:</span> 得到list中元素个数
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
+_<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">{</span>one<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> two<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span> three<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>shuffle 随机打乱 洗牌算法</p>
+</li>
+<li><p>partition 将数组或者对象中符合条件的元素和不符合条件的元素分别放入两个数组</p>
+</li>
+</ol>
+</li>
+<li><p>数组</p>
+<ol>
+<li><p>_.first = _.head = _.take 返回前n个元素 n默认为1</p>
+</li>
+<li><p>initial 返回出去后n个元素的数组</p>
+</li>
+<li><p>last 返回后n个元素</p>
+</li>
+<li><p>rest = tail 返回出去前n个元素</p>
+</li>
+<li><p>compact  去除数组中所有的假值 false null undefined ‘’ NaN 0</p>
+</li>
+<li><p>√ flatten 将数组展开  </p>
+<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript">  <span class="token comment" spellcheck="true">//input => Array 或者 arguments</span>
+  <span class="token comment" spellcheck="true">// shallow => 是否只展开一层</span>
+  <span class="token comment" spellcheck="true">// strict === true，通常和 shallow === true 配合使用</span>
+  <span class="token comment" spellcheck="true">// 表示只展开一层，但是不保存非数组元素（即无法展开的基础类型）</span>
+  <span class="token comment" spellcheck="true">// flatten([[1, 2], 3, 4], true, true) => [1, 2]</span>
+  <span class="token comment" spellcheck="true">// flatten([[1, 2], 3, 4], false, true) = > []</span>
+  <span class="token comment" spellcheck="true">// startIndex => 从 input 的第几项开始展开</span>
+  <span class="token comment" spellcheck="true">// ===== //</span>
+  <span class="token comment" spellcheck="true">// 可以看到，如果 strict 参数为 true，那么 shallow 也为 true</span>
+  <span class="token comment" spellcheck="true">// 也就是展开一层，同时把非数组过滤</span>
+  <span class="token comment" spellcheck="true">// [[1, 2], [3, 4], 5, 6] => [1, 2, 3, 4]</span>
+  <span class="token keyword">var</span> flatten <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>input<span class="token punctuation">,</span> shallow<span class="token punctuation">,</span> strict<span class="token punctuation">,</span> startIndex<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// output 数组保存结果</span>
+    <span class="token comment" spellcheck="true">// 即 flatten 方法返回数据</span>
+    <span class="token comment" spellcheck="true">// idx 为 output 的累计数组下标</span>
+    <span class="token keyword">var</span> output <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> idx <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// 根据 startIndex 变量确定需要展开的起始位置</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> startIndex <span class="token operator">||</span> <span class="token number">0</span><span class="token punctuation">,</span> length <span class="token operator">=</span> <span class="token function">getLength</span><span class="token punctuation">(</span>input<span class="token punctuation">)</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">var</span> value <span class="token operator">=</span> input<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+      <span class="token comment" spellcheck="true">// 数组 或者 arguments</span>
+      <span class="token comment" spellcheck="true">// 注意 isArrayLike 还包括 {length: 10} 这样的，过滤掉</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isArrayLike</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>_<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">||</span> _<span class="token punctuation">.</span><span class="token function">isArguments</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// flatten current level of array or arguments object</span>
+        <span class="token comment" spellcheck="true">// (!shallow === true) => (shallow === false)</span>
+        <span class="token comment" spellcheck="true">// 则表示需深度展开</span>
+        <span class="token comment" spellcheck="true">// 继续递归展开</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>shallow<span class="token punctuation">)</span>
+          <span class="token comment" spellcheck="true">// flatten 方法返回数组</span>
+          <span class="token comment" spellcheck="true">// 将上面定义的 value 重新赋值</span>
+          value <span class="token operator">=</span> <span class="token function">flatten</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> shallow<span class="token punctuation">,</span> strict<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// 递归展开到最后一层（没有嵌套的数组了）</span>
+        <span class="token comment" spellcheck="true">// 或者 (shallow === true) => 只展开一层</span>
+        <span class="token comment" spellcheck="true">// value 值肯定是一个数组</span>
+        <span class="token keyword">var</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> len <span class="token operator">=</span> value<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// 这一步貌似没有必要</span>
+        <span class="token comment" spellcheck="true">// 毕竟 JavaScript 的数组会自动扩充</span>
+        <span class="token comment" spellcheck="true">// 但是这样写，感觉比较好，对于元素的 push 过程有个比较清晰的认识</span>
+        output<span class="token punctuation">.</span>length <span class="token operator">+</span><span class="token operator">=</span> len<span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// 将 value 数组的元素添加到 output 数组中</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>j <span class="token operator">&lt;</span> len<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          output<span class="token punctuation">[</span>idx<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> value<span class="token punctuation">[</span>j<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>strict<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// (!strict === true) => (strict === false)</span>
+        <span class="token comment" spellcheck="true">// 如果是深度展开，即 shallow 参数为 false</span>
+        <span class="token comment" spellcheck="true">// 那么当最后 value 不是数组，是基本类型时</span>
+        <span class="token comment" spellcheck="true">// 肯定会走到这个 else-if 判断中</span>
+        <span class="token comment" spellcheck="true">// 而如果此时 strict 为 true，则不能跳到这个分支内部</span>
+        <span class="token comment" spellcheck="true">// 所以 shallow === false 如果和 strict === true 搭配</span>
+        <span class="token comment" spellcheck="true">// 调用 flatten 方法得到的结果永远是空数组 []</span>
+        output<span class="token punctuation">[</span>idx<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> value<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> output<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>without 从数组中移除指定的元素，返回移除后的数组副本</p>
+</li>
+<li><p>union,intersection,difference,uniq: 并集，交集，差集，取唯一(去重)</p>
+</li>
+<li><p>zip unzip 合并数组中的元素 是group的反向操作</p>
+</li>
+<li><p>indexOf,lastIndexOf, 取索引位置 sortedIndex 二分查找</p>
+<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">createIndexFinder</span><span class="token punctuation">(</span>dir<span class="token punctuation">,</span> predicateFind<span class="token punctuation">,</span> sortedIndex<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>​</p>
+</li>
+</ol>
+</li>
+<li><p>函数</p>
+<ol>
+<li><p>bind: this指向不变  bindAll 绑定方法名到对象上, 当这些方法被执行时将在对象的上下文执行. 绑定函数用作事件处理时非常方便, 否则函数调用时 this 关键字根本没什么用</p>
+<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript"><span class="token keyword">var</span> func <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>greeting<span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token keyword">return</span> greeting <span class="token operator">+</span> <span class="token string">': '</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token punctuation">}</span><span class="token punctuation">;</span>
+func <span class="token operator">=</span> _<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>func<span class="token punctuation">,</span> <span class="token punctuation">{</span>name <span class="token punctuation">:</span> <span class="token string">'moe'</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'hi'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">=</span><span class="token operator">></span> hi<span class="token punctuation">:</span> moe
+
+<span class="token keyword">var</span> buttonView <span class="token operator">=</span> <span class="token punctuation">{</span>
+label <span class="token punctuation">:</span> <span class="token string">'underscore'</span><span class="token punctuation">,</span>
+onClick <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'clicked: '</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>label<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+onHover <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hovering: '</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>label<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> func <span class="token operator">=</span> _<span class="token punctuation">.</span><span class="token function">bindAll</span><span class="token punctuation">(</span>buttonView<span class="token punctuation">,</span> <span class="token string">'onClick'</span><span class="token punctuation">,</span> <span class="token string">'onHover'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+func<span class="token punctuation">.</span><span class="token function">onClick</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">=</span><span class="token operator">></span> clicked<span class="token punctuation">:</span> underscore
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>​</p>
+</li>
+<li><p>partial:在不改变this的情况下，通过参数填充数据  <del>可以使方法设定默认值</del> <a href="https://en.wikipedia.org/wiki/Currying" target="_blank" rel="noopener">柯里化(Currying)</a></p>
+<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript"><span class="token keyword">var</span> add <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+add5 <span class="token operator">=</span> _<span class="token punctuation">.</span><span class="token function">partial</span><span class="token punctuation">(</span>add<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">add5</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">=</span><span class="token operator">></span> <span class="token number">15</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>​</p>
+</li>
+<li><p>memoize 记忆化，存储中间运算结果，提高效率</p>
+<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript">  <span class="token comment" spellcheck="true">// 参数 hasher 是个 function，用来计算 key</span>
+  <span class="token comment" spellcheck="true">// 如果传入了 hasher，则用 hasher 来计算 key</span>
+  <span class="token comment" spellcheck="true">// 否则用 key 参数直接当 key（即 memoize 方法传入的第一个参数）</span>
+  <span class="token comment" spellcheck="true">// _.memoize(function, [hashFunction])</span>
+  <span class="token comment" spellcheck="true">// 适用于需要大量重复求值的场景</span>
+  <span class="token comment" spellcheck="true">// 比如递归求解菲波那切数</span>
+  <span class="token keyword">var</span> fibonacci <span class="token operator">=</span> _<span class="token punctuation">.</span><span class="token function">memoize</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> n <span class="token operator">&lt;</span> <span class="token number">2</span> <span class="token operator">?</span> n <span class="token punctuation">:</span> <span class="token function">fibonacci</span><span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">fibonacci</span><span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">fibonacci</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token operator">=</span><span class="token operator">></span> <span class="token number">55</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>​</p>
+</li>
+<li><p>delay: 延迟触发 setTimeout   _.defer = _.partial ( _.delay, _, 1);</p>
+</li>
+<li><p>throttle: 函数节流（如果有连续事件响应，则每间隔一定时间段触发）</p>
+<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript">  <span class="token comment" spellcheck="true">// 每间隔 wait(Number) milliseconds 触发一次 func 方法</span>
+  <span class="token comment" spellcheck="true">// 如果 options 参数传入 {leading: false}</span>
+  <span class="token comment" spellcheck="true">// 那么不会马上触发（等待 wait milliseconds 后第一次触发 func）</span>
+  <span class="token comment" spellcheck="true">// 如果 options 参数传入 {trailing: false}</span>
+  <span class="token comment" spellcheck="true">// 那么最后一次回调不会被触发</span>
+  <span class="token comment" spellcheck="true">// options 不能同时设置 leading 和 trailing 为 false</span>
+  <span class="token comment" spellcheck="true">// 示例：</span>
+  <span class="token comment" spellcheck="true">// var throttled = _.throttle(updatePosition, 100);</span>
+  <span class="token comment" spellcheck="true">// $(window).scroll(throttled);</span>
+  <span class="token comment" spellcheck="true">// 调用方式（注意看 A 和 B console.log 打印的位置）：</span>
+  <span class="token comment" spellcheck="true">// _.throttle(function, wait, [options])</span>
+  <span class="token comment" spellcheck="true">// sample 1: _.throttle(function(){}, 1000)</span>
+  <span class="token comment" spellcheck="true">// print: A, B, B, B ...</span>
+  <span class="token comment" spellcheck="true">// sample 2: _.throttle(function(){}, 1000, {leading: false})</span>
+  <span class="token comment" spellcheck="true">// print: B, B, B, B ...</span>
+  <span class="token comment" spellcheck="true">// sample 3: _.throttle(function(){}, 1000, {trailing: false})</span>
+  <span class="token comment" spellcheck="true">// print: A, A, A, A ...</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>debounce: 函数去抖（连续事件触发结束后只触发一次）</p>
+<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript"><span class="token comment" spellcheck="true">// sample 1: _.debounce(function(){}, 1000)</span>
+<span class="token comment" spellcheck="true">// 连续事件结束后的 1000ms 后触发</span>
+<span class="token comment" spellcheck="true">// sample 1: _.debounce(function(){}, 1000, true)</span>
+<span class="token comment" spellcheck="true">// 连续事件触发后立即触发（此时会忽略第二个参数）</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>wrap 以函数作为函数传递，可以增加函数前后的控制</p>
+<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript"><span class="token keyword">var</span> hello <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token string">"hello: "</span> <span class="token operator">+</span> name<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+hello <span class="token operator">=</span> _<span class="token punctuation">.</span><span class="token function">wrap</span><span class="token punctuation">(</span>hello<span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>func<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">return</span> <span class="token string">"before, "</span> <span class="token operator">+</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token string">"moe"</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">", after"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">=</span><span class="token operator">></span> before<span class="token punctuation">,</span> hello<span class="token punctuation">:</span> moe<span class="token punctuation">,</span> after
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>​</p>
+</li>
+<li><p>compose: 组合函数调用关系，把单独的f(),g(),h()组合成f(g(h()))</p>
+</li>
+</ol>
+</li>
+<li><p>对象</p>
+<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript"><span class="token comment" spellcheck="true">// Keys in IE &lt; 9 that won't be iterated by `for key in ...` and thus missed.</span>
+  <span class="token comment" spellcheck="true">// IE &lt; 9 下 不能用 for key in ... 来枚举对象的某些 key</span>
+  <span class="token comment" spellcheck="true">// 比如重写了对象的 `toString` 方法，这个 key 值就不能在 IE &lt; 9 下用 for in 枚举到</span>
+  <span class="token comment" spellcheck="true">// IE &lt; 9，{toString: null}.propertyIsEnumerable('toString') 返回 false</span>
+  <span class="token comment" spellcheck="true">// IE &lt; 9，重写的 `toString` 属性被认为不可枚举</span>
+  <span class="token comment" spellcheck="true">// 据此可以判断是否在 IE &lt; 9 浏览器环境中</span>
+  <span class="token keyword">var</span> hasEnumBug <span class="token operator">=</span> <span class="token operator">!</span><span class="token punctuation">{</span>toString<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">}</span><span class="token punctuation">.</span><span class="token function">propertyIsEnumerable</span><span class="token punctuation">(</span><span class="token string">'toString'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// IE &lt; 9 下不能用 for in 来枚举的 key 值集合</span>
+  <span class="token comment" spellcheck="true">//为什么constructor要和nonEnumerableProps区分处理</span>
+  <span class="token comment" spellcheck="true">// 个人觉得可能是 `constructor` 和其他属性不属于一类</span>
+  <span class="token comment" spellcheck="true">// nonEnumerableProps[] 中都是方法</span>
+  <span class="token comment" spellcheck="true">// 而 constructor 表示的是对象的构造函数</span>
+  <span class="token comment" spellcheck="true">// 所以区分开来了</span>
+  <span class="token keyword">var</span> nonEnumerableProps <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'valueOf'</span><span class="token punctuation">,</span> <span class="token string">'isPrototypeOf'</span><span class="token punctuation">,</span> <span class="token string">'toString'</span><span class="token punctuation">,</span>
+                      <span class="token string">'propertyIsEnumerable'</span><span class="token punctuation">,</span> <span class="token string">'hasOwnProperty'</span><span class="token punctuation">,</span> <span class="token string">'toLocaleString'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>​</p>
+<ol>
+<li><p>keys,values,paris,invert: 取属性名，取属性值，把对象转换成[key,value]数组，对调键值</p>
+<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript"><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>one<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> two<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span> three<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>_<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>_<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>_<span class="token punctuation">.</span><span class="token function">pairs</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>_<span class="token punctuation">.</span><span class="token function">invert</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span> <span class="token string">'one'</span><span class="token punctuation">,</span> <span class="token string">'two'</span><span class="token punctuation">,</span> <span class="token string">'three'</span> <span class="token punctuation">]</span>
+<span class="token punctuation">[</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span> <span class="token punctuation">]</span>
+<span class="token punctuation">[</span> <span class="token punctuation">[</span> <span class="token string">'one'</span><span class="token punctuation">,</span> <span class="token number">1</span> <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span> <span class="token string">'two'</span><span class="token punctuation">,</span> <span class="token number">2</span> <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span> <span class="token string">'three'</span><span class="token punctuation">,</span> <span class="token number">3</span> <span class="token punctuation">]</span> <span class="token punctuation">]</span>
+<span class="token punctuation">{</span> <span class="token string">'1'</span><span class="token punctuation">:</span> <span class="token string">'one'</span><span class="token punctuation">,</span> <span class="token string">'2'</span><span class="token punctuation">:</span> <span class="token string">'two'</span><span class="token punctuation">,</span> <span class="token string">'3'</span><span class="token punctuation">:</span> <span class="token string">'three'</span> <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>​</p>
+</li>
+<li><p>extend: 复制对象的所有属性到目标对象上，覆盖已有属性</p>
+<p>defaults: 复制对象的所有属性到目标对象上，跳过已有属性</p>
+<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
+_<span class="token punctuation">.</span><span class="token function">extend</span><span class="token punctuation">(</span><span class="token punctuation">{</span>name <span class="token punctuation">:</span> <span class="token string">'moe'</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>age <span class="token punctuation">:</span> <span class="token number">50</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">'moe'</span><span class="token punctuation">,</span> age<span class="token punctuation">:</span> <span class="token number">50</span> <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
+</li>
+</ol>
+<pre><code>  var iceCream = {flavor : &quot;chocolate&quot;};
+  console.log(
+  _.defaults(iceCream, {flavor : &quot;vanilla&quot;, sprinkles : &quot;lots&quot;})
+  );
+  =&gt; { flavor: &#39;chocolate&#39;, sprinkles: &#39;lots&#39; }
+</code></pre><pre><code>
+1. pick,omit: 返回一个对象的副本，保留指定的属性或去掉指定的属性
+
+2. tag: 用对象作为参数来调用函数，作为函数链式调用的一环
+
+3. isEqual:
+
+   ```javascript
+    // &quot;内部的&quot;/ &quot;递归地&quot;/ &quot;比较&quot;
+     // 该内部方法会被递归调用
+     var eq = function(a, b, aStack, bStack) {
+       // Identical objects are equal. `0 === -0`, but they aren&#39;t identical.
+       // See the [Harmony `egal` proposal](http://wiki.ecmascript.org/doku.php?id=harmony:egal).
+       // a === b 时
+       // 需要注意 `0 === -0` 这个 special case
+       // 0 和 -0 被认为不相同（unequal）
+       // 至于原因可以参考上面的链接
+       if (a === b) return a !== 0 || 1 / a === 1 / b;
+
+       // A strict comparison is necessary because `null == undefined`.
+       // 如果 a 和 b 有一个为 null（或者 undefined）
+       // 判断 a === b
+       if (a == null || b == null) return a === b;
+
+       // Unwrap any wrapped objects.
+       // 如果 a 和 b 是 underscore OOP 的对象
+       // 那么比较 _wrapped 属性值（Unwrap）
+       if (a instanceof _) a = a._wrapped;
+       if (b instanceof _) b = b._wrapped;
+
+       // Compare `[[Class]]` names.
+       // 用 Object.prototype.toString.call 方法获取 a 变量类型
+       var className = toString.call(a);
+
+       // 如果 a 和 b 类型不相同，则返回 false
+       // 类型都不同了还比较个蛋！
+       if (className !== toString.call(b)) return false;
+
+       switch (className) {
+         // Strings, numbers, regular expressions, dates, and booleans are compared by value.
+         // 以上五种类型的元素可以直接根据其 value 值来比较是否相等
+         case &#39;[object RegExp]&#39;:
+         // RegExps are coerced to strings for comparison (Note: &#39;&#39; + /a/i === &#39;/a/i&#39;)
+         case &#39;[object String]&#39;:
+           // Primitives and their corresponding object wrappers are equivalent; thus, `&quot;5&quot;` is
+           // equivalent to `new String(&quot;5&quot;)`.
+           // 转为 String 类型进行比较
+           return &#39;&#39; + a === &#39;&#39; + b;
+
+         // RegExp 和 String 可以看做一类
+         // 如果 obj 为 RegExp 或者 String 类型
+         // 那么 &#39;&#39; + obj 会将 obj 强制转为 String
+         // 根据 &#39;&#39; + a === &#39;&#39; + b 即可判断 a 和 b 是否相等
+         // ================
+
+         case &#39;[object Number]&#39;:
+           // `NaN`s are equivalent, but non-reflexive.
+           // Object(NaN) is equivalent to NaN
+           // 如果 +a !== +a
+           // 那么 a 就是 NaN
+           // 判断 b 是否也是 NaN 即可
+           if (+a !== +a) return +b !== +b;
+
+           // An `egal` comparison is performed for other numeric values.
+           // 排除了 NaN 干扰
+           // 还要考虑 0 的干扰
+           // 用 +a 将 Number() 形式转为基本类型
+           // 即 +Number(1) ==&gt; 1
+           // 0 需要特判
+           // 如果 a 为 0，判断 1 / +a === 1 / b
+           // 否则判断 +a === +b
+           return +a === 0 ? 1 / +a === 1 / b : +a === +b;
+
+         // 如果 a 为 Number 类型
+         // 要注意 NaN 这个 special number
+         // NaN 和 NaN 被认为 equal
+         // ================
+
+         case &#39;[object Date]&#39;:
+         case &#39;[object Boolean]&#39;:
+           // Coerce dates and booleans to numeric primitive values. Dates are compared by their
+           // millisecond representations. Note that invalid dates with millisecond representations
+           // of `NaN` are not equivalent.
+           return +a === +b;
+
+         // Date 和 Boolean 可以看做一类
+         // 如果 obj 为 Date 或者 Boolean
+         // 那么 +obj 会将 obj 转为 Number 类型
+         // 然后比较即可
+         // +new Date() 是当前时间距离 1970 年 1 月 1 日 0 点的毫秒数
+         // +true =&gt; 1
+         // +new Boolean(false) =&gt; 0
+       }
+</code></pre><pre><code>      // 判断 a 是否是数组
+      var areArrays = className === &#39;[object Array]&#39;;
+
+      // 如果 a 不是数组类型
+      if (!areArrays) {
+        // 如果 a 不是 object 或者 b 不是 object
+        // 则返回 false
+        if (typeof a != &#39;object&#39; || typeof b != &#39;object&#39;) return false;
+
+        // 通过上个步骤的 if 过滤
+        // !!保证到此的 a 和 b 均为对象!!
+
+        // Objects with different constructors are not equivalent, but `Object`s or `Array`s
+        // from different frames are.
+        // 通过构造函数来判断 a 和 b 是否相同
+        // 但是，如果 a 和 b 的构造函数不同
+        // 也并不一定 a 和 b 就是 unequal
+        // 比如 a 和 b 在不同的 iframes 中！
+        // aCtor instanceof aCtor 这步有点不大理解，啥用？
+        var aCtor = a.constructor, bCtor = b.constructor;
+        if (aCtor !== bCtor &amp;&amp; !(_.isFunction(aCtor) &amp;&amp; aCtor instanceof aCtor &amp;&amp;
+                                 _.isFunction(bCtor) &amp;&amp; bCtor instanceof bCtor)
+                            &amp;&amp; (&#39;constructor&#39; in a &amp;&amp; &#39;constructor&#39; in b)) {
+          return false;
+        }
+      }
+
+      // Assume equality for cyclic structures. The algorithm for detecting cyclic
+      // structures is adapted from ES 5.1 section 15.12.3, abstract operation `JO`.
+
+      // Initializing stack of traversed objects.
+      // It&#39;s done here since we only need them for objects and arrays comparison.
+      // 第一次调用 eq() 函数，没有传入 aStack 和 bStack 参数
+      // 之后递归调用都会传入这两个参数
+      aStack = aStack || [];
+      bStack = bStack || [];
+
+      var length = aStack.length;
+
+      while (length--) {
+        // Linear search. Performance is inversely proportional to the number of
+        // unique nested structures.
+        if (aStack[length] === a) return bStack[length] === b;
+      }
+
+      // Add the first object to the stack of traversed objects.
+      aStack.push(a);
+      bStack.push(b);
+
+      // Recursively compare objects and arrays.
+      // 将嵌套的对象和数组展开
+      // 如果 a 是数组
+      // 因为嵌套，所以需要展开深度比较
+      if (areArrays) {
+        // Compare array lengths to determine if a deep comparison is necessary.
+        // 根据 length 判断是否应该继续递归对比
+        length = a.length;
+
+        // 如果 a 和 b length 属性大小不同
+        // 那么显然 a 和 b 不同
+        // return false 不用继续比较了
+        if (length !== b.length) return false;
+
+        // Deep compare the contents, ignoring non-numeric properties.
+        while (length--) {
+          // 递归
+          if (!eq(a[length], b[length], aStack, bStack)) return false;
+        }
+      } else {
+        // 如果 a 不是数组
+        // 进入这个判断分支
+
+        // Deep compare objects.
+        // 两个对象的深度比较
+        var keys = _.keys(a), key;
+        length = keys.length;
+
+        // Ensure that both objects contain the same number of properties before comparing deep equality.
+        // a 和 b 对象的键数量不同
+        // 那还比较毛？
+        if (_.keys(b).length !== length) return false;
+
+        while (length--) {
+          // Deep compare each member
+          // 递归比较
+          key = keys[length];
+          if (!(_.has(b, key) &amp;&amp; eq(a[key], b[key], aStack, bStack))) return false;
+        }
+      }
+
+      // Remove the first object from the stack of traversed objects.
+      // 与 aStack.push(a) 对应
+      // 此时 aStack 栈顶元素正是 a
+      // 而代码走到此步
+      // a 和 b isEqual 确认
+      // 所以 a，b 两个元素可以出栈
+      aStack.pop();
+      bStack.pop();
+
+      // 深度搜索递归比较完毕
+      // 放心地 return true
+      return true;
+    };
+</code></pre><p>  ​</p>
+<pre><code>
+1. isNaN   ====&gt;   _.isNaN(new Number(0))  =&gt;  true  
+
+2. 实用功能
+
+   1. noConflict: 把 “_” 变量的控制权预留给它原有的所有者. 返回一个引用给 Underscore 对象
+
+   2. identity: 返回与传入参数相等的值. 相当于数学里的: f(x) = x
+
+   3. times: 执行某函数n次
+
+   4. escape,unescape:转义HTML字符串，反转到HTML字符串
+
+      ```javascript
+      console.log(_.escape(&#39;Curly, Larry &amp; Moe&#39;));
+      =&gt; Curly, Larry &amp;amp; Moe
+      console.log(_.unescape(&#39;Curly, Larry &amp;amp; Moe&#39;));
+      =&gt; Curly, Larry &amp; Moe
+</code></pre><pre><code>  ​
+</code></pre><ol start="5">
+<li><p>​</p>
+<p>​</p>
+</li>
+</ol>
+<ol start="3">
+<li><p>链式</p>
+<ol>
+<li><p>chain: 返回一个封装的对象。在封装的对象上调用方法会返回封装的对象本身，直到value()方法调用为止。</p>
+<pre class="line-numbers language-javascript" mdui-tooltip="{content: 'javascript'}"><code class="language-javascript"><span class="token keyword">var</span> stooges <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>name <span class="token punctuation">:</span> <span class="token string">'curly'</span><span class="token punctuation">,</span> age <span class="token punctuation">:</span> <span class="token number">25</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>name <span class="token punctuation">:</span> <span class="token string">'moe'</span><span class="token punctuation">,</span> age <span class="token punctuation">:</span> <span class="token number">21</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>name <span class="token punctuation">:</span> <span class="token string">'larry'</span><span class="token punctuation">,</span> age <span class="token punctuation">:</span> <span class="token number">23</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> youngest <span class="token operator">=</span> _<span class="token punctuation">.</span><span class="token function">chain</span><span class="token punctuation">(</span>stooges<span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token function">sortBy</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>stooge<span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token keyword">return</span> stooge<span class="token punctuation">.</span>age<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>stooge<span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token keyword">return</span> stooge<span class="token punctuation">.</span>name <span class="token operator">+</span> <span class="token string">' is '</span> <span class="token operator">+</span> stooge<span class="token punctuation">.</span>age<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token function">first</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token function">value</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>youngest<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">=</span><span class="token operator">></span> moe is <span class="token number">21</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>​</p>
+</li>
+</ol>
+</li>
+<li><p><a href="https://github.com/reindexio/youmightnotneedunderscore" target="_blank" rel="noopener">可能不是很需要underscore</a></p>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><h4 id="Iterate"><a href="#Iterate" class="headerlink" title="Iterate"></a>Iterate</h4><ul>
+<li><p>Underscore</p>
+<pre><code>_.each(array, iteratee)
+</code></pre></li>
+<li><p>ES5.1</p>
+<pre><code>array.forEach(iteratee)
+</code></pre></li>
+</ul>
+<h4 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h4><ul>
+<li><p>Underscore</p>
+<pre><code>_.map(array, iteratee)
+</code></pre></li>
+<li><p>ES5.1</p>
+<pre><code>array.map(iteratee)
+</code></pre></li>
+</ul>
+<h4 id="Use-a-function-to-accumulate-a-single-value-from-an-array-left-to-right"><a href="#Use-a-function-to-accumulate-a-single-value-from-an-array-left-to-right" class="headerlink" title="Use a function to accumulate a single value from an array (left-to-right)"></a>Use a function to accumulate a single value from an array (left-to-right)</h4><ul>
+<li><p>Underscore</p>
+<pre><code>_.reduce(array, iteratee, memo)
+</code></pre></li>
+<li><p>ES5.1</p>
+<pre><code>array.reduce(iteratee, memo)
+</code></pre></li>
+</ul>
+<h4 id="Use-a-function-to-accumulate-a-single-value-from-an-array-right-to-left"><a href="#Use-a-function-to-accumulate-a-single-value-from-an-array-right-to-left" class="headerlink" title="Use a function to accumulate a single value from an array (right-to-left)"></a>Use a function to accumulate a single value from an array (right-to-left)</h4><ul>
+<li><p>Underscore</p>
+<pre><code>_.reduceRight(array, iteratee, memo)
+</code></pre></li>
+<li><p>ES5.1</p>
+<pre><code>array.reduceRight(iteratee, memo)
+</code></pre></li>
+</ul>
+<h4 id="Test-whether-all-elements-in-an-array-pass-a-predicate"><a href="#Test-whether-all-elements-in-an-array-pass-a-predicate" class="headerlink" title="Test whether all elements in an array pass a predicate"></a>Test whether all elements in an array pass a predicate</h4><ul>
+<li><p>Underscore</p>
+<pre><code>_.every(array, predicate)
+</code></pre></li>
+<li><p>ES5.1</p>
+<pre><code>array.every(predicate)
+</code></pre></li>
+</ul>
+<h4 id="Test-whether-some-element-in-an-array-passes-a-predicate"><a href="#Test-whether-some-element-in-an-array-passes-a-predicate" class="headerlink" title="Test whether some element in an array passes a predicate"></a>Test whether some element in an array passes a predicate</h4><ul>
+<li><p>Underscore</p>
+<pre><code>_.some(array, predicate)
+</code></pre></li>
+<li><p>ES5.1</p>
+<pre><code>array.some(predicate)
+</code></pre></li>
+</ul>
+<h4 id="Find-a-value-in-an-array"><a href="#Find-a-value-in-an-array" class="headerlink" title="Find a value in an array"></a>Find a value in an array</h4><ul>
+<li><p>Underscore</p>
+<pre><code>_.find(array, predicate)
+</code></pre></li>
+<li><p>ES2015</p>
+<pre><code>array.find(predicate)
+</code></pre></li>
+</ul>
+<h4 id="Get-a-property-from-each-element-in-an-array"><a href="#Get-a-property-from-each-element-in-an-array" class="headerlink" title="Get a property from each element in an array"></a>Get a property from each element in an array</h4><ul>
+<li><p>Underscore</p>
+<pre><code>_.pluck(array, propertyName)
+</code></pre></li>
+<li><p>ES2015</p>
+<pre><code>array.map(value =&gt; value[propertyName])
+</code></pre></li>
+</ul>
+<h4 id="Check-if-array-includes-an-element"><a href="#Check-if-array-includes-an-element" class="headerlink" title="Check if array includes an element"></a>Check if array includes an element</h4><ul>
+<li><p>Underscore</p>
+<pre><code>_.includes(array, element)
+</code></pre></li>
+<li><p>ES2016</p>
+<pre><code>array.includes(element)
+</code></pre></li>
+</ul>
+<h4 id="Convert-an-array-like-object-to-array"><a href="#Convert-an-array-like-object-to-array" class="headerlink" title="Convert an array-like object to array"></a>Convert an array-like object to array</h4><ul>
+<li><p>Underscore</p>
+<pre><code>_.toArray(arguments)
+</code></pre></li>
+<li><p>ES2015</p>
+<pre><code>[...arguments]
+</code></pre></li>
+</ul>
+<h4 id="Convert-an-array-of-keys-and-values-to-an-object"><a href="#Convert-an-array-of-keys-and-values-to-an-object" class="headerlink" title="Convert an array of keys and values to an object"></a>Convert an array of keys and values to an object</h4><ul>
+<li><p>Underscore</p>
+<pre><code>_.object(array)
+</code></pre></li>
+<li><p>ES2015</p>
+<pre><code>array.reduce((result, [key, val]) =&gt; Object.assign(result, {[key]: val}), {})
+</code></pre></li>
+<li><p>Object Rest/Spread (Stage 2)</p>
+<pre><code>array.reduce((result, [key, val]) =&gt; {...result, [key]: val}, {})
+</code></pre></li>
+</ul>
+<h4 id="Create-a-copy-of-an-array-with-all-falsy-values-removed"><a href="#Create-a-copy-of-an-array-with-all-falsy-values-removed" class="headerlink" title="Create a copy of an array with all falsy values removed"></a>Create a copy of an array with all falsy values removed</h4><ul>
+<li><p>Underscore</p>
+<pre><code>_.compact(array)
+</code></pre></li>
+<li><p>ES5.1</p>
+<pre><code>array.filter(Boolean)
+</code></pre></li>
+<li><p>ES2015</p>
+<pre><code>array.filter(x =&gt; !!x)
+</code></pre></li>
+</ul>
+<h4 id="Create-a-copy-of-an-array-with-duplicates-removed"><a href="#Create-a-copy-of-an-array-with-duplicates-removed" class="headerlink" title="Create a copy of an array with duplicates removed"></a>Create a copy of an array with duplicates removed</h4><ul>
+<li><p>Underscore</p>
+<pre><code>_.uniq(array)
+</code></pre></li>
+<li><p>ES2015</p>
+<pre><code>[...new Set(array)]
+</code></pre></li>
+</ul>
+<h4 id="Find-the-index-of-a-value-in-an-array"><a href="#Find-the-index-of-a-value-in-an-array" class="headerlink" title="Find the index of a value in an array"></a>Find the index of a value in an array</h4><ul>
+<li><p>Underscore</p>
+<pre><code>_.indexOf(array, value)
+</code></pre></li>
+<li><p>ES5.1</p>
+<pre><code>array.indexOf(value)
+</code></pre></li>
+</ul>
+<h4 id="Find-the-index-in-an-array-by-predicate"><a href="#Find-the-index-in-an-array-by-predicate" class="headerlink" title="Find the index in an array by predicate"></a>Find the index in an array by predicate</h4><ul>
+<li><p>Underscore</p>
+<pre><code>_.findIndex([4, 6, 7, 12], isPrime);
+</code></pre></li>
+<li><p>ES2015</p>
+<pre><code>[4, 6, 7, 12].findIndex(isPrime);
+</code></pre></li>
+</ul>
+<h4 id="Create-an-array-with-n-numbers-starting-from-x"><a href="#Create-an-array-with-n-numbers-starting-from-x" class="headerlink" title="Create an array with n numbers, starting from x"></a>Create an array with n numbers, starting from x</h4><ul>
+<li><p>Underscore</p>
+<pre><code>_.range(x, x + n)
+</code></pre></li>
+<li><p>ES2015</p>
+<pre><code>Array.from(Array(n), (_, i) =&gt; x + i)
+</code></pre></li>
+</ul>
+<h3 id="Objects"><a href="#Objects" class="headerlink" title="Objects"></a>Objects</h3><h4 id="Names-of-own-enumerable-properties-as-an-array"><a href="#Names-of-own-enumerable-properties-as-an-array" class="headerlink" title="Names of own enumerable properties as an array"></a>Names of own enumerable properties as an array</h4><ul>
+<li><p>Underscore</p>
+<pre><code>_.keys(object)
+</code></pre></li>
+<li><p>ES5.1</p>
+<pre><code>Object.keys(object)
+</code></pre></li>
+</ul>
+<h4 id="Number-of-keys-in-an-object"><a href="#Number-of-keys-in-an-object" class="headerlink" title="Number of keys in an object"></a>Number of keys in an object</h4><ul>
+<li><p>Underscore</p>
+<pre><code>_.size(object)
+</code></pre></li>
+<li><p>ES5.1</p>
+<pre><code>Object.keys(object).length
+</code></pre></li>
+</ul>
+<h4 id="Names-of-all-enumerable-properties-as-an-array"><a href="#Names-of-all-enumerable-properties-as-an-array" class="headerlink" title="Names of all enumerable properties as an array"></a>Names of all enumerable properties as an array</h4><ul>
+<li><p>Underscore</p>
+<pre><code>_.allKeys(object)
+</code></pre></li>
+<li><p>ES2015</p>
+<pre><code>[...Reflect.enumerate(object)]
+</code></pre></li>
+</ul>
+<h4 id="Values"><a href="#Values" class="headerlink" title="Values"></a>Values</h4><ul>
+<li><p>Underscore</p>
+<pre><code>_.values(object)
+</code></pre></li>
+<li><p>ES2015</p>
+<pre><code>Object.keys(object).map(key =&gt; object[key])
+</code></pre></li>
+</ul>
+<h4 id="Create-a-new-object-with-the-given-prototype-and-properties"><a href="#Create-a-new-object-with-the-given-prototype-and-properties" class="headerlink" title="Create a new object with the given prototype and properties"></a>Create a new object with the given prototype and properties</h4><ul>
+<li><p>Underscore</p>
+<pre><code>_.create(proto, properties)
+</code></pre></li>
+<li><p>ES2015</p>
+<pre><code>Object.assign(Object.create(proto), properties)
+</code></pre></li>
+</ul>
+<h4 id="Create-a-new-object-from-merged-own-properties"><a href="#Create-a-new-object-from-merged-own-properties" class="headerlink" title="Create a new object from merged own properties"></a>Create a new object from merged own properties</h4><ul>
+<li><p>Underscore</p>
+<pre><code>_.assign({}, source, { a: false })
+</code></pre></li>
+<li><p>ES2015</p>
+<pre><code>Object.assign({}, source, { a: false })
+</code></pre></li>
+<li><p>Object Rest/Spread (Stage 2)</p>
+<pre><code>{ ...source, a: false }
+</code></pre></li>
+</ul>
+<h4 id="Create-a-shallow-clone-of-own-properties-of-an-object"><a href="#Create-a-shallow-clone-of-own-properties-of-an-object" class="headerlink" title="Create a shallow clone of own properties of an object"></a>Create a shallow clone of own properties of an object</h4><ul>
+<li><p>Underscore</p>
+<pre><code>_.extendOwn({}, object)
+</code></pre></li>
+<li><p>Object Rest/Spread (Stage 2)</p>
+<pre><code>{ ...object }
+</code></pre></li>
+</ul>
+<h4 id="Check-if-an-object-is-an-array"><a href="#Check-if-an-object-is-an-array" class="headerlink" title="Check if an object is an array"></a>Check if an object is an array</h4><ul>
+<li><p>Underscore</p>
+<pre><code>_.isArray(object)
+</code></pre></li>
+<li><p>ES5.1</p>
+<pre><code>Array.isArray(object)
+</code></pre></li>
+</ul>
+<h4 id="Check-if-an-object-is-a-finite-Number"><a href="#Check-if-an-object-is-a-finite-Number" class="headerlink" title="Check if an object is a finite Number"></a>Check if an object is a finite Number</h4><ul>
+<li><p>Underscore</p>
+<pre><code>_.isNumber(object) &amp;&amp; _.isFinite(object)
+</code></pre></li>
+<li><p>ES2015</p>
+<pre><code>Number.isFinite(object)
+</code></pre></li>
+</ul>
+<h3 id="Functions"><a href="#Functions" class="headerlink" title="Functions"></a>Functions</h3><h4 id="Bind-a-function-to-an-object"><a href="#Bind-a-function-to-an-object" class="headerlink" title="Bind a function to an object"></a>Bind a function to an object</h4><ul>
+<li><p>Underscore</p>
+<pre><code>foo(_.bind(function () {
+  this.bar();
+}, this));
+
+foo(_.bind(object.fun, object));
+</code></pre></li>
+<li><p>ES2015</p>
+<pre><code>foo(() =&gt; {
+  this.bar();
+});
+
+foo(() =&gt; object.fun());
+</code></pre></li>
+</ul>
+<h3 id="Utility"><a href="#Utility" class="headerlink" title="Utility"></a>Utility</h3><h4 id="Identity-function"><a href="#Identity-function" class="headerlink" title="Identity function"></a>Identity function</h4><ul>
+<li><p>Underscore</p>
+<pre><code>_.identity
+</code></pre></li>
+<li><p>ES2015</p>
+<pre><code>value =&gt; value
+</code></pre></li>
+</ul>
+<h4 id="A-function-that-returns-a-value"><a href="#A-function-that-returns-a-value" class="headerlink" title="A function that returns a value"></a>A function that returns a value</h4><ul>
+<li><p>Underscore</p>
+<pre><code>_.constant(value)
+</code></pre></li>
+<li><p>ES2015</p>
+<pre><code>() =&gt; value
+</code></pre></li>
+</ul>
+<h4 id="The-empty-function"><a href="#The-empty-function" class="headerlink" title="The empty function"></a>The empty function</h4><ul>
+<li><p>Underscore</p>
+<pre><code>_.noop
+</code></pre></li>
+<li><p>ES2015</p>
+<pre><code>() =&gt; {}
+</code></pre></li>
+</ul>
+<h4 id="Get-the-current-time-in-milliseconds-since-the-epoch"><a href="#Get-the-current-time-in-milliseconds-since-the-epoch" class="headerlink" title="Get the current time in milliseconds since the epoch"></a>Get the current time in milliseconds since the epoch</h4><ul>
+<li><p>Underscore</p>
+<pre><code>_.now()
+</code></pre></li>
+<li><p>ES5.1</p>
+<pre><code>Date.now()
+</code></pre></li>
+</ul>
+<h4 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h4><ul>
+<li><p>Underscore</p>
+<pre><code>var greeting = _.template(&quot;hello &lt;%= name %&gt;&quot;);
+greeting({ name: &#39;moe&#39; });
+</code></pre></li>
+<li><p>ES2015</p>
+<pre><code>const greeting = ({ name }) =&gt; `hello ${name}`;
+greeting({ name: &#39;moe&#39; });
+</code></pre></li>
+</ul>
+</li>
+</ol>
+
+        </section>
+
+        
+          <section class="theme-post__card__license mdui-typo">
+            <span>
+              本文许可协议：
+              
+                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a>
+              
+            </span>
+            <br />
+            <span>本文永久链接：<a href="http://lo-que.github.io/2018/01/22/underscore学习小结/">http://lo-que.github.io/2018/01/22/underscore学习小结/</a></span>
+            
+              <br />
+              <span>本文Markdown：<a href="http://lo-que.github.io/2018/01/22/underscore学习小结/underscore学习小结.md">http://lo-que.github.io/2018/01/22/underscore学习小结/underscore学习小结.md</a></span>
+            
+          </section>
+        
+
+        
+          <section class="mdui-card-actions theme-post__card__actions">
+            
+              <button class="mdui-btn mdui-btn-icon mdui-btn-dense mdui-ripple  mdui-color-red" mdui-tooltip="{content: '打赏', position: 'right'}" mdui-dialog="{target: '#donateDialog'}">
+                <i class="mdui-icon fa fa-beer"></i>
+              </button>
+            
+            <div class="theme-spacer"></div>
+            
+            
+              <div class="mdui-chip theme-post__card__chip--bg theme-post__card__chip--margin">
+                <span class="mdui-chip-icon theme-post__card__chip--bg"><i class="mdui-icon mdui-text-color-black-icon fa fa-tags"></i></span>
+              </div>
+              <div class="mdui-typo">
+                
+                  <a href="/tags/Learning-summary/">
+                    <span>Learning summary</span>
+                  </a>
+                
+              </div>
+            
+          </section>
+        
+
+        
+          
+            <script type="text/javascript">
+              themeRuntime.commentRest.function = function (newIdentifier, newUrl, newTitle) {
+                return
+              }
+            </script>
+          
+        
+      </article>
+      
+        <div class="mdui-color-theme theme-post__toc">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#underscore-js" data-href="#underscore-js"><span class="toc-number"></span> <span class="toc-text">1. underscore.js</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x6570;&#x7EC4;" data-href="#&#x6570;&#x7EC4;"><span class="toc-number"></span> <span class="toc-text">1.1. &#x6570;&#x7EC4;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Iterate" data-href="#Iterate"><span class="toc-number"></span> <span class="toc-text">1.1.1. Iterate</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Map" data-href="#Map"><span class="toc-number"></span> <span class="toc-text">1.1.2. Map</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Use-a-function-to-accumulate-a-single-value-from-an-array-left-to-right" data-href="#Use-a-function-to-accumulate-a-single-value-from-an-array-left-to-right"><span class="toc-number"></span> <span class="toc-text">1.1.3. Use a function to accumulate a single value from an array (left-to-right)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Use-a-function-to-accumulate-a-single-value-from-an-array-right-to-left" data-href="#Use-a-function-to-accumulate-a-single-value-from-an-array-right-to-left"><span class="toc-number"></span> <span class="toc-text">1.1.4. Use a function to accumulate a single value from an array (right-to-left)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Test-whether-all-elements-in-an-array-pass-a-predicate" data-href="#Test-whether-all-elements-in-an-array-pass-a-predicate"><span class="toc-number"></span> <span class="toc-text">1.1.5. Test whether all elements in an array pass a predicate</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Test-whether-some-element-in-an-array-passes-a-predicate" data-href="#Test-whether-some-element-in-an-array-passes-a-predicate"><span class="toc-number"></span> <span class="toc-text">1.1.6. Test whether some element in an array passes a predicate</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Find-a-value-in-an-array" data-href="#Find-a-value-in-an-array"><span class="toc-number"></span> <span class="toc-text">1.1.7. Find a value in an array</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Get-a-property-from-each-element-in-an-array" data-href="#Get-a-property-from-each-element-in-an-array"><span class="toc-number"></span> <span class="toc-text">1.1.8. Get a property from each element in an array</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Check-if-array-includes-an-element" data-href="#Check-if-array-includes-an-element"><span class="toc-number"></span> <span class="toc-text">1.1.9. Check if array includes an element</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Convert-an-array-like-object-to-array" data-href="#Convert-an-array-like-object-to-array"><span class="toc-number"></span> <span class="toc-text">1.1.10. Convert an array-like object to array</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Convert-an-array-of-keys-and-values-to-an-object" data-href="#Convert-an-array-of-keys-and-values-to-an-object"><span class="toc-number"></span> <span class="toc-text">1.1.11. Convert an array of keys and values to an object</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Create-a-copy-of-an-array-with-all-falsy-values-removed" data-href="#Create-a-copy-of-an-array-with-all-falsy-values-removed"><span class="toc-number"></span> <span class="toc-text">1.1.12. Create a copy of an array with all falsy values removed</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Create-a-copy-of-an-array-with-duplicates-removed" data-href="#Create-a-copy-of-an-array-with-duplicates-removed"><span class="toc-number"></span> <span class="toc-text">1.1.13. Create a copy of an array with duplicates removed</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Find-the-index-of-a-value-in-an-array" data-href="#Find-the-index-of-a-value-in-an-array"><span class="toc-number"></span> <span class="toc-text">1.1.14. Find the index of a value in an array</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Find-the-index-in-an-array-by-predicate" data-href="#Find-the-index-in-an-array-by-predicate"><span class="toc-number"></span> <span class="toc-text">1.1.15. Find the index in an array by predicate</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Create-an-array-with-n-numbers-starting-from-x" data-href="#Create-an-array-with-n-numbers-starting-from-x"><span class="toc-number"></span> <span class="toc-text">1.1.16. Create an array with n numbers, starting from x</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Objects" data-href="#Objects"><span class="toc-number"></span> <span class="toc-text">1.2. Objects</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Names-of-own-enumerable-properties-as-an-array" data-href="#Names-of-own-enumerable-properties-as-an-array"><span class="toc-number"></span> <span class="toc-text">1.2.1. Names of own enumerable properties as an array</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Number-of-keys-in-an-object" data-href="#Number-of-keys-in-an-object"><span class="toc-number"></span> <span class="toc-text">1.2.2. Number of keys in an object</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Names-of-all-enumerable-properties-as-an-array" data-href="#Names-of-all-enumerable-properties-as-an-array"><span class="toc-number"></span> <span class="toc-text">1.2.3. Names of all enumerable properties as an array</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Values" data-href="#Values"><span class="toc-number"></span> <span class="toc-text">1.2.4. Values</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Create-a-new-object-with-the-given-prototype-and-properties" data-href="#Create-a-new-object-with-the-given-prototype-and-properties"><span class="toc-number"></span> <span class="toc-text">1.2.5. Create a new object with the given prototype and properties</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Create-a-new-object-from-merged-own-properties" data-href="#Create-a-new-object-from-merged-own-properties"><span class="toc-number"></span> <span class="toc-text">1.2.6. Create a new object from merged own properties</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Create-a-shallow-clone-of-own-properties-of-an-object" data-href="#Create-a-shallow-clone-of-own-properties-of-an-object"><span class="toc-number"></span> <span class="toc-text">1.2.7. Create a shallow clone of own properties of an object</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Check-if-an-object-is-an-array" data-href="#Check-if-an-object-is-an-array"><span class="toc-number"></span> <span class="toc-text">1.2.8. Check if an object is an array</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Check-if-an-object-is-a-finite-Number" data-href="#Check-if-an-object-is-a-finite-Number"><span class="toc-number"></span> <span class="toc-text">1.2.9. Check if an object is a finite Number</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Functions" data-href="#Functions"><span class="toc-number"></span> <span class="toc-text">1.3. Functions</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Bind-a-function-to-an-object" data-href="#Bind-a-function-to-an-object"><span class="toc-number"></span> <span class="toc-text">1.3.1. Bind a function to an object</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Utility" data-href="#Utility"><span class="toc-number"></span> <span class="toc-text">1.4. Utility</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Identity-function" data-href="#Identity-function"><span class="toc-number"></span> <span class="toc-text">1.4.1. Identity function</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#A-function-that-returns-a-value" data-href="#A-function-that-returns-a-value"><span class="toc-number"></span> <span class="toc-text">1.4.2. A function that returns a value</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#The-empty-function" data-href="#The-empty-function"><span class="toc-number"></span> <span class="toc-text">1.4.3. The empty function</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Get-the-current-time-in-milliseconds-since-the-epoch" data-href="#Get-the-current-time-in-milliseconds-since-the-epoch"><span class="toc-number"></span> <span class="toc-text">1.4.4. Get the current time in milliseconds since the epoch</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Template" data-href="#Template"><span class="toc-number"></span> <span class="toc-text">1.4.5. Template</span></a></li></ol></li></ol></li></ol>
+        </div>
+      
+    </div>
+  </div>
+
+  <div class="theme-spacer"></div>
+
+  
+    <div class="mdui-color-theme theme-post__toc-fab">
+  <button class="mdui-fab mdui-color-theme-accent mdui-ripple mdui-fab-fixed mdui-hidden-md-up" mdui-menu="{target: '#toc-fab-menu', fixed: true}" id="toc-fab">
+    <i class="mdui-icon material-icons">&#xe242;</i>
+  </button>
+  <ul class="mdui-menu mdui-typo theme-post__toc-fab__menu" id="toc-fab-menu" style="padding: 8px;max-height: 80%">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#underscore-js" data-href="#underscore-js"><span class="toc-number"></span> <span class="toc-text">1. underscore.js</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x6570;&#x7EC4;" data-href="#&#x6570;&#x7EC4;"><span class="toc-number"></span> <span class="toc-text">1.1. &#x6570;&#x7EC4;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Iterate" data-href="#Iterate"><span class="toc-number"></span> <span class="toc-text">1.1.1. Iterate</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Map" data-href="#Map"><span class="toc-number"></span> <span class="toc-text">1.1.2. Map</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Use-a-function-to-accumulate-a-single-value-from-an-array-left-to-right" data-href="#Use-a-function-to-accumulate-a-single-value-from-an-array-left-to-right"><span class="toc-number"></span> <span class="toc-text">1.1.3. Use a function to accumulate a single value from an array (left-to-right)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Use-a-function-to-accumulate-a-single-value-from-an-array-right-to-left" data-href="#Use-a-function-to-accumulate-a-single-value-from-an-array-right-to-left"><span class="toc-number"></span> <span class="toc-text">1.1.4. Use a function to accumulate a single value from an array (right-to-left)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Test-whether-all-elements-in-an-array-pass-a-predicate" data-href="#Test-whether-all-elements-in-an-array-pass-a-predicate"><span class="toc-number"></span> <span class="toc-text">1.1.5. Test whether all elements in an array pass a predicate</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Test-whether-some-element-in-an-array-passes-a-predicate" data-href="#Test-whether-some-element-in-an-array-passes-a-predicate"><span class="toc-number"></span> <span class="toc-text">1.1.6. Test whether some element in an array passes a predicate</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Find-a-value-in-an-array" data-href="#Find-a-value-in-an-array"><span class="toc-number"></span> <span class="toc-text">1.1.7. Find a value in an array</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Get-a-property-from-each-element-in-an-array" data-href="#Get-a-property-from-each-element-in-an-array"><span class="toc-number"></span> <span class="toc-text">1.1.8. Get a property from each element in an array</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Check-if-array-includes-an-element" data-href="#Check-if-array-includes-an-element"><span class="toc-number"></span> <span class="toc-text">1.1.9. Check if array includes an element</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Convert-an-array-like-object-to-array" data-href="#Convert-an-array-like-object-to-array"><span class="toc-number"></span> <span class="toc-text">1.1.10. Convert an array-like object to array</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Convert-an-array-of-keys-and-values-to-an-object" data-href="#Convert-an-array-of-keys-and-values-to-an-object"><span class="toc-number"></span> <span class="toc-text">1.1.11. Convert an array of keys and values to an object</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Create-a-copy-of-an-array-with-all-falsy-values-removed" data-href="#Create-a-copy-of-an-array-with-all-falsy-values-removed"><span class="toc-number"></span> <span class="toc-text">1.1.12. Create a copy of an array with all falsy values removed</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Create-a-copy-of-an-array-with-duplicates-removed" data-href="#Create-a-copy-of-an-array-with-duplicates-removed"><span class="toc-number"></span> <span class="toc-text">1.1.13. Create a copy of an array with duplicates removed</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Find-the-index-of-a-value-in-an-array" data-href="#Find-the-index-of-a-value-in-an-array"><span class="toc-number"></span> <span class="toc-text">1.1.14. Find the index of a value in an array</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Find-the-index-in-an-array-by-predicate" data-href="#Find-the-index-in-an-array-by-predicate"><span class="toc-number"></span> <span class="toc-text">1.1.15. Find the index in an array by predicate</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Create-an-array-with-n-numbers-starting-from-x" data-href="#Create-an-array-with-n-numbers-starting-from-x"><span class="toc-number"></span> <span class="toc-text">1.1.16. Create an array with n numbers, starting from x</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Objects" data-href="#Objects"><span class="toc-number"></span> <span class="toc-text">1.2. Objects</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Names-of-own-enumerable-properties-as-an-array" data-href="#Names-of-own-enumerable-properties-as-an-array"><span class="toc-number"></span> <span class="toc-text">1.2.1. Names of own enumerable properties as an array</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Number-of-keys-in-an-object" data-href="#Number-of-keys-in-an-object"><span class="toc-number"></span> <span class="toc-text">1.2.2. Number of keys in an object</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Names-of-all-enumerable-properties-as-an-array" data-href="#Names-of-all-enumerable-properties-as-an-array"><span class="toc-number"></span> <span class="toc-text">1.2.3. Names of all enumerable properties as an array</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Values" data-href="#Values"><span class="toc-number"></span> <span class="toc-text">1.2.4. Values</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Create-a-new-object-with-the-given-prototype-and-properties" data-href="#Create-a-new-object-with-the-given-prototype-and-properties"><span class="toc-number"></span> <span class="toc-text">1.2.5. Create a new object with the given prototype and properties</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Create-a-new-object-from-merged-own-properties" data-href="#Create-a-new-object-from-merged-own-properties"><span class="toc-number"></span> <span class="toc-text">1.2.6. Create a new object from merged own properties</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Create-a-shallow-clone-of-own-properties-of-an-object" data-href="#Create-a-shallow-clone-of-own-properties-of-an-object"><span class="toc-number"></span> <span class="toc-text">1.2.7. Create a shallow clone of own properties of an object</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Check-if-an-object-is-an-array" data-href="#Check-if-an-object-is-an-array"><span class="toc-number"></span> <span class="toc-text">1.2.8. Check if an object is an array</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Check-if-an-object-is-a-finite-Number" data-href="#Check-if-an-object-is-a-finite-Number"><span class="toc-number"></span> <span class="toc-text">1.2.9. Check if an object is a finite Number</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Functions" data-href="#Functions"><span class="toc-number"></span> <span class="toc-text">1.3. Functions</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Bind-a-function-to-an-object" data-href="#Bind-a-function-to-an-object"><span class="toc-number"></span> <span class="toc-text">1.3.1. Bind a function to an object</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Utility" data-href="#Utility"><span class="toc-number"></span> <span class="toc-text">1.4. Utility</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Identity-function" data-href="#Identity-function"><span class="toc-number"></span> <span class="toc-text">1.4.1. Identity function</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#A-function-that-returns-a-value" data-href="#A-function-that-returns-a-value"><span class="toc-number"></span> <span class="toc-text">1.4.2. A function that returns a value</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#The-empty-function" data-href="#The-empty-function"><span class="toc-number"></span> <span class="toc-text">1.4.3. The empty function</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Get-the-current-time-in-milliseconds-since-the-epoch" data-href="#Get-the-current-time-in-milliseconds-since-the-epoch"><span class="toc-number"></span> <span class="toc-text">1.4.4. Get the current time in milliseconds since the epoch</span></a></li><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Template" data-href="#Template"><span class="toc-number"></span> <span class="toc-text">1.4.5. Template</span></a></li></ol></li></ol></li></ol>
+  </ul>
+</div>
+
+  
+
+  
+    <div class="theme-post__pagination mdui-color-theme">
+  
+    <div class="theme-post__pagination__prev mdui-ripple mdui-valign">
+      <a href="/2018/01/24/css-命名规范/" class="theme-post__pagination__prev__content mdui-text-left">
+        <div>
+          <i class="mdui-icon material-icons mdui-text-center">&#xe5cb;</i>
+          <span class="mdui-typo-body-2-opacity mdui-text-center">新的文章</span>
+        </div>
+        <div class="mdui-typo-title mdui-text-truncate">
+          css 命名规范
+        </div>
+      </a>
+    </div>
+  
+
+  
+    <div class="theme-post__pagination__next mdui-ripple mdui-valign">
+      <a href="/2017/12/16/get-post-的八个方法-状态码/" class="theme-post__pagination__next__content mdui-text-right">
+        <div>
+          <span class="mdui-typo-body-2-opacity mdui-text-center">旧的文章</span>
+          <i class="mdui-icon material-icons mdui-text-center">&#xe5cc;</i>
+        </div>
+        <div class="mdui-typo-title mdui-text-truncate">
+          get post 的八个方法&amp;&amp;状态码
+        </div>
+      </a>
+    </div>
+    
+</div>
+
+  
+
+  
+    <div class="mdui-dialog" id="donateDialog">
+      <div class="mdui-dialog-title">打赏</div>
+      <div class="mdui-dialog-content">
+        <div class="mdui-list">
+          
+            <a href="/img/avatar.png" title="wechat" class="mdui-list-item mdui-ripple" target="_blank">
+              
+                <i class="mdui-list-item-icon mdui-icon fa fa-wechat mdui-text-center"></i>&emsp;
+              
+              
+              
+              wechat
+            </a>
+          
+            <a href="https://paypal.com" title="paypay" class="mdui-list-item mdui-ripple" target="_blank">
+              
+                <i class="mdui-list-item-icon mdui-icon fa fa-paypal mdui-text-center"></i>&emsp;
+              
+              
+              
+              paypay
+            </a>
+          
+        </div>
+      </div>
+      <div class="mdui-dialog-actions">
+        <button class="mdui-btn mdui-ripple mdui-ripple" mdui-dialog-close>不要</button>
+      </div>
+    </div>
+  
+</div>
+<script type="text/javascript">
+  themeRuntime.scriptsMap.post = [];
+  if (document.querySelector('.theme-post__toc-fab__menu > ol') !== null && document.querySelector('.theme-post__toc > ol') !== null) {
+    tocHighlight()
+    function tocHighlight() {
+      var timer;
+      function doWork() {
+        listens.forEach(function(value, index) {
+          value[1]();
+          value[0].classList.remove("mdui-list-item-active");
+        })
+        let actionToc = (listens[listens.reduce(function(r, v, index) {
+          if (v[2] == true) {
+            return index;
+          } else return r;
+        }, undefined)] || [])[0] || listens[0][0];
+        actionToc.classList.add("mdui-list-item-active");
+        if(actionToc.getClientRects().length == 0)return;
+        showToc(actionToc);
+      }
+      function showToc(toc) {
+        let offsetTop = toc.getClientRects()[0].top - cardToc.getClientRects()[0].top - 40;
+        let offsetBottom = toc.getClientRects()[0].bottom - cardToc.getClientRects()[0].bottom + 40;
+        let offset = 0;
+        if (offsetTop < 0) offset = offsetTop;
+        if (offsetBottom > 0) offset = offsetBottom;
+        var targetTop = Math.max(0, Math.min(cardToc.scrollTop + offset, toclist.offsetHeight - cardToc.offsetHeight));
+        clearInterval(timer);
+        timer = setInterval(function() {
+          var now = cardToc.scrollTop;
+          var speed = (targetTop - now) / 10;
+          speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+          if (Math.abs(now - targetTop) < 1) {
+            clearInterval(timer);
+          }
+          cardToc.scrollTop = now + speed;
+        }, 30);
+      }
+      var listens = [];
+      var cardToc = document.querySelector('.theme-post__toc');
+      var links = cardToc.querySelectorAll(".theme-post__toc__content__link");
+      var toclist = document.querySelector(".theme-post__toc > ol");
+      Array.prototype.forEach.call(links, function(value, index) {
+        var id = (value.getAttribute("href") || "#").slice(1);
+        var element = document.getElementById(id);
+        listens.push([value, function() {
+          var readed = false;
+          var scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+          if (element.offsetTop <= scrollTop + element.clientHeight + 64) {
+            readed = true;
+          } else {
+            readed = false;
+          }
+          listens[index][2] = readed;
+        }, false])
+      })
+      doWork();
+      window.addEventListener("scroll", doWork)
+      var listener = {
+        function:  doWork,
+        event: 'scroll',
+        el: window,
+        removed: false
+      }
+      themeRuntime.scriptsMap.post.push(listener)
+    }
+  }
+</script>
+
+<script type="text/javascript">
+  (function() {
+    var postLastModifiedDate = 1524566481000
+    var today = (new Date()).getTime()
+    var difference = Math.floor((today - postLastModifiedDate)/(24*60*60*1000))
+    if (difference >= 100) {
+      document.querySelector('.theme-post__card__warning').style.display = 'block'
+      document.querySelector('#content-warning').textContent = difference
+    }
+  })();
+</script>
+
+<script type="text/javascript">
+  var images = document.querySelectorAll('.theme-post__card__content img')
+  for (i = 0; i < images.length; i++) {
+    //console.log('image added', i)
+    images[i].addEventListener("click", openLG);
+    var listener = {
+      function:  openLG,
+      event: 'click',
+      el: images[i],
+      removed: false
+    }
+    themeRuntime.scriptsMap.post.push(listener)
+  }
+  function openLG() {
+    var img_src = this.getAttribute('src');
+    var img_alt = this.getAttribute('alt');
+    lightGallery(this, {
+      dynamic: true,
+      counter: false,
+      dynamicEl: [{
+        "src": img_src,
+        'subHtml': "<span author>屈东奇</span><div descr>" + img_alt + "</div>"
+      }],
+    });
+  }
+</script>
+
+
+
+
+      </div>
+    </div>
+  </main>
+
+  <div id="outdated" style="z-index: 9999;">
+    <h6>你的浏览器已经过气辣！</h6>
+    <p>赶紧升级浏览器来访问本站吧！<a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">现在就去</a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="关闭">&times;</a></p>
+  </div>
+  <!-- import js -->
+
+
+  <script src="/js/outdatedbrowser.min.js"></script>
+
+
+
+  
+    <script src="/js/js.pure.min.js"></script>
+  
+
+
+<!-- theme js -->
+<script type="text/javascript">
+  (function() {
+    var appbarTopFlag = false;
+    var appbarEl = document.querySelector('.theme-appbar');
+    function appbarShadow() {
+      var bodyScrolled = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+      if (bodyScrolled > 0 && !appbarTopFlag) {
+        appbarEl.classList.add('theme-appbar--shadow');
+        appbarTopFlag = true;
+      } else if (bodyScrolled === 0 && appbarTopFlag) {
+        appbarEl.classList.remove('theme-appbar--shadow');
+        appbarTopFlag = false;
+      }
+    }
+    appbarShadow()
+    window.addEventListener('scroll', appbarShadow);
+  })();
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+  document.querySelector('body').classList.add('theme-loaded')
+</script>
+
+
+</body>
+</html>

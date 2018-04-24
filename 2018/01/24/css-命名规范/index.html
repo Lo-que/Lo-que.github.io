@@ -1,470 +1,529 @@
+
 <!DOCTYPE html>
-<html style="display: none;" lang="zh">
-    <head>
-    <meta charset="utf-8">
-    <!--
-        © Material Theme
-        https://github.com/viosey/hexo-theme-material
-        Version: 1.5.2 -->
-    <script>
-        window.materialVersion = "1.5.2"
-        // Delete localstorage with these tags
-        window.oldVersion = [
-            'codestartv1',
-            '1.3.4',
-            '1.4.0',
-            '1.4.0b1',
-            '1.5.0'
-        ]
-    </script>
-
-    <!-- dns prefetch -->
-    <meta http-equiv="x-dns-prefetch-control" content="on">
+<html lang="zh">
 
 
 
+<head>
+  <script>
+    window.mduiVersion = "2.0.1"
+    window.oldVersion = [
+     '2.0.0',
+     '1.4.5',
+     'unknownVersion'
+    ]
+    window.themeRuntime = {
+      root: "/",
+      scriptsMap: {},
+      init: {
+        status: false
+      },
+      commentRest: {
+        status: false
+      }
+    };
+    console.info("%cCopyright © 2018 Halyul\n"+'Theme Version: 2.0.1'+'%c\nhttps://github.com/Halyul/hexo-theme-mdui',"font-size: 14px;color: #3F51B5;","color: #448AFF;text-decoration: none");
+  </script>
+  <!--
+        © HEXO MDUI Theme
+        https://github.com/Halyul/hexo-theme-mdui
+        Version: 2.0.1 -->
 
+  <meta charset="UTF-8">
+  <title>css 命名规范 - Hexo</title>
 
+  <!-- Favicons -->
+  <link rel="icon shortcut" type="image/ico" href="/images/favicon.png">
+  <link rel="icon" sizes="192x192" href="/images/favicon.png">
+  <link rel="apple-touch-icon" href="/images/favicon.png">
 
+  <!-- Meta & Info -->
+  <meta http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
+  <meta name="theme-color" content="#fff">
 
-
-
-
-
-
-
-    <!-- Meta & Info -->
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="renderer" content="webkit">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
-    <!-- Title -->
-    
-    <title>
-        
-            css 命名规范 | 
-        
-        Hexo
-    </title>
-
-    <!-- Favicons -->
-    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
-    <link rel="icon" href="/img/favicon.png">
-
-    <meta name="format-detection" content="telephone=no"/>
-    <meta name="description" itemprop="description" content="my personal blog">
-    <meta name="keywords" content=",Learnning Note">
-    <meta name="theme-color" content="#0097A7">
-
-    <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform" />
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
-
-    <!--[if lte IE 9]>
-        <link rel="stylesheet" href="/css/ie-blocker.css">
-
-        
-            <script src="/js/ie-blocker.zhCN.js"></script>
-        
-    <![endif]-->
-
-    <!-- Import lsloader -->
-    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
-
-    <!-- Import queue -->
-    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
-
-    <!-- Import CSS -->
-    
-        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
-        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
-
-        
-
-    
-
-    
-        
-            <link rel="stylesheet" href="/css/fontawesome.min.css">
-        
-    
-
-    <!-- Config CSS -->
-
-<!-- Other Styles -->
-<style>
-  body, html {
-    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
-    overflow-x: hidden !important;
-  }
+  <meta name="author" content="屈东奇">
   
-  code {
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  }
+      <meta name="description" content="my personal blog">
+  
+  <meta name="keywords" content="Lo-que, qudongqi, blog,Learning Note">
 
-  a {
-    color: #00838F;
-  }
+  <!--iOS -->
+  <meta name="apple-mobile-web-app-title" content="Hexo">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="480">
 
-  .mdl-card__media,
-  #search-label,
-  #search-form-label:after,
-  #scheme-Paradox .hot_tags-count,
-  #scheme-Paradox .sidebar_archives-count,
-  #scheme-Paradox .sidebar-colored .sidebar-header,
-  #scheme-Paradox .sidebar-colored .sidebar-badge{
-    background-color: #0097A7 !important;
-  }
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
 
-  /* Sidebar User Drop Down Menu Text Color */
-  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
-  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
-    color: #0097A7 !important;
-  }
-
-  #post_entry-right-info,
-  .sidebar-colored .sidebar-nav li:hover > a,
-  .sidebar-colored .sidebar-nav li:hover > a i,
-  .sidebar-colored .sidebar-nav li > a:hover,
-  .sidebar-colored .sidebar-nav li > a:hover i,
-  .sidebar-colored .sidebar-nav li > a:focus i,
-  .sidebar-colored .sidebar-nav > .open > a,
-  .sidebar-colored .sidebar-nav > .open > a:hover,
-  .sidebar-colored .sidebar-nav > .open > a:focus,
-  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
-    color: #0097A7 !important;
-  }
-
-  .toTop {
-    background: #757575 !important;
-  }
-
-  .material-layout .material-post>.material-nav,
-  .material-layout .material-index>.material-nav,
-  .material-nav a {
-    color: #757575;
-  }
-
-  #scheme-Paradox .MD-burger-layer {
-    background-color: #757575;
-  }
-
-  #scheme-Paradox #post-toc-trigger-btn {
-    color: #757575;
-  }
-
-  .post-toc a:hover {
-    color: #00838F;
-    text-decoration: underline;
-  }
-
-</style>
-
-
-<!-- Theme Background Related-->
-
-    <style>
-      body{
-        background-color: #F5F5F5;
-      }
-
-      /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
-        background-color: #fff;
-      }
-    </style>
-
-
-
-
-<!-- Fade Effect -->
-
-    <style>
-      .fade {
-        transition: all 800ms linear;
-        -webkit-transform: translate3d(0,0,0);
-        -moz-transform: translate3d(0,0,0);
-        -ms-transform: translate3d(0,0,0);
-        -o-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-        opacity: 1;
-      }
-
-      .fade.out{
-        opacity: 0;
-      }
-    </style>
-
-
-<!-- Import Font -->
-<!-- Import Roboto -->
-
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-
-
-<!-- Import Material Icons -->
-
-
-    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
-
-
-
-
-    <!-- Import jQuery -->
-    
-        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
-    
-
-    <!-- WebAPP Icons -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Hexo">
-    <meta name="msapplication-starturl" content="http://yoursite.com/2018/01/24/css-命名规范/">
-    <meta name="msapplication-navbutton-color" content="#0097A7">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="Hexo">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon" href="/img/favicon.png">
-
-    <!-- Site Verification -->
-    
-    
-
-    <!-- RSS -->
-    
-
-    <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com/2018/01/24/css-命名规范/">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="css 命名规范 | Hexo">
-    <meta property="og:image" content="/img/favicon.png">
+  <!-- The Open Graph protocol -->
+  <meta property="og:url" content="http://lo-que.github.io">
+  <meta property="og:type" content="blog">
+  <meta property="og:title" content="css 命名规范 - Hexo | Hexo">
+  <meta property="og:image" content="/images/favicon.png" />
+  
     <meta property="og:description" content="my personal blog">
-    <meta property="og:article:tag" content="Learnning Note"> 
+  
 
-    
-        <meta property="article:published_time" content="Wed Jan 24 2018 11:17:11 GMT+0800">
-        <meta property="article:modified_time" content="Tue Apr 24 2018 17:31:32 GMT+0800">
-    
+  
+    <meta property="og:article:tag" content="Learning Note">
+  
 
-    <!-- The Twitter Card protocol -->
-    <meta name="twitter:card" content="summary_large_image">
+  
 
-    <!-- Add canonical link for SEO -->
-    
-        <link rel="canonical" href="http://yoursite.com/2018/01/24/css-命名规范/index.html" />
-    
+  <!-- Import CSS -->
+  
+    <link rel="stylesheet" href="/css/mdui.css">
+  
 
-    <!-- Structured-data for SEO -->
-    
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": "http://yoursite.com/2018/01/24/css-命名规范/index.html",
-    "headline": "css 命名规范",
-    "datePublished": "Wed Jan 24 2018 11:17:11 GMT+0800",
-    "dateModified": "Tue Apr 24 2018 17:31:32 GMT+0800",
-    "author": {
-        "@type": "Person",
-        "name": "屈东奇",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/avatar.png"
-        },
-        "description": "Hi, nice to meet you"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "Hexo",
-        "logo": {
-            "@type":"ImageObject",
-            "url": "/img/favicon.png"
-        }
-    },
-    "keywords": ",Learnning Note",
-    "description": "my personal blog",
-}
-</script>
-
-
-    
-
-    <!-- Analytics -->
-    
-    
-    
-
-    <!-- Custom Head -->
-    
+  
 
 </head>
 
 
+<body class="mdui-drawer-body-left mdui-theme-primary-#0097A7 mdui-theme-accent-#00838F">
+
+  <style>
+    #spinner {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+          opacity: 1;
+      -webkit-transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1);
+          transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1);
+    }
+    main {
+      opacity: 0;
+      -webkit-transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1);
+      transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1);
+      display: none;
+    }
+  </style>
+  <div id="spinner">
+    <style>
+      .spinner {
+
+      -webkit-animation: rotator 1.4s linear infinite;
+              animation: rotator 1.4s linear infinite;
+      }
+
+      @-webkit-keyframes rotator {
+      0% {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(270deg);
+                transform: rotate(270deg);
+      }
+      }
+
+      @keyframes rotator {
+      0% {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(270deg);
+                transform: rotate(270deg);
+      }
+      }
+
+      .path {
+      stroke-dasharray: 187;
+      stroke-dashoffset: 0;
+      -webkit-transform-origin: center;
+              transform-origin: center;
+      -webkit-animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+              animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+      }
+
+      @-webkit-keyframes colors {
+      0% {
+        stroke: #4285F4;
+      }
+      25% {
+        stroke: #DE3E35;
+      }
+      50% {
+        stroke: #F7C223;
+      }
+      75% {
+        stroke: #1B9A59;
+      }
+      100% {
+        stroke: #4285F4;
+      }
+      }
+
+      @keyframes colors {
+      0% {
+        stroke: #4285F4;
+      }
+      25% {
+        stroke: #DE3E35;
+      }
+      50% {
+        stroke: #F7C223;
+      }
+      75% {
+        stroke: #1B9A59;
+      }
+      100% {
+        stroke: #4285F4;
+      }
+      }
+
+      @-webkit-keyframes dash {
+      0% {
+        stroke-dashoffset: 187;
+      }
+      50% {
+        stroke-dashoffset: 46.75;
+        -webkit-transform: rotate(135deg);
+                transform: rotate(135deg);
+      }
+      100% {
+        stroke-dashoffset: 187;
+        -webkit-transform: rotate(450deg);
+                transform: rotate(450deg);
+      }
+      }
+
+      @keyframes dash {
+      0% {
+        stroke-dashoffset: 187;
+      }
+      50% {
+        stroke-dashoffset: 46.75;
+        -webkit-transform: rotate(135deg);
+                transform: rotate(135deg);
+      }
+      100% {
+        stroke-dashoffset: 187;
+        -webkit-transform: rotate(450deg);
+                transform: rotate(450deg);
+      }
+      }
+    </style>
+    <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+      <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+    </svg>
+  </div>
+
+  <main>
+    <div class="mdui-appbar mdui-appbar-fixed mdui-color-white mdui-shadow-0 theme-appbar">
+  <div class="mdui-toolbar theme-toolbar-top">
     
-        <body id="scheme-Isolation" class="lazy">
-            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
-                
-                    <!-- Isolation Header -->
-                    <header class="header">
-    <div class="header-wrapper">
-        <!-- Header Copyright -->
-        <div class="header-copyright">
-            <div class="header-site">
-                ©&nbsp;
-                <script type="text/javascript">
-                    var fd = new Date();
-                    document.write(fd.getFullYear());
-                </script>
-                &nbsp;Hexo
-            </div>
-            <!--
-            I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright.
-            It will not impact the appearance and can give developers a lot of support :)
-
-            很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
-            它不会影响美观并可以给开发者很大的支持。 :)
-            -->
-            <div>
-                Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a>
-                <br>
-                Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a>
-            </div>
-        </div>
-
-        <!-- Header Title -->
-        <span class="header-title header-item">
-            <a href="/" title="Hexo">
-                Hexo
-            </a>
-        </span>
-
-        <p class="header-slogan header-item">
-        
-            
-                Hi, nice to meet you
-            
-        
-        </p>
-
-        <!-- Header Nav -->
-        <nav class="header-nav header-item">
-            <span class="header-nav-item">
-                <a href="/" title="Home">
-                    <span>主页</span>
-                </a>
-            </span>
-
-            <!-- Pages  -->
-            
-            
-        </nav>
-
-        <!-- Header SNS -->
-        <div class="header-item header-sns_list">
-    <!-- Twitter -->
+      <a href="/" class="mdui-btn mdui-btn-icon mdui-ripple theme-appbar__burger theme-appbar__burger--arrow">
+        <i class="mdui-icon">
+          <span></span>
+        </i>
+      </a>
     
-        <a href="https://twitter.com/twitter" target="_blank">
-            <i class="fa fa-twitter fa-lg" aria-hidden="true"></i>
-        </a>
+  </div>
+  <div class="mdui-toolbar theme-toolbar-bottom">
+    <span class="theme-toolbar-bottom__title">Hexo</span>
     
-
-    <!-- Facebook -->
+      <a href="/search.html" class="mdui-textfield-icon mdui-btn mdui-btn-icon theme-toolbar-bottom__search">
+        <i class="mdui-icon material-icons">&#xe8b6;</i>
+      </a>
     
-        <a href="https://www.facebook.com/facebook" target="_blank">
-            <i class="fa fa-facebook fa-lg" aria-hidden="true"></i>
-        </a>
-    
-
-    <!-- Google + -->
-    
-        <a href="https://www.google.com/" target="_blank">
-            <i class="fa fa-google-plus fa-lg" aria-hidden="true"></i>
-        </a>
-    
-
-    <!-- Weibo -->
-    
-
-    <!-- Instagram -->
-    
-
-    <!-- Tumblr -->
-    
-
-    <!-- Github -->
-    
-
-    <!-- LinkedIn -->
-    
-
-    <!-- Telegram -->
-    
+  </div>
+  <div class="mdui-progress theme-appbar__progress" id="progressBar">
+    <div class="mdui-progress-indeterminate"></div>
+  </div>
 </div>
 
+    <div class="mdui-drawer mdui-drawer-full-height theme-drawer" id="drawer">
+  <!-- header -->
+  <div class="theme-drawer__header">
+  <div class="theme-drawer__header__layer-1">
+    <div class="mdui-toolbar theme-toolbar-top">
+      
+        <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple theme-appbar__burger theme-appbar__burger--drawer theme-appbar__burger--arrow" id="drawer-back">
+          <i class="mdui-icon">
+            <span></span>
+          </i>
+        </a>
+      
     </div>
-</header>
+    <div class="mdui-toolbar theme-toolbar-bottom">
+      <span class="theme-toolbar-bottom__title">Hexo</span>
+    </div>
+  </div>
+  <div class="theme-drawer__header__layer-2" style="background-image: url(/images/bg.png)">
+    <img class="mdui-img-circle theme-drawer__header__layer-2__user__avatar" src="/images/avatar.png"/>
+    <div class="theme-drawer__header__layer-2__user__info">
+      <div class="theme-drawer__header__layer-2__user__info__author mdui-text-color-white-text">
+        屈东奇
+      </div>
+      <div class="theme-drawer__header__layer-2__user__info__slogan mdui-text-color-white-secondary">
+        自童年起，我便独自一人，照顾历代星辰。
+      </div>
+    </div>
+  </div>
+</div>
 
-                
-
-                <!-- Main Container -->
-                <main class="material-layout__content" id="main">
-
-                    <!-- Top Anchor -->
-                    <div id="top"></div>
-
-                    
-
-                    <!-- Post TOC -->
-
-    
-
-
-
-<!-- Layouts -->
-
-    <!-- Post Module -->
-    <div class="material-post_container">
-
-        <div class="material-post mdl-grid">
-            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
-
-                <!-- Post Header(Thumbnail & Title) -->
-                
-
-
-    <!-- Isolation Post Header -->
-    <!-- Post thumbnail -->
-    
-        <!-- Post Header Info -->
-        <div class="post-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="屈东奇's avatar">
-            <span class="name-span">屈东奇</span>
+  <div class="theme-drawer__warpper">
+    <!-- content -->
+    <div class="theme-drawer__warpper__content">
+  <ul class="mdui-list">
+    <a href="/" class="mdui-list-item mdui-ripple mdui-ripple-white">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe88a;</i>
+      <div class="mdui-list-item-content">首页</div>
+    </a>
+    <a href="/archives/" class="mdui-list-item mdui-ripple mdui-ripple-white">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe149;</i>
+      <div class="mdui-list-item-content">归档</div>
+    </a>
+    <ul class="mdui-list mdui-collapse" mdui-collapse="{accordion: true}" mdui-collapse>
+      
+      
+        <div class="mdui-collapse-item ">
+          <div class="mdui-collapse-item-header mdui-list-item mdui-ripple mdui-ripple-white">
+            <i class="mdui-list-item-icon mdui-icon fa fa-tags mdui-text-center"></i>
+            <div class="mdui-list-item-content">标签</div>
+            <i class="mdui-collapse-item-arrow mdui-icon material-icons">&#xe5c5;</i>
+          </div>
+          <div class="mdui-collapse-item-body mdui-list">
+            
+              <a href="/tags/Learning-Note/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                Learning Note
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">13</span>
+              </a>
+            
+              <a href="/tags/Learning-summary/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                Learning summary
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+          </div>
         </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
+      
+      <div class="mdui-collapse-item ">
+        <div class="mdui-collapse-item-header mdui-list-item mdui-ripple mdui-ripple-white">
+          <i class="mdui-list-item-icon mdui-icon material-icons">&#xe916;</i>
+          <div class="mdui-list-item-content">年份</div>
+          <i class="mdui-collapse-item-arrow mdui-icon material-icons">&#xe5c5;</i>
         </div>
+        <div class="mdui-collapse-item-body mdui-list">
+          
+          
+            <a href="/archives/2018/" class="mdui-list-item mdui-ripple">
+              2018
+            </a>
+          
+            <a href="/archives/2017/" class="mdui-list-item mdui-ripple">
+              2017
+            </a>
+          
+        </div>
+      </div>
+    </ul>
+  </ul>
+  
+    <div class="mdui-divider"></div>
+    <ul class="mdui-list" mdui-collapse="{accordion: true}" mdui-collapse>
+      
+    </ul>
+  
+</div>
 
-
-
-                
-
-                <!-- Post Content -->
-                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    <div class="theme-spacer"></div>
+    <!-- footer -->
+    <div class="theme-drawer__warpper__footer">
+  <div class="mdui-typo mdui-typo-caption-opacity">
+    Powered by <a href="http://hexo.io" target="_blank">Hexo</a>
+    <br />
+    Theme - <a href="//github.com/Halyul/hexo-theme-mdui" target="_blank">Halyul/MDUI</a>
+    <br />
+    <span>
+      Copyright ©
+      <span year></span>
+      屈东奇
+    </span>
     
-
     
-        <div class="post-content_wrapper">
-            <p class="post-title">
-                css 命名规范
-            </p>
-            <p>#Learnning Note</p>
-<h4 id="css命名规范"><a href="#css命名规范" class="headerlink" title="css命名规范"></a>css命名规范</h4><h5 id="base"><a href="#base" class="headerlink" title="base"></a>base</h5><p>头：header</p>
+    
+  </div>
+</div>
+<script type="text/javascript">
+  var copyrightNow = new Date().getFullYear();
+  var textContent = document.querySelector('span[year]')
+  
+    copyrightSince = 2017;
+    if (copyrightSince === copyrightNow) {
+      textContent.textContent = copyrightNow
+    } else {
+      textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+  
+</script>
+
+  </div>
+</div>
+
+    <div id="top"></div>
+
+    <script src="/js/lightgallery.min.js"></script>
+
+    <div id="barba-wrapper">
+      <div class="barba-container"  data-namespace="post">
+        
+
+
+
+  <link rel="stylesheet" href="/css/prism/darcula.min.css">
+
+
+  <link rel="stylesheet" href="/css/prism/line-number.min.css">
+
+
+<div class="theme-post">
+  <div class="theme-post__background mdui-color-theme"></div>
+  <div class="theme-post__header mdui-color-theme">
+    <div class="theme-post__header__title mdui-text-truncate">
+      css 命名规范
+    </div>
+    <div class="theme-spacer"></div>
+    <div class="theme-post__header__actions mdui-valign">
+      <div>
+        <span>编写时间：</span>
+        <span style="float: right">1月 24, 2018</span>
+        
+        <br>
+          <span>最后修改时间：</span>
+          <span>4月 24, 2018</span>
+        
+      </div>
+      
+  <div class="theme-post__qrcode">
+    <button class="mdui-btn mdui-ripple mdui-btn-icon mdui-hidden-xs-down" mdui-menu="{target: '#qrcode-menu'}">
+      <i class="mdui-icon material-icons">&#xe337;</i>
+    </button>
+    <ul class="mdui-menu" id="qrcode-menu">
+      <li class="mdui-list-item" style="cursor: auto">
+        文章二维码
+      </li>
+        <img class="mdui-img-fluid" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACbElEQVR42u3aQXLCMAwFUO5/6XbLTAt8ybYIzMuqAyHJy8JSv3X7+erjhoeHh4eHh4eHdzHeLT7+udDd58/PT6759/Pes+Hh4eHN8F4stQHvOebR+fnry58NDw8Pb5KXPNaj859fMykAvcKDh4eH94m8ZKFPfpW/Sjw8PLxP5CXNbhIoJMUADw8P78q85B/+PDioFoC81T6YteDh4eHFvHyTaf7v0f09PDw8vIBXHmmKW+p8jKBaqF7cFw8PD+8wL1+I8w2qXvi7/jx4eHh47+X1AtleMajGGc1xVTw8PLwR3koY0Qt/q/ddKgx4eHh4LV6+0bUeK1SDjORehRgXDw8PbxOvt8lUbZSr4WwvhsDDw8Ob4eWLeDWASOKDJNJNgl08PDy8eV412F0Zz9oVgjx8oXh4eHiDvF6g0Ito84a7OpiFh4eHN8nLI93qZtXK0ED5t3h4eHiDvN5wamGQtBVMbAsj8PDw8Dbxqs1xdQwrv2a1VBT29/Dw8PAO8KoDqb2HWHkpeSnCw8PDm+Tll86b5mrUm7Px8PDw3svbtcHfi3F7zX0U4+Lh4eEd5uU3zgtJtZnOX2U0dIWHh4c3yCuPOrWa6WoTH22b4eHh4Y3z8iH+fKCqd7Vq+cHDw8Ob4VWPfAs/LyH5a4oCFDw8PLzDvPVFuRfaJgUmJ+Hh4eHN89aLQbIxllNXro+Hh4c3ycsX6DzCWBlQyBtuPDw8vOvzeot7b7mvNu54eHh4V+atP9DK8NbxwoCHh4e3KYxIxg6Sb6sxR95Y4+Hh4c3w8ghg1/lVdl4k8PDw8E7zvu/Aw8PDw8PDw8O7wPELemhT77SXyHYAAAAASUVORK5CYII=" style="cursor: auto">
+    </ul>
+  </div>
+
+
+      
+  <div class="theme-post__share">
+    <button class="mdui-btn mdui-ripple mdui-btn-icon" mdui-menu="{target: '#post-share-menu'}">
+      <i class="mdui-icon material-icons">&#xe80d;</i>
+    </button>
+
+    <ul class="mdui-menu" id="post-share-menu">
+
+      
+        <li class="mdui-menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://lo-que.github.io//2018/01/24/css-命名规范/index.html" target="_blank" class="mdui-ripple">
+                分享到Facebook
+            </a>
+        </li>
+      
+
+      
+        <li class="mdui-menu-item">
+            <a href="https://plus.google.com/share?url=http://lo-que.github.io//2018/01/24/css-命名规范/index.html" target="_blank" class="mdui-ripple">
+                分享到Google+
+            </a>
+        </li>
+      
+
+      
+        <li class="mdui-menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://lo-que.github.io//2018/01/24/css-命名规范/index.html&title=css 命名规范" target="_blank" class="mdui-ripple">
+                分享到Linkedin
+            </a>
+        </li>
+      
+
+      
+        <li class="mdui-menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Hexo&title=css 命名规范&summary=my personal blog&pics=http://lo-que.github.io/images/favicon.png&url=http://lo-que.github.io/2018/01/24/css-命名规范/index.html" target="_blank" class="mdui-ripple">
+                分享到QQ
+            </a>
+        </li>
+      
+
+      
+        <li class="mdui-menu-item">
+            <a href="https://telegram.me/url?url=http://lo-que.github.io//2018/01/24/css-命名规范/index.html&text=css 命名规范" target="_blank" class="mdui-ripple">
+                分享到Telegram
+            </a>
+        </li>
+      
+
+      
+        <li class="mdui-menu-item">
+            <a href="https://twitter.com/intent/tweet?text=css 命名规范&url=http://lo-que.github.io//2018/01/24/css-命名规范/index.html&via=屈东奇" target="_blank" class="mdui-ripple">
+                分享到Twitter
+            </a>
+        </li>
+      
+
+      
+        <li class="mdui-menu-item">
+            <a href="http://service.weibo.com/share.php?appkey=&title=css 命名规范&url=http://lo-que.github.io//2018/01/24/css-命名规范/index.html&pic=&searchPic=false&style=simple" target="_blank" class="mdui-ripple">
+                分享到微博
+            </a>
+        </li>
+      
+
+    </ul>
+  </div>
+
+
+    </div>
+  </div>
+  <div class="theme-post__warpper
+    
+  ">
+    <div class="theme-post__warpper__container">
+      <article class="mdui-card theme-post__card mdui-hoverable">
+        <section class="theme-post__card__warning">
+          这篇文章最后修改于
+          <span id="content-warning"></span>
+          天之前。
+          本页内容可能已经过时！
+        </section>
+        
+          <section class="theme-post__card__count">
+            
+              <span>
+                本文共857字。
+              </span>
+            
+            
+              <span>
+                阅读大约需要2分钟。
+              </span>
+            
+          </section>
+        
+        
+          <section class="mdui-card-media">
+            <img src="/images/random/19.png"/>
+          </section>
+        
+        <section class="mdui-typo theme-post__card__content">
+          <h1 id="Learnning-Note"><a href="#Learnning-Note" class="headerlink" title="Learnning Note"></a>Learnning Note</h1><h4 id="css命名规范"><a href="#css命名规范" class="headerlink" title="css命名规范"></a>css命名规范</h4><h5 id="base"><a href="#base" class="headerlink" title="base"></a>base</h5><p>头：header</p>
 <p>内容：content/container</p>
 <p>尾：footer</p>
 <p>导航：nav</p>
@@ -503,9 +562,7 @@
 <h5 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h5><p>/<em> Header </em>/</p>
 <p>内容区</p>
 <p>/<em> End Header </em>/</p>
-<p>####id的命名:</p>
-<p>(1)页面结构</p>
-<p>容器: container</p>
+<h5 id="id的命名"><a href="#id的命名" class="headerlink" title="id的命名:"></a>id的命名:</h5><h6 id="1-页面结构"><a href="#1-页面结构" class="headerlink" title="(1)页面结构"></a>(1)页面结构</h6><p>容器: container</p>
 <p>页头：header</p>
 <p>内容：content/container</p>
 <p>页面主体：main</p>
@@ -515,8 +572,7 @@
 <p>栏目：column</p>
 <p>页面外围控制整体布局宽度：wrapper</p>
 <p>左右中：left right center</p>
-<p>(2)导航</p>
-<p>导航：nav</p>
+<h6 id="2-导航"><a href="#2-导航" class="headerlink" title="(2)导航"></a>(2)导航</h6><p>导航：nav</p>
 <p>主导航：mainbav</p>
 <p>子导航：subnav</p>
 <p>顶导航：topnav</p>
@@ -527,8 +583,7 @@
 <p>子菜单：submenu</p>
 <p>标题: title</p>
 <p>摘要: summary</p>
-<p>(3)功能</p>
-<p>标志：logo</p>
+<h6 id="3-功能"><a href="#3-功能" class="headerlink" title="(3)功能"></a>(3)功能</h6><p>标志：logo</p>
 <p>广告：banner</p>
 <p>登陆：login</p>
 <p>登录条：loginbar</p>
@@ -556,15 +611,14 @@
 <p>合作伙伴：partner</p>
 <p>友情链接：link</p>
 <p>版权：copyright</p>
-<h5 id="class命名"><a href="#class命名" class="headerlink" title="class命名"></a>class命名</h5><p>(1)颜色:使用颜色的名称或者16进制代码,如</p>
-<p>.red { color: red; }</p>
+<h5 id="class命名"><a href="#class命名" class="headerlink" title="class命名"></a>class命名</h5><h6 id="1-颜色-使用颜色的名称或者16进制代码-如"><a href="#1-颜色-使用颜色的名称或者16进制代码-如" class="headerlink" title="(1)颜色:使用颜色的名称或者16进制代码,如"></a>(1)颜色:使用颜色的名称或者16进制代码,如</h6><p>.red { color: red; }</p>
 <p>.f60 { color: #f60; }</p>
-<p>.ff8600 { color: #ff8600; }<br>（2）字体大小,直接使用”font+字体大小”作为名称,如</p>
-<p>.font10px { font-size: 10px; }</p>
-<p>.font6pt {font-size: 6pt; }<br>(3)对齐样式,使用对齐目标的英文名称,如</p>
-<p>.left { float:left; }</p>
-<p>.bottom { float:bottom; }<br>(4)标题栏样式,使用”类别+功能”的方式命名,如</p>
-<p>.barnews { }</p>
+<p>.ff8600 { color: #ff8600; }    </p>
+<h6 id="2-字体大小-直接使用”font-字体大小”作为名称-如"><a href="#2-字体大小-直接使用”font-字体大小”作为名称-如" class="headerlink" title="(2)字体大小,直接使用”font+字体大小”作为名称,如"></a>(2)字体大小,直接使用”font+字体大小”作为名称,如</h6><p>.font10px { font-size: 10px; }</p>
+<p>.font6pt {font-size: 6pt; }    </p>
+<h6 id="3-对齐样式-使用对齐目标的英文名称-如"><a href="#3-对齐样式-使用对齐目标的英文名称-如" class="headerlink" title="(3)对齐样式,使用对齐目标的英文名称,如"></a>(3)对齐样式,使用对齐目标的英文名称,如</h6><p>.left { float:left; }</p>
+<p>.bottom { float:bottom; }    </p>
+<h6 id="4-标题栏样式-使用”类别-功能”的方式命名-如"><a href="#4-标题栏样式-使用”类别-功能”的方式命名-如" class="headerlink" title="(4)标题栏样式,使用”类别+功能”的方式命名,如"></a>(4)标题栏样式,使用”类别+功能”的方式命名,如</h6><p>.barnews { }</p>
 <p>.barproduct { }</p>
 <p><strong> 注意事项: </strong></p>
 <pre><code>1. 一律小写;
@@ -582,92 +636,288 @@
 <h5 id="样式命名"><a href="#样式命名" class="headerlink" title="样式命名"></a>样式命名</h5><p>1）　<br>主要的 master.css<br>布局，版面 layout.css<br>专栏 columns.css<br>文字 font.css<br>打印样式 print.css<br>主题 themes.css    </p>
 <p>2）<br>reset.css // 对浏览器的默认样式进行重设<br>layout.css // 管理页面的布局<br>typeset.css // 图文的编排<br>color.css // 统一管理颜色的搭配<br>print.css // 打印效果样式<br>ie.css // 把对ie的hack单独分开     </p>
 <p>3）<br>reset.css<br>header.css // 头部的所有样式<br>container.css // 除头部/底部外的中间区域样式<br>footer.css // 底部样式<br>print.css<br>ie.css     </p>
-<p>4）<br>reset.css /<em>页面样式重置</em>/<br>header.css /<em>全站头部样式</em>/<br>footer.css /<em>全站尾部样式</em>/<br>public.css /<em>全站公共模块样式</em>/<br>index.css /<em>首页特有样式</em>/<br>container.css /<em>二级及以下主体样式</em>/<br>print.css /<em>打印样式</em>/<br>ie.css /<em>IE hack</em>/    </p>
+<p>4）<br>reset.css /<em> 页面样式重置 </em>/<br>header.css /<em> 全站头部样式 </em>/<br>footer.css /<em> 全站尾部样式 </em>/<br>public.css /<em> 全站公共模块样式 </em>/<br>index.css /<em> 首页特有样式 </em>/<br>container.css /<em> 二级及以下主体样式 </em>/<br>print.css /<em> 打印样式 </em>/<br>ie.css /<em> IE hack </em>/    </p>
 
+        </section>
+
+        
+          <section class="theme-post__card__license mdui-typo">
+            <span>
+              本文许可协议：
+              
+                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a>
+              
+            </span>
+            <br />
+            <span>本文永久链接：<a href="http://lo-que.github.io/2018/01/24/css-命名规范/">http://lo-que.github.io/2018/01/24/css-命名规范/</a></span>
             
+              <br />
+              <span>本文Markdown：<a href="http://lo-que.github.io/2018/01/24/css-命名规范/css-命名规范.md">http://lo-que.github.io/2018/01/24/css-命名规范/css-命名规范.md</a></span>
+            
+          </section>
+        
+
+        
+          <section class="mdui-card-actions theme-post__card__actions">
+            
+              <button class="mdui-btn mdui-btn-icon mdui-btn-dense mdui-ripple  mdui-color-red" mdui-tooltip="{content: '打赏', position: 'right'}" mdui-dialog="{target: '#donateDialog'}">
+                <i class="mdui-icon fa fa-beer"></i>
+              </button>
+            
+            <div class="theme-spacer"></div>
+            
+            
+              <div class="mdui-chip theme-post__card__chip--bg theme-post__card__chip--margin">
+                <span class="mdui-chip-icon theme-post__card__chip--bg"><i class="mdui-icon mdui-text-color-black-icon fa fa-tags"></i></span>
+              </div>
+              <div class="mdui-typo">
+                
+                  <a href="/tags/Learning-Note/">
+                    <span>Learning Note</span>
+                  </a>
+                
+              </div>
+            
+          </section>
+        
+
+        
+          
+            <script type="text/javascript">
+              themeRuntime.commentRest.function = function (newIdentifier, newUrl, newTitle) {
+                return
+              }
+            </script>
+          
+        
+      </article>
+      
+        <div class="mdui-color-theme theme-post__toc">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Learnning-Note" data-href="#Learnning-Note"><span class="toc-number"></span> <span class="toc-text">1. Learnning Note</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#css&#x547D;&#x540D;&#x89C4;&#x8303;" data-href="#css&#x547D;&#x540D;&#x89C4;&#x8303;"><span class="toc-number"></span> <span class="toc-text">1.0.0.1. css&#x547D;&#x540D;&#x89C4;&#x8303;</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#base" data-href="#base"><span class="toc-number"></span> <span class="toc-text">1.0.0.1.1. base</span></a></li><li class="toc-item toc-level-5"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x6CE8;&#x91CA;" data-href="#&#x6CE8;&#x91CA;"><span class="toc-number"></span> <span class="toc-text">1.0.0.1.2. &#x6CE8;&#x91CA;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#id&#x7684;&#x547D;&#x540D;" data-href="#id&#x7684;&#x547D;&#x540D;"><span class="toc-number"></span> <span class="toc-text">1.0.0.1.3. id&#x7684;&#x547D;&#x540D;:</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#1-&#x9875;&#x9762;&#x7ED3;&#x6784;" data-href="#1-&#x9875;&#x9762;&#x7ED3;&#x6784;"><span class="toc-number"></span> <span class="toc-text">1.0.0.1.3.1. (1)&#x9875;&#x9762;&#x7ED3;&#x6784;</span></a></li><li class="toc-item toc-level-6"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#2-&#x5BFC;&#x822A;" data-href="#2-&#x5BFC;&#x822A;"><span class="toc-number"></span> <span class="toc-text">1.0.0.1.3.2. (2)&#x5BFC;&#x822A;</span></a></li><li class="toc-item toc-level-6"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#3-&#x529F;&#x80FD;" data-href="#3-&#x529F;&#x80FD;"><span class="toc-number"></span> <span class="toc-text">1.0.0.1.3.3. (3)&#x529F;&#x80FD;</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#class&#x547D;&#x540D;" data-href="#class&#x547D;&#x540D;"><span class="toc-number"></span> <span class="toc-text">1.0.0.1.4. class&#x547D;&#x540D;</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#1-&#x989C;&#x8272;-&#x4F7F;&#x7528;&#x989C;&#x8272;&#x7684;&#x540D;&#x79F0;&#x6216;&#x8005;16&#x8FDB;&#x5236;&#x4EE3;&#x7801;-&#x5982;" data-href="#1-&#x989C;&#x8272;-&#x4F7F;&#x7528;&#x989C;&#x8272;&#x7684;&#x540D;&#x79F0;&#x6216;&#x8005;16&#x8FDB;&#x5236;&#x4EE3;&#x7801;-&#x5982;"><span class="toc-number"></span> <span class="toc-text">1.0.0.1.4.1. (1)&#x989C;&#x8272;:&#x4F7F;&#x7528;&#x989C;&#x8272;&#x7684;&#x540D;&#x79F0;&#x6216;&#x8005;16&#x8FDB;&#x5236;&#x4EE3;&#x7801;,&#x5982;</span></a></li><li class="toc-item toc-level-6"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#2-&#x5B57;&#x4F53;&#x5927;&#x5C0F;-&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x201D;font-&#x5B57;&#x4F53;&#x5927;&#x5C0F;&#x201D;&#x4F5C;&#x4E3A;&#x540D;&#x79F0;-&#x5982;" data-href="#2-&#x5B57;&#x4F53;&#x5927;&#x5C0F;-&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x201D;font-&#x5B57;&#x4F53;&#x5927;&#x5C0F;&#x201D;&#x4F5C;&#x4E3A;&#x540D;&#x79F0;-&#x5982;"><span class="toc-number"></span> <span class="toc-text">1.0.0.1.4.2. (2)&#x5B57;&#x4F53;&#x5927;&#x5C0F;,&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x201D;font+&#x5B57;&#x4F53;&#x5927;&#x5C0F;&#x201D;&#x4F5C;&#x4E3A;&#x540D;&#x79F0;,&#x5982;</span></a></li><li class="toc-item toc-level-6"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#3-&#x5BF9;&#x9F50;&#x6837;&#x5F0F;-&#x4F7F;&#x7528;&#x5BF9;&#x9F50;&#x76EE;&#x6807;&#x7684;&#x82F1;&#x6587;&#x540D;&#x79F0;-&#x5982;" data-href="#3-&#x5BF9;&#x9F50;&#x6837;&#x5F0F;-&#x4F7F;&#x7528;&#x5BF9;&#x9F50;&#x76EE;&#x6807;&#x7684;&#x82F1;&#x6587;&#x540D;&#x79F0;-&#x5982;"><span class="toc-number"></span> <span class="toc-text">1.0.0.1.4.3. (3)&#x5BF9;&#x9F50;&#x6837;&#x5F0F;,&#x4F7F;&#x7528;&#x5BF9;&#x9F50;&#x76EE;&#x6807;&#x7684;&#x82F1;&#x6587;&#x540D;&#x79F0;,&#x5982;</span></a></li><li class="toc-item toc-level-6"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#4-&#x6807;&#x9898;&#x680F;&#x6837;&#x5F0F;-&#x4F7F;&#x7528;&#x201D;&#x7C7B;&#x522B;-&#x529F;&#x80FD;&#x201D;&#x7684;&#x65B9;&#x5F0F;&#x547D;&#x540D;-&#x5982;" data-href="#4-&#x6807;&#x9898;&#x680F;&#x6837;&#x5F0F;-&#x4F7F;&#x7528;&#x201D;&#x7C7B;&#x522B;-&#x529F;&#x80FD;&#x201D;&#x7684;&#x65B9;&#x5F0F;&#x547D;&#x540D;-&#x5982;"><span class="toc-number"></span> <span class="toc-text">1.0.0.1.4.4. (4)&#x6807;&#x9898;&#x680F;&#x6837;&#x5F0F;,&#x4F7F;&#x7528;&#x201D;&#x7C7B;&#x522B;+&#x529F;&#x80FD;&#x201D;&#x7684;&#x65B9;&#x5F0F;&#x547D;&#x540D;,&#x5982;</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x6837;&#x5F0F;&#x547D;&#x540D;" data-href="#&#x6837;&#x5F0F;&#x547D;&#x540D;"><span class="toc-number"></span> <span class="toc-text">1.0.0.1.5. &#x6837;&#x5F0F;&#x547D;&#x540D;</span></a></li></ol></li></ol></li></ol>
         </div>
+      
+    </div>
+  </div>
+
+  <div class="theme-spacer"></div>
+
+  
+    <div class="mdui-color-theme theme-post__toc-fab">
+  <button class="mdui-fab mdui-color-theme-accent mdui-ripple mdui-fab-fixed mdui-hidden-md-up" mdui-menu="{target: '#toc-fab-menu', fixed: true}" id="toc-fab">
+    <i class="mdui-icon material-icons">&#xe242;</i>
+  </button>
+  <ul class="mdui-menu mdui-typo theme-post__toc-fab__menu" id="toc-fab-menu" style="padding: 8px;max-height: 80%">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Learnning-Note" data-href="#Learnning-Note"><span class="toc-number"></span> <span class="toc-text">1. Learnning Note</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#css&#x547D;&#x540D;&#x89C4;&#x8303;" data-href="#css&#x547D;&#x540D;&#x89C4;&#x8303;"><span class="toc-number"></span> <span class="toc-text">1.0.0.1. css&#x547D;&#x540D;&#x89C4;&#x8303;</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#base" data-href="#base"><span class="toc-number"></span> <span class="toc-text">1.0.0.1.1. base</span></a></li><li class="toc-item toc-level-5"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x6CE8;&#x91CA;" data-href="#&#x6CE8;&#x91CA;"><span class="toc-number"></span> <span class="toc-text">1.0.0.1.2. &#x6CE8;&#x91CA;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#id&#x7684;&#x547D;&#x540D;" data-href="#id&#x7684;&#x547D;&#x540D;"><span class="toc-number"></span> <span class="toc-text">1.0.0.1.3. id&#x7684;&#x547D;&#x540D;:</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#1-&#x9875;&#x9762;&#x7ED3;&#x6784;" data-href="#1-&#x9875;&#x9762;&#x7ED3;&#x6784;"><span class="toc-number"></span> <span class="toc-text">1.0.0.1.3.1. (1)&#x9875;&#x9762;&#x7ED3;&#x6784;</span></a></li><li class="toc-item toc-level-6"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#2-&#x5BFC;&#x822A;" data-href="#2-&#x5BFC;&#x822A;"><span class="toc-number"></span> <span class="toc-text">1.0.0.1.3.2. (2)&#x5BFC;&#x822A;</span></a></li><li class="toc-item toc-level-6"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#3-&#x529F;&#x80FD;" data-href="#3-&#x529F;&#x80FD;"><span class="toc-number"></span> <span class="toc-text">1.0.0.1.3.3. (3)&#x529F;&#x80FD;</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#class&#x547D;&#x540D;" data-href="#class&#x547D;&#x540D;"><span class="toc-number"></span> <span class="toc-text">1.0.0.1.4. class&#x547D;&#x540D;</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#1-&#x989C;&#x8272;-&#x4F7F;&#x7528;&#x989C;&#x8272;&#x7684;&#x540D;&#x79F0;&#x6216;&#x8005;16&#x8FDB;&#x5236;&#x4EE3;&#x7801;-&#x5982;" data-href="#1-&#x989C;&#x8272;-&#x4F7F;&#x7528;&#x989C;&#x8272;&#x7684;&#x540D;&#x79F0;&#x6216;&#x8005;16&#x8FDB;&#x5236;&#x4EE3;&#x7801;-&#x5982;"><span class="toc-number"></span> <span class="toc-text">1.0.0.1.4.1. (1)&#x989C;&#x8272;:&#x4F7F;&#x7528;&#x989C;&#x8272;&#x7684;&#x540D;&#x79F0;&#x6216;&#x8005;16&#x8FDB;&#x5236;&#x4EE3;&#x7801;,&#x5982;</span></a></li><li class="toc-item toc-level-6"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#2-&#x5B57;&#x4F53;&#x5927;&#x5C0F;-&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x201D;font-&#x5B57;&#x4F53;&#x5927;&#x5C0F;&#x201D;&#x4F5C;&#x4E3A;&#x540D;&#x79F0;-&#x5982;" data-href="#2-&#x5B57;&#x4F53;&#x5927;&#x5C0F;-&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x201D;font-&#x5B57;&#x4F53;&#x5927;&#x5C0F;&#x201D;&#x4F5C;&#x4E3A;&#x540D;&#x79F0;-&#x5982;"><span class="toc-number"></span> <span class="toc-text">1.0.0.1.4.2. (2)&#x5B57;&#x4F53;&#x5927;&#x5C0F;,&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x201D;font+&#x5B57;&#x4F53;&#x5927;&#x5C0F;&#x201D;&#x4F5C;&#x4E3A;&#x540D;&#x79F0;,&#x5982;</span></a></li><li class="toc-item toc-level-6"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#3-&#x5BF9;&#x9F50;&#x6837;&#x5F0F;-&#x4F7F;&#x7528;&#x5BF9;&#x9F50;&#x76EE;&#x6807;&#x7684;&#x82F1;&#x6587;&#x540D;&#x79F0;-&#x5982;" data-href="#3-&#x5BF9;&#x9F50;&#x6837;&#x5F0F;-&#x4F7F;&#x7528;&#x5BF9;&#x9F50;&#x76EE;&#x6807;&#x7684;&#x82F1;&#x6587;&#x540D;&#x79F0;-&#x5982;"><span class="toc-number"></span> <span class="toc-text">1.0.0.1.4.3. (3)&#x5BF9;&#x9F50;&#x6837;&#x5F0F;,&#x4F7F;&#x7528;&#x5BF9;&#x9F50;&#x76EE;&#x6807;&#x7684;&#x82F1;&#x6587;&#x540D;&#x79F0;,&#x5982;</span></a></li><li class="toc-item toc-level-6"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#4-&#x6807;&#x9898;&#x680F;&#x6837;&#x5F0F;-&#x4F7F;&#x7528;&#x201D;&#x7C7B;&#x522B;-&#x529F;&#x80FD;&#x201D;&#x7684;&#x65B9;&#x5F0F;&#x547D;&#x540D;-&#x5982;" data-href="#4-&#x6807;&#x9898;&#x680F;&#x6837;&#x5F0F;-&#x4F7F;&#x7528;&#x201D;&#x7C7B;&#x522B;-&#x529F;&#x80FD;&#x201D;&#x7684;&#x65B9;&#x5F0F;&#x547D;&#x540D;-&#x5982;"><span class="toc-number"></span> <span class="toc-text">1.0.0.1.4.4. (4)&#x6807;&#x9898;&#x680F;&#x6837;&#x5F0F;,&#x4F7F;&#x7528;&#x201D;&#x7C7B;&#x522B;+&#x529F;&#x80FD;&#x201D;&#x7684;&#x65B9;&#x5F0F;&#x547D;&#x540D;,&#x5982;</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x6837;&#x5F0F;&#x547D;&#x540D;" data-href="#&#x6837;&#x5F0F;&#x547D;&#x540D;"><span class="toc-number"></span> <span class="toc-text">1.0.0.1.5. &#x6837;&#x5F0F;&#x547D;&#x540D;</span></a></li></ol></li></ol></li></ol>
+  </ul>
+</div>
+
+  
+
+  
+    <div class="theme-post__pagination mdui-color-theme">
+  
+    <div class="theme-spacer mdui-hidden-xs"></div>
+  
+
+  
+    <div class="theme-post__pagination__next mdui-ripple mdui-valign">
+      <a href="/2018/01/22/underscore学习小结/" class="theme-post__pagination__next__content mdui-text-right">
+        <div>
+          <span class="mdui-typo-body-2-opacity mdui-text-center">旧的文章</span>
+          <i class="mdui-icon material-icons mdui-text-center">&#xe5cc;</i>
+        </div>
+        <div class="mdui-typo-title mdui-text-truncate">
+          underscore学习小结
+        </div>
+      </a>
+    </div>
     
 </div>
 
+  
 
-                
-                    <!-- Paradox Post Info -->
-                    
-                
-
-                <!-- Post Comments -->
-                
-                    
-                
-            </div>
-
-            <!-- Post Prev & Next Nav -->
-            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
-    <!-- Prev Nav -->
-    
-
-    <!-- Section Spacer -->
-    <div class="section-spacer"></div>
-
-    <!-- Next Nav -->
-    
-        <a href="/2017/12/16/get-post-的八个方法-状态码/" id="post_nav-older" class="next-content">
-            旧篇
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_forward</i>
-            </button>
-        </a>
-    
-</nav>
-
+  
+    <div class="mdui-dialog" id="donateDialog">
+      <div class="mdui-dialog-title">打赏</div>
+      <div class="mdui-dialog-content">
+        <div class="mdui-list">
+          
+            <a href="/img/avatar.png" title="wechat" class="mdui-list-item mdui-ripple" target="_blank">
+              
+                <i class="mdui-list-item-icon mdui-icon fa fa-wechat mdui-text-center"></i>&emsp;
+              
+              
+              
+              wechat
+            </a>
+          
+            <a href="https://paypal.com" title="paypay" class="mdui-list-item mdui-ripple" target="_blank">
+              
+                <i class="mdui-list-item-icon mdui-icon fa fa-paypal mdui-text-center"></i>&emsp;
+              
+              
+              
+              paypay
+            </a>
+          
         </div>
+      </div>
+      <div class="mdui-dialog-actions">
+        <button class="mdui-btn mdui-ripple mdui-ripple" mdui-dialog-close>不要</button>
+      </div>
     </div>
+  
+</div>
+<script type="text/javascript">
+  themeRuntime.scriptsMap.post = [];
+  if (document.querySelector('.theme-post__toc-fab__menu > ol') !== null && document.querySelector('.theme-post__toc > ol') !== null) {
+    tocHighlight()
+    function tocHighlight() {
+      var timer;
+      function doWork() {
+        listens.forEach(function(value, index) {
+          value[1]();
+          value[0].classList.remove("mdui-list-item-active");
+        })
+        let actionToc = (listens[listens.reduce(function(r, v, index) {
+          if (v[2] == true) {
+            return index;
+          } else return r;
+        }, undefined)] || [])[0] || listens[0][0];
+        actionToc.classList.add("mdui-list-item-active");
+        if(actionToc.getClientRects().length == 0)return;
+        showToc(actionToc);
+      }
+      function showToc(toc) {
+        let offsetTop = toc.getClientRects()[0].top - cardToc.getClientRects()[0].top - 40;
+        let offsetBottom = toc.getClientRects()[0].bottom - cardToc.getClientRects()[0].bottom + 40;
+        let offset = 0;
+        if (offsetTop < 0) offset = offsetTop;
+        if (offsetBottom > 0) offset = offsetBottom;
+        var targetTop = Math.max(0, Math.min(cardToc.scrollTop + offset, toclist.offsetHeight - cardToc.offsetHeight));
+        clearInterval(timer);
+        timer = setInterval(function() {
+          var now = cardToc.scrollTop;
+          var speed = (targetTop - now) / 10;
+          speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+          if (Math.abs(now - targetTop) < 1) {
+            clearInterval(timer);
+          }
+          cardToc.scrollTop = now + speed;
+        }, 30);
+      }
+      var listens = [];
+      var cardToc = document.querySelector('.theme-post__toc');
+      var links = cardToc.querySelectorAll(".theme-post__toc__content__link");
+      var toclist = document.querySelector(".theme-post__toc > ol");
+      Array.prototype.forEach.call(links, function(value, index) {
+        var id = (value.getAttribute("href") || "#").slice(1);
+        var element = document.getElementById(id);
+        listens.push([value, function() {
+          var readed = false;
+          var scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+          if (element.offsetTop <= scrollTop + element.clientHeight + 64) {
+            readed = true;
+          } else {
+            readed = false;
+          }
+          listens[index][2] = readed;
+        }, false])
+      })
+      doWork();
+      window.addEventListener("scroll", doWork)
+      var listener = {
+        function:  doWork,
+        event: 'scroll',
+        el: window,
+        removed: false
+      }
+      themeRuntime.scriptsMap.post.push(listener)
+    }
+  }
+</script>
 
+<script type="text/javascript">
+  (function() {
+    var postLastModifiedDate = 1524580159000
+    var today = (new Date()).getTime()
+    var difference = Math.floor((today - postLastModifiedDate)/(24*60*60*1000))
+    if (difference >= 100) {
+      document.querySelector('.theme-post__card__warning').style.display = 'block'
+      document.querySelector('#content-warning').textContent = difference
+    }
+  })();
+</script>
 
-
-                    
-
-                    
-
-                    <!--Footer-->
-<footer class="mdl-mini-footer" id="bottom">
-    
-</footer>
-
-
-                    <!-- Import JS File -->
-
-    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
-
-
-
-    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
-
-
-
-    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
-
-
-<script type="text/ls-javascript" id="NProgress-script">
-    NProgress.configure({
-        showSpinner: true
+<script type="text/javascript">
+  var images = document.querySelectorAll('.theme-post__card__content img')
+  for (i = 0; i < images.length; i++) {
+    //console.log('image added', i)
+    images[i].addEventListener("click", openLG);
+    var listener = {
+      function:  openLG,
+      event: 'click',
+      el: images[i],
+      removed: false
+    }
+    themeRuntime.scriptsMap.post.push(listener)
+  }
+  function openLG() {
+    var img_src = this.getAttribute('src');
+    var img_alt = this.getAttribute('alt');
+    lightGallery(this, {
+      dynamic: true,
+      counter: false,
+      dynamicEl: [{
+        "src": img_src,
+        'subHtml': "<span author>屈东奇</span><div descr>" + img_alt + "</div>"
+      }],
     });
-    NProgress.start();
-    $('#nprogress .bar').css({
-        'background': '#29d'
-    });
-    $('#nprogress .peg').css({
-        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
-    });
-    $('#nprogress .spinner-icon').css({
-        'border-top-color': '#29d',
-        'border-left-color': '#29d'
-    });
-    setTimeout(function() {
-        NProgress.done();
-        $('.fade').removeClass('out');
-    }, 800);
+  }
+</script>
+
+
+
+
+      </div>
+    </div>
+  </main>
+
+  <div id="outdated" style="z-index: 9999;">
+    <h6>你的浏览器已经过气辣！</h6>
+    <p>赶紧升级浏览器来访问本站吧！<a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">现在就去</a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="关闭">&times;</a></p>
+  </div>
+  <!-- import js -->
+
+
+  <script src="/js/outdatedbrowser.min.js"></script>
+
+
+
+  
+    <script src="/js/js.pure.min.js"></script>
+  
+
+
+<!-- theme js -->
+<script type="text/javascript">
+  (function() {
+    var appbarTopFlag = false;
+    var appbarEl = document.querySelector('.theme-appbar');
+    function appbarShadow() {
+      var bodyScrolled = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+      if (bodyScrolled > 0 && !appbarTopFlag) {
+        appbarEl.classList.add('theme-appbar--shadow');
+        appbarTopFlag = true;
+      } else if (bodyScrolled === 0 && appbarTopFlag) {
+        appbarEl.classList.remove('theme-appbar--shadow');
+        appbarTopFlag = false;
+      }
+    }
+    appbarShadow()
+    window.addEventListener('scroll', appbarShadow);
+  })();
 </script>
 
 
@@ -675,78 +925,10 @@
 
 
 
-
-
-
-
-
-
-
-<!-- UC Browser Compatible -->
-<script>
-	var agent = navigator.userAgent.toLowerCase();
-	if(agent.indexOf('ucbrowser')>0) {
-		document.write('<link rel="stylesheet" href="/css/uc.css">');
-	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
-	}
+<script type="text/javascript">
+  document.querySelector('body').classList.add('theme-loaded')
 </script>
 
-<!-- Import prettify js  -->
 
-
-
-<!-- Window Load -->
-<!-- add class for prettify -->
-<script type="text/ls-javascript" id="window-load">
-    $(window).on('load', function() {
-        // Post_Toc parent position fixed
-        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
-    });
-
-    
-    
-</script>
-
-<!-- MathJax Load-->
-
-
-<!-- Bing Background -->
-
-
-<script type="text/ls-javascript" id="lazy-load">
-    // Offer LazyLoad
-    queue.offer(function(){
-        $('.lazy').lazyload({
-            effect : 'show'
-        });
-    });
-
-    // Start Queue
-    $(document).ready(function(){
-        setInterval(function(){
-            queue.execNext();
-        },200);
-    });
-</script>
-
-<!-- Custom Footer -->
-
-
-
-<script>
-    (function(){
-        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
-
-        for (var i = 0; i < scriptList.length; ++i) {
-            var item = scriptList[i];
-            lsloader.runInlineScript(item.id,item.id);
-        }
-    })()
-console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
-</script>
-
-                </main>
-            </div>
-        </body>
-    
+</body>
 </html>
