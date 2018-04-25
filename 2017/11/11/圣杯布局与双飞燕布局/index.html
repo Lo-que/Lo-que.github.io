@@ -2,10 +2,6 @@
 <html style="display: none;" lang="zh">
     <head>
     <meta charset="utf-8">
-    <!--
-        © Material Theme
-        https://github.com/viosey/hexo-theme-material
-        Version: 1.5.2 -->
     <script>
         window.materialVersion = "1.5.2"
         // Delete localstorage with these tags
@@ -54,7 +50,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="qudongqi&#39;s personal blog">
-    <meta name="keywords" content=",Learning Note">
+    <meta name="keywords" content="qudongqi,blog,hexo,FE,Learning Note">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -80,6 +76,11 @@
         <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
         
 
     
@@ -239,7 +240,7 @@
 
     
         <meta property="article:published_time" content="Sat Nov 11 2017 20:10:58 GMT+0800">
-        <meta property="article:modified_time" content="Tue Apr 24 2018 18:41:29 GMT+0800">
+        <meta property="article:modified_time" content="Wed Apr 25 2018 15:35:00 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -262,7 +263,7 @@
     "mainEntityOfPage": "http://lo-que.github.io/2017/11/11/圣杯布局与双飞燕布局/index.html",
     "headline": "圣杯布局与双飞燕布局",
     "datePublished": "Sat Nov 11 2017 20:10:58 GMT+0800",
-    "dateModified": "Tue Apr 24 2018 18:41:29 GMT+0800",
+    "dateModified": "Wed Apr 25 2018 15:35:00 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "屈东奇",
@@ -280,7 +281,7 @@
             "url": "/img/favicon.png"
         }
     },
-    "keywords": ",Learning Note",
+    "keywords": ",Learning Notequdongqi,blog,hexo,FE",
     "description": "qudongqi&#39;s personal blog",
 }
 </script>
@@ -411,6 +412,18 @@
     -->
 
     <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC3ElEQVR42u3aUW7cMAwE0Nz/0u0B2rgz5DbYlZ6/FgvH1lOATEjq69eV1xc2NjY2NjY2Njb2W7K/4usvD3q8p/3mz8/PT27XjI2NjX02+x9/+h/Zz99/97mOn/I52NjY2HeyvwuA53ueF5SEX7tl7ZqxsbGxsRN2W7Qk4M2d2NjY2NgJ+/mbtv2UvBcbGxsbe99UanltydFuxw/10rCxsbHfnp0XGO/z+Ufn29jY2NhvzJ4NXDeNp/bIzn5IjI2NjX02e7Pc2c/mw4PZ4UtsbGzs29j79k1yWKctctonR4eEsLGxsQ9lJy97Xmjb3E9+dlOcFL00bGxs7CPY7eg0j7d8JJw/bdOEwsbGxj6VnQTS5jBl+5ZXDRWwsbGx72G/CtyWNM/UtrU0nG9jY2NjH8HOC4D8IOY+bGaNpBeMB7CxsbE/lt3GRhJFmwhMRhF56GJjY2PfwG5HvEk4tQVPe2SzXQM2Njb2Dex8dJpvxCYC8zJmVYFhY2Njfzh7ePwlDrM8ftpjQPlhIGxsbOyz2bOyod2gVw2Mk2tYgWFjY2MfzU4aN7NjN/l72yHBcL6NjY2N/bHs2b/4xZC13Kz9QCIKMGxsbOwj2HmDaTaObUuRNkqHAYaNjY19EDs/lNM2g5Jtmh2yzJ+MjY2NfRt70+LPR7NtQ6qNumFTCRsbG/vD2W0TfxZvwwFtXKispiLY2NjYR7Bnzfr/3XhqhwH14UtsbGzs49ibNn29lPhIUHs/NjY29p3szcs25ccsFOsnY2NjYx/Kbq8WmTeAko3ItwkbGxv7Hva+MTQbJ7Rb08YnNjY29m3sdrn7WMoxbbzV4wFsbGzsg9jJMZpkcUkI5fH2qtYSNjY2NnYSYPtiIx82J8GGjY2NjT0rEmblygxTtKuwsbGxL2C3A4AktGYj4Tbwol8GNjY29tHsvEHTFip5wLTbVLe0sLGxsQ9l33NhY2NjY2NjY2Njv831G2CcUyVIFNpTAAAAAElFTkSuQmCC">
+    
+</ul>
+
     
 
     <!-- Tags (bookmark) -->
@@ -565,6 +578,16 @@ footer {
 <p>双飞翼布局，为了中间div内容不被遮挡，直接<strong>在中间div内部创建子div用于放置内容，在该子div里用margin-left和margin-right为左右两栏div留出位置</strong>。<br>多了1个div，少用大致4个css属性（圣杯布局中间divpadding-left和padding-right这2个属性，加上左右两个div用相对布局position: relative及对应的right和left共4个属性，一共6个；而双飞翼布局子div里用margin-left和margin-right共2个属性，6-2=4）</p>
 
         
+                <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+                    <p><strong>
+                         
+                            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a>
+                        </strong>
+                        <br>
+                        <strong>本文链接：</strong><a href="http://lo-que.github.io/2017/11/11/圣杯布局与双飞燕布局/">http://lo-que.github.io/2017/11/11/圣杯布局与双飞燕布局/</a>
+                    </p>
+                </blockquote>
+        
     
 
     
@@ -588,7 +611,7 @@ footer {
                 <i class="material-icons">arrow_back</i>
             </button>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
+            新的文章
         </a>
     
 
@@ -598,7 +621,7 @@ footer {
     <!-- Next Nav -->
     
         <a href="/2017/10/24/modules-exports与exports/" id="post_nav-older" class="next-content">
-            旧篇
+            旧的文章
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_forward</i>
@@ -653,7 +676,7 @@ footer {
         <ul id="settings-dropdown" class="dropdown-menu">
             
                 <li>
-                    <a href="#" target="_blank" title="Email Me">
+                    <a href="mailto:Lo-que@foxmail.com" target="_blank" title="Email Me">
                         
                             <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
                         
@@ -695,7 +718,40 @@ footer {
         
     
 
+    <!-- Tags  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">label</i>
+                
+                标签
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/tags/Learning-Note/">Learning Note<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/tags/Learning-summary/">Learning summary<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
     <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/css/">css<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/html/">html<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/jade/">jade<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/javascript/">javascript<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/network/">network<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/nodejs/">nodejs<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
     
 
     <!-- Pages  -->
@@ -703,33 +759,24 @@ footer {
 
     <!-- Article Number  -->
     
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">14</span>
+            </a>
+        </li>
+        
+    
 </ul>
 
 
         <!-- Sidebar Footer -->
-        <!--
-I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
-If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
-It will not impact the appearance and can give developers a lot of support :)
-
-很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
-如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
-它不会影响美观并可以给开发者很大的支持和动力。 :)
--->
-
-<!-- Sidebar Divider -->
+        <!-- Sidebar Divider -->
 
     <div class="sidebar-divider"></div>
 
 
 <!-- Theme Material -->
-
-    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
-        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
-            主题 - Material
-            <span class="sidebar-badge badge-circle">i</span>
-        </div>
-    </a>
 
 
 <!-- Help & Support -->
@@ -841,18 +888,10 @@ It will not impact the appearance and can give developers a lot of support :)
 
         <!-- Paradox Footer Right Section -->
 
-        <!--
-        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
-        It will not impact the appearance and can give developers a lot of support :)
-
-        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
-        它不会影响美观并可以给开发者很大的支持。 :)
-        -->
-
         <div class="mdl-mini-footer--right-section">
             <div>
-                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
-                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+                <div class="footer-develop-div">人生若只如初见</div>
+                <div class="footer-develop-div">何事秋风悲画扇</div>
             </div>
         </div>
     
@@ -895,6 +934,10 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
 
 
 
@@ -916,6 +959,12 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Import prettify js  -->
 
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
 
 
 <!-- Window Load -->
@@ -926,6 +975,13 @@ It will not impact the appearance and can give developers a lot of support :)
         $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
     });
 
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
     
     
 </script>
@@ -965,7 +1021,7 @@ It will not impact the appearance and can give developers a lot of support :)
             lsloader.runInlineScript(item.id,item.id);
         }
     })()
-console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+console.info("%c如有疑虑请联系：\n"+'Lo-que@foxmail.com'+'%c\n or http://github.com/Lo-que/Lo-que.github.io',"font-size: 14px;color: #3F51B5;","color: #448AFF;text-decoration: none");
 </script>
 
                 </main>
