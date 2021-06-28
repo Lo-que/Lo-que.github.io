@@ -22,6 +22,6 @@
     "node-prismjs": "^0.1.1",
     "node-sass": "^4.12.0",
     "node-sass-magic-importer": "^5.1.2",
-    "prismjs": "^1.14.0"
+    "prismjs": "^1.24.0"
   }
 }
