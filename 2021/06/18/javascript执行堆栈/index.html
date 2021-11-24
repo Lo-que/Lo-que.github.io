@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            javascript执行堆栈 | 
+        
+        Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="qudongqi&#39;s personal blog">
+    <meta name="keywords" content="qudongqi,blog,hexo,FE,GC VO AO CalleeStack">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Blog">
+    <meta name="msapplication-starturl" content="http://lo-que.github.io/2021/06/18/javascript%E6%89%A7%E8%A1%8C%E5%A0%86%E6%A0%88/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://lo-que.github.io/2021/06/18/javascript%E6%89%A7%E8%A1%8C%E5%A0%86%E6%A0%88/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="javascript执行堆栈 | Blog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="qudongqi&#39;s personal blog">
+    <meta property="og:article:tag" content="GC VO AO CalleeStack"> 
+
+    
+        <meta property="article:published_time" content="Fri Jun 18 2021 21:05:37 GMT+0800">
+        <meta property="article:modified_time" content="Wed Nov 24 2021 15:45:45 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://lo-que.github.io/2021/06/18/javascript%E6%89%A7%E8%A1%8C%E5%A0%86%E6%A0%88/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://lo-que.github.io/2021/06/18/javascript%E6%89%A7%E8%A1%8C%E5%A0%86%E6%A0%88/index.html",
+    "headline": "javascript执行堆栈",
+    "datePublished": "Fri Jun 18 2021 21:05:37 GMT+0800",
+    "dateModified": "Wed Nov 24 2021 15:45:45 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "屈东奇",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "自童年起，我便独自一人，照顾着历代星辰。"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",GC VO AO CalleeStackqudongqi,blog,hexo,FE",
+    "description": "qudongqi&#39;s personal blog",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#javascript%E6%89%A7%E8%A1%8C%E5%A0%86%E6%A0%88"><span class="post-toc-number">1.</span> <span class="post-toc-text">javascript执行堆栈</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">概念</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#%E6%89%A7%E8%A1%8C%E6%A0%88%E5%8E%8B%E6%A0%88%E9%A1%BA%E5%BA%8F"><span class="post-toc-number">1.0.1.0.1.</span> <span class="post-toc-text">执行栈压栈顺序</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E8%B5%B0%E8%BF%9BES5-%E5%87%BA%E7%8E%B0%E4%BA%86let-const"><span class="post-toc-number">1.0.2.</span> <span class="post-toc-text">走进ES5+ (出现了let const)</span></a></li></ol></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                javascript执行堆栈
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>屈东奇</strong>
+        <span>6月 18, 2021</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAADh0lEQVR42u3awY7iQAwEUP7/p3evK40CVXY6w0ovJzRMSPfjYMrt1x/XP9cLAQ4cOHDgwIEDBw4cX8zxiq+fd1395equq3vf3/V+PVfPLfaCAwcOHDgOcHwoRfH/JMvNX18xtdAfvkgcOHDgwHGMo91SXg6jKBWU2JwjvxcHDhw4cHwPRxvVhsstSzIOHDhw4PgfOTahq23tvf/M/NNw4MCBA8fzHEm4ao+j2qOmzQHYL/RKceDAgQPHeqDh+18/Ot+BAwcOHDh+cLRXHtjaMYjZSmb34sCBAweOcxx5oZoNH8yCX9IiTO5KyHDgwIEDx2mOTcG7K4zlz2oPqOpTOBw4cODAseBIxhfubSzONvOhcLZHYjhw4MCB41aO94tINn8XYkvWllUcOHDgwPE9HPuRtbbZ18bCNvLhwIEDB47THMngwqY9lxfjGVb7QwEHDhw4cJzj2Je39t087LWNv3ZtOHDgwIHjBMcshuXL3RTIWbMyaU3iwIEDB47THDcf5JQjDsXwwSK8XX6FOHDgwIHjVo6kcObxKY9YecsvL+czaBw4cODAcY6jHR1oA1vb5msjWQJU90px4MCBA8eCIx9x2I8v5KFu1kAsSi8OHDhw4LiVox1E2MSqvEjPQl3+deLAgQMHjnMc+bBaW/zaFmE+KjGLf8XvDhw4cODAseBoY1I+4jBs1ZXNwbZ9WfzuwIEDBw4cI479Y9qRiE1Lcd/ExIEDBw4cT3K0S7xr9C2Pau1Wox8NOHDgwIHjVo488OyPpvL4lz99U8hx4MCBA8c5js1W8y3lKLNRuXxHOHDgwIHjHMdsA5uF1sdC8XhEG95w4MCBA8dpjvbBs1GDfDh7X2KHk4M4cODAgWPN0Q5Mbxa3B93EThw4cODA8QxH3rxri+J+2LoNmXmJxYEDBw4cz3DsD5n2ww1tMV4dgOHAgQMHjkc48tiWl9vVqHTwtSUXDhw4cOA4zdFe+bHQZmPtUEU7BoEDBw4cOM5xrErUeilJ3GoPxmo4HDhw4MBxgGPWdLtrG/vWYfJ3HDhw4MDxPMdm9DlvNbY0+Sfc3CvFgQMHDhwPcszCUl4aN/GsHbbDgQMHDhzfxtE27GbNwfbgqgiKOHDgwIHjGEdbGhPQ/N22EZl8zvFjJxw4cODAccGRt9XaCLcZgBsWzjZS4sCBAweOWzlcOHDgwIEDBw4cOHDg+LLrL9nZ4yywqC69AAAAAElFTkSuQmCC">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-none-link" href="/tags/GC-VO-AO-CalleeStack/" rel="tag">GC VO AO CalleeStack</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=javascript执行堆栈&url=http://lo-que.github.io/2021/06/18/javascript%E6%89%A7%E8%A1%8C%E5%A0%86%E6%A0%88/index.html&pic=http://lo-que.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=javascript执行堆栈&url=http://lo-que.github.io/2021/06/18/javascript%E6%89%A7%E8%A1%8C%E5%A0%86%E6%A0%88/index.html&via=屈东奇" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://lo-que.github.io/2021/06/18/javascript%E6%89%A7%E8%A1%8C%E5%A0%86%E6%A0%88/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://lo-que.github.io/2021/06/18/javascript%E6%89%A7%E8%A1%8C%E5%A0%86%E6%A0%88/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Blog&title=javascript执行堆栈&summary=qudongqi&#39;s personal blog&pics=http://lo-que.github.io/img/favicon.png&url=http://lo-que.github.io/2021/06/18/javascript%E6%89%A7%E8%A1%8C%E5%A0%86%E6%A0%88/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+        <a class="post_share-link" href="https://telegram.me/share/url?url=http://lo-que.github.io/2021/06/18/javascript%E6%89%A7%E8%A1%8C%E5%A0%86%E6%A0%88/index.html&text=javascript执行堆栈" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h2 id="javascript执行堆栈"><a href="#javascript执行堆栈" class="headerlink" title="javascript执行堆栈"></a>javascript执行堆栈</h2><p>先来看两道面试题。</p>
+<pre><code class="js">var a = &#123;n:1&#125;
+a.x = a = &#123;n:2&#125;
+console.log(a.x)
+// undefined
+</code></pre>
+<pre><code class="js">var s = [];
+var arr = s;
+for (var i = 0; i &lt; 3; i++) &#123;
+    var pusher = &#123;
+        value: &quot;item&quot; + i
+    &#125;, tmp;
+    if (i !== 2) &#123;
+        tmp = []
+        pusher.children = tmp
+    &#125;
+    arr.push(pusher);
+    arr = tmp;
+&#125;        
+console.log(s[0]);
+</code></pre>
+<h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><ol>
+<li><p>栈区(stack):由编译器自动分配释放,存放函数的参数值,局部变量的值等,其操作方式类似于数据结构的栈。 </p>
+</li>
+<li><p>堆区(heap):一般是由程序员分配释放,若程序员不释放的话,程序结束时可能由OS回收,值得注意的是他与数据结构的堆是两回事,分配方式倒是类似于数据结构的链表。 </p>
+</li>
+<li><p>全局区(static):也叫静态数据内存空间,存储全局变量和静态变量,全局变量和静态变量的存储是放一块的,初始化的全局变量和静态变量放一块区域,没有初始化的在相邻的另一块区域,程序结束后由系统释放。</p>
+</li>
+<li><p>文字常量区:常量字符串就是放在这里,程序结束后由系统释放。 </p>
+</li>
+<li><p>程序代码区:存放函数体的二进制代码。</p>
+<pre><code class="js">function foo() &#123;
+  foo()
+&#125;
+foo() // ❌
+
+
+function bar() &#123;
+  setTimeout(bar)
+&#125;
+bar() // ✅
+
+function baz() &#123;
+  Promise.resolve().then(baz) 
+&#125;
+baz() // 能运行，但是会卡
+</code></pre>
+</li>
+</ol>
+<p>当Javascript代码执行的时候会将不同的变量存于内存中的不同位置：堆 (heap)和 栈(stack) 中来加以区分。其中，堆里存放着一些对象。而栈中则存放着一些基础类型变量以及对象的指针。但是我们这里说的执行栈和数据结构中的栈的意义却有些不同。</p>
+<p>js在执行可执行的脚本时，首先会创建一个全局可执行上下文 (globalContext)，每当执行到一个函数调用时都会创建一个可执行上下文 (Execution Context EC)。当然可执行程序可能会存在很多函数调用，那么就会创建很多EC， 所以javascript引擎创建了执行上下文栈 (Execution Context Stack, ECS)来管理执行上下文。但函数调用完成，js会退出这个执行环境并把这个执行环境销毁，回到上一个方法的执行环境…这个过程反复进行，直到执行栈中的代码全部执行完毕，如下是以上的几个关键词，我们来依次分析一下：</p>
+<blockquote>
+<ul>
+<li>执行栈 (Execution Context Stack)</li>
+<li>全局对象 (GO, Global Context) (因为垃圾回收叫GC，所以简单称为GO)</li>
+<li>活动对象 (Activation Object)    </li>
+<li>变量对象 (Variable Object)</li>
+<li>全局上下文 (GC, Global Execution Context)</li>
+<li>执行上下文 (EC, Execution Context)</li>
+<li>函数调用栈 (Callee Stack)</li>
+<li>执行上下文栈 (ECS, Execution Context Stack)</li>
+<li>垃圾回收 (GC, Garbage Collection)</li>
+<li>词法环境 (Lexical Environment)</li>
+<li>变量环境 (Variable Environment)</li>
+<li>环境记录 (Environment Record)</li>
+</ul>
+</blockquote>
+<p>【执行栈 (Execution Context Stack)】</p>
+<p><img src="/2021/06/18/javascript%E6%89%A7%E8%A1%8C%E5%A0%86%E6%A0%88/javascript_workflow-91249281e37222c08da5320574487363.jpeg" alt="javascript_workfolw"></p>
+<p>执行栈，在其他编程语言中也被称为调用栈，它是一种LIFO（后进先出）的结构，被用于在代码执行阶段存储所有创建过的执行环境。</p>
+<p>当Javascript引擎首次运行到你的脚本时，它会创建一个全局执行环境，并把它推入到当前的执行栈中。每当引擎运行到其函数调用时，就会为这个函数创建一个新的执行环境(栈帧)，并把它推入到堆栈的顶部。</p>
+<blockquote>
+<p>浏览器解释器执行js是单线程的过程，这就意味着同一时间，只能有一个事情在进行。其他的活动和事件只能排队等候，生成出一个等候队列执行栈</p>
+</blockquote>
+<h6 id="执行栈压栈顺序"><a href="#执行栈压栈顺序" class="headerlink" title="执行栈压栈顺序"></a>执行栈压栈顺序</h6><p>一开始执行代码的时候，便确定了一个全局执行上下文<code>global execution context</code>作为默认值。如果在你的全局环境中，调用了其他的函数，程序将会再创建一个新的EC，然后将此EC推入进执行栈中<code>execution stack</code></p>
+<p>如果函数内再调用其他函数，相同的步骤将会再次发生：<strong>创建一个新的EC -&gt; 把EC推入执行栈</strong>。一旦一个EC执行完毕，便会从执行栈中推出(pop)。ESP指针负责EC出栈指向。</p>
+<pre><code class="javascript">ECStack = [
+·         globalContext
+]
+// 为啥全局变量永远不会回收
+// 因为全局执行上下文永远不会弹出ECS
+
+
+// 全局执行上下文和 执行上下文都是概念
+// 真正存储的是
+// globalContext  GO  Global Context 全局对象
+// execution context AO (Activation Object) 活动对象 VO(Variable Object)变量对象  
+</code></pre>
+<ol>
+<li><p>继续分析压栈过程</p>
+<pre><code class="js">function fun3() &#123;
+  console.log(&#39;fun3&#39;)
+  throw &#39;env&#39; // 通过抛出异常 我们可以简单的查看到当前函数的执行调度过程
+&#125;
+function fun2() &#123;
+  fun3()
+&#125;
+function fun1() &#123;
+  debugger // 也可以 在此处追加debugger 从下图中看到
+  fun2()
+&#125;
+fun1()
+// 执行fun1 结果如下
+ECStack = [
+        fun1,
+      globalContext
+]
+</code></pre>
+<p><img src="/2021/06/18/javascript%E6%89%A7%E8%A1%8C%E5%A0%86%E6%A0%88/js02-2f00bfe61c18c65948dcd4c07792b5f3.png" alt="js01"></p>
+<p>我们按住 command + ; 继续向下走，会依次 fun2 –&gt; fun3 –&gt; fun2 —&gt; fun1 –&gt; anonymous(globalContext)</p>
+<p>分别依次可以在上边的 Scope 选项中查看到当前执行栈的 this 指向 Local, 所以可以方便维护当前的执行上下文</p>
+<p><img src="/2021/06/18/javascript%E6%89%A7%E8%A1%8C%E5%A0%86%E6%A0%88/js03-b6be89a02ddfe1369f7284e6a6cb10d3.png" alt="js01"></p>
+<p><strong>函数的执行栈是有大小的</strong>.</p>
+<pre><code class="javascript">function foo1()&#123;
+  foo1()
+&#125;
+foo1()
+// Uncaught RangeError: Maximum call stack size exceeded
+
+let m = 0
+function foo()&#123;
+  if(m++ &gt; 1000) &#123;
+    debugger;
+  &#125;
+  foo()
+&#125;
+foo()
+// 就会发现调用栈中存在 1000 个调用 EC(栈帧)
+</code></pre>
+<p><img src="/2021/06/18/javascript%E6%89%A7%E8%A1%8C%E5%A0%86%E6%A0%88/js04-779bdcca312c6b30b8c6e988164e292e.png" alt="js04"></p>
+</li>
+<li><p>变量对象 (Variable Object)</p>
+<p>变量对象VO是与执行上下文相关的特殊对象，用来存储上下文的函数声明，函数形参和变量</p>
+<pre><code class="js">// 变量对象VO存储上下文中声明的以下内容
+&#123;
+  // 1-1 函数声明FD(如果在函数上下文中), -- 不包含函数表达式
+  // 1-2 函数形参function arguments
+  // 1-3 变量声明-注意b=10不是变量，但是var b = 10;是变量，有变量声明提升
+  // alert(a); //undefined
+  // alert(b); //&quot;b&quot; 没有声明
+  // b = 10;
+  // var a = 20;
+&#125;
+var a = 10;
+
+function test(x) &#123;
+  var b = 20;
+&#125;
+
+test(30);
+
+// 全局上下文的变量对象
+VO(global execution context) = &#123;
+  a: 10,
+  test: &lt;reference to function&gt;
+&#125;
+
+// test函数上下文的变量对象
+VO(test functionContext) = &#123;
+  x: 30,
+  b: 20
+&#125;
+
+// VO分为全局上下文的变量对象VO，函数上下文的变量对象VO
+VO(global execution context) === Global Context === globalThis;
+</code></pre>
+</li>
+<li><p>活动对象(Activation Object)</p>
+<p>在函数上下文中，变量对象被表示为活动对象AO，当函数被调用后，这个特殊的活动对象就被创建了。它包含普通参数与特殊参数对象(具有索引属性的参数映射表)。活动对象在函数上下文中作为变量对象使用。</p>
+<pre><code class="js">// 1. 在函数执行上下文中，VO是不能直接访问的，此时由活动对象扮演VO的角色
+// 2. Arguments对象包括如下属性：callee、length
+// 3. 内部定义的函数
+// 4. 以及绑定上对应的变量环境
+// 5. 内部定义的变量
+VO(functionContext) === AO;
+function test(a, b) &#123;
+  var c = 10;
+  function d() &#123;&#125;
+  var e = function _e() &#123;&#125;
+  (function x()&#123;&#125;)
+&#125;
+
+test(10); // call 当进入带有参数10的test函数上下文时， AO表现为如下：
+// AO里并不包含函数&quot;x&quot;。这是因为&quot;x&quot;是一个函数表达式(FunctionExpression, 缩写为FE)而不是函数声明，函数表达式不会影响VO
+AO(test) = &#123;
+  a: 10,
+  b: undefined,
+  c: undefined,
+  d: &lt;reference to FunctionDeclaration &quot;d&quot;&gt;
+  e: undefined
+&#125;
+</code></pre>
+<blockquote>
+<p>活动对象和变量对象的区别:</p>
+<ul>
+<li>变量对象（VO）是规范上或者是 JS 引擎上实现的,并不能在 JS 环境中直接访问</li>
+<li>当进入到一个执行上下文后,这个变量对象才会被激活,所以叫活动对象(AO),这时候活动对象上的各种属性才能被访问,因为被激活了</li>
+</ul>
+</blockquote>
+</li>
+<li><p>深度活动对象 (Activation Object)</p>
+<pre><code class="js">// Activation Object 分为创建阶段和执行阶段
+function foo(i) &#123;
+  var a = &#39;hello&#39;;
+  var b = function privateB() &#123;&#125;;
+  function c()&#123;&#125;
+&#125;
+
+foo(22);
+// 当我们执行foo(22)的时候，EC创建阶段会类似生成下面这样的对象:
+fooExecutionContext = &#123;
+  scopeChain:&#123; Scope &#125;,
+  AO: &#123;
+    arguments:&#123;
+      0: 22,
+      length: 1
+    &#125;,
+    i: 22,
+    c: pointer to function c(),
+      a: undefined,
+      b: undefined
+  &#125;,
+  VO:&#123;...&#125;,
+  Scope: [AP, VO, GO]
+&#125;
+// 在创建阶段，会发生属性名称的定义，但是并没有赋值(变量提升阶段)。一旦创建阶段(creation stage)结束，便进入了激活/执行阶段。那么fooExecutionContext便会完成赋值，变成这样：
+// 【 运行函数内部的代码，对变量赋值，代码一行一行的被解释执行 】
+fooExecutionContext = &#123;
+  scopeChain:&#123; ... &#125;,
+  AO: &#123;
+    arguments:&#123;
+      0: 22,
+      length: 1
+    &#125;,
+    i: 22,
+    c: pointer to function c(),
+      a: &#39;hello&#39;,
+      b: pointer to function privateB()
+  &#125;,
+  VO:&#123;...&#125;,
+  Scope: [AP, VO, GO],
+  this: &#123; 运行时确认 &#125;
+&#125;
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/zvideo/1314911698281725952">通过动图了解JS中的ECStack、EC、VO 和 AO</a></p>
+</li>
+<li><p>补充活动对象(Activation Object)</p>
+<pre><code class="js">var x = 10;
+function foo() &#123;
+  var barFn = new Function(&#39;alert(x); alert(y);&#39;);
+  barFn(); // 10, &quot;y&quot; is not defined
+&#125;
+foo()
+// 1. 通过函数构造函数创建的函数的[[scope]]属性总是唯一的全局对象(全局LexicalEnvironment)
+// 2. Eval code - eval 函数包含的代码块也有同样的效果
+</code></pre>
+</li>
+<li><p>整合体运行流程如下</p>
+<pre><code class="js">// VO函数上下文的链接 AO是函数自身的
+ECStack = [
+  fun3,
+  fun2,
+  fun1,
+  globalContext
+]
+</code></pre>
+</li>
+<li><p>写到最后</p>
+<p>当一个异步代码(如发送ajax请求数据)执行后会如何呢？ 接下来需要了解的另一个概念就是： 事件队列(Task Queue)。</p>
+<p>当js引擎遇到一个异步事件后，其实不会说一直等到异步事件的返回，而是先将异步事件进行挂起。等到异步事件执行完毕后，会被 加入到事件队列中。(注意，此时只是异步事件执行完成，其中的回调函数并没有去执行。)当执行队列执行完毕，主线程处于闲置状态时，会去异步队列那抽取最先被推入队列中的异步事件，放入执行栈中，执行其中的回调同步代码。如此反复，这样就形成了一个无限的循环。这就是这个过程被称为”事件循环(EventLoop)”的原因。</p>
+<p>一个小实战</p>
+<pre><code class="js">// =========分割线==========
+function test() &#123;
+  var result = []
+  for(var i = 0; i &lt; 10; i++) &#123;
+    result[i] = function() &#123;
+      return i
+    &#125;
+    &#125;
+  return result
+&#125;
+
+let r = test()
+r.forEach(fn =&gt; &#123;
+  console.log(&#39;fn&#39;, fn())
+&#125;)
+
+/**
+当去执行test的时候， test创建了EC放到ECS，直接创建完了就从ECS中直接就弹出去了，但是吐出来result，result里边包了十个fn，那么这十个函数，实际上最终指向了test中的AO，那就证明这个函数test执行完没有弹出，要等r.forEach(fn =&gt; console.log(&#39;fn&#39;, fn()))执行完才弹，因为fn指向了test中的AO里的i
+*/
+
+//1. 函数test执行**完**出栈 留下AO(test)有个i的指向
+//2. 函数在执行的时候，函数的执行环境才会生成，所以 fn执行的时候生成作用域链指向如下
+//3. AO(result[i]) --&gt; AO(fn) --&gt; VO(G) 加个闭包就立马创建了执行环境
+&lt;ul&gt;
+  &lt;li&gt;1&lt;/li&gt;
+    &lt;li&gt;2&lt;/li&gt;
+    &lt;li&gt;3&lt;/li&gt;
+    &lt;li&gt;4&lt;/li&gt;
+    &lt;li&gt;5&lt;/li&gt;
+    &lt;li&gt;6&lt;/li&gt;
+&lt;/ul&gt;
+var list_li = document.getElementByTagName(&quot;li&quot;)
+for(var i = 0; i &lt; list_li.length; i++) &#123;
+  list_li[i].onclick = function () &#123;
+    console.log(i)
+  &#125;
+&#125;
+</code></pre>
+</li>
+</ol>
+<p>那么其实一切也就迎刃而解。</p>
+<p>闭包的原理就是Scope(对空间中存储closure(foo))，</p>
+<blockquote>
+<p>在执行的作用域中遇到闭包，放到堆区中去，在Scope中指向了堆区</p>
+</blockquote>
+<p>this的原理是动态绑定，</p>
+<blockquote>
+<p>this 永远指向ECS执行栈的栈顶 ‘谁调用指谁’  ECS栈顶执行出栈 </p>
+<p>动态绑定原理是 AO VO 两步 第一步在AO中定义  第二步等ECS执行</p>
+</blockquote>
+<p>作用域的原理是Scope:[AO, VO, GO].</p>
+<blockquote>
+<p>再加上堆区的闭包</p>
+</blockquote>
+<p>eval不能回收的原理是推不进AO，</p>
+<blockquote>
+<p>eval 直接绑定到全局中，进不了AO。EC出ECS(弹栈)的时候进行垃圾回收，弹栈的时候弹出去的是AO VO， GO不会出栈</p>
+</blockquote>
+<p>变量提升的原理是AO的准备阶段，</p>
+<blockquote>
+<p>把所有变量分析清楚，定义成undefined</p>
+</blockquote>
+<p>异步队列的原理是ECS</p>
+<blockquote>
+<p>ECS中没有东西执行EventLoop。 node中 libuv  浏览器环境中 message loop   message pump</p>
+</blockquote>
+<h4 id="走进ES5-出现了let-const"><a href="#走进ES5-出现了let-const" class="headerlink" title="走进ES5+ (出现了let const)"></a>走进ES5+ (出现了let const)</h4><pre><code class="js">// this 值的决定，也被称为 This Binding。(即 this 绑定)
+// LexicalEnvironment(词法环境)
+// VariableEnvironment(变量环境)
+ExecutionContext = &#123;
+  ThisBinding = &lt;this value&gt;, // 固定this  因为有了箭头函数
+  LexicalEnvironment = &#123; ... &#125;,
+  VariableEnvironment = &#123; ... &#125;, // 兼容var写法
+&#125;
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://tc39.es/ecma262">具体词法环境参考 9.1 Environment Records</a></p>
+<pre><code class="js">// 全局执行上下文
+GlobalExectionContext = &#123;
+  // 词法环境
+  LexicalEnvironment: &#123;
+    // 环境记录
+    EnvironmentRecord: &#123;
+      Type: &quot;Object&quot;, // 全局环境
+      // ... 标识符绑定在这里
+      outer: &lt;null&gt;, // 对外部环境的引用
+    &#125;
+  &#125;
+&#125;
+// 函数执行上下文
+FunctionExectionContext = &#123;
+  LexicalEnvironment: &#123;
+    EnvironmentRecord: &#123;
+      Type: &quot;Declarative&quot;, // 函数环境
+      // ... 标识符绑定在这里
+      // 对全局环境或外部函数环境的引用
+      outer:&lt;Global or outer function environment reference&gt;
+    &#125;
+  &#125;
+&#125;
+</code></pre>
+<p>为了去适配早期的JS的var等，新的规范增加了变量环境(VariableEnvironment)。变量环境也是一个词法环境，其<strong>环境记录器</strong>包含了<strong>变量声明语句</strong></p>
+<p>在ES6中，词法环境组件和变量环境组件的区别在于前者用于存储函数声明和变量(let 和 const)绑定，而后者仅用于存储变量(var)绑定</p>
+<pre><code class="js">let a = 20;
+const b = 40;
+var c;
+function multiply(e, f) &#123;
+  var g = 20;
+  return e*f*g;
+&#125;
+c = multiply(20, 30);
+
+// 全局执行上下文
+GlobalExectionContext = &#123;
+  ThisBinding: &lt;Global Object&gt;,
+  // 词法环境
+  LexicalEnvironment: &#123;
+      EnvironmentRecord: &#123;
+            Type: &quot;Object&quot;,
+          // 标识符绑定, let、const、函数声明
+          a: &lt;uninitialized&gt;,
+        b: &lt;uninitialized&gt;,
+          multiply: &lt;func&gt;
+        &#125;
+        outer: &lt;null&gt;
+    &#125;,
+    // 变量环境
+    VariableEnvironment: &#123;
+      EnvironmentRecord: &#123;
+        Type: &quot;Object&quot;,
+        // 标识符绑定，var 声明
+        c: undefined,
+      &#125;
+      outer:&lt;null&gt;
+    &#125;
+&#125;
+      
+FunctionExectionContext = &#123;
+  ThisBinding: &lt;Global Object&gt;,
+  
+  LexicalEnvironment: &#123;
+      EnvironmentRecord: &#123;
+          Type: &quot;Declarative&quot;,
+          Arguments: &#123;0: 20, 1: 30, length: 2&#125;,
+        &#125;,
+    outer: &lt;GlobalLexicalEnvironment&gt;
+    &#125;,
+  VariableEnvironment : &#123;
+    EnvironmentRecord: &#123;
+          Type: &quot;Declarative&quot;,
+      // 在这里绑定标识符
+          g: undefined,
+        &#125;,
+    outer: &lt;GlobalLexicalEnvironment&gt;
+  &#125;
+&#125;
+</code></pre>
+<p>以上let和const定义的变量并没有关联任何值<code>uninitialized(未初始化)</code>，但var定义的变量被初始化成undefined。这也就是造成TDZ的原因了。</p>
+<p>接下来就是执行阶段，完成对所有变量的分配，最后执行代码。无论是ES3还是ES5，上下文的生命周期包括三个阶段：<strong>创建阶段-&gt;执行阶段-&gt;回收阶段</strong>。</p>
+<p>参考文献：</p>
+<ol>
+<li>:<a target="_blank" rel="noopener" href="http://262.ecma-international.org/6.0/#sec-execution-contexts">http://262.ecma-international.org/6.0/#sec-execution-contexts</a></li>
+<li>:<a target="_blank" rel="noopener" href="https://medium.com/@itIsMadhavan/what-is-the-execution-context-stack-in-javascript-e169812e851a">https://medium.com/@itIsMadhavan/what-is-the-execution-context-stack-in-javascript-e169812e851a</a></li>
+<li>:<a target="_blank" rel="noopener" href="https://www.ecma-international.org/wp-content/uploads/ECMA-262_1st_edition_june_1997.pdf">https://www.ecma-international.org/wp-content/uploads/ECMA-262_1st_edition_june_1997.pdf</a></li>
+<li>:<a target="_blank" rel="noopener" href="https://github.com/tc39">https://github.com/tc39</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/dhassa/article/details/70945016">图解JS词法环境(Lexical environment)</a></li>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/23948198/variable-environment-vs-lexical-environment/54673945">variable-environment-vs-lexical-environment</a></li>
+<li><a target="_blank" rel="noopener" href="https://lilixikun.github.io/blog/js/%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B.html#%E6%89%A7%E8%A1%8C%E5%A0%86%E6%A0%88">xikun’s blog</a></li>
+<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000000533094">javascript 执行环境，变量对象，作用域链</a></li>
+<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000009041008">深入理解JavaScript执行上下文、函数堆栈、提升的概念</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/goddyZhao/Translation/tree/master/JavaScript">翻译文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Functions">Functions MDN</a></li>
+</ol>
+
+        
+                <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+                    <p><strong>
+                         
+                            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a>
+                        </strong>
+                        <br>
+                        <strong>本文链接：</strong><a href="http://lo-que.github.io/2021/06/18/javascript%E6%89%A7%E8%A1%8C%E5%A0%86%E6%A0%88/">http://lo-que.github.io/2021/06/18/javascript%E6%89%A7%E8%A1%8C%E5%A0%86%E6%A0%88/</a>
+                    </p>
+                </blockquote>
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2021/07/24/%E4%BD%A0%E7%BB%99%E6%88%91%E7%BF%BB%E8%AF%91%E7%BF%BB%E8%AF%91%EF%BC%8C%E4%BB%80%E4%B9%88%E4%BB%96%E5%A6%88%E7%9A%84%E6%98%AF%E4%BB%96%E5%A6%88%E7%9A%84dom-diff/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新的文章
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" id="post_nav-older" class="next-content">
+            旧的文章
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="屈东奇's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        lo-que@foxmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:Lo-que@foxmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/06/">六月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/04/">四月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/01/">一月 2017<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Tags  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">label</i>
+                
+                标签
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-none-link" href="/tags/GC-VO-AO-CalleeStack/" rel="tag">GC VO AO CalleeStack<span class="sidebar_archives-none-count">1</span></a></li><li><a class="sidebar_archives-none-link" href="/tags/Learning-Note/" rel="tag">Learning Note<span class="sidebar_archives-none-count">12</span></a></li><li><a class="sidebar_archives-none-link" href="/tags/Learning-summary/" rel="tag">Learning summary<span class="sidebar_archives-none-count">1</span></a></li><li><a class="sidebar_archives-none-link" href="/tags/Math/" rel="tag">Math<span class="sidebar_archives-none-count">1</span></a></li><li><a class="sidebar_archives-none-link" href="/tags/Picking-up/" rel="tag">Picking up<span class="sidebar_archives-none-count">5</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/Computer-basis/">Computer basis<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/css/">css<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/html/">html<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/http/">http<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/jade/">jade<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/javascript/">javascript<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/categories/network/">network<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/nodejs/">nodejs<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/picking-up/">picking up<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">24</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/Lo-que" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2017&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">人生若只如初见</div>
+                <div class="footer-develop-div">何事秋风悲画扇</div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.info("%c如有疑虑请联系：\n"+'Lo-que@foxmail.com'+'%c\n or http://github.com/Lo-que/Lo-que.github.io',"font-size: 14px;color: #3F51B5;","color: #448AFF;text-decoration: none");
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

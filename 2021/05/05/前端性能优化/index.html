@@ -1,0 +1,1845 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            前端性能优化杂谈 | 
+        
+        Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="qudongqi&#39;s personal blog">
+    <meta name="keywords" content="qudongqi,blog,hexo,FE,性能优化">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Blog">
+    <meta name="msapplication-starturl" content="http://lo-que.github.io/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://lo-que.github.io/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="前端性能优化杂谈 | Blog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="qudongqi&#39;s personal blog">
+    <meta property="og:article:tag" content="性能优化"> 
+
+    
+        <meta property="article:published_time" content="Wed May 05 2021 21:46:35 GMT+0800">
+        <meta property="article:modified_time" content="Wed Nov 24 2021 16:00:42 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://lo-que.github.io/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://lo-que.github.io/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/index.html",
+    "headline": "前端性能优化杂谈",
+    "datePublished": "Wed May 05 2021 21:46:35 GMT+0800",
+    "dateModified": "Wed Nov 24 2021 16:00:42 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "屈东奇",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "自童年起，我便独自一人，照顾着历代星辰。"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",性能优化qudongqi,blog,hexo,FE",
+    "description": "qudongqi&#39;s personal blog",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E6%9D%82%E8%B0%88"><span class="post-toc-number">1.</span> <span class="post-toc-text">前端性能优化杂谈</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BB%8E%E7%BD%91%E7%BB%9C%E5%B1%82%E9%9D%A2%E8%AE%B2"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">从网络层面讲</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E9%A6%96%E5%85%88%E7%9C%8B%E4%B8%BB%E6%A8%A1%E5%9D%97"><span class="post-toc-number">1.1.0.1.</span> <span class="post-toc-text">首先看主模块</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E6%8E%A5%E4%B8%8B%E6%9D%A5%E6%88%91%E4%BB%AC%E7%9C%8B%E4%B8%8B%E6%A0%87%E7%AD%BE"><span class="post-toc-number">1.1.0.2.</span> <span class="post-toc-text">接下来我们看下标签</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%8E%B0%E4%BB%A3%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">现代浏览器渲染过程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">性能调优</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%EF%BC%9F"><span class="post-toc-number">1.3.0.1.</span> <span class="post-toc-text">为什么需要性能优化？</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%AD%A6%E5%BE%92%E5%B7%A5"><span class="post-toc-number">1.3.0.2.</span> <span class="post-toc-text">性能优化学徒工</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E6%B8%B2%E6%9F%93%E5%8A%A0%E8%BD%BD"><span class="post-toc-number">1.3.0.3.</span> <span class="post-toc-text">渲染加载</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E8%AF%B4%E4%BA%86%E8%BF%99%E4%B9%88%E5%A4%9A%E6%8C%87%E6%A0%87%EF%BC%8C%E9%82%A3%E4%B9%88%E5%88%B0%E5%BA%95%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E6%8C%87%E6%A0%87%E5%91%A2%EF%BC%9F"><span class="post-toc-number">1.3.0.4.</span> <span class="post-toc-text">说了这么多指标，那么到底如何获取指标呢？</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E5%88%B0%E6%AD%A4%E4%B8%BA%E6%AD%A2%E5%90%97%EF%BC%9F"><span class="post-toc-number">1.3.0.5.</span> <span class="post-toc-text">到此为止吗？</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E4%B9%9F%E5%8F%AF%E4%BB%A5%E9%80%9A%E8%BF%87%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E8%8E%B7%E5%8F%96"><span class="post-toc-number">1.3.0.6.</span> <span class="post-toc-text">也可以通过第三方库获取</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E6%89%80%E4%BB%A5%EF%BC%8C%E7%99%BD%E5%B1%8F%E4%BA%A7%E7%94%9F%E7%9A%84%E7%9C%9F%E6%AD%A3%E5%8E%9F%E5%9B%A0%E6%98%AF%E4%BB%80%E4%B9%88%E5%91%A2%EF%BC%9F"><span class="post-toc-number">1.3.0.7.</span> <span class="post-toc-text">所以，白屏产生的真正原因是什么呢？</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E5%9C%A8-vue-%E4%B8%AD%E7%9A%84%E5%90%84%E4%B8%AA%E9%98%B6%E6%AE%B5"><span class="post-toc-number">1.3.0.8.</span> <span class="post-toc-text">在 vue 中的各个阶段</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E6%80%BB%E7%BB%93"><span class="post-toc-number">1.3.0.9.</span> <span class="post-toc-text">总结</span></a></li></ol></li></ol></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                前端性能优化杂谈
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>屈东奇</strong>
+        <span>5月 05, 2021</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAADhElEQVR42u3aQXLcMAwEQP//08nVFyszAKmsq1only1ryd4DBHC+/ri+XV8IcODAgQMHDhw4cOD4YI6v+Pp+/4+P/uH+5+ckn9I+J9kLDhw4cOC4x/GPUhQs9HnRP207eeZsJclecODAgQPHbY68mJ1a4vO22/W0e8GBAwcOHJ/AkRTUvGAnxThv9nDgwIEDx2/kyDeQF9HkU/aDQhw4cODA8T5HMVAry+G+DM/GhddnpThw4MCB42ig4TN//m/5Dhw4cODAcejatGF5Ib934cCBAweOsxzJkVIegHsuz6eOqdqw3SqEjQMHDhw4FhxtdODsYDFpxvLRYTJMxIEDBw4cb3K047ZZcW2fsCnzdQuHAwcOHDgWHG3hzBeaF+lZ+dy/HODAgQMHjhsc+bKSwpmX8FlAIfmqipYSBw4cOHBc49g0VLNSuhkOJkPACAgHDhw4cBzlyIMFeYu1P5RqEWevAjhw4MCB4wbHJhLXHiMlh0Czr6ot2zhw4MCB4zbHbEtJ01UsaxSY2BPjwIEDB46zHEmbNIsdzI6IkpasLfb/GCPiwIEDB46jHLOHtnyzJ7djvistHA4cOHDgWHC0TVFRzOI7Z+U8J8CBAwcOHO9wbGIKz79J/tre//ycev04cODAgeMox4HhWhlu27SLZ+MXOHDgwIHjHY59OzcLyc3GkbOXAxw4cODAcY9jH2VrQwb7OMVmuFnPSnHgwIEDx5pjFhFIPn4Tkmi/nuQFAgcOHDhw3OPYbG/T+OVw7VbzAowDBw4cOM5yzMZ8+QZmY77NnW2TiQMHDhw4znLMymG73KSVaq88Nle/d+DAgQMHjmscbSgtDyjMxojPw8r8mThw4MCB4x2O53+e/Sahb4+78v86EJXDgQMHDhwjjn07NFvcJu4wC94Vp3A4cODAgeMaRz4unJXPZD1JeGKGiAMHDhw47nG0S8nHdvmwLy+3bZQBBw4cOHC8w7GJEbTjxVm7lVCughc4cODAgeMox6ZoJQGCtm3LB4jJJ0ZwOHDgwIHjAkdeXNuC97y4zWHSqfAEDhw4cOC4x7EJLsxGhJvtzV4RcODAgQPH7+JIFrF52qxVq0/hcODAgQPHixz7oMMsKtdu+KUWDgcOHDhwrIeDm+atPaw6G63AgQMHDhxvcmwCzWejD5swxPArxIEDBw4cRzlcOHDgwIEDBw4cOHDg+LDrL/USWKkSYUuMAAAAAElFTkSuQmCC">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-none-link" href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" rel="tag">性能优化</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=前端性能优化杂谈&url=http://lo-que.github.io/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/index.html&pic=http://lo-que.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=前端性能优化杂谈&url=http://lo-que.github.io/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/index.html&via=屈东奇" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://lo-que.github.io/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://lo-que.github.io/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Blog&title=前端性能优化杂谈&summary=qudongqi&#39;s personal blog&pics=http://lo-que.github.io/img/favicon.png&url=http://lo-que.github.io/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+        <a class="post_share-link" href="https://telegram.me/share/url?url=http://lo-que.github.io/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/index.html&text=前端性能优化杂谈" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h2 id="前端性能优化杂谈"><a href="#前端性能优化杂谈" class="headerlink" title="前端性能优化杂谈"></a>前端性能优化杂谈</h2><p>当我刚开始进入前端这个行业时，在我的认知里，性能优化是一个形而上的东西。</p>
+<p>这事儿一直到我第一份工作才有了变化。当时部门进来了一个 10 年+工作经验的大佬，我喊他刘哥。刘哥每天早上一到工位，就对着一群花花绿绿姹紫嫣红入了定。诺，就这玩意儿。</p>
+<p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20210328163248989.png" alt="image"></p>
+<p>我一看，嚯，好家伙，这玩意儿我<del>熟</del>(见过)啊。介不是<code>chrome</code>自带的<code>performance</code>吗。显然，年轻的我还没有意识到，事情正在朝着伟大刹不住车。<code>code review</code>的时候，我才意识到，我平常做的说好听点儿叫业务，不好听就是搬砖。刘哥做的才叫产出，从请求的缓冲调度，到页面的渲染优化，相当于对整个项目做了一次深度体检并提供了解决方案。性能优化间有大恐怖（笑</p>
+<p>可能随着年龄增长的，除了体重还有自知之明。自此，我对性能优化上了心。</p>
+<h3 id="从网络层面讲"><a href="#从网络层面讲" class="headerlink" title="从网络层面讲"></a>从网络层面讲</h3><p>先放张神图。</p>
+<p><img src="https://www.w3.org/TR/navigation-timing/timing-overview.png" alt="Timing attributes"></p>
+<p>我们先来了解一下这图里都发生了什么。</p>
+<h5 id="首先看主模块"><a href="#首先看主模块" class="headerlink" title="首先看主模块"></a><em>首先看主模块</em></h5><p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20210419162353596.png" alt="image-20210419162353596"></p>
+<ul>
+<li><p>缓存相关：主要包括<code>Prompt for unload</code>,<code>redirect</code>和<code>App cache</code>3 个过程</p>
+</li>
+<li><p>网络相关：主要包括<code>DNS</code>,<code>TCP</code>和<code>HTTP(Request,Response)</code>3 个过程</p>
+</li>
+<li><p>浏览器相关：主要包括<code>Processing</code>(dom 处理)和<code>onload</code>两个过程</p>
+</li>
+</ul>
+<p><code>Prompt for unload</code> 首先卸载掉原来的页面。这是为了释放页面占据的内存，否则每请求一次 URL 都占据一份内存，会导致浏览器占据内存越来越大。实际上这个阶段是预处理的，真正性能分析计时是从<code>prompt for unload</code>结束开始,<code>navigationStart</code>。有个很明显的佐证，在<a target="_blank" rel="noopener" href="https://www.w3.org/TR/navigation-timing-2/">navigation-timing-2</a>中，</p>
+<p><img src="https://www.w3.org/TR/navigation-timing-2/timestamp-diagram.svg" alt="Navigation Timing attributes"></p>
+<p><code>Redirect</code> 本地重定向，处理缓存。先走<code>App cache</code>，判断要请求的资源是不是被强制缓存，不是的话走-&gt;网络相关模块。</p>
+<p>被嵌入的<code>unload</code>模块是在真正卸载之前的页面（<code>Prompt for unload</code>在做准备）,也在处理之前的<code>unload</code>事件</p>
+<p><code>App cache</code> 从本地找缓存，强制缓存。如果不是强缓存，自然会走尝试协商缓存，如果命中协商缓存也会重新回到 App cache，读取缓存。(和强制缓存不同的是强制缓存会直接读取缓存，协商缓存需要服务器判断)</p>
+<p>都没有命中的的话自然会重新请求资源。此处先补充一点 DNS TCP 相关知识</p>
+<p><em>DNS</em></p>
+<blockquote>
+<p>DNS(Domain Name System)域名系统，顾名思义是用来解析域名系统的。在网络中，我们人适合于记忆文本，因此我们输入的都是<a target="_blank" rel="noopener" href="https://www.google.com/">https://www.google.com</a>这种字符串，但是计算机适合于处理数字，每一台计算机对应的是一个 IP 地址。因此，如果我们要访问一个指定的资源，必须先找到对应的服务器，而找到服务器需要先将域名转换为对应的 IP 地址。而 DNS 就是帮助我们实现这个过程。域名服务器本质上是个数据库，保存了域名和 ip 的对应关系。</p>
+</blockquote>
+<p><em>域名级别</em></p>
+<blockquote>
+<p>域名的级别是指一个域名由多少级组成，域名的各个级别被”.”分开，总而言之，有多少个点就是几级域名。 顶级域名在开头有一个点(.com .cn .net) 一级域名就是在”com cn net”前加一级 (<a target="_blank" rel="noopener" href="https://google.com/">https://google.com</a>) 二级域名就是在一级域名前再加一级(<a target="_blank" rel="noopener" href="https://www.google.com/">https://www.google.com</a>) 二级域名及以上级别的域名，统称为子域名，不在注册域名的范畴中</p>
+</blockquote>
+<p><em>域名资源记录</em></p>
+<table>
+<thead>
+<tr>
+<th>记录类型</th>
+<th align="left">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SOA:(StartOf Authority, 起始授权记录)</td>
+<td align="left">⼀个区域解析库有且只能有⼀个 SOA 记录，⽽且必须放在第⼀条</td>
+</tr>
+<tr>
+<td><em>A 记录(主机记录)</em></td>
+<td align="left">用于名称解析的重要记录，将特定的主机名映射到对应主机的 IP 地址上</td>
+</tr>
+<tr>
+<td>CNAME 记录(别名记录)</td>
+<td align="left">⽤于返回另⼀个域名，即当前查询的域名是另⼀个域名的跳转，主要⽤用于域名的内部跳转，为服务器器配置提供灵活性</td>
+</tr>
+<tr>
+<td>NS 记录(域名服务器记录)</td>
+<td align="left">用于返回保存下⼀级域名信息的服务器地址。该记录只能设置为域名，不能设置为 IP 地址</td>
+</tr>
+<tr>
+<td>MX(邮件记录)</td>
+<td align="left">⽤于返回接收电子邮件的服务器地址</td>
+</tr>
+<tr>
+<td>IPv6 主机记录(AAAA 记录)</td>
+<td align="left">与 A 记录对应，用于将特定的主机名映射到⼀个主机的 IPv6 地址</td>
+</tr>
+</tbody></table>
+<p><em>dns 解析过程</em></p>
+<p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20210914214940154.png" alt="image-20210914214940154"></p>
+<p>域名的解析需要用到一系列的服务器，而不是简单的一个服务器。比如：用户想要解析 <a target="_blank" rel="noopener" href="http://www.google.com/">www.google.com</a>:</p>
+<ol>
+<li>在本机上输入<a target="_blank" rel="noopener" href="https://www.google.com/">https://www.google.com</a></li>
+<li>2 号服务器是用户在自己电脑上填写的 DNS 地址，由于域名和 ip 地址的对照表非常庞大，因此 2 号服务器会进行分层管理。2 号服务器进行域名解析是会先从缓存中进行查找，如果一个域名被频繁访问，通常会被保存到缓存中。如果 DNS 这没有对应的域名-IP 缓存，那么就需要向根服务器(Root Server)发起请求。</li>
+<li>根服务器负责维护全球的域名-IP 地址解析。根服务器会检查域名后缀(比如.com)，根据不同的后缀，交给不同的 TLD 服务器处理。获取到后缀后，返回对应的 TLD 服务器的 ip 地址(com = 1.1.1.1)。</li>
+<li>DNS 拿到 TLD 服务器的 IP 地址后，继续向 TLD 服务器进行询问。TLD 服务器只返回顶级域名对应的 IP(<a target="_blank" rel="noopener" href="https://google.com/">https://google.com</a> = 2222)，交给顶级域名对应的 Name Server 处理。</li>
+<li>DNS 服务器获取到顶级域名的 IP 后，继续向 Name Server 进行询问。Name Server 返回具体的域名对应的 IP 地址。</li>
+<li>DNS 服务器获取到具体的域名对应的 IP 后，会先进行缓存，避免下次请求时继续多次询问。</li>
+</ol>
+<p><em>TCP</em></p>
+<p>TCP 是 HTTP 的下层协议，我们想要通过 HTTP 进行请求，必须先通过 TCP 进行连接，也就是说 HTTP 是依赖于 TCP 的。TCP 的作用就是连接指定 IP 地址的服务器(通过 DNS 已经获取到对应的服务器 IP 地址)。</p>
+<p>每次连接的时候，通过<strong>三次握手</strong>(即总共发送 3 个数据包确认已经建立连接)建立客户端和服务器之间的连接。</p>
+<p>进行数据传输。这里有一个重要的机制，就是接收方接收到数据包后必须要向发送方<code>确认</code>, 如果发送方没有接到这个<code>确认</code>的消息，就判定为数据包丢失，并重新发送该数据包。当然，发送的过程中还有一个优化策略，就是把<code>大的数据包拆成一个个小包</code>，依次传输到接收方，接收方按照这个小包的顺序把它们<code>组装</code>成完整数据包。</p>
+<p>断开连接的阶段。数据传输完成，现在要断开连接了，通过<strong>四次挥手</strong>来断开连接。</p>
+<p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20210914215913841.png" alt="image-20210914215913841"></p>
+<p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20210914220050191.png" alt="image-20210914220050191"></p>
+<p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20210914220314992.png" alt="image-20210914220314992"></p>
+<p>DOS 拒绝服务攻击</p>
+<p>DDOS 分布式拒绝服务攻击</p>
+<ol>
+<li>大量请求</li>
+<li>半连接状态攻击，大量发起连接请求，但是不接受响应</li>
+</ol>
+<p>具体在网络安全相关分析。</p>
+<p>浏览器相关下节再具体分析。</p>
+<h5 id="接下来我们看下标签"><a href="#接下来我们看下标签" class="headerlink" title="接下来我们看下标签"></a><em>接下来我们看下标签</em></h5><p>很明显<code>navigationStart</code>是开始，查看<a target="_blank" rel="noopener" href="https://www.w3.org/TR/navigation-timing/">Navagation Timing</a>可知</p>
+<pre><code class="c">interface PerformanceTiming &#123;
+  readonly attribute unsigned long long navigationStart;
+  readonly attribute unsigned long long unloadEventStart;
+  readonly attribute unsigned long long unloadEventEnd;
+  readonly attribute unsigned long long redirectStart;
+  readonly attribute unsigned long long redirectEnd;
+  readonly attribute unsigned long long fetchStart;
+  readonly attribute unsigned long long domainLookupStart;
+  readonly attribute unsigned long long domainLookupEnd;
+  readonly attribute unsigned long long connectStart;
+  readonly attribute unsigned long long connectEnd;
+  readonly attribute unsigned long long secureConnectionStart;
+  readonly attribute unsigned long long requestStart;
+  readonly attribute unsigned long long responseStart;
+  readonly attribute unsigned long long responseEnd;
+  readonly attribute unsigned long long domLoading;
+  readonly attribute unsigned long long domInteractive;
+  readonly attribute unsigned long long domContentLoadedEventStart;
+  readonly attribute unsigned long long domContentLoadedEventEnd;
+  readonly attribute unsigned long long domComplete;
+  readonly attribute unsigned long long loadEventStart;
+  readonly attribute unsigned long long loadEventEnd;
+&#125;;
+</code></pre>
+<p>这也是我们进行性能分析赖以依据的指标。</p>
+<p><code>unload</code> 拥有<code>Start</code>和<code>End</code>两个指标, 表示开始结束。实际上整个 unload 过程中，这两个时间指标都被上一个页面的 unload 事件占据，你瞧，这里就是一个优化点。显而易见的，onload 事件是加载时的事件，也不应该拥有过多的操作。</p>
+<p><code>fetch start</code> 指的是 http 做好准备的时间。因为<code>App cache</code>一直到整个网络相关流程结束，对于浏览器来讲都属于拿资源的时间。终止标识为<code>responseEnd</code>。</p>
+<p><code>DNS</code>存在两个标签<code>domainLookupStart</code> <code>domainLookupEnd</code>,分别表示，发起解析 dns 请求，返回解析后的数据(返回 ip 地址)。如果在当前 dns 解析比较慢的话，就要去考虑是不是 dns 服务器、服务器地址有问题。</p>
+<p>拿到 IP 地址之后就要开始 http 事务。1. 建立 tcp 连接 2. 发起请求 3.接受响应 4. 断开 tcp 连接 。很明显 tcp 模块中只有建立连接和连接成功不包含断开 tcp 的标签，这是因为考虑到 tcp 的复用。如果是 https 的话，还会多出一个 secureConnectionStart 先建立普通连接，然后加密。这里的瓶颈在于网络质量。首先是链路质量，从计算机到服务器，会收到干扰(wifi 光缆 光纤)；其次是通信质量，一部分是网络信号，另一部分是链路长度。部署服务器遵循就近原则，cdn 分发，找到响应最快的服务器。所以这块有瓶颈，要去做 cdn 的优化。</p>
+<p>为什么没有<code>requestEnd</code>，<code>requestStart</code>属于请求开始(客户端向服务端发送第一个字节的时候开启)，客户端发送完最后一个字节，但是不一定发出去，存在丢包重传的过程，即使完全发出去了，服务端收到全部请求也要进行处理，而服务端处理数据也属于请求(因为可能存在出错)。举例来说，我们去火车站买票，询问工作人员你是否有去北京的票，这个时候并不能获得结果，因为工作人员还有自己的工作流程，直到工作人员把票递出，才算响应。你把票拿到手才算响应结束。如果之间存在问题，比如没有票(404)，就收不到响应，只能得到一个状态 404；比如车次取消了，重定向。所以，<code>reponseStart</code>是客户端收到服务端传来的第一个字节的时间，最后一个字节收到是<code>responseEnd</code>, 而不是最后一个字节发出。</p>
+<p>而<code>Request</code>、<code>Response</code>的瓶颈在于一在于网络链路，二在于数据大小，第三点在于服务器处理性能。</p>
+<p><code>Processing</code>，以 html 举例，</p>
+<p>首先是<code>domLoading</code>，请求返回的是一个文本，我们需要将文本转换成 DOM 树，生成 DOM。</p>
+<p><code>domInteractive</code>，开始解析 dom 树。如果遇到 js 会先处理 js。</p>
+<p><code>domContentLoaded</code>，dom 解析结束。</p>
+<p><code>domComplete</code>，dom 整个结束</p>
+<p>所以整个<code>Processing</code>几乎全部在处理 dom，当然也可能会存在一部分 js 加载。</p>
+<p>生成 dom 树，在此基础上生成渲染树(css 规则)，在渲染树基础上再生成，层树(排版规则)。</p>
+<p>之后就要处理页面上的事件。</p>
+<p><code>onLoad</code>，执行完 onLoad 事件后，gpu 开始工作。</p>
+<p><em>Processing</em></p>
+<p>很明显，接下来我们要把重点放到<code>Processing</code></p>
+<h3 id="现代浏览器渲染过程"><a href="#现代浏览器渲染过程" class="headerlink" title="现代浏览器渲染过程"></a>现代浏览器渲染过程</h3><p>再看张图。</p>
+<p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20210915215739507.png" alt="image-20210915215739507"></p>
+<p>这就是现代浏览器的结构。</p>
+<ul>
+<li>用户界面(User Interface)</li>
+<li>浏览器引擎(Browser Engine)</li>
+<li><strong>渲染引擎(Rendering Engine)</strong> 将 HTML/CSS/JavaScript 文本及相应的资源文件转换成图像结果 eg: Trident Gecko Webkit Blink(Webkit fork)</li>
+<li>网络(Networking)</li>
+<li>XML 解析器(XML Parser)</li>
+<li>显示后端(Display Backend)</li>
+<li>数据持久层(Data Persistence)</li>
+</ul>
+<p>我们的重心就在渲染引擎。下图是渲染引擎的简单工作流程。</p>
+<p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20210915220331313.png" alt="image-20210915220331313"></p>
+<p>首先看一下整体，输入 HTML/CSS/JavaScript 三大幻神，经过渲染引擎，将图像输出到浏览器显示。具体做了什么呢，大概分成了 4 个步骤。</p>
+<ol>
+<li>Parsing HTML to construct DOM Tree. 解析 HTML，生成 DOM 树(包括处理 js css)。渲染引擎使用 HTML 解析器（调用 XML 解析器）解析 HTML（XML）文档，将各个 HTML（XML）元素逐个转化成 DOM 节点，从而生成 DOM 树。 同时，渲染引擎使用 CSS 解析器解析外部 CSS 文件以及 HTML（XML）元素中的样式规则。元素中带有视觉指令的样式规则将用于下一步，以创建另一个树结构：渲染树。</li>
+<li>Render Tree Construction. 生成渲染树。(将样式挂载到相应的节点上)。渲染引擎使用第 1 步 CSS 解析器解析得到的样式规则，将其附着到 DOM 树上，从而构成渲染树。 渲染树包含多个带有视觉属性（如颜色和尺寸）的矩形。这些矩形的排列顺序就是它们将在屏幕上显示的顺序。</li>
+<li>Layout of Render Tree. 布局树。排版规则。渲染树构建完毕之后，进入本阶段进行“布局”，也就是为每个节点分配一个应出现在屏幕上的确切坐标。</li>
+<li>Painting Render Tree. GPU 渲染到屏幕上。渲染引擎将遍历渲染树，并调用显示后端将每个节点绘制出来。</li>
+</ol>
+<p>知道大致流程之后，我们再细化一下每一个步骤将要做什么。</p>
+<p>下图所示为渲染引擎工作流程中各个步骤所对应的模块，其中第 1 步和第 2 步涉及到多个模块，并且耦合程度较高。这样的设计会为了达到更好的用户体验，渲染引擎尽快将内容显示在屏幕上。它不必等到整个 HTML 文档解析完毕之后，就可以开始渲染树构建和布局设置。在不断接收和处理来自网络的其余内容的同时，渲染引擎会将部分内容解析并显示出来。</p>
+<p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/browser_workflow-08efb76c5a48fde5f0c40f3ff72624f1.png" alt="browser_workflow"></p>
+<p>由图可知, <code>HTML Parser</code> 先工作，生成 dom 树，在生成 dom 的过程中，JS 解析引擎(safari 中是 js core， chrome v8)开始工作。很明显的是，先开始处理 HTML，扫描到 css 处理 css，扫描到 js 就处理 js，同时进行。很显眼的是，<code>DOM Tree</code> 和 <code>JavaScript Interperter</code> 是双向箭头，在 js 解析过程中，可以修改 dom 树，所以 js 会阻塞 dom 加载。小程序的渲染加载和此不同，这个之后再表。根据我们以往的编码经验来看，js 不仅可以操纵 dom，还可以修改 css。css Parser 在解析完 css 后首先遍历整个 dom 树。从*开始，依次附着到 dom 树上。接下来要进行排版，为每个节点分配一个应出现在屏幕上的确切坐标。最后就要交给 GPU，需要转换坐标系。第一个坐标系以左上角为原点，第二个坐标系计算可显示区域。所以进行拖拽改变了排列布局，也会重新绘制。重排必重绘。</p>
+<p><em>小结</em></p>
+<ul>
+<li><strong>HTML（XML）解析器</strong> 解析 HTML（XML）文档，主要作用是将 HTML（XML）文档转换成 DOM 树。</li>
+<li><strong>CSS 解析器</strong> 将 DOM 中的各个元素对象进行计算，获取样式信息，用于渲染树的构建。</li>
+<li><strong>JavaScript 解释器</strong> 使用 JavaScript 可以修改网页的内容、CSS 规则等。JavaScript 解释器能够解释 JavaScript 代码，并通过 DOM 接口和 CSSOM 接口来修改网页内容、样式规则，从而改变渲染结果。</li>
+<li><strong>布局</strong> DOM 创建之后，渲染引擎将其中的元素对象与样式规则进行结合，可以得到渲染树。布局则是针对渲染树，计算其各个元素的大小、位置等布局信息。</li>
+<li><strong>绘图</strong> 使用图形库将布局计算后的渲染树绘制成可视化的图像结果。</li>
+</ul>
+<p>接下来我们详细聊聊，在 chrome 中究竟是怎么做的。</p>
+<p><em>从 chrome 的架构谈起</em></p>
+<p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/chrome_architecture-ffd69b40c3fc0372925b451d97c4ddac.png" alt="chrome_architecture"></p>
+<p>Browser：主进程。控制程序的“chrome”部分，包括地址栏，书签，后退和前进按钮。还处理 Web 浏览器的不可见的，和特权部分，例如网络请求和文件访问</p>
+<p>Renderer：负责显示网站的选项卡内的所有内容。一个域名一个渲染进程</p>
+<p>Plugin：控制网站使用的所有插件，例如 flash</p>
+<p>GPU：独立于其他进程的 GPU 处理任务。 它被分成多个不同的进程，因为 GPU 处理来自多个程序的请求并将它们绘制在同一个面中</p>
+<p><em>渲染器进程</em></p>
+<p>渲染器进程负责选项卡内发生的所有事情。 在渲染器进程中，主线程处理你为用户编写的大部分代码</p>
+<p>如果你使用了 web worker 或 service worker，有时 JavaScript 代码的一部分将由工作线程处理。</p>
+<p>排版和栅格线程也在渲染器进程内运行，以便高效、流畅地呈现页面</p>
+<p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/chrome_renderer_prscess-1d9b9a1bb9d1743b4506e67f73e99f49.png" alt="chrome_renderer_prscess"></p>
+<p><em>渲染过程: 解析部分</em></p>
+<p>构建 DOM</p>
+<p>子资源加载</p>
+<ul>
+<li>注意 JavaScript 可以阻止解析</li>
+</ul>
+<p>提示浏览器如何加载资源</p>
+<p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/build_dom_tree-0c51960d1403196c387b87d0022f8b4e.png" alt="build_dom_tree"></p>
+<p>样式表计算</p>
+<p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/build_stylesheet-6024a3b78df584710a830e6c18f65ddf.png" alt="build_stylesheet"></p>
+<p>布局</p>
+<p>绘制</p>
+<p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/build_paint-7eb337dcaf3df56a65811ff6bf38fbdc.png" alt="build_paint"></p>
+<p><em>渲染过程: 合成部分</em></p>
+<p>把文档的结构、元素的样式、几何形状和绘制顺序转换为屏幕上的像素称为光栅化</p>
+<p>合成是一种将页面的各个部分分层，分别栅格化，并在一个被称为合成器线程的独立线程中合成为页面的技术</p>
+<p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/build_layout-55a07ff5b87236a22a04376a7c46dc8d.png" alt="build_layout"></p>
+<p><em>渲染过程: GPU 渲染</em></p>
+<p>一旦创建了层树并确定了绘制顺序，主线程就会将该信息提交给合成器线程。 合成器线程然后栅格化每个图层。 一个图层可能像页面的整个长度一样大，因此合成器线程会将它们分成图块，并将每个图块发送到光栅线程(Raster)。 栅格线程栅格化每一个瓦片(tile)并将它们存储在 GPU 内存中</p>
+<p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/paint_raster-b2e2de4223e2ac726a6e782fcbe60620.png" alt="paint_raster"></p>
+<p>通过 IPC 将合成器帧提交给浏览器进程。这时可以从 UI 线程添加另一个合成器帧以用于浏览器 UI 更改，或者从其他渲染器进程添加扩充数据。 这些合成器帧被发送到 GPU 用来在屏幕上显示。 如果发生滚动事件，合成器线程会创建另一个合成器帧并发送到 GPU</p>
+<p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/browser_process-546d41563c0d0b58d4a091df16bd9763.png" alt="browser_process"></p>
+<p>合成的好处是它可以在不涉及主线程的情况下完成。 合成线程不需要等待样式计算或 JavaScript 执行。 这就是合成动画是平滑性能的最佳选择的原因。 如果需要再次计算布局或绘图，则必须涉及主线程</p>
+<p>既然都到这里了，不看看 Webkit 多少说不过去。</p>
+<p>WebKit 官网：<a target="_blank" rel="noopener" href="https://webkit.org/">https://webkit.org/</a></p>
+<p>Blink 是未来</p>
+<p>Blink 官方文档：<a target="_blank" rel="noopener" href="http://www.chromium.org/blink">http://www.chromium.org/blink</a></p>
+<p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/webkit_core-3c747562611fb187b7e43802c76fab4a.png" alt="webkit_core"></p>
+<p>上图是 Webkit 的架构图，当然，在 blink 中 JsCore 为 V8。</p>
+<p>天也不早了，闲扯这么多，也该进入正题了。</p>
+<h3 id="性能调优"><a href="#性能调优" class="headerlink" title="性能调优"></a>性能调优</h3><h5 id="为什么需要性能优化？"><a href="#为什么需要性能优化？" class="headerlink" title="为什么需要性能优化？"></a>为什么需要性能优化？</h5><ol>
+<li>57%的⽤户更在乎⽹⻚在 3 秒内是否完成加载</li>
+<li>52%的在线⽤户认为⽹⻚打开速度影响 到他们对⽹站的忠实度</li>
+<li>每慢 1 秒造成⻚⾯ PV 降低 11%，⽤户满意度也随之降低降低 16%</li>
+<li>近半数移动⽤户因为在 10 秒内仍未打开⻚⾯从⽽放弃</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://developers.google.cn/web/fundamentals/performance/get-started">Google Developers 优化性能指导</a></p>
+<h5 id="性能优化学徒工"><a href="#性能优化学徒工" class="headerlink" title="性能优化学徒工"></a>性能优化学徒工</h5><p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20210406010107139.png" alt="image-20210406010107139"></p>
+<p><em>压缩</em></p>
+<p>顾名思义，减小文件大小。具体压缩大小推荐为经过 gzip 后<strong>28-31kb</strong>，而 webpack 会在 gzip 之前就将大于 30kb 的文件提出来为一个单独的 js 文件。</p>
+<p><em>合并</em></p>
+<p>减少请求数量，多个请求合并成一个请求。但是会有两个问题，一是文件会变大，而且可能产生大量闭包。二是合并多少请求个数才合适。5 个请求合并成一个是否合理。eg：大多数情况下，一个 cdn 对应 5 个请求。</p>
+<p>为什么要强调一个 cdn。我们打开 baidu 看一下，携带了很大的 Cookie。也可以很明显的看到在 cdn 上，不会携带多余的 Cookie。使用多个 CDN，解决浏览器对同一个域名的并发限制。</p>
+<p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20210916224351994.png" alt="image-20210916224351994"></p>
+<p>content-encoding: brotli &gt;&gt;&gt; gzip</p>
+<p><em>keep-alive http2 多路复用</em></p>
+<p>浏览器请求//xx.cn/a.js–&gt;解析域名—&gt;HTTP 连接—&gt;服务器处理文件—&gt;返回数据–&gt;浏览器解析、渲染文件。Keep-Alive 解决的核心问 题就在此，一定时间内，同一域名多次请求数据，只建立一次 HTTP 请求，其他请求可复用每一次建立的连接通道，以达到提高请求 效率的问题。一定时间是可以配置的，HTTP1.1 还是存在效率问题，第一个:串行的文件传输。第二个:连接数过多。HTTP/2 对同一域名下所有请求都是基于流，也就是说同一域名不管访问多少文件，也只建立一路连接。同样 Apache 的最大连接数为 300，因为有了这个新特性，最大的并发就可以提升到 300，比原来提升了 60 倍!</p>
+<p>更详细阅读，<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/4cbcd202a591">参考 雅虎军规 35 条</a></p>
+<p><em>缓存策略</em></p>
+<p>强缓存，协商缓存。</p>
+<p>详情请参考《http 协议的那些事儿》</p>
+<p><em>离线缓存</em></p>
+<ul>
+<li><p>Manifest</p>
+</li>
+<li><p>Service Workers 解决了 Manifest 的所有缺点。所有文件可以进行管控，哪些过期，可以进行请求拦截</p>
+</li>
+<li><p>Storage 容量每个域名下限制 5M 可通过使用隐藏 iframe 的方式扩容，通过 postMessage 通信，但是会违背 localStorage 的核心，localStorage 是同步的。低端机 localStorage 使用超过一定容量的时候会造成明显的卡顿。</p>
+<p>此处最常见的优化方式通过使用 localStorage 进行离线存储。通过一个 loaderjs 判断 version 的方式来动态加载(直接 inner 进入对应的 script 标签)</p>
+</li>
+</ul>
+<p><em>雅虎军规</em></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/4cbcd202a591">雅虎军规 35 条</a></p>
+<p><em>网速机型</em></p>
+<p>提到网速就不得不提一个 API ———— <code>navigator.connection</code> 参考 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator">MDN Navigator</a></p>
+<p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/navigationConnect.png" alt="navigatorConnection"></p>
+<p>很明显，这个类型不准，因为通过网速判断类型。</p>
+<p>还有其他方式进行判断吗？</p>
+<blockquote>
+<p><em>资源请求</em></p>
+<p>小 img 实现</p>
+<p>在服务器放个 1KB 的图片，并请求，看返回Timer差分区间</p>
+<p>bandwidth = file_size/Timer</p>
+<p><em>多普勒测速</em></p>
+<p>分五次请求，计算公式 performance</p>
+<pre><code>a &lt;= &lt;random number&gt;
+</code></pre>
+<ol>
+<li><a target="_blank" rel="noopener" href="http://a-doppler.facebook.com/test_pixel?HTTP1.0&amp;t=1&amp;size=0k">http://a-doppler.facebook.com/test_pixel?HTTP1.0&amp;t=1&amp;size=0k</a> T1</li>
+<li><a target="_blank" rel="noopener" href="http://a-doppler.facebook.com/test_pixel?HTTP1.1&amp;t=2&amp;size=0k">http://a-doppler.facebook.com/test_pixel?HTTP1.1&amp;t=2&amp;size=0k</a> T2</li>
+<li><a target="_blank" rel="noopener" href="http://a-doppler.facebook.com/test_pixel?HTTP1.1&amp;t=3&amp;size=0k">http://a-doppler.facebook.com/test_pixel?HTTP1.1&amp;t=3&amp;size=0k</a> T3</li>
+<li><a target="_blank" rel="noopener" href="http://a-doppler.facebook.com/test_pixel?HTTP1.1&amp;t=4&amp;size=10k">http://a-doppler.facebook.com/test_pixel?HTTP1.1&amp;t=4&amp;size=10k</a> T4</li>
+<li><a target="_blank" rel="noopener" href="http://a-doppler.facebook.com/test_pixel?HTTP1.1&amp;t=5&amp;size=40k">http://a-doppler.facebook.com/test_pixel?HTTP1.1&amp;t=5&amp;size=40k</a> T5</li>
+</ol>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://a-doppler.facebook.com/test_pixel">http://a-doppler.facebook.com/test_pixel</a> 地址可更换为 Api 地址</p>
+</blockquote>
+<p>关于个 T(0, 3) 阶段查看 navigation-timing 对应位置</p>
+<p>T1 = DNS + New Connection(TCP) + RTT(一次传输)</p>
+<p>T2 = New Connection(TCP) + RTT(一次传输)</p>
+<p>T3 = RTT(一次传输)</p>
+<p><strong>bandwidth(带宽)</strong> = 10k/(t4-t3)</p>
+<p><strong>bandwidth(带宽)</strong> = (40k-10k)/(t5-t4)</p>
+</blockquote>
+<p>得到用户网络状态之后，可以根据网络状态加载对应大小的图片。通过 css srcset 属性进行动态改变。</p>
+<p>当然也可以高级一点，通过记录用户常用 ip 记录下来用户网络状态等数据来进行动态加载(_WISE_INFO)。</p>
+<h5 id="渲染加载"><a href="#渲染加载" class="headerlink" title="渲染加载"></a>渲染加载</h5><p>先来测试一下基础。</p>
+<ul>
+<li><p>渲染是一回事儿</p>
+</li>
+<li><p>解析是一回事儿</p>
+</li>
+<li><p>DOM 的解析不必等待底部的 js 但是渲染依旧需要等待</p>
+</li>
+</ul>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;title&gt;js会不会影响html的渲染解析？&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;js不影响DOM解析，渲染依旧需要等待&lt;/h1&gt;
+    &lt;script&gt;
+      prompt(&#39;等待&#39;)
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<ul>
+<li><p>css 加载会阻塞 dom 树的渲染 但不会影响 dom 解析</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;title&gt;css的加载会不会阻塞dom的渲染解析？&lt;/title&gt;
+    &lt;style type=&quot;text/css&quot;&gt;
+      h1 &#123;
+        color: red !important;
+      &#125;
+    &lt;/style&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+      // 观察一下h1是否解析
+      function h () &#123;
+        console.log(document.querySelectorAll(&#39;h1&#39;))
+      &#125;
+      setTimeout(h, 0)
+    &lt;/script&gt;
+    &lt;link
+      rel=&quot;stylesheet&quot;
+      href=&quot;https://cdn.staticfile.org/twitter-bootstrap/1.4.0/css/bootstrap.min.css&quot;
+    /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- 观察一下h1是否渲染 --&gt;
+    &lt;h1&gt;css加载会阻塞dom树的渲染 但不会影响dom解析&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</li>
+<li><p>css 加载会阻塞后面的 js 语句的执行 js 可能会操作 css</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;title&gt;css会不会阻塞js的执行？&lt;/title&gt;
+    &lt;script&gt;
+      console.log(&#39;before css&#39;)
+      var start = new Date()
+    &lt;/script&gt;
+    &lt;link
+      rel=&quot;stylesheet&quot;
+      href=&quot;https://cdn.staticfile.org/twitter-bootstrap/1.4.0/css/bootstrap.min.css&quot;
+    /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;css加载会阻塞后面的js语句的执行 因为js可能会操作css&lt;/h1&gt;
+    &lt;script&gt;
+      var end = new Date()
+      console.log(&#39;after css&#39;)
+      console.log(&#39;经过了&#39; + (end - start) + &#39;ms&#39;)
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</li>
+<li><p>css 阻塞 domready？ 看 css 后边有没有 js 代码</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;title&gt;css会阻塞domready吗&lt;/title&gt;
+    &lt;script&gt;
+      document.addEventListener(&#39;DOMContentLoaded&#39;, function (e) &#123;
+        console.log(&#39;DOMContentLoaded&#39;)
+      &#125;)
+    &lt;/script&gt;
+    &lt;link
+      rel=&quot;stylesheet&quot;
+      href=&quot;https://cdn.staticfile.org/twitter-bootstrap/1.4.0/css/bootstrap.min.css&quot;
+    /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;css阻塞domready&lt;/h1&gt;
+    &lt;script&gt;
+      console.log(&#39;hello world&#39;)
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>聊了这么多，这时候我们来看下现在最流行的 MVVM 框架 Vue。SPA</p>
+</li>
+</ul>
+<ol>
+<li><p>spa 系统 加载到 index.html 也只是一个壳子<code>&lt;div id=&quot;app&quot;&gt; &lt;script src=&quot;&quot;&gt;&lt;/script&gt;&lt;/div&gt;</code></p>
+</li>
+<li><p>作为一个正常的 Web APP 加载 min.js，5 个属于经验值，6 个及以上的话就要考虑到<code>defer</code> <code>async</code></p>
+<blockquote>
+<p>async defer 要慎用。</p>
+<p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/bVWhRl.png" alt="wfL82.png"></p>
+<ol>
+<li>首先是浏览器的支持程度</li>
+<li>其次是 defer 和 async 的不同，由上图可以明显的看出来 async 等 js 加载完直接阻断 html 解析开始执行当前加载完的 js，defer 等 html 解析完再按顺序执行。</li>
+<li>所以 async 更适合可以不依赖任何脚本或不被任何脚本依赖的脚本</li>
+</ol>
+</blockquote>
+<p>vue.min.js -&gt; vue-router.min.js -&gt; vuex -&gt; axios -&gt; element ui</p>
+<p>很明显，这是串行的。vue-router/vuex 都依赖于 vue 进行加载。为什么说 vuex 不如 redux，这也是很重要的原因。加载到这里就结束了吗？还没有后边还有</p>
+<p>runtimes.js -&gt; common.js(业务公用+小 lib (date.js)) -&gt; main.js 这也是 spa 首页白屏的核心原因。</p>
+</li>
+<li><p>fecth -&gt; 虚拟 dom -&gt; dom diff（react 工作树 首次加载不 diff vue 还是 diff） -&gt; 不可操作 -&gt; 事件引擎</p>
+<blockquote>
+<p>web 应用有个很明显的指标，可见可操作，然而单页应用就很明显，可见也不可操作。可想而知，性能也很差。接下来我们就要想想如何优化</p>
+</blockquote>
+</li>
+<li><p>mpa 用户等待时间非常的长。因为把所有的业务逻辑放到后端去做，之后再 render。这就导致 html 体积变得巨大！！ 解决方案就是使用 bigpipe<br>可见可操作 页面落地时全是 a 链接，不掺杂任何的 JS，先跳转 a 链接，之后再去加载 JS。</p>
+</li>
+<li><p>spa+mpa 这种方案使用了假路由 historyfallback api/data index/test</p>
+<blockquote>
+<p>当匹配到真实存在的路由时，正常通过路由加载，如果匹配到 404 就跳转回系统首页 比如说 vue-router 的 history</p>
+</blockquote>
+<p>这种方案也并没有完全解决我们的问题。只能说解决了后端的耦合性，维护成本也比较高。所以通过无头浏览器 prerender 的方式更占据主流。</p>
+<blockquote>
+<p>在 webpack 打包结束并生成文件后(after-emit-hook)， 会启动一个 server 模拟网站的运行，用 puppeteer(google 官方的 headless 无头浏览器)访问指定的页面 route，得到相应的 html 结构，并将结果输出到指定目录，过程类似于爬虫。</p>
+<p>即利用打包工具对应用进行预先渲染，让用户首次获取到 HTML 文件的时候就已经能看到我们的内容，接着等到 Bundle 下载解析完成之后再进行接管。</p>
+<p>打包构建与渲染的核心原理又是什么呢？其实这里就要用到我们十分强大的无头浏览器来帮助实现这项功能了，他会在本地启动一个无头浏览器，并访问我们配制好的路由，接着将渲染好的页面 HTML 内容输出到我们的 HTML 文件中，并建立相关的目录。</p>
+<p>一般常用的无头浏览器有:phantomjs, puppeteer, 对于 prerender-spa-pulgin 插件来说，内部采用了 phantomjs 作为无头浏览器作为渲染</p>
+</blockquote>
+</li>
+<li><p>5 的升级版本。让 spa+mpa 发挥最大优势。mpa 的最大优势是什么？页面直接渲染出来，如果觉得 html 慢，使用 bigpipe，解决了白屏的问题。但是多页的缺点在于，每个页面渲染时都要重复加载一些请求。</p>
+</li>
+<li><p>[判断请求头] index/test</p>
+<ol>
+<li>直接刷新 –&gt; koa.render</li>
+<li>站内点击 –&gt; {<br>html:””,<br>js:””,<br>css:””<br>}</li>
+<li>vue-router 拦截到这段 json，通过 pushstate 改变路由、fecth 请求</li>
+</ol>
+<p>但是使用了两套模板 node.js + koa-swig + vue.js</p>
+<p>可以抛弃中间商，直接 node.js + vue.js (a.vue / b.vue) ，通过 nodejs render</p>
+<p>【Isomorphic JavaScript】同构</p>
+</li>
+</ol>
+<p>四种常见的方式</p>
+<ul>
+<li><p>spa</p>
+</li>
+<li><p>mpa</p>
+</li>
+<li><p>假 spa + mpa</p>
+</li>
+<li><p>真 spa + mpa</p>
+</li>
+</ul>
+<p>这些都是网络层的相关知识</p>
+<p>接下来终于进入正题，看一下页面的渲染。</p>
+<p>看一段测试代码</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+      body &#123;
+        padding: 30px;
+        text-align: center;
+      &#125;
+
+      .container &#123;
+        position: relative;
+        min-height: 400px;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      &#125;
+
+      .ball &#123;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.75);
+      &#125;
+
+      .ball-running &#123;
+        -webkit-animation: run-around 4s infinite;
+        animation: run-around 4s infinite;
+      &#125;
+      @keyframes run-around &#123;
+        0% &#123;
+          top: 0;
+          left: 0;
+          /* transform: translate(0, 0); */
+        &#125;
+        25% &#123;
+          top: 0;
+          left: 200px;
+          /* transform: translate(200px, 0); */
+        &#125;
+        50% &#123;
+          top: 200px;
+          left: 200px;
+          /* transform: translate(200px, 200px); */
+        &#125;
+        75% &#123;
+          top: 200px;
+          left: 0;
+          /* transform: translate(0, 200px); */
+        &#125;
+      &#125;
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;div class=&quot;ball&quot; id=&quot;ball&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+      var balls = document.getElementById(&#39;ball&#39;)
+      balls.classList.add(&#39;ball&#39;)
+      balls.classList.add(&#39;ball-running&#39;)
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20210923124234239.png" alt="image-20210923124234239"></p>
+<p>上图中有一些关键参数</p>
+<ul>
+<li><p>Loading 加载 js 时长</p>
+</li>
+<li><p>scripting js 执行花费时</p>
+</li>
+<li><p>rendering 重排</p>
+</li>
+<li><p>painting 重绘</p>
+</li>
+<li><p>system 系统时长 因为系统也会执行 js</p>
+</li>
+<li><p>Idle 空闲</p>
+<p>我们也能根据这些参数得到一些结论</p>
+<blockquote>
+<ol>
+<li><p>使用 top left 会发现不断的 重绘和重排</p>
+</li>
+<li><p>使用 transform 则没有</p>
+</li>
+<li><p>Paint flashing 将会显示绿色代表重绘(使用 transform 所以没有，切换为 top left 可见)</p>
+</li>
+<li><p>Layout 重排</p>
+</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<ol>
+<li><p>网页渲染流程</p>
+<ol>
+<li>获取 dom 分层 真实的 dom 结构不是 2d 的，如下图所示是 3d 的，还有个 Z 轴<br>![Firefox for Developers: Introducing Firefox 3D View - YouTube](/2021/05/05/前端性能优化/Firefox for Developers: Introducing Firefox 3D View - YouTube.jpeg)</li>
+<li>对每个图层节点计算样式 Recalculate Style</li>
+<li>为每个对应的节点生成图形和位置 Layout 回流重排</li>
+<li>将每个节点绘制填充到图层(即将作为纹理)位图中 Paint</li>
+<li>绘制好的图交给 gpu 纹理 GPU 对它进行旋转缩放 Composite Layers 合成层 把符合多个图层生成到页面最终的图像<ol>
+<li>Layout</li>
+<li>Paint</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Composite Layers 究竟干了点儿啥 Composite Layers 的流程 (自占线程)</p>
+<ol>
+<li>图层通过 GPU 绘制好的时候 主线程会把该图层 commit 到合成线程</li>
+<li>合成线程根据 viewport 图层进行分块 tile rendering 图块大小 256*256/512*512 （之前测试代码中，绿色的就是重绘，紫色的是重排）</li>
+<li>GPU 将 tile 生成位图 栅格化来完成生成位图 raster</li>
+<li>所有的图块都被光栅化后，合成线程会生成一个绘制图块的命令 DrawQuad，再交给浏览器进程</li>
+<li>浏览器里边有一个 viz 组件，专门用来接收 DrawQuad。将这些页面的内容绘制到内存中，最终通过 chrome 的应用程序看见页面</li>
+<li>当 GPU 首次接收到 CPU 传递的位图的旋转缩放，先绘制一张低分辨率的图，继续绘制，完成后替换。</li>
+</ol>
+</li>
+<li><p>Layout Paint Composite Layers</p>
+</li>
+<li><p>独立成层</p>
+<p>会触发元素分层</p>
+<blockquote>
+<p>根元素、position、transform、半透明、css 滤镜、canvas 、video、overflow</p>
+</blockquote>
+<p>会有 GPU 参与(css 3d 硬件加速)</p>
+<blockquote>
+<p>CSS3D、video、webgl、transform、css 滤镜、will-change:transform</p>
+</blockquote>
+</li>
+<li><p>重排必重绘 重绘不一定重排</p>
+<p>box-sizing：border-box 尽量减少元素的重排 css 盒模型 盒子动了 怪异盒模型</p>
+<p>offset scroll client width/height 读写</p>
+<pre><code class="js">// 尽量把读操作和写操作放到一起,或者在下一帧执行写操作:
+
+const width = doucument.getElementbyid(&#39;xx&#39;).width
+
+// DOcumentFragment内存dom
+requestAnimationFrame(function () &#123;
+  // react
+  // 设置dom元素 读写分离
+&#125;)
+</code></pre>
+<p>cpu 主要负责操作系统和程序，gpu 负责显式 数据处理 效率更高 gpu.js</p>
+<p><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/fastdom">fastdom 控制读写分离的插件</a></p>
+<p><a target="_blank" rel="noopener" href="https://csstriggers.com/">csstriggers 可查看是否引起重排重绘</a></p>
+</li>
+</ol>
+<p>参考流程</p>
+<p>样式流程</p>
+<p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/rendering_process_summary_1-3adea1f08506a5a4e427108602cbc3b7.png" alt="rendering_process_summary_1"></p>
+<p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/rendering_process_summary_2-42aa1a50633954467ace745a1fe5533c.png" alt="rendering_process_summary_2"></p>
+<p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/rendering_process_summary_3-214feff89e4d0662cae9a3a2bf5500af.png" alt="rendering_process_summary_3"></p>
+<p>渲染进程</p>
+<p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/rendering_process_summary_4-ca2a9eac8b6184176523cd5a15b33132.png" alt="rendering_process_summary_4"></p>
+<p><strong>结论</strong></p>
+<p>在能使用 css 3d 硬件加速的地方尽量使用，以此优化 dom 的性能，极大的减少 dom 的重绘重排</p>
+<p>既然要对页面加载进行性能优化，优先要知道都有哪些指标，根据不同的情况做调优</p>
+<p>为页面渲染各个阶段的标识符，可以通过计算得到 <a target="_blank" rel="noopener" href="https://web.dev/">https://web.dev/</a></p>
+<table>
+<thead>
+<tr>
+<th>阶段(简写)</th>
+<th>描述</th>
+<th>阶段(全称)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>TTFP</td>
+<td>首字节时间</td>
+<td>Time TO Frist Byte</td>
+</tr>
+<tr>
+<td>FP</td>
+<td>首次绘制(第一个节点)</td>
+<td>First Paint</td>
+</tr>
+<tr>
+<td>FCP</td>
+<td>首次有内容的绘制(骨架)</td>
+<td>First Contentful Paint</td>
+</tr>
+<tr>
+<td>FMP</td>
+<td>首次有意义的绘制(包含所有元素/数据)</td>
+<td>First Meaningful</td>
+</tr>
+<tr>
+<td>TTI</td>
+<td>达到可交互时间，推荐的响应时间是 100ms 以内否则有延迟</td>
+<td>Time To Interactive</td>
+</tr>
+<tr>
+<td>Long tasks</td>
+<td>超过了 50ms 的任务</td>
+<td></td>
+</tr>
+<tr>
+<td>SSR&amp;&amp;CSR</td>
+<td>服务端渲染和客户端渲染</td>
+<td>Server-Side-Rendering / Client Side Rendering</td>
+</tr>
+<tr>
+<td>Isomorphic</td>
+<td>同构化</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>FP、FCP、FMP(已经废弃)、TTI</p>
+<p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/base_all_info-8aa9a10171eb8ca0b84401624fe69c7d.png" alt="base_all_info"></p>
+<p>LongTask</p>
+<p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/long_tasks-959bfe0fbd3c184d305968fbb98f6919.png" alt="long_tasks"></p>
+<p>新增指标</p>
+<p>LCP、FID、TBT、CLS</p>
+<table>
+<thead>
+<tr>
+<th>阶段(简写)</th>
+<th>描述</th>
+<th>阶段(全称)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>LCP</td>
+<td>最⼤内容绘制，⽤于记录视窗内最⼤的元素绘制的时间，该时间会随着⻚⾯渲染变化⽽变化，因为⻚⾯中的最⼤元素渲染过程中可能会发⽣改变，另外该指标会在⽤户第⼀次交互后停⽌记录</td>
+<td>LCP（Largest Contentful Paint）</td>
+</tr>
+<tr>
+<td>FID</td>
+<td>⾸次输⼊延迟，记录在 FCP 和 TTI 之间⽤户⾸次与⻚⾯交互时响应的延迟</td>
+<td>FID（First Input Delay）</td>
+</tr>
+<tr>
+<td>TBT</td>
+<td>阻塞总时间，记录在 FCP 到 TTI 之间所有⻓任务的阻塞时间总和</td>
+<td>TBT（Total Blocking Time）</td>
+</tr>
+<tr>
+<td>CLS</td>
+<td>累计位移偏移，记录了⻚⾯上⾮预期的位移波动。使⽤按钮动态添加了某个元素，导致⻚⾯上其他位置的代码发⽣了偏移，造成了⻚⾯</td>
+<td>CLS（Cumulative Layout Shift）</td>
+</tr>
+</tbody></table>
+<p>简单的指标标准</p>
+<p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/fcp_time-7c85e78cf0bc8118432bb96c80edd5ad.png" alt="fcp_time"></p>
+<p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/lcp_time-0100f1216e3a901f9525f80656c32012.png" alt="lcp_time"></p>
+<p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/fid_time-079339eaa6d2728c7713cb149863083b.png" alt="fid_time"></p>
+<p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/cls_time-6db42604040c34fb71e40189697a14a9.png" alt="cls_time"></p>
+<blockquote>
+<p><strong>LCP</strong>: 代表了⻚⾯的速度指标，LCP 能体现的东⻄更多⼀些。⼀是指标实时更新，数据更精确，⼆是代表着⻚⾯最⼤元素的渲染时间，最⼤元素的快速载⼊能让⽤户感觉性能还挺好。</p>
+<p><strong>FID</strong>: 代表⻚⾯的交互体验指标，交互响应的快会让⽤户觉得⽹⻚流畅。</p>
+<p><strong>CLS</strong>: 代表了⻚⾯的稳定指标，尤其在⼿机上这个指标更为重要。因为⼿机屏幕⼩，CLS 值较⼤的话会让⽤户觉得⻚⾯体验做的很差。</p>
+</blockquote>
+<h5 id="说了这么多指标，那么到底如何获取指标呢？"><a href="#说了这么多指标，那么到底如何获取指标呢？" class="headerlink" title="说了这么多指标，那么到底如何获取指标呢？"></a>说了这么多指标，那么到底如何获取指标呢？</h5><p>可以通过浏览器自带 Api 性能监测对象 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/PerformanceObserver/PerformanceObserver">MDN PerformanceObserver</a> 访问。</p>
+<p><em>PerformanceObserver</em></p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+      body &#123;
+        background-color: orange;
+      &#125;
+    &lt;/style&gt;
+    &lt;link
+      rel=&quot;stylesheet&quot;
+      href=&quot;https://cdn.staticfile.org/twitter-bootstrap/5.0.0-alpha1/css/bootstrap-reboot.min.css&quot;
+    /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id=&quot;app&quot;&gt;
+      &lt;h1&gt;target&lt;/h1&gt;
+      &lt;script&gt;
+        performance.mark(&#39;target&#39;)
+      &lt;/script&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+      const observer = new PerformanceObserver(list =&gt; &#123;
+        for (const entry of list.getEntries()) &#123;
+          console.log(entry.name)
+          console.log(entry.startTime)
+          console.log(entry.duration)
+          console.log(entry.entryType)
+        &#125;
+      &#125;)
+      observer.observe(&#123; entryTypes: [&#39;paint&#39;, &#39;mark&#39;, &#39;longtask&#39;] &#125;)
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><em>entryType</em></p>
+<p>更为详细的描述请参考 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/PerformanceEntry/entryType">entryType</a></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>frame, navigation</td>
+<td>文件的地址。</td>
+</tr>
+<tr>
+<td>resource</td>
+<td>所请求资源的解析 URL。即使重定向请求，此值也不会更改。</td>
+</tr>
+<tr>
+<td>mark</td>
+<td>通过调用创建标记时使用的名称 <code>performance.mark()</code>。</td>
+</tr>
+<tr>
+<td>measure</td>
+<td>通过调用创建度量时使用的名称 <code>performance.measure()</code>。</td>
+</tr>
+<tr>
+<td>paint</td>
+<td>可能是 <code>first-paint</code> 或 <code>first-contentful-paint</code>。</td>
+</tr>
+<tr>
+<td>longtask</td>
+<td>在浏览器执行超过 50ms 的任务</td>
+</tr>
+</tbody></table>
+<h5 id="到此为止吗？"><a href="#到此为止吗？" class="headerlink" title="到此为止吗？"></a>到此为止吗？</h5><p>可以通过 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/PerformanceTiming">PerformanceTiming</a> 可以获取浏览器的指标信息，关于 dns 解析时间，tcp 耗时，request 请求耗时，解析 dom 树耗时，白屏时间，domready 时间，onload 时间，js 内存使用占比等。和之前的整个渲染流程 Callback</p>
+<pre><code class="js">const t = performance.timing
+console.log(
+  &#39;DNS查询耗时 ：&#39; + (t.domainLookupEnd - t.domainLookupStart).toFixed(0)
+)
+console.log(&#39;TCP链接耗时 ：&#39; + (t.connectEnd - t.connectStart).toFixed(0))
+console.log(&#39;request请求耗时 ：&#39; + (t.responseEnd - t.responseStart).toFixed(0))
+console.log(&#39;解析dom树耗时 ：&#39; + (t.domComplete - t.domInteractive).toFixed(0))
+console.log(&#39;白屏时间 ：&#39; + (t.responseStart - t.navigationStart).toFixed(0))
+console.log(
+  &#39;domready时间 ：&#39; +
+    (t.domContentLoadedEventEnd - t.navigationStart).toFixed(0)
+)
+console.log(&#39;onload时间 ：&#39; + (t.loadEventEnd - t.navigationStart).toFixed(0))
+
+if ((t = performance.memory)) &#123;
+  console.log(
+    &#39;js内存使用占比 ：&#39; +
+      ((t.usedJSHeapSize / t.totalJSHeapSize) * 100).toFixed(2) +
+      &#39;%&#39;
+  )
+&#125;
+</code></pre>
+<h5 id="也可以通过第三方库获取"><a href="#也可以通过第三方库获取" class="headerlink" title="也可以通过第三方库获取"></a>也可以通过第三方库获取</h5><p>NPM: <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/web-vitals">web-vitals</a></p>
+<p>可以获取的指标有：CLS、FID、LCP、以及 FCP、TTFB</p>
+<pre><code class="js">import &#123; getCLS, getFID, getLCP &#125; from &#39;web-vitals&#39;
+
+getCLS(console.log)
+getFID(console.log)
+getLCP(console.log)
+</code></pre>
+<p>知道这么多页面指标有什么用呢？我们可以做一个小型的监控系统</p>
+<ol>
+<li>通过上述的方法拿到自己想要的指标</li>
+<li>去服务器上请求 一个 1KB 大小的图片 并带上这些指标参数</li>
+<li>使用 navigator.sendBeacon() 发送， 参考 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator/sendBeacon">sendBeacon</a></li>
+<li>Node 读取服务器日志 过滤有效的接口</li>
+<li>对接口参数整理并进行分析</li>
+<li>开启定时任务每天凌晨 开始读取数据并绘制出图表</li>
+</ol>
+<blockquote>
+<p>Q: 为什么使用 navigator.sendBeacon() 进行发送?</p>
+<p>A: navigator.sendBeacon() 方法可用于通过 HTTP 将少量数据异步传输到 Web 服务器 而不占用进程</p>
+</blockquote>
+<p><strong>发送可以使用的优先级</strong>: navigator.sendBeacon() &gt; ajax &gt; fetch</p>
+<h5 id="所以，白屏产生的真正原因是什么呢？"><a href="#所以，白屏产生的真正原因是什么呢？" class="headerlink" title="所以，白屏产生的真正原因是什么呢？"></a>所以，白屏产生的真正原因是什么呢？</h5><p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/why_white_screen-dbcc5320bd657ae9a5a2d49ac4b107da.png" alt="why_white_screen"></p>
+<p>主要分为</p>
+<ul>
+<li>css &amp; js 文件获取 阻塞</li>
+<li>js 文件解析</li>
+<li>dom 生成</li>
+<li>cssom 生成</li>
+</ul>
+<p>优化调优</p>
+<ul>
+<li>包含基本 dom</li>
+<li>基本的 css</li>
+<li>骨架屏</li>
+</ul>
+<h5 id="在-vue-中的各个阶段"><a href="#在-vue-中的各个阶段" class="headerlink" title="在 vue 中的各个阶段"></a>在 vue 中的各个阶段</h5><p><img src="/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/vue_schedule-2e8d5d59f88611664674f038035f07fd.png" alt="vue_schedule"></p>
+<p>created 阶段 为 FP 阶段，仅有一个 div 根节点(空节点)</p>
+<p>mounted 节点 为 FCP 节点，包含⻚面的基本框架，但没有数据内容</p>
+<p>update 阶段 为 FMP 阶段 挂载数据，视图更新</p>
+<p>优化调优</p>
+<p>在 FP 阶段，创建简单的骨架片，基本的 dom 结构</p>
+<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><table>
+<thead>
+<tr>
+<th>优/缺</th>
+<th>CSR</th>
+<th>预渲染</th>
+<th>SSR</th>
+<th>同构</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>优点</td>
+<td>1. 不依赖数据<br />2. FP 时间最快<br />3. 客户端用户体验好<br />4. 内存数据共享</td>
+<td>1. 不依赖数据<br />2. FCP时间比CSR快<br />3. 客户端体验好<br />4. 内存数据共享</td>
+<td>1. SEO 友好<br />2. 首屏性能高，FMP 比 CSR 和预渲染快</td>
+<td>1. SEO 友好<br />2. 首屏性能高，FMP 比 CSR 和预渲染快<br />3. 客户端用户体验好<br />4. 内存数据共享<br />5. 客户端与服务端代码共用，开发效率高</td>
+</tr>
+<tr>
+<td>缺点</td>
+<td>1. SEO 不友好<br />2. FCP FMP 慢</td>
+<td>1. SEO 不友好<br />2. FMP 慢</td>
+<td>1. 客户端数据共享成本高<br />2. 模版维护成本高</td>
+<td>1. Node 容易形成性能瓶颈</td>
+</tr>
+</tbody></table>
+
+        
+                <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+                    <p><strong>
+                         
+                            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a>
+                        </strong>
+                        <br>
+                        <strong>本文链接：</strong><a href="http://lo-que.github.io/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">http://lo-que.github.io/2021/05/05/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</a>
+                    </p>
+                </blockquote>
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2021/06/18/javascript%E6%89%A7%E8%A1%8C%E5%A0%86%E6%A0%88/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新的文章
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2019/06/12/%E8%B8%A9%E5%9D%91addEventListener/" id="post_nav-older" class="next-content">
+            旧的文章
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="屈东奇's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        lo-que@foxmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:Lo-que@foxmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/06/">六月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/04/">四月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/01/">一月 2017<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Tags  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">label</i>
+                
+                标签
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-none-link" href="/tags/GC-VO-AO-CalleeStack/" rel="tag">GC VO AO CalleeStack<span class="sidebar_archives-none-count">1</span></a></li><li><a class="sidebar_archives-none-link" href="/tags/Learning-Note/" rel="tag">Learning Note<span class="sidebar_archives-none-count">12</span></a></li><li><a class="sidebar_archives-none-link" href="/tags/Learning-summary/" rel="tag">Learning summary<span class="sidebar_archives-none-count">1</span></a></li><li><a class="sidebar_archives-none-link" href="/tags/Math/" rel="tag">Math<span class="sidebar_archives-none-count">1</span></a></li><li><a class="sidebar_archives-none-link" href="/tags/Picking-up/" rel="tag">Picking up<span class="sidebar_archives-none-count">5</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/Computer-basis/">Computer basis<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/css/">css<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/html/">html<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/http/">http<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/jade/">jade<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/javascript/">javascript<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/categories/network/">network<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/nodejs/">nodejs<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/picking-up/">picking up<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">24</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/Lo-que" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2017&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">人生若只如初见</div>
+                <div class="footer-develop-div">何事秋风悲画扇</div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.info("%c如有疑虑请联系：\n"+'Lo-que@foxmail.com'+'%c\n or http://github.com/Lo-que/Lo-que.github.io',"font-size: 14px;color: #3F51B5;","color: #448AFF;text-decoration: none");
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

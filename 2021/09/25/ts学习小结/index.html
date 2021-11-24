@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+        Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="qudongqi&#39;s personal blog">
+    <meta name="keywords" content="qudongqi,blog,hexo,FE">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Blog">
+    <meta name="msapplication-starturl" content="http://lo-que.github.io/2021/09/25/ts%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://lo-que.github.io/2021/09/25/ts%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Blog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="qudongqi&#39;s personal blog">
+    
+
+    
+        <meta property="article:published_time" content="Sat Sep 25 2021 18:23:38 GMT+0800">
+        <meta property="article:modified_time" content="Wed Nov 24 2021 14:41:34 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://lo-que.github.io/2021/09/25/ts%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://lo-que.github.io/2021/09/25/ts%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/index.html",
+    "headline": "",
+    "datePublished": "Sat Sep 25 2021 18:23:38 GMT+0800",
+    "dateModified": "Wed Nov 24 2021 14:41:34 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "屈东奇",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "自童年起，我便独自一人，照顾着历代星辰。"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": "qudongqi,blog,hexo,FE",
+    "description": "qudongqi&#39;s personal blog",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TS%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93"><span class="post-toc-number">1.</span> <span class="post-toc-text">TS学习小结</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%86%85%E7%BD%AE%E5%AE%9E%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">内置实用类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Partial-lt-Type-gt"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">Partial&lt;Type&gt;</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Required-lt-Type-gt"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">Required&lt;Type&gt;</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Readonly-lt-Type-gt"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">Readonly&lt;Type&gt;</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Record-lt-Keys-Type-gt"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">Record&lt;Keys,Type&gt;</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Pick-lt-Type-Keys-gt"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">Pick&lt;Type, Keys&gt;</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Omit-lt-Type-Keys-gt"><span class="post-toc-number">1.1.6.</span> <span class="post-toc-text">Omit&lt;Type, Keys&gt;</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Exclude-lt-Type-ExcludedUnion-gt"><span class="post-toc-number">1.1.7.</span> <span class="post-toc-text">Exclude&lt;Type, ExcludedUnion&gt;</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Extract-lt-Type-Union-gt"><span class="post-toc-number">1.1.8.</span> <span class="post-toc-text">Extract&lt;Type, Union&gt;</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#NonNullable-lt-Type-gt"><span class="post-toc-number">1.1.9.</span> <span class="post-toc-text">NonNullable&lt;Type&gt;</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Parameters-lt-Type-gt"><span class="post-toc-number">1.1.10.</span> <span class="post-toc-text">Parameters&lt;Type&gt;</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ConstructorParameters-lt-Type-gt"><span class="post-toc-number">1.1.11.</span> <span class="post-toc-text">ConstructorParameters&lt;Type&gt;</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#InstanceType-lt-Type-gt"><span class="post-toc-number">1.1.12.</span> <span class="post-toc-text">InstanceType&lt;Type&gt;</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ReturnType-lt-Type-gt"><span class="post-toc-number">1.1.13.</span> <span class="post-toc-text">ReturnType&lt;Type&gt;</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="post-toc-number">1.1.14.</span> <span class="post-toc-text">参考链接</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%89%B9%E6%AE%8A%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">特殊操作符</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#keyof"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">keyof</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#typeof"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">typeof</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#in-keyof"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">in keyof</span></a></li></ol></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>屈东奇</strong>
+        <span>9月 25, 2021</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAACyUlEQVR42u3aUW7bQAwE0Nz/0ukB0tozpIoYu09fhmErfDKQAcn9+r7y+sLGxsbGxsbGxsb+SPZXfP38fPLO6/eTb/0FUNaMjY2NfQP7zb/+H8X9q4ikxPbxJTW8rhkbGxv7HvbrEt/cdPH48hBa1YyNjY2N/VDjMWs2sLGxsbGfDbCkeUj+ShJ++c+AjY2NjZ0PaJJhfQJuo+vXZmnY2NjYH89uF72f8PoX9tvY2NjYH8lur1kLMVvo5rEXVY6NjY19KHsz+s8fTd5gzFqRpOHBxsbGPpu9OfI4W8cmwZaPk6I6sbGxsQ9lzwqdNQbtQjeHRQsDbGxs7KPZs4ahjpAy6to18JvHio2NjX0Bux0tJc3MHpY/4nrRi42NjX0Ee4OZPbL2zptDRdjY2Nh3svNDM3l4PPUI2p8KGxsb+wZ2PtBPhjhtcZujnC0eGxsb+1T2LBieKj2JzNkno9zGxsbGvoCdv57FW/46uXO9HsDGxsY+gt2C8+8mA6a8HUoqxMbGxr6TvQG30ZKvdfORVhKc2NjY2GezZyGUj/5n98nbpKJdwcbGxr6A/T269uOkZ8dS0XoAGxsb+xp2e+wmv8NmOdEuD7CxsbHvYW8GQAlyFnizSMPGxsa+h72Jn/+x+s0XunVjg42NjX0oO//zs+LasX67JM7vj42NjX02Oyk6HyS1Zc0O+tQBiY2NjX0oe7ZMTR5Hsr5tD/S0awlsbGzsG9htW9IeiMyLyyNtGKXY2NjYV7JnTcssbNqDmMljxcbGxr6B3Y6Q2rF+vtxtG6E22LCxsbHPZj8bWq9hmybk4QDDxsbGPo7dhla7Etgsjx8eKmFjY2NfzN63FpuB0SoysbGxsbHjoX/bkLSrhfxnwMbGxr6NnQyVNmOmosT1oR9sbGzs29jtojcvJWlXNvFZxB42Njb2oex7LmxsbGxsbGxsbOyPuf4ADEWv8u2629AAAAAASUVORK5CYII=">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=&url=http://lo-que.github.io/2021/09/25/ts%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/index.html&pic=http://lo-que.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=&url=http://lo-que.github.io/2021/09/25/ts%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/index.html&via=屈东奇" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://lo-que.github.io/2021/09/25/ts%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://lo-que.github.io/2021/09/25/ts%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Blog&title=&summary=qudongqi&#39;s personal blog&pics=http://lo-que.github.io/img/favicon.png&url=http://lo-que.github.io/2021/09/25/ts%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+        <a class="post_share-link" href="https://telegram.me/share/url?url=http://lo-que.github.io/2021/09/25/ts%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/index.html&text=" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h2 id="TS学习小结"><a href="#TS学习小结" class="headerlink" title="TS学习小结"></a>TS学习小结</h2><h3 id="内置实用类型"><a href="#内置实用类型" class="headerlink" title="内置实用类型"></a>内置实用类型</h3><h4 id="Partial-lt-Type-gt"><a href="#Partial-lt-Type-gt" class="headerlink" title="Partial&lt;Type&gt;"></a><code>Partial&lt;Type&gt;</code></h4><p>可以将原本必要需要类型变为可选属性的类型</p>
+<pre><code class="typescript">interface IState &#123;
+  title: string;
+  description: string;
+&#125;
+
+function test(state: IState, newState: Partial&lt;IState&gt;) &#123;
+  return &#123;...state, ...newState&#125;
+&#125;
+
+const state:IState = &#123;
+  title: &#39;标题&#39;,
+  description: &#39;这是描述&#39;
+&#125;
+
+const newState: Partial&lt;IState&gt; = &#123;
+  title: &#39;只有标题&#39;
+&#125;
+
+// ===&gt; 等价于
+
+interface IState &#123;
+  title?: string;
+  description?: string;
+&#125;
+</code></pre>
+<h4 id="Required-lt-Type-gt"><a href="#Required-lt-Type-gt" class="headerlink" title="Required&lt;Type&gt;"></a><code>Required&lt;Type&gt;</code></h4><p><code>Required</code> 和 <code>Partial</code> 相反，把之前的可选类型全部变为必要需要类型</p>
+<pre><code class="typescript">interface Props &#123;
+  a?: number;
+  b?: string;
+&#125;
+
+const obj: Props = &#123; a: 5 &#125;;
+const obj2: Required&lt;Props&gt; = &#123; a: 5 &#125;;
+// 类型 &quot;&#123; a: number; &#125;&quot; 中缺少属性 &quot;b&quot;，但类型 &quot;Required&lt;Props&gt;&quot; 中需要该属性
+</code></pre>
+<h4 id="Readonly-lt-Type-gt"><a href="#Readonly-lt-Type-gt" class="headerlink" title="Readonly&lt;Type&gt;"></a><code>Readonly&lt;Type&gt;</code></h4><p>构建具有只读的类型，无法修改</p>
+<pre><code class="typescript">interface ITest &#123;
+  id: number
+&#125;
+
+const test: Readonly&lt;ITest&gt; = &#123;
+  id: 4396
+&#125;
+
+test.id = 443 // 无法分配到 &quot;id&quot; ，因为它是只读属性
+</code></pre>
+<h4 id="Record-lt-Keys-Type-gt"><a href="#Record-lt-Keys-Type-gt" class="headerlink" title="Record&lt;Keys,Type&gt;"></a><code>Record&lt;Keys,Type&gt;</code></h4><p>可以约束对象的 key, props 的类型</p>
+<pre><code class="typescript">type IBook = &#39;language&#39; | &#39;math&#39;
+
+interface IProp &#123;
+  price: number;
+  page_number: number;
+  publish?: string
+&#125;
+
+const math: Record&lt;IBook, IProp&gt; = &#123;
+  language: &#123;
+    price: 29,
+    page_number: 200
+  &#125;,
+  math: &#123;
+    price: 49,
+    page_number: 100
+  &#125;
+&#125;
+
+math.language
+</code></pre>
+<h4 id="Pick-lt-Type-Keys-gt"><a href="#Pick-lt-Type-Keys-gt" class="headerlink" title="Pick&lt;Type, Keys&gt;"></a><code>Pick&lt;Type, Keys&gt;</code></h4><p>可以取出选择的类型声明中的几个字段生成一个新的类型</p>
+<pre><code class="typescript">interface IBook &#123;
+  title: string;
+  description: string;
+  price: number;
+&#125;
+
+type IBuyBook = Pick&lt;IBook, &quot;title&quot; | &quot;price&quot;&gt;;
+
+const buy: IBuyBook = &#123;
+  title:&#39;typescript&#39;,
+  price: 55
+&#125;
+
+buy
+</code></pre>
+<h4 id="Omit-lt-Type-Keys-gt"><a href="#Omit-lt-Type-Keys-gt" class="headerlink" title="Omit&lt;Type, Keys&gt;"></a><code>Omit&lt;Type, Keys&gt;</code></h4><p>与Pick相反 可以复制原有类型， 并且移出掉不需要的属性生成新的类型</p>
+<pre><code class="typescript">interface IBook &#123;
+  title: string;
+  description: string;
+  price: number;
+  publish: string;
+  author: string;
+&#125;
+
+type IPreview = Omit&lt;IBook, &quot;author&quot; | &quot;price&quot;&gt;
+type IPrice = Omit&lt;IBook, &quot;author&quot; | &quot;description&quot; &gt;
+
+const language: IPreview = &#123;
+  title: &#39;language&#39;,
+  description: &#39;语文&#39;,
+  publish: &#39;china&#39;
+&#125;
+
+const math: IPrice = &#123;
+  title: &#39;language&#39;,
+  price: 23,
+  publish: &#39;china&#39;
+&#125;
+</code></pre>
+<h4 id="Exclude-lt-Type-ExcludedUnion-gt"><a href="#Exclude-lt-Type-ExcludedUnion-gt" class="headerlink" title="Exclude&lt;Type, ExcludedUnion&gt;"></a><code>Exclude&lt;Type, ExcludedUnion&gt;</code></h4><p>通过排除特定的类型， 生成新的一个类型</p>
+<pre><code class="typescript">type IPrice = Exclude&lt; number | string | (()=&gt; number ), Function&gt;
+// type IPrice = number | string
+type IName = Exclude&lt; &#39;小李&#39; | &#39;小张&#39; | (()=&gt; string), Function&gt;
+// type IName = &#39;小李&#39; | &#39;小张&#39;
+</code></pre>
+<h4 id="Extract-lt-Type-Union-gt"><a href="#Extract-lt-Type-Union-gt" class="headerlink" title="Extract&lt;Type, Union&gt;"></a><code>Extract&lt;Type, Union&gt;</code></h4><p>与 Exclude 类型相反，通过匹配两者之间的交集生成一个新的交集类型</p>
+<pre><code class="typescript">type IPrice = Extract&lt; number | string | (()=&gt; number ), string | boolean&gt;
+// type IPrice = string
+type IName = Extract&lt; &#39;小李&#39; | &#39;小张&#39; | (()=&gt; string), &#39;小张&#39;| &#39;小李&#39; | boolean&gt;
+// type IName = &#39;小张&#39;| &#39;小李&#39;
+</code></pre>
+<h4 id="NonNullable-lt-Type-gt"><a href="#NonNullable-lt-Type-gt" class="headerlink" title="NonNullable&lt;Type&gt;"></a><code>NonNullable&lt;Type&gt;</code></h4><p>排除无用值属性，生成一个新的类型。比如 <code>undefined</code>,<code>null</code></p>
+<pre><code class="typescript">type IPrice = NonNullable&lt; number | string | undefined | null&gt;
+// type IPrice = number | string
+</code></pre>
+<h4 id="Parameters-lt-Type-gt"><a href="#Parameters-lt-Type-gt" class="headerlink" title="Parameters&lt;Type&gt;"></a><code>Parameters&lt;Type&gt;</code></h4><p>通过函数参数构建的一个数组类型, 注意: string, boolean, Function 不满足约束要求</p>
+<pre><code class="typescript">declare function f1(arg: &#123; a: number; b: string &#125;): void;
+
+type T0 = Parameters&lt;() =&gt; string&gt;;
+// type T0 = []
+type T1 = Parameters&lt;(s: string) =&gt; string&gt;;
+// type T1 = [s: string]
+type T2 = Parameters&lt; &lt;K&gt;(args: K) =&gt; K&gt;;
+// type T2 = [args: unkonw]
+type T3 = Parameters&lt; typeof f1&gt;
+// type T3 = [args: &#123;a: number, b: string&#125;]
+type T4 = Parameters&lt;any&gt;;
+// type T4 = unknow[]
+type T5 = Parameters&lt;never&gt;;
+// type T5 = never
+</code></pre>
+<h4 id="ConstructorParameters-lt-Type-gt"><a href="#ConstructorParameters-lt-Type-gt" class="headerlink" title="ConstructorParameters&lt;Type&gt;"></a><code>ConstructorParameters&lt;Type&gt;</code></h4><p>通过特殊的构建器函数构造数组类型, 不支持 Function 类型</p>
+<pre><code class="typescript">type T0 = ConstructorParameters&lt;FunctionConstructor&gt;
+// type T0 = string[]
+type T1 = ConstructorParameters&lt;ErrorConstructor&gt;
+// type T1 = [message?: string]
+type T2 = ConstructorParameters&lt;ObjectConstructor&gt; // | NumberConstructor | BooleanConstructor | StringConstructor
+// type T2 = [value?: any]
+type T3 = ConstructorParameters&lt;RegExpConstructor&gt;
+// type T3 = [pattern: string | RegExp, flags?: string]
+type T4 = ConstructorParameters&lt;any&gt;
+// type T4 = unknown[]
+</code></pre>
+<h4 id="InstanceType-lt-Type-gt"><a href="#InstanceType-lt-Type-gt" class="headerlink" title="InstanceType&lt;Type&gt;"></a><code>InstanceType&lt;Type&gt;</code></h4><p>由构造函数实例构成的类型, 不支持 string, number, boolean, Function, Symbo</p>
+<pre><code class="typescript">class K &#123;
+  constructor()&#123;&#125;
+  x = 0;
+  y = 0;
+&#125;
+
+type T0 = InstanceType&lt;typeof K&gt;
+// type T0 = K
+</code></pre>
+<h4 id="ReturnType-lt-Type-gt"><a href="#ReturnType-lt-Type-gt" class="headerlink" title="ReturnType&lt;Type&gt;"></a><code>ReturnType&lt;Type&gt;</code></h4><p>构建函数返回值组成的类型</p>
+<pre><code class="typescript">declare function fn(): &#123; a: number; b: string, c: Function &#125;;
+
+type T0 = ReturnType&lt;() =&gt; string&gt;;
+// type T0 = string
+type T1 = ReturnType&lt;(s: string) =&gt; void&gt;;
+// type T1 = void
+type T2 = ReturnType&lt;&lt;T&gt;() =&gt; T&gt;;
+// type T2 = unknown
+type T3 = ReturnType&lt;&lt;T extends U, U extends string[]&gt;() =&gt; T&gt;;
+// type T3 = string[]
+type T4 = ReturnType&lt;typeof fn&gt;
+// type T4 = &#123;
+//     a: number;
+//     b: string;
+//     c: Function;
+// &#125;
+</code></pre>
+<h4 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a><em>参考链接</em></h4><p><a target="_blank" rel="noopener" href="https://www.typescriptlang.org/docs/handbook/utility-types.html">TS 官网 utility-types</a></p>
+<h3 id="特殊操作符"><a href="#特殊操作符" class="headerlink" title="特殊操作符"></a>特殊操作符</h3><h4 id="keyof"><a href="#keyof" class="headerlink" title="keyof"></a><code>keyof</code></h4><p>可以获取某个类型的所有 key(键), 通过 key 的类型来生成一个新的联合类型</p>
+<pre><code class="typescript">type Point = &#123; x: number; y: number &#125;;
+type P = keyof Point;
+
+type Point1 = &#123; [x: number]: number, [y: string]: number &#125;;
+type P1 = keyof Point1;
+// type P1 = number | string
+
+type Point2 = &#123; x: number, [y: string]: number &#125;;
+type P2 = keyof Point1;
+// type P2 = number | string
+
+// 获取属性用法
+
+function getProp&lt;T extends object, K extends keyof  T&gt;(obj:T, key:K)&#123;
+  return obj[key];
+&#125;
+</code></pre>
+<p>参考链接 <a target="_blank" rel="noopener" href="https://www.typescriptlang.org/docs/handbook/2/keyof-types.html">TS keyof</a></p>
+<h4 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a><code>typeof</code></h4><p>typeof 本来就是 js 中的关键字，不过这里可以扩展一些特别的方法,可以通过 typeof 中推断的类型创建类型</p>
+<pre><code class="typescript">function fn() &#123;
+  return &#123;
+    a: 1,
+    b: &#39;name&#39;
+  &#125;
+&#125;
+
+let _name = &#39;小李&#39;
+
+type T0 = typeof _name;
+// type T0 = string
+
+type T1 = ReturnType&lt;typeof fn&gt;
+// type T1 = &#123;
+//     a: number;
+//     b: string;
+// &#125;
+</code></pre>
+<p>参考链接 <a target="_blank" rel="noopener" href="https://www.typescriptlang.org/docs/handbook/2/typeof-types.html">TS typeof</a></p>
+<h4 id="in-keyof"><a href="#in-keyof" class="headerlink" title="in keyof"></a><code>in keyof</code></h4><p>迭代 O 对象的 key，并且判断是否属于 O, 生成一个新的类型</p>
+<pre><code class="typescript">type K = &#123;
+  x: string | number,
+  y: string | number
+&#125;
+
+type Point&lt;O&gt; = &#123;
+  [K in keyof O]: O[K]
+&#125;
+
+var b: Point&lt;K&gt; = &#123;
+  x: 2,
+  y: &#39;32px&#39;,
+  z: false // z error z error 不能将类型“&#123; x: number; y: string; z: boolean; &#125;”分配给类型“Point&lt;K&gt;”。对象文字可以只指定已知属性，并且“z”不在类型“Point&lt;K&gt;”中。
+&#125;
+</code></pre>
+<p>参考链接 <a target="_blank" rel="noopener" href="https://www.typescriptlang.org/docs/handbook/2/types-from-types.html">TS Creating Types from Types</a></p>
+
+        
+                <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+                    <p><strong>
+                         
+                            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a>
+                        </strong>
+                        <br>
+                        <strong>本文链接：</strong><a href="http://lo-que.github.io/2021/09/25/ts%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/">http://lo-que.github.io/2021/09/25/ts%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/</a>
+                    </p>
+                </blockquote>
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" id="post_nav-older" class="next-content">
+            旧的文章
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="屈东奇's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        lo-que@foxmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:Lo-que@foxmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/06/">六月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/04/">四月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/01/">一月 2017<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Tags  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">label</i>
+                
+                标签
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-none-link" href="/tags/GC-VO-AO-CalleeStack/" rel="tag">GC VO AO CalleeStack<span class="sidebar_archives-none-count">1</span></a></li><li><a class="sidebar_archives-none-link" href="/tags/Learning-Note/" rel="tag">Learning Note<span class="sidebar_archives-none-count">12</span></a></li><li><a class="sidebar_archives-none-link" href="/tags/Learning-summary/" rel="tag">Learning summary<span class="sidebar_archives-none-count">1</span></a></li><li><a class="sidebar_archives-none-link" href="/tags/Math/" rel="tag">Math<span class="sidebar_archives-none-count">1</span></a></li><li><a class="sidebar_archives-none-link" href="/tags/Picking-up/" rel="tag">Picking up<span class="sidebar_archives-none-count">5</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/Computer-basis/">Computer basis<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/css/">css<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/html/">html<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/http/">http<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/jade/">jade<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/javascript/">javascript<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/categories/network/">network<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/nodejs/">nodejs<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/picking-up/">picking up<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">24</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/Lo-que" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2017&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">人生若只如初见</div>
+                <div class="footer-develop-div">何事秋风悲画扇</div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.info("%c如有疑虑请联系：\n"+'Lo-que@foxmail.com'+'%c\n or http://github.com/Lo-que/Lo-que.github.io',"font-size: 14px;color: #3F51B5;","color: #448AFF;text-decoration: none");
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

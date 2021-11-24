@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            http协议那些事儿 | 
+        
+        Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="qudongqi&#39;s personal blog">
+    <meta name="keywords" content="qudongqi,blog,hexo,FE,http">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Blog">
+    <meta name="msapplication-starturl" content="http://lo-que.github.io/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://lo-que.github.io/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="http协议那些事儿 | Blog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="qudongqi&#39;s personal blog">
+    <meta property="og:article:tag" content="http"> 
+
+    
+        <meta property="article:published_time" content="Wed Aug 11 2021 11:40:21 GMT+0800">
+        <meta property="article:modified_time" content="Wed Nov 24 2021 15:41:42 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://lo-que.github.io/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://lo-que.github.io/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/index.html",
+    "headline": "http协议那些事儿",
+    "datePublished": "Wed Aug 11 2021 11:40:21 GMT+0800",
+    "dateModified": "Wed Nov 24 2021 15:41:42 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "屈东奇",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "自童年起，我便独自一人，照顾着历代星辰。"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",httpqudongqi,blog,hexo,FE",
+    "description": "qudongqi&#39;s personal blog",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF"><span class="post-toc-number">1.</span> <span class="post-toc-text">Http协议那些事儿</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFHTTP%E5%8D%8F%E8%AE%AE"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">什么是HTTP协议</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BA%86%E8%A7%A3TCP-IP%E5%8D%8F%E8%AE%AE%E6%A0%88"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">了解TCP&#x2F;IP协议栈</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%9C%A8TCP-IP%E5%8D%8F%E8%AE%AE%E6%A0%88%E4%B8%AD%E7%9A%84%E4%BD%8D%E7%BD%AE"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">在TCP&#x2F;IP协议栈中的位置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#HTTP%E7%9A%84%E5%B7%A5%E4%BD%9C%E8%BF%87%E7%A8%8B"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">HTTP的工作过程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">请求与响应</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">请求方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="post-toc-number">1.6.0.1.</span> <span class="post-toc-text">概述</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#HTTP%E7%8A%B6%E6%80%81%E7%A0%81"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">HTTP状态码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E8%AF%B7%E6%B1%82%E6%8A%A5%E5%A4%B4"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">常用的请求报头</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E5%93%8D%E5%BA%94%E6%8A%A5%E5%A4%B4"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">常用的响应报头</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AE%9E%E4%BD%93%E6%8A%A5%E5%A4%B4"><span class="post-toc-number">1.10.</span> <span class="post-toc-text">实体报头</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E5%AE%9E%E4%BD%93%E6%8A%A5%E5%A4%B4"><span class="post-toc-number">1.11.</span> <span class="post-toc-text">常用的实体报头</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#cookies%E4%B8%8Esession"><span class="post-toc-number">1.12.</span> <span class="post-toc-text">cookies与session</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Cookie%E4%BD%BF%E7%94%A8"><span class="post-toc-number">1.13.</span> <span class="post-toc-text">Cookie使用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Session%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="post-toc-number">1.14.</span> <span class="post-toc-text">Session的使用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#HTTP%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6"><span class="post-toc-number">1.15.</span> <span class="post-toc-text">HTTP缓存机制</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6"><span class="post-toc-number">1.16.</span> <span class="post-toc-text">浏览器缓存机制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%B2%A1%E6%9C%89%E7%BC%93%E5%AD%98"><span class="post-toc-number">1.16.1.</span> <span class="post-toc-text">没有缓存</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%9C%89%E7%BC%93%E5%AD%98"><span class="post-toc-number">1.16.2.</span> <span class="post-toc-text">有缓存</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%B8%A4%E7%A7%8D%E7%BC%93%E5%AD%98%E7%AD%96%E7%95%A5"><span class="post-toc-number">1.17.</span> <span class="post-toc-text">两种缓存策略</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%BC%93%E5%AD%98%E4%BC%98%E5%85%88%E7%BA%A7"><span class="post-toc-number">1.17.1.</span> <span class="post-toc-text">缓存优先级</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="post-toc-number">1.17.1.1.</span> <span class="post-toc-text">小结</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AF%86%E7%A0%81%E5%AD%A6%E5%85%A5%E9%97%A8"><span class="post-toc-number">1.18.</span> <span class="post-toc-text">密码学入门</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%AF%86%E9%92%A5%E4%BA%A4%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="post-toc-number">1.18.1.</span> <span class="post-toc-text">密钥交换算法</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%AF%81%E4%B9%A6%E7%AD%BE%E5%8F%91%E6%9C%BA%E6%9E%84-CA"><span class="post-toc-number">1.19.</span> <span class="post-toc-text">证书签发机构(CA)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#CA%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="post-toc-number">1.19.0.1.</span> <span class="post-toc-text">CA的工作流程</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%A6%82%E4%BD%95%E9%AA%8C%E8%AF%81%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AF%81%E4%B9%A6%E7%9A%84%E6%9C%89%E6%95%88%E6%80%A7"><span class="post-toc-number">1.19.1.</span> <span class="post-toc-text">浏览器如何验证服务器证书的有效性</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#HTTPS%E5%8D%8F%E8%AE%AE%E5%88%86%E6%9E%90"><span class="post-toc-number">1.20.</span> <span class="post-toc-text">HTTPS协议分析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SSL-TLS%E5%8D%8F%E8%AE%AE"><span class="post-toc-number">1.21.</span> <span class="post-toc-text">SSL&#x2F;TLS协议</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#TLS1-2%E5%88%86%E6%9E%90"><span class="post-toc-number">1.22.</span> <span class="post-toc-text">TLS1.2分析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#HTTPS-SSL-TLS-%E5%88%86%E6%9E%90"><span class="post-toc-number">1.23.</span> <span class="post-toc-text">HTTPS SSL&#x2F;TLS 分析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#TLS1-3-%E5%8D%87%E7%BA%A7%E4%BA%86%E5%95%A5"><span class="post-toc-number">1.24.</span> <span class="post-toc-text">TLS1.3 升级了啥</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E5%86%8D%E6%9D%A5%E4%BC%98%E5%8C%96%E4%B8%80%E4%B8%8B"><span class="post-toc-number">1.24.0.1.</span> <span class="post-toc-text">再来优化一下</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#HTTP2%E5%8D%8F%E8%AE%AE%E5%88%86%E6%9E%90"><span class="post-toc-number">1.25.</span> <span class="post-toc-text">HTTP2协议分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%88%86%E5%B8%A7"><span class="post-toc-number">1.25.1.</span> <span class="post-toc-text">二进制分帧</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%A4%B4%E9%83%A8%E5%8E%8B%E7%BC%A9"><span class="post-toc-number">1.25.2.</span> <span class="post-toc-text">头部压缩</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8"><span class="post-toc-number">1.25.3.</span> <span class="post-toc-text">多路复用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8E%A8%E9%80%81"><span class="post-toc-number">1.25.4.</span> <span class="post-toc-text">服务器推送</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%B0%8F%E7%BB%93-1"><span class="post-toc-number">1.25.5.</span> <span class="post-toc-text">小结</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BA%86%E8%A7%A3HTTP-3"><span class="post-toc-number">1.26.</span> <span class="post-toc-text">了解HTTP 3</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#HTTP-3%E7%89%B9%E7%82%B9"><span class="post-toc-number">1.26.1.</span> <span class="post-toc-text">HTTP 3特点</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%98%9F%E9%A6%96%E9%98%BB%E5%A1%9E%E9%97%AE%E9%A2%98"><span class="post-toc-number">1.27.</span> <span class="post-toc-text">队首阻塞问题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#HTTP%E4%B8%8E%E4%BB%A3%E7%90%86"><span class="post-toc-number">1.28.</span> <span class="post-toc-text">HTTP与代理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86"><span class="post-toc-number">1.28.1.</span> <span class="post-toc-text">正向代理</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86"><span class="post-toc-number">1.28.2.</span> <span class="post-toc-text">反向代理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E7%9A%84%E7%94%A8%E9%80%94"><span class="post-toc-number">1.28.2.1.</span> <span class="post-toc-text">反向代理的用途</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%81%9A%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="post-toc-number">1.28.3.</span> <span class="post-toc-text">反向代理做负载均衡</span></a></li></ol></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                http协议那些事儿
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>屈东奇</strong>
+        <span>8月 11, 2021</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAADhElEQVR42u3aS27jMBAFQN//0jPbABnL7zVJSwOUVkZMi2Jp0enP64/rx/VCgAMHDhw4cODAgQPHgzle8fVz/T9u+uvvv3/7bv3153d3uF6fnAUHDhw4cJzj+BCK3hy15chZ89ew4Sw4cODAgeMYR/Io+Zrr4JeExtndWlYcOHDgwHEvx0pwbRO863CefIsDBw4cOP5HjnOBMCkO4sCBAweOJ3O027SlvbxQmEDnBceDtVIcOHDgwLF1oOGZn2+b78CBAwcOHAvXbOygPV6bng3PggMHDhw4tnKsFAHzNlJyjNnu7RhfXSvFgQMHDhwlx0p5LkdJQmM7xJCz4sCBAweOb3K0j7gyoLZ3xGG2EgcOHDhw3MWRDwfkgwv5ml3pZXQHHDhw4MBxgCM59qzls95qaveqU0QcOHDgwLGV43r79XC4PmA9a3ElrwcHDhw4cNzF0Q7DnRjdzhPFnBsHDhw4cJzjaAfddhX1coiV+xTFQRw4cODAsYljFuraxtVslCEPtO0z4MCBAweOExwrhbZdYw35MFx91IQMBw4cOHAc4EiKg22gzRs/s9JkOzyHAwcOHDi+w5EXCnOUYSo1GlzYsC8OHDhw4DjA0ZbhVlK4dgAuT/NmCSEOHDhw4DjBkfy4TdLa0t6sWXW8C4cDBw4cOBY6+G15LmFqQ2zboMpDNQ4cOHDg+D5HG9jaxtKuNe0r+bALDhw4cODYyrEe6maBMIfOn2qYNOLAgQMHjq0cs0Cblwjb4uN626kO5zhw4MCBYytHG2hbiHbAbuX1JKN7S/MdOHDgwIFj1HZKCGbtqLYgeC4hxIEDBw4c5zhmIwgroS5JzJI75Gs+pIg4cODAgeMARx4UT4++zfZdST5x4MCBA8dejnxwebamLQjm4TZPL4cZLQ4cOHDgGHEkP2hDXX6HYTmv3PfDuXDgwIEDx1aOdnytHUprA+euYYg8ncOBAwcOHHs52qtN5JL17ahE+28BDhw4cOD4JsesVJc3dWa7tHzJZxw4cODA8U2OWXBtmVZKeDlQ/apw4MCBA8cxjnZ0oH3opHjXNqtmFw4cOHDgeBpHknTtGoPb1eh6exYcOHDgwHErRz7ikNC0gXn2wnDgwIEDx10c6wW7JBzOmkx5G6l+chw4cODAcYDjRNKVBNG2ODhrfdWBFgcOHDhwLHC4cODAgQMHDhw4cODA8bDrL3jpd5gOQL12AAAAAElFTkSuQmCC">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-none-link" href="/tags/http/" rel="tag">http</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=http协议那些事儿&url=http://lo-que.github.io/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/index.html&pic=http://lo-que.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=http协议那些事儿&url=http://lo-que.github.io/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/index.html&via=屈东奇" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://lo-que.github.io/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://lo-que.github.io/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Blog&title=http协议那些事儿&summary=qudongqi&#39;s personal blog&pics=http://lo-que.github.io/img/favicon.png&url=http://lo-que.github.io/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+        <a class="post_share-link" href="https://telegram.me/share/url?url=http://lo-que.github.io/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/index.html&text=http协议那些事儿" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h2 id="Http协议那些事儿"><a href="#Http协议那些事儿" class="headerlink" title="Http协议那些事儿"></a>Http协议那些事儿</h2><p>作为一个 web 开发，HTTP 几乎是天天要打交道的东西，但我发现大部分人对 HTTP 只是浅尝辄止。这篇文章就是为了帮助大家也帮助我树立完整的 HTTP 知识体系，提升自己作为一个 web 开发的专业素养。</p>
+<p>本文可能涉及到的知识点。</p>
+<ul>
+<li>当我们输入网址后发生了什么</li>
+<li>HTTP协议详解</li>
+<li>Cookie与session</li>
+<li>HTTP缓存机制</li>
+<li>HTTPS 协议分析 </li>
+<li>HTTP2 协议分析 </li>
+<li>了解HTTP3</li>
+</ul>
+<p>在开始正文之前，我们需要先搞定一个知识点。</p>
+<p><strong>什么是http请求？</strong></p>
+<p>下图是http请求模型。由客户端发起请求，服务器响应请求。</p>
+<p><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/model-2ff2deaf94eb31c0f87acad1eb8b4570.png" alt="模型"></p>
+<p>所以，我们这里需要记住的是，发起请求的是客户端，响应请求的是服务器。</p>
+<p>有一个最常见的面试题，当我们输入网址后发生了什么？</p>
+<blockquote>
+<p>处理流程</p>
+<ol>
+<li>输入网址并回车</li>
+<li>解析域名</li>
+<li>浏览器发送HTTP请求</li>
+<li>服务器处理请求</li>
+<li>服务器返回HTML响应</li>
+<li>浏览器处理HTML页面</li>
+<li>继续请求其他资源</li>
+</ol>
+</blockquote>
+<p><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/request_step-18b3db9af51480dfd433ae30add05e06.png" alt="处理流程"></p>
+<blockquote>
+<p>上图是一个简单的流程图</p>
+<ol>
+<li><p>用户打算访问google.com</p>
+</li>
+<li><p>先经过防火墙</p>
+</li>
+<li><p>代理服务器</p>
+</li>
+<li><p>家用路由器</p>
+</li>
+<li><p>软件</p>
+</li>
+<li><p>查找域名对应服务器 </p>
+</li>
+</ol>
+<p>  域名的解析需要用到一系列的服务器，而不是简单的一个服务器。比如：用户想要解析 <a target="_blank" rel="noopener" href="http://www.google.com/">www.google.com</a>:</p>
+<ol>
+<li><p>在本机上输入<a target="_blank" rel="noopener" href="https://www.google.com/">https://www.google.com</a></p>
+</li>
+<li><p>2 号服务器是用户在自己电脑上填写的 DNS 地址，由于域名和 ip 地址的对照表非常庞大，因此 2 号服务器会进行分层管理。2 号服务器进行域名解析是会先从缓存中进行查找，如果一个域名被频繁访问，通常会被保存到缓存中。如果 DNS 这没有对应的域名-IP 缓存，那么就需要向根服务器(Root Server)发起请求。</p>
+</li>
+<li><p>根服务器负责维护全球的域名-IP 地址解析。根服务器会检查域名后缀(比如.com)，根据不同的后缀，交给不同的 TLD 服务器处理。获取到后缀后，返回对应的 TLD 服务器的 ip 地址(com = 1.1.1.1)。</p>
+</li>
+<li><p>DNS 拿到 TLD 服务器的 IP 地址后，继续向 TLD 服务器进行询问。TLD 服务器只返回顶级域名对应的 IP(<a target="_blank" rel="noopener" href="https://google.com/">https://google.com</a> = 2222)，交给顶级域名对应的 Name Server 处理。</p>
+</li>
+<li><p>DNS 服务器获取到顶级域名的 IP 后，继续向 Name Server 进行询问。Name Server 返回具体的域名对应的 IP 地址。</p>
+</li>
+<li><p>DNS 服务器获取到具体的域名对应的 IP 后，会先进行缓存，避免下次请求时继续多次询问。</p>
+</li>
+<li><p>虽然看起来是一条直线。但实际上是经过一跳有一跳路由。可通过traceroute查看</p>
+</li>
+<li><p>就像是反向代理服务器，找到真正的ip地址对应的服务器</p>
+</li>
+</ol>
+</blockquote>
+<h3 id="什么是HTTP协议"><a href="#什么是HTTP协议" class="headerlink" title="什么是HTTP协议"></a>什么是HTTP协议</h3><ul>
+<li>HTTP是超文本传输协议，从www浏览器传输到本地浏览器的一种传输协议，网站是基于HTTP协议的，例如网站的图片、CSS、JS等都是基于HTTP协议进行传输的。</li>
+<li>HTTP协议是由客户机到服务器的请求(Request)和从服务器到客户机的响应(response)进行约束和规范。</li>
+</ul>
+<p><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/version-f4b7d3499c5bc589c549db7ba650c731.png" alt="版本历程"></p>
+<blockquote>
+<p>Q&amp;A</p>
+<ol>
+<li><p>为什么说http是一个无状态协议？</p>
+<p>因为它的每个请求都是完全独立的，每个请求包含了处理这个请求所需的完整的数据，发送请求不涉及到状态变更。即使在 HTTP/1.1 上，同一个链接允许传输多个HTTP请求的情况下，如果第一个请求出错了，后面的请求一般也能够继续处理(当然，如果导致协议解析失败、封片错误之类的自然是要除外的)。可以看出，这种协议的结构是要比有状态的协议更简单的，一般来说实现起来也更简单，不需要使用状态机，一个循环就行了</p>
+</li>
+<li><p>HTTP协议是无状态协议，这句话本身到底对不对？</p>
+<p>实际上，并不全对。HTTP/1.1中有一个Expect：100-Continue的功能，它是这么工作的：</p>
+<ol>
+<li>在发送大量数据的时候，考虑到服务端有可能直接拒收数据，客户端发起请求头并附带Expect：100-Continue的HTTP头，不发送请求体，先等待服务器响应</li>
+<li>服务器收到Expect：100-Continue的请求，如果允许上传，发送100-Continue的HTTP响应(同一个请求可以有任意个1xx的响应，均不是最后的Response，只起到提示性作用)；如果不允许，例如不允许上传数据，或者数据大小超出限制，直接返回4xx/5xx的错误</li>
+<li>客户端收到100-Continue的响应之后，继续上传数据</li>
+</ol>
+<p>可以看出，这实际上很明显是一个有状态协议的套路，他需要先进行一次五首，然后再真正发送数据。不过，HTTP协议也规定，如果服务端不进行100-Continue的响应，建议客户端在等待较短的时间之后仍然上传数据，以达成与不支持Expect：100-Continue功能的服务器的兼容，这样可以算是”能有状态则有状态，否则会到无状态的路上”，这样说HTTP 1.x是无状态的协议也是没错的。</p>
+<p>至于 HTTP/2，它应该算是一个有状态的协议了(有握手和GOAWAY消息，有类似于TCP的流控)，所以以后说”HTTP是无状态的协议”就不太对了，最好说”HTTP 1.x是无状态的协议”</p>
+</li>
+<li><p>HTTP1.0 和 HTTP1.1 的一些区别</p>
+<p>1.0 最早在网页中使用是在 1996 年，那个时候只是使用一些较为简单的网页上和网络请求上，而 HTTP1.1 则在 1999 年才开始广泛应用于现在的各大浏览器网络请求中，同时 HTTP1.1 也是当前使用最为广泛的 HTTP 协议。</p>
+<p>主要区别主要体现在：</p>
+<ul>
+<li><strong>缓存处理</strong>： 在 HTTP1.0 中主要使用 header 里的 If-Modified-Since, Expires 来做为缓存判断的标准，HTTP1.1 则引入了更多的缓存控制策略例如 Entity tag, If-Unmodified-Since, If-Match, If-None-Match 等更多可供选择的缓存头来控制缓存策略。</li>
+<li><strong>带宽优化及网络连接的使用</strong>： HTTP1.0 中，存在一些浪费带宽的现象，例如客户端只是需要某个对象的一部分，而服务器却将整个对象送过来了，并且不支持断点续传功能，HTTP1.1 则在请求头引入了 range 头域，它允许只请求资源的某个部分，即返回码是 206（Partial Content），这样就方便了开发者自由的选择以便于充分利用带宽和连接。</li>
+<li><strong>错误通知的管理</strong>： 在 HTTP1.1 中新增了 24 个错误状态响应码，如 409（Conflict）表示请求的资源与资源的当前状态发生冲突；410（Gone）表示服务器上的某个资源被永久性的删除。</li>
+<li><strong>Host 头处理</strong>： 在 HTTP1.0 中认为每台服务器都绑定一个唯一的 IP 地址，因此，请求消息中的 URL 并没有传递主机名（hostname）。但随着虚拟主机技术的发展，在一台物理服务器上可以存在多个虚拟主机（Multi-homed Web Servers），并且它们共享一个 IP 地址。HTTP1.1 的请求消息和响应消息都应支持 Host 头域，且请求消息中如果没有 Host 头域会报告一个错误（400 Bad Request）。</li>
+<li><strong>长连接</strong>： HTTP 1.1 支持长连接（PersistentConnection）和请求的流水线（Pipelining）处理，在一个 TCP 连接上可以传送多个 HTTP 请求和响应，减少了建立和关闭连接的消耗和延迟，其中长连接也就是对应在 HTTP1.1 中的 Connection： keep-alive，一定程度上弥补了 HTTP1.0 每次请求都要创建连接的缺点。</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<h3 id="了解TCP-IP协议栈"><a href="#了解TCP-IP协议栈" class="headerlink" title="了解TCP/IP协议栈"></a>了解TCP/IP协议栈</h3><p><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/tcp-5bc5ded2899a586a4d37aca6fd5d0bf8.png" alt="协议流程"></p>
+<p>左边是 <strong>ISO/OSI标准协议</strong>，右图是<strong>事实协议</strong>， <strong>ISO/OSI 标准协议</strong> 是对<strong>事实协议</strong>的一个补充，最初设计的不完整.</p>
+<p>更多详细流程，参考 <strong>TCP 协议那些事儿</strong> （还没来得及写，(笑 ）</p>
+<ul>
+<li><p>应用层</p>
+<ul>
+<li>为用户提供功能所需要的各种服务，例如：HTTP、FTP、DNS、SMTP等</li>
+</ul>
+</li>
+<li><p>传输层</p>
+<ul>
+<li>为应用层实体提供端到端的通信功能，保证数据包的顺序传送及数据的完整性</li>
+<li>该层定义了两个主要的协议：传输控制协议(TCP)和用户数据报协议(UDP)</li>
+</ul>
+</li>
+<li><p>网络层</p>
+<ul>
+<li>主要解决主机到主机的通信问题。IP协议是网际互联网层最重要的协议。</li>
+</ul>
+</li>
+<li><p>网络接口层</p>
+<ul>
+<li>负责监视数据在主机和网络之间的交换</li>
+</ul>
+</li>
+</ul>
+<h3 id="在TCP-IP协议栈中的位置"><a href="#在TCP-IP协议栈中的位置" class="headerlink" title="在TCP/IP协议栈中的位置"></a>在TCP/IP协议栈中的位置</h3><ul>
+<li><p>目前普遍应用版本HTTP 1.1</p>
+</li>
+<li><p>正在逐步向HTTP 2迁移</p>
+</li>
+<li><p>HTTP默认端口号为80</p>
+</li>
+<li><p>HTTPS默认端口号为443</p>
+</li>
+</ul>
+<p><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/http_position-75b977e4447e7ee1e13431657a25bcab.png" alt="http 位置"></p>
+<h3 id="HTTP的工作过程"><a href="#HTTP的工作过程" class="headerlink" title="HTTP的工作过程"></a>HTTP的工作过程</h3><ul>
+<li>一次HTTP操作称为一个事务，其工作过程可分为四步: <ul>
+<li>首先客户机与服务器需要建立连接。只要单击某个超级链接，HTTP的工作开始。 </li>
+<li>建立连接后，客户机发送一个请求给服务器，请求方式的格式为:统一资源标识符(URI)、协议版本号， 后边是MIME信息包括请求修饰符、客户机信息和可能的内容。 </li>
+<li>服务器接到请求后，给予相应的响应信息，其格式为一个状态行，包括信息的协议版本号、一个成功 或错误的代码，后边是MIME信息包括服务器信息、实体信息和可能的内容。 </li>
+<li>客户端接收服务器所返回的信息通过浏览器显示在用户的显示屏上，然后客户机与服务器断开连接。 </li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>如果在以上过程中的某一步出现错误，那么产生错误的信息将返回到客户端，有显示屏输出。对于用户来说，这些过程是由HTTP自己完成的，用户只要用鼠标点击，等待信息显示就可以了。</li>
+</ul>
+<h3 id="请求与响应"><a href="#请求与响应" class="headerlink" title="请求与响应"></a>请求与响应</h3><p>HTTP请求组成：请求行、消息报头、请求正文</p>
+<p>HTTP响应组成：状态行、消息报头、响应正文</p>
+<p>请求行组成：以一个方法符号开头，后面跟着请求的URI和协议的版本</p>
+<p>状态行组成：服务器HTTP协议的版本，服务器发回的响应状态代码和状态代码的文本描述。</p>
+<p><strong>请求</strong>:</p>
+<p><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/request_head_1-ec9f86d7f232d69fc68322e6db348952.png" alt="请求"></p>
+<p><strong>响应</strong>:</p>
+<p><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/response_head_1-77c268bf51ba2f611adf9e3d4b26cfe4.png" alt="响应"></p>
+<h3 id="请求方法"><a href="#请求方法" class="headerlink" title="请求方法"></a>请求方法</h3><h5 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h5><p>GET： 请求获取Request-URI所标识的资源</p>
+<p>POST： 在Request-URI所标识的资源后附加新的数据</p>
+<p>HEAD： 请求获取由Request-URI所标识的资源的响应消息报头</p>
+<p>PUT： 请求服务器存储一个资源，并用Request-URI作为其标识</p>
+<p>DELETE： 请求服务器删除Request-URI所标识的资源</p>
+<p>TRACE： 请求服务器回送收到的请求信息，主要用于测试或诊断</p>
+<p>CONNECT：HTTP/1.1协议中预留给能够将连接改为管道方式的代理服务器</p>
+<p>OPTIONS： 请求查询服务器的性能，或者查询与资源相关的选项和需求</p>
+<h3 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h3><p>状态代码有三位数字组成，第一个数字定义了响应的类别，且有五种可能取值</p>
+<p><strong>1xx</strong>：指示信息–表示请求已接收，继续处理</p>
+<p><strong>2xx</strong>：成功–表示请求已被成功接收、理解、接受</p>
+<p><strong>3xx</strong>：重定向–要完成请求必须进行更进一步的操作</p>
+<p><strong>4xx</strong>：客户端错误–请求有语法错误或请求无法实现</p>
+<p><strong>5xx</strong>：服务器端错误–服务器未能实现合法的请求</p>
+<blockquote>
+<p><em>1xx</em></p>
+<p>​    101 Switching Protocols。在HTTP升级为WebSocket的时候，如果服务器同意变更，就会发送状态码 101。</p>
+<p><em>2xx</em></p>
+<p>​    200 OK是见得最多的成功状态码。通常在响应体中放有数据。</p>
+<p>​    204 No Content含义与 200 相同，但响应头后没有 body 数据。</p>
+<p>​    206 Partial Content顾名思义，表示部分内容，它的使用场景为 HTTP 分块下载和断点续传，当然也会带上相应的响应头字段Content-Range。</p>
+<p><em>3xx</em></p>
+<p>​    301 Moved Permanently即永久重定向，对应着302 Found，即临时重定向。</p>
+<p>​        比如你的网站从 HTTP 升级到了 HTTPS 了，以前的站点再也不用了，应当返回301，这个时候浏览器默认会做缓存优化，在第二次访问的时候自动访        问重定向的那个地址。</p>
+<p>​        而如果只是暂时不可用，那么直接返回302即可，和301不同的是，浏览器并不会做缓存优化。</p>
+<p>​    304 Not Modified: 当协商缓存命中时会返回这个状态码。详见浏览器缓存</p>
+<p><em>4xx</em></p>
+<p>​    400 Bad Request: 开发者经常看到一头雾水，只是笼统地提示了一下错误，并不知道哪里出错了。</p>
+<p>​    403 Forbidden: 这实际上并不是请求报文出错，而是服务器禁止访问，原因有很多，比如法律禁止、信息敏感。</p>
+<p>​    404 Not Found: 资源未找到，表示没在服务器上找到相应的资源。</p>
+<p>​    405 Method Not Allowed: 请求方法不被服务器端允许。</p>
+<p>​    406 Not Acceptable: 资源无法满足客户端的条件。</p>
+<p>​    408 Request Timeout: 服务器等待了太长时间。</p>
+<p>​    409 Conflict: 多个请求发生了冲突。</p>
+<p>​    413 Request Entity Too Large: 请求体的数据过大。</p>
+<p>​    414 Request-URI Too Long: 请求行里的 URI 太大。</p>
+<p>​    429 Too Many Request: 客户端发送的请求过多。</p>
+<p>​    431 Request Header Fields Too Large请求头的字段内容太大。</p>
+<p><em>5xx</em></p>
+<p>​    500 Internal Server Error: 仅仅告诉你服务器出错了，出了啥错咱也不知道。</p>
+<p>​    501 Not Implemented: 表示客户端请求的功能还不支持。</p>
+<p>​    502 Bad Gateway: 服务器自身是正常的，但访问的时候出错了，啥错误咱也不知道。</p>
+<p>​    503 Service Unavailable: 表示服务器当前很忙，暂时无法响应服务。</p>
+</blockquote>
+<h3 id="常用的请求报头"><a href="#常用的请求报头" class="headerlink" title="常用的请求报头"></a>常用的请求报头</h3><p><strong>Accept</strong> 请求报头域用于指定客户端接受哪些类型的信息。eg：Accept：image/gif，Accept：text/</p>
+<p><strong>htmlAccept-Charset</strong> 请求报头域用于指定客户端接受的字符集。Accept-Encoding：Accept-Encoding请求报头域类似于Accept，但是它是用于指定可接受的内容编码。</p>
+<p><strong>Accept-Language</strong> 请求报头域类似于Accept，但是它是用于指定一种自然语言</p>
+<p><strong>Authorization</strong> 请求报头域主要用于证明客户端有权查看某个资源。当浏览器访问一个页面时，如果收到服务器的响应代码为401（未授权），可以发送一个包含Authorization请求报头域的请求，要求服务器对其进行验证。</p>
+<p><strong>Host</strong> 请求报头域主要用于指定被请求资源的Internet主机和端口号，它通常从HTTP URL中提取出来的，发 送请求时，该报头域是必需的。</p>
+<p><strong>User-Agent</strong> 请求报头域允许客户端将它的操作系统、浏览器和其它属性告诉服务器。</p>
+<h3 id="常用的响应报头"><a href="#常用的响应报头" class="headerlink" title="常用的响应报头"></a>常用的响应报头</h3><p><strong>Location</strong> 响应报头域用于重定向接受者到一个新的位置。Location响应 报头域常用在更换域名的时候。</p>
+<p><strong>Server</strong> 响应报头域包含了服务器用来处理请求的软件信息。与UserAgent请求报头域是相对应的。</p>
+<p><strong>WWW-Authenticate</strong> 响应报头域必须被包含在401（未授权的）响应消息中，客户端收到401响应消息时候，并发送Authorization报头域请求服务器对其进行验证时，服务端响应报头就包含该报头域。</p>
+<h3 id="实体报头"><a href="#实体报头" class="headerlink" title="实体报头"></a>实体报头</h3><p><strong>请求</strong>和<strong>响应</strong>消息都可以传送一个实体。一个实体由实体报头域和实体正文组成，但并不是说实体报头域和实体正文要在一起发送，可以只发送实体报头域。实体报头定义了关于实体正文（eg：有无实体正文）和请求所标识的资源的元信息。</p>
+<h3 id="常用的实体报头"><a href="#常用的实体报头" class="headerlink" title="常用的实体报头"></a>常用的实体报头</h3><p><strong>Content-Encoding</strong> 实体报头域被用作媒体类型的修饰符，它的值指示了已经被应用到实体正文的附加内容的编码，因而要获得Content-Type报头域中所引用的媒体类型，必须采用相应的解码机制。</p>
+<p><strong>Content-Language</strong> 实体报头域描述了资源所用的自然语言。</p>
+<p><strong>Content-Length</strong> 实体报头域用于指明实体正文的长度，以字节方式存储的十进制数字来表示。</p>
+<p><strong>Content-Type</strong> 实体报头域用语指明发送给接收者的实体正文的媒体类型。</p>
+<p><strong>Last-Modified</strong> 实体报头域用于指示资源的最后修改日期和时间。</p>
+<p><strong>Expires</strong> 实体报头域给出响应过期的日期和时间。</p>
+<h3 id="cookies与session"><a href="#cookies与session" class="headerlink" title="cookies与session"></a>cookies与session</h3><ul>
+<li>Cookies是保存在客户端的小段文本，随客户端点每一个请求发送该url下的所有cookies到服务器端。</li>
+<li>Session则保存在服务器端，通过唯一的值sessionID来区别每一个用户。SessionID随每个连接请求发送到服务器，服务器根据sessionID来识别客户端，再通过session 的key获取session值</li>
+</ul>
+<h3 id="Cookie使用"><a href="#Cookie使用" class="headerlink" title="Cookie使用"></a>Cookie使用</h3><p>与Cookie相关的HTTP扩展头</p>
+<ol>
+<li>Cookie：客户端将服务器设置的Cookie返回到服务器</li>
+<li>Set-Cookie：服务器向客户端设置Cookie</li>
+</ol>
+<p><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/cookie_model-d210d91827b5a42f31265c88f664a5d8.png" alt="cookies"></p>
+<p>服务器在响应消息中用Set-Cookie头将Cookie的内容回送给客户端，客户端在新的请求中将相同的内容携带在Cookie头中发送给服务器。从而实现会话的保持</p>
+<h3 id="Session的使用"><a href="#Session的使用" class="headerlink" title="Session的使用"></a>Session的使用</h3><ul>
+<li>使用Cookie来实现</li>
+<li>使用URL回显来实现</li>
+</ul>
+<p><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/session_model-086a566e050dd221e3d69d2fce6d17e8.png" alt="session"></p>
+<h3 id="HTTP缓存机制"><a href="#HTTP缓存机制" class="headerlink" title="HTTP缓存机制"></a>HTTP缓存机制</h3><p>缓存会根据请求保存输出内容的副本，例如html页面，图片，文件，当下一个请求来到的时候：如果是相同的URL，缓存直接使用副本响应访问请求，而不是向源服务器再次发送请求。</p>
+<p>缓存的优点：</p>
+<ol>
+<li>减少相应延迟</li>
+<li>减少网络带宽消耗</li>
+</ol>
+<p><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/http_cache-09ace9a35e54601d10de6dcbc43b7e43.png" alt="http_cache"></p>
+<h3 id="浏览器缓存机制"><a href="#浏览器缓存机制" class="headerlink" title="浏览器缓存机制"></a>浏览器缓存机制</h3><h4 id="没有缓存"><a href="#没有缓存" class="headerlink" title="没有缓存"></a>没有缓存</h4><p><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/browser_cache_1-210debafe52b1b860aa969272890decb.png" alt="browser_cache"></p>
+<h4 id="有缓存"><a href="#有缓存" class="headerlink" title="有缓存"></a>有缓存</h4><p><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/browser_cache_2-8c2616fa1f159ff376ebc7f63b1c354a.png" alt="browser_cache"></p>
+<h3 id="两种缓存策略"><a href="#两种缓存策略" class="headerlink" title="两种缓存策略"></a>两种缓存策略</h3><p>浏览器缓存主要有两类</p>
+<ul>
+<li>强制缓存</li>
+<li>协商缓存</li>
+</ul>
+<p>HTTP 1.0: 基于Pragma &amp; Expires的缓存实现</p>
+<ul>
+<li>Pragma</li>
+<li>Expire</li>
+</ul>
+<p>这三者的优先级顺序为:Pragma -&gt; Cache-Control -&gt; Expires</p>
+<p>HTTP 1.1 Cache-Control:相对过期时间</p>
+<p>强缓存</p>
+<p>利用http头中的Expires和Cache-Control两个字段来控制的，用来表示资源的缓存时间</p>
+<p>普通刷新会忽略它，但不会清除它，需要强制刷新。浏览器强制刷新，请求会带上Cache-Control:no-cache和Pragma:no-cache</p>
+<ul>
+<li>Expires （http 1.0）</li>
+<li>Cache-Control</li>
+</ul>
+<p>协商缓存</p>
+<p>协商缓存就是由服务器来确定缓存资源是否可用，所以客户端与服务器端要通过某种标识来进行通信，从而让服务器判断请求资源是否可以缓存访问。</p>
+<ul>
+<li>Etag 和 If-None-Match</li>
+<li>Last-Modify / If-Modify-Since</li>
+</ul>
+<h4 id="缓存优先级"><a href="#缓存优先级" class="headerlink" title="缓存优先级"></a>缓存优先级</h4><p><strong>Cache-Control &gt; Expires &gt; Etag &gt; Last-modify</strong></p>
+<p><code>Request/Response Headers</code></p>
+<p>Web页面设计中，建少HTTP请求可以提高页面响应速度。浏览器在第一次访问页面时下载的资源会缓存起来，第二次访问时会判断在缓存中是否已有该资源并且有没有更新过，如果已有该资源且没有更新过，则去缓存去取，这样减少了下载资源的时间。原理上是通过HTTP Rquest Header中的 if-modified-since 和Response Headers中的last-modified来实现（还有一对组合If-None-Match和Etag，类似），HTTP请求把if-modified-sincede 时间传给服务端，服务端把last-modified时间与之对比，如果相同，则意味着文件没有改动，则返回304，浏览器则从缓存中获取资源，无需下载。</p>
+<p><strong>协商缓存 <code>last-modified / if-modified-since</code></strong></p>
+<p><code>Response Headers</code></p>
+<blockquote>
+<p>last-modified: Wed, 16 May 2020 12:57:16 GMT</p>
+</blockquote>
+<p><code>Request Headers</code></p>
+<blockquote>
+<p>if-modified-since: Wed, 16 May 2020 12:55:38 GMT</p>
+</blockquote>
+<p><strong>原理：</strong> 服务器端返回资源时，如果头部带上了 last-modified，那么资源下次请求时就会把值加⼊到请求头 if-modified-since中，服务器可以对⽐这个值，确定资源是否发⽣变化，如果没有发⽣变化，则返回 304</p>
+<p><strong>协商缓存 <code>etag / if-none-match</code></strong></p>
+<p><code>Response Headers</code></p>
+<blockquote>
+<p>etag: “D5FC8B85A045FF720547BC36FC872550”</p>
+</blockquote>
+<p><code>Request Headers</code></p>
+<blockquote>
+<p>if-none-match: “D5FC8B85A045FF720547BC36FC872550”</p>
+</blockquote>
+<p><strong>原理：</strong> 服务器端返回资源时，如果头部带上了 etag，那么资源下次请求时就会把值加⼊到请求头 if-none-match 中，服务器可以对⽐这个值，确定资源是否发⽣变化，如果没有发⽣变化，则返回 304</p>
+<p><code>Response Headers</code></p>
+<p><strong>强缓存 <code>Expires</code></strong></p>
+<blockquote>
+<p>expires: Thu, 16 May 2020 03:05:59 GMT</p>
+</blockquote>
+<p><strong>原理：</strong> 在 http 头中设置⼀个过期时间，在这个过期时间之前，浏览器的请求都不会发出，⽽是⾃动从缓存中读取⽂件，除⾮缓存被清空，或者强制刷新。缺陷在于，服务器时间和⽤户端时间可能存在不⼀致，所以 HTTP/1.1 加⼊了 cache-control 头来改进这个问题</p>
+<p><strong>强缓存 <code>cache-control</code></strong></p>
+<p><strong>原理：</strong> 设置过期的时间⻓度（秒），在这个时间范围内，浏览器请求都会直接读缓存。当 expires 和 cache-control 都存在时，cache-control 的优先级更⾼</p>
+<h5 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h5><blockquote>
+<p>expires也是需要在服务端配置（具体配置也根据服务器而定），expires添加的是该资源过期的日期，浏览器会根据该过期日期与客户端时间对比，如果过期时间还没到，则会去缓存中读取该资源，如果已经到期了，则浏览器判断为该资源已经不新鲜要重新从服务端获取。通过这种方式，可以实现直接从浏览器缓存中读取，而不需要去服务端判断是否已经缓存，避免了这次http请求。值得注意的是expires时间可能存在客户端时间跟服务端时间不一致的问题。所以，建议expires结合Cache-Control一起使用，大型网站中一起使用的情况比较多见</p>
+</blockquote>
+<p>接下来我们继续。</p>
+<p>相信大家也发现了，我们的时间轴刚刚走到HTTPS协议，先储备两个知识点，<em>密钥交换</em>和<em>数字证书</em></p>
+<ul>
+<li><p>https 加密方式涉及到密钥交换</p>
+</li>
+<li><p>一般的证书都是三级;第一级是根证书签发机构(CA), 第二级是二级签发机构,到最后才是证书; 根证书是内置到操作系统和浏览器里面的</p>
+</li>
+</ul>
+<h3 id="密码学入门"><a href="#密码学入门" class="headerlink" title="密码学入门"></a>密码学入门</h3><ul>
+<li><p>密码学的处理对象是数字和字符串。 </p>
+</li>
+<li><p>散列是一种数据一旦转换为其他形式将永远无法恢复的加密技术。 </p>
+<p>加密 </p>
+<ul>
+<li>对称加密(AES、DES、3DES) </li>
+<li>非对称加密(RSA) </li>
+</ul>
+</li>
+</ul>
+<p><strong>加密</strong></p>
+<p><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/encryption-f867086fdf0dc7e2bab12a6b357b8546.png" alt="加密"></p>
+<p><strong>解密</strong></p>
+<p><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/decryption-3c681620d5f4282d0b5bff3c0ffe93f1.png" alt="解密"></p>
+<h4 id="密钥交换算法"><a href="#密钥交换算法" class="headerlink" title="密钥交换算法"></a>密钥交换算法</h4><p><strong>Diffie-Hellman</strong> 算法是一种著名的密钥协商算法，这种算法可以使得信息交换的双方通过公开的非安全的网络协商生成安全的共享密钥。</p>
+<ol>
+<li>Alice与Bob确定两个大素数n和g，这两个数不用保密</li>
+<li>Alice选择另一个大随机数x，并计算A如下：A=gx mod n</li>
+<li>Alice将A发给Bob</li>
+<li>Bob选择另一个大随机数y，并计算B如下：B=gy mod n</li>
+<li>Bob将B发给Alice</li>
+<li>计算秘密密钥K1如下：K1=Bx mod n</li>
+<li>计算秘密密钥K2如下：K2=Ay mod n</li>
+</ol>
+<p>K1=K2，因此Alice和Bob可以用其进行加解密</p>
+<h3 id="证书签发机构-CA"><a href="#证书签发机构-CA" class="headerlink" title="证书签发机构(CA)"></a>证书签发机构(CA)</h3><p>通过CA发放的证书完成密钥的交换，实际上是利用<strong>非对称的加密</strong>算法完成数据加密密钥 的安全交换，然后再利用<strong>数据加密密钥</strong>完成数据的安全交换。 </p>
+<p>数字证书:数字证书是互联网通信中标识双方身份信息的数字文件，由CA签发。 </p>
+<p>CA:CA(certification authority)是数字证书的签发机构。作为权威机构，其审核申请 者身份后签发数字证书，这样我们只需要校验数字证书即可确定对方的真实身份。 </p>
+<h5 id="CA的工作流程"><a href="#CA的工作流程" class="headerlink" title="CA的工作流程"></a>CA的工作流程</h5><ul>
+<li><ol>
+<li>服务器 example.com将从CA请求TLS证书，例如 Digicert。 </li>
+</ol>
+</li>
+<li><ol start="2">
+<li>Digicert将为example.com创建证书，证书将包含必要的数据，例如服务器名称， 服务器的公钥等。 </li>
+</ol>
+</li>
+<li><ol start="3">
+<li>Digicert将创建数据(证书)的哈希值，并使用自己的私钥对其进行加密。 </li>
+</ol>
+</li>
+<li><ol start="4">
+<li>浏览器和操作系统自带Digicert等权威机构的公钥。 </li>
+</ol>
+</li>
+<li><ol start="5">
+<li>当浏览器收到签名证书时，它将使用公钥从签名生成哈希值，它还将使用证书中 指定的散列算法生成数据(证书)的散列，如果两个哈希值匹配，则签名验证成 功并且证书是可信的。 </li>
+</ol>
+</li>
+<li><ol start="6">
+<li>现在浏览器可以使用证书中指定的example.com的公钥继续进行身份验证过程。 在这里，我们可以将Digicert称为 Root CA. </li>
+</ol>
+</li>
+</ul>
+<p><strong>在这里，我们可以将Digicert称为 Root CA.</strong></p>
+<h4 id="浏览器如何验证服务器证书的有效性"><a href="#浏览器如何验证服务器证书的有效性" class="headerlink" title="浏览器如何验证服务器证书的有效性"></a>浏览器如何验证服务器证书的有效性</h4><p><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/identity_CA-0157d5558879ee5efefad117cccc8b7b.png" alt="identity_CA"></p>
+<p>证书颁发机构是为服务器创建并签署证书，很少有组织从事这项工作，即Digicert，Geotrust，Comodo等。如果他们正在为所有服务器签署证书，则必须为所有签名使用相同的私钥，如果它被盗，那么所有的信任都会丢失。为了解决这个问题并增加更多的平均信息量，引入了中间CA(intermediate CA)的概念。 </p>
+<p>服务器使用中级证书颁发机构的签名，因此，在与浏览器通信时，服务器将共享两个证书: </p>
+<ul>
+<li><ol>
+<li>包含服务器的公钥，即实际的服务器证书; </li>
+</ol>
+</li>
+<li><ol start="2">
+<li>由 Root CA 颁发的 intermediate CA 证书。</li>
+</ol>
+</li>
+</ul>
+<p>在签名验证期间，浏览器首先使用已经存储在浏览器中的Root CA的 公钥来验证中间证书的数字签名，如果成功，浏览器现在可以信任中 间证书及其公钥。现在使用此公钥，浏览器将验证原始服务器证书的 签名，该组织可以注册为intermediate CA，以便为其域签署证书。</p>
+<blockquote>
+<p>Q&amp;A:</p>
+<p>1.浏览器拿到数字证书后，如何来对证书进行认证呢？</p>
+<p>首先，会读取证书中的明文内容。CA 进行数字证书的签名时会保存一个 Hash 函数，来这个函数来计算明文内容得到信息A，然后用公钥解密明文内容得到信息B，两份信息做比对，一致则表示认证合法。</p>
+<p>当然有时候对于浏览器而言，它不知道哪些 CA 是值得信任的，因此会继续查找 CA 的上级 CA，以同样的信息比对方式验证上级 CA 的合法性。一般根级的 CA 会内置在操作系统当中，当然如果向上找没有找到根级的 CA，那么将被视为不合法。</p>
+</blockquote>
+<h3 id="HTTPS协议分析"><a href="#HTTPS协议分析" class="headerlink" title="HTTPS协议分析"></a>HTTPS协议分析</h3><p><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/image-20210930183044090.png" alt="image-20210930183044090"></p>
+<ul>
+<li><p>浏览器向服务器发送client_random和加密方法列表。</p>
+</li>
+<li><p>服务器接收到，返回server_random、加密方法以及公钥。</p>
+</li>
+<li><p>浏览器接收，接着生成另一个随机数pre_random, 并且用公钥加密，传给服务器。(敲黑板！重点操作！)</p>
+</li>
+<li><p>服务器用公钥解密这个被加密后的pre_random。</p>
+</li>
+<li><p>现在浏览器和服务器有三样相同的凭证:client_random、server_random和pre_random。然后两者用相同的加密方法混合这三个随机数，生成最终的密钥。</p>
+</li>
+<li><p>然后浏览器和服务器尽管用一样的密钥进行通信，即使用对称加密。</p>
+<p><strong>事实上HTTPS在上述结合对称和非对称加密的基础上，又添加了数字证书认证的步骤。其目的就是让服务器证明自己的身份。</strong></p>
+</li>
+</ul>
+<blockquote>
+<p>回头比较一下和单纯的使用非对称加密, 这种方式做了什么改进呢？</p>
+<p>本质上是防止了私钥加密的数据外传。单独使用非对称加密，最大的漏洞在于服务器传数据给浏览器只能用私钥加密，这是危险产生的根源。利用对称和非对称加密结合的方式，就防止了这一点，从而保证了安全。</p>
+</blockquote>
+<h3 id="SSL-TLS协议"><a href="#SSL-TLS协议" class="headerlink" title="SSL/TLS协议"></a>SSL/TLS协议</h3><p><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/ssl_tls-23421a14141893b9d86bcc1f52728cf6.png" alt="SSL/TLS"></p>
+<p>传输层安全性协议（Transport Layer Security - TLS），及其前身安全套接层（Secure Sockets Layer - SSL）是一种安全协议，目的是为互联网通信提供安全及数据完整性保障</p>
+<p>HTTPS协议的安全性由SSL协议实现，当前使用的TLS协议 1.2 版本包含了四个核心子协议：握手协议、密钥配置切换协议、应用数据协议及报警协议</p>
+<ul>
+<li>TLS适用于对称密钥</li>
+<li>对称密钥可以通过安全密钥交换算法共享</li>
+<li>如果请求被截获，密钥交换可能会被欺骗</li>
+<li>使用数字签名进行身份验证</li>
+<li>证书颁发机构和信任链</li>
+</ul>
+<p>HTTPS协议、SSL协议、TLS协议、握手协议的关系</p>
+<ul>
+<li>HTTPS是Hypertext Transfer Protocol over Secure Socket Layer的缩写，即HTTP over SSL，可理解为基于SSL的HTTP协议。HTTPS协议安全是由SSL协议实现的</li>
+<li>SSL协议是一种记录协议，扩展性良好，可以很方便的添加子协议</li>
+<li>握手协议是SSL协议的一个子协议</li>
+<li>TLS协议是SSL协议的后续版本，本文中涉及的SSL协议默认是TLS协议1.2版本</li>
+</ul>
+<blockquote>
+<p>TLS1.0 = SSL3.1</p>
+<p>现在主流的版本是 TLS/1.2, 之前的 TLS1.0、TLS1.1 都被认为是不安全的，在不久的将来会被完全淘汰。因此我们接下来主要讨论的是 TLS1.2, 当然在 2018 年推出了更加优秀的 TLS1.3，大大优化了 TLS 握手过程。</p>
+</blockquote>
+<h3 id="TLS1-2分析"><a href="#TLS1-2分析" class="headerlink" title="TLS1.2分析"></a>TLS1.2分析</h3><ul>
+<li><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/image-20210930183627720.png" alt="image-20210930183627720"></li>
+</ul>
+<p><strong>step 1: Client Hello</strong></p>
+<p>​    首先，浏览器发送 client_random、TLS版本、加密套件列表。client_random 是什么？用来最终 secret 的一个参数。</p>
+<p>​    加密套件列表是什么？我举个例子，加密套件列表一般长这样: TLS_ECDHE_WITH_AES_128_GCM_SHA256</p>
+<p>​    意思是TLS握手过程中，使用ECDHE算法生成pre_random(这个数后面会介绍)，128位的AES算法进行对称加密，在对称加密的过程中使用主流的GCM分组模式，因为对称加密中很重要的一个问题就是如何分组。最后一个是哈希摘要算法，采用SHA256算法。其中值得解释一下的是这个哈希摘要算法，试想一个这样的场景，服务端现在给客户端发消息来了，客户端并不知道此时的消息到底是服务端发的，还是中间人伪造的消息呢？现在引入这个哈希摘要算法，将服务端的证书信息通过这个算法生成一个摘要(可以理解为比较短的字符串)，用来标识这个服务端的身份，用私钥加密后把加密后的标识和自己的公钥传给客户端。客户端拿到这个公钥来解密，生成另外一份摘要。两个摘要进行对比，如果相同则能确认服务端的身份。这也就是所谓数字签名的原理。其中除了哈希算法，最重要的过程是私钥加密，公钥解密。</p>
+<p><strong>step 2: Server Hello</strong></p>
+<p>​    可以看到服务器一口气给客户端回复了非常多的内容。</p>
+<p>​    server_random也是最后生成secret的一个参数, 同时确认 TLS 版本、需要使用的加密套件和自己的证书，这都不难理解。那剩下的server_params是干嘛的呢？接下来接着看。</p>
+<p><strong>step 3: Client</strong> <strong>验证证书，生成</strong> <strong>secret</strong></p>
+<p>​    客户端验证服务端传来的证书和签名是否通过，如果验证通过，则传递client_params这个参数给服务器。</p>
+<p>​    接着客户端通过ECDHE算法计算出pre_random，其中传入两个参数:server_params和client_params。现在你应该清楚这个两个参数的作用了吧，由于ECDHE基于椭圆曲线离散对数，这两个参数也称作椭圆曲线的公钥。</p>
+<p>​    客户端现在拥有了client_random、server_random和pre_random，接下来将这三个数通过一个伪随机数函数来计算出最终的secret。</p>
+<p><strong>step4: Server</strong> <strong>生成</strong> <strong>secret</strong></p>
+<p>​    刚刚客户端不是传了client_params过来了吗？</p>
+<p>​    现在服务端开始用ECDHE算法生成pre_random，接着用和客户端同样的伪随机数函数生成最后的secret。</p>
+<p><strong>注意事项</strong></p>
+<p>TLS的过程基本上讲完了，但还有两点需要注意。</p>
+<p><strong>第一</strong>, 实际上 TLS 握手是一个双向认证的过程，从 step1 中可以看到，客户端有能力验证服务器的身份，那服务器能不能验证客户端的身份呢？</p>
+<p>当然是可以的。具体来说，在 step3中，客户端传送client_params，实际上给服务器传一个验证消息，让服务器将相同的验证流程(哈希摘要 + 私钥加密 + 公钥解密)走一遍，确认客户端的身份。</p>
+<p><strong>第二</strong>, 当客户端生成secret后，会给服务端发送一个收尾的消息，告诉服务器之后的都用对称加密，对称加密的算法就用第一次约定的。服务器生成完secret也会向客户端发送一个收尾的消息，告诉客户端以后就直接用对称加密来通信。</p>
+<p>这个收尾的消息包括两部分，一部分是Change Cipher Spec，意味着后面加密传输了，另一个是Finished消息，这个消息是对之前所有发送的数据做的摘要，对摘要进行加密，让对方验证一下。</p>
+<p>当双方都验证通过之后，握手才正式结束。后面的 HTTP 正式开始传输加密报文。</p>
+<p><strong>RSA</strong> <strong>和</strong> <strong>ECDHE</strong> <strong>握手过程的区别</strong></p>
+<p>ECDHE 握手，也就是主流的 TLS1.2 握手中，使用ECDHE实现pre_random的加密解密，没有用到 RSA。</p>
+<p>使用 ECDHE 还有一个特点，就是客户端发送完收尾消息后可以提前抢跑，直接发送 HTTP 报文，节省了一个 RTT，不必等到收尾消息到达服务器，然后等服务器返回收尾消息给自己，直接开始发请求。这也叫TLS False Start。</p>
+<h3 id="HTTPS-SSL-TLS-分析"><a href="#HTTPS-SSL-TLS-分析" class="headerlink" title="HTTPS SSL/TLS 分析"></a>HTTPS SSL/TLS 分析</h3><p><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/https-e9dd5abb98a0fbb054be7e987557fc79.png" alt="https"></p>
+<p>TLS 握手的步骤：</p>
+<ol>
+<li>ClientHello：客户端发送所支持的 SSL/TLS 最高协议版本号和所支持的加密算法集合及压缩方法集合等信息给服务器端</li>
+<li>ServerHello：服务器端收到客户端信息后，选定双方都能够支持的 SSL/TLS 协议版本和加密方法及压缩方法，返回给客户端</li>
+<li>SendCertificate（可选）：服务器端发送服务端证书给客户端</li>
+<li>RequestCertificate（可选）：如果选择双向验证，服务器端向客户端请求客户端证书</li>
+<li>ServerHelloDone：服务器端通知客户端初始协商结束</li>
+<li>ResponseCertificate（可选）：如果选择双向验证，客户端向服务器端发送客户端证书</li>
+<li>ClientKeyExchange：客户端使用服务器端的公钥，对客户端公钥和密钥种子进行加密，再发送给服务器端</li>
+<li>CertificateVerify（可选）：如果选择双向验证，客户端用本地私钥生成数字签名，并发送给服务器端，让其通过收到的客户端公钥进行身份验证</li>
+<li>CreateSecretKey：通讯双方基于密钥种子等信息生成通讯密钥</li>
+<li>ChangeCipherSpec：客户端通知服务器端已将通讯方式切换到加密模式</li>
+<li>Finished：客户端做好加密通讯的准备</li>
+<li>ChangeCipherSpec：服务器端通知客户端已将通讯方式切换到加密模式</li>
+<li>Finished：服务器做好加密通讯的准备</li>
+<li>Encrypted/DecryptedData：双方使用客户端密钥，通过对称加密算法对通讯内容进行加密</li>
+<li>ClosedConnection：通讯结束后，任何一方发出断开 SSL 连接的消息</li>
+</ol>
+<h3 id="TLS1-3-升级了啥"><a href="#TLS1-3-升级了啥" class="headerlink" title="TLS1.3 升级了啥"></a>TLS1.3 升级了啥</h3><p>先看下两张图的对比。</p>
+<p><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/image-20210930184208032.png" alt="image-20210930184208032"></p>
+<p><img src="/Users/qudongqi/Desktop/%E6%A1%8C%E9%9D%A2/assets/images/image-20210930184216724.png" alt="image-20210930184216724"></p>
+<p>在分析TLS1.3究竟升级了什么之前，我们先来看看经过这么多年的优胜劣汰，还剩下什么加密算法。</p>
+<ul>
+<li>TLS_AES_128_GCM_SHA256</li>
+<li>TLS_AES_256_GCM_SHA384</li>
+<li>TLS_CHACHA20_POLY1305_SHA256</li>
+<li>TLS_AES_128_GCM_SHA256</li>
+<li>TLS_AES_128_GCM_8_SHA256</li>
+</ul>
+<p>很明显，总体来看，如今的加密算法，各个领域大概也就剩下两组。</p>
+<p>对称加密：AES 和 CHACHA20</p>
+<p>分组模式：GCM 和 POLY1305</p>
+<p>哈希摘要算法：SHA256 和 SHA384</p>
+<p>那么，TLS为什么会从1.2升级到1.3</p>
+<p>第一、2015年发现了FREAK攻击，即已经有人发现了 RSA 的漏洞，能够进行破解了。</p>
+<p>第二、一旦私钥泄露，那么中间人可以通过私钥计算出之前所有报文的secret，破解之前所有的密文。</p>
+<p>为什么？回到 RSA 握手的过程中，客户端拿到服务器的证书后，提取出服务器的公钥，然后生成pre_random并用公钥加密传给服务器，服务器通过私钥解密，从而拿到真实的pre_random。当中间人拿到了服务器私钥，并且截获之前所有报文的时候，那么就能拿到pre_random、server_random和client_random并根据对应的随机数函数生成secret，也就是拿到了 TLS 最终的会话密钥，每一个历史报文都能通过这样的方式进行破解。</p>
+<p>但ECDHE在每次握手时都会生成临时的密钥对，即使私钥被破解，之前的历史消息并不会收到影响。这种一次破解并不影响历史信息的性质也叫前向安全性。</p>
+<p>RSA 算法不具备前向安全性，而 ECDHE 具备，因此在 TLS1.3 中彻底取代了RSA。</p>
+<p>回到正题，TLS究竟升级了啥？</p>
+<p>TLS1.3大体的方式和 TLS1.2 差不多，不过和 TLS 1.2 相比少了一个 RTT， 服务端不必等待对方验证证书之后才拿到client_params，而是直接在第一次握手的时候就能够拿到, 拿到之后立即计算secret，节省了之前不必要的等待时间。同时，这也意味着在第一次握手的时候客户端需要传送更多的信息，一口气给传完。</p>
+<p>这种 TLS 1.3 握手方式也被叫做1-RTT握手。但其实这种1-RTT的握手方式还是有一些优化的空间的，接下来我们来一一介绍这些优化方式。</p>
+<h5 id="再来优化一下"><a href="#再来优化一下" class="headerlink" title="再来优化一下"></a>再来优化一下</h5><ol>
+<li>会话复用</li>
+</ol>
+<ul>
+<li><ul>
+<li><p>Session ID  </p>
+</li>
+<li><ul>
+<li>客户端和服务器首次连接后各自保存会话的 ID，并存储会话密钥，当再次连接时，客户端发送ID过来，服务器查找这个 ID 是否存在，如果找到了就直接复用之前的会话状态，会话密钥不用重新生成，直接用原来的那份。</li>
+</ul>
+</li>
+<li><p>Session Ticket</p>
+</li>
+<li><ul>
+<li>服务端的压力大，那就把压力分摊给客户端呗。具体来说，双方连接成功后，服务器加密会话信息，用<strong>Session Ticket</strong>消息发给客户端，让客户端保存下来。下次重连的时候，就把这个 Ticket 进行解密，验证它过没过期，如果没过期那就直接恢复之前的会话状态。</li>
+<li>这种方式虽然减小了服务端的存储压力，但与带来了安全问题，即每次用一个固定的密钥来解密 Ticket 数据，一旦黑客拿到这个密钥，之前所有的历史记录也被破解了。因此为了尽量避免这样的问题，密钥需要定期进行更换。</li>
+</ul>
+</li>
+<li><p>总的来说，这些会话复用的技术在保证1-RTT的同时，也节省了生成会话密钥这些算法所消耗的时间，是一笔可观的性能提升。</p>
+</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>PSK （0-1）</li>
+</ol>
+<ul>
+<li><ul>
+<li>在发送<strong>Session Ticket</strong>的同时带上应用数据，不用等到服务端确认，这种方式被称为Pre-Shared Key，即 PSK。</li>
+<li>这种方式虽然方便，但也带来了安全问题。中间人截获PSK的数据，不断向服务器重复发，类似于 TCP 第一次握手携带数据，增加了服务器被攻击的风险。</li>
+</ul>
+</li>
+</ul>
+<p>HTTPS大概就分析完了，跟着时间轴的推进，我们接下来看一下HTTP/2.</p>
+<h3 id="HTTP2协议分析"><a href="#HTTP2协议分析" class="headerlink" title="HTTP2协议分析"></a>HTTP2协议分析</h3><p><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/image-20210930185100209.png" alt="image-20210930185100209"></p>
+<p>HTTP/2 没有改动 HTTP 的应用语义。 HTTP 方法、状态代码、URI 和标 头字段等核心概念一如往常。 </p>
+<p>HTTP/2 修改了数据格式化(分帧)以及在客户端与服务器间传输的方 式。这两点统帅全局，通过新的分帧层向我们的应用隐藏了所有复杂性。 </p>
+<p>由于HTTP/2 引入了一个新的二进制分帧层，该层无法与之前的 HTTP/ 1.x 服务器和客户端向后兼容，因此协议的主版本提升到 HTTP/2。 </p>
+<p>HTTP2的特点: </p>
+<ul>
+<li>1.使用二进制格式传输，更高效、更紧凑。 </li>
+<li>2.对报头压缩，降低开销。 </li>
+<li>3.多路复用，一个网络连接实现并行请求。</li>
+<li>4.服务器主动推送，减少请求的延迟 </li>
+<li>5.默认使用加密 </li>
+</ul>
+<h4 id="二进制分帧"><a href="#二进制分帧" class="headerlink" title="二进制分帧"></a>二进制分帧</h4><p>HTTP/2 所有性能增强的核心在于新的二进制分帧层，它定义了如何封装 HTTP 消息并在客户端与服务器之间传输</p>
+<p>这里所谓的“层”指的是位于套接字接口与应用可见的高级 HTTP API 之间一个经过优化的新编码机制</p>
+<p>HTTP/1.x 协议以换行符作为纯文本的分隔符，而HTTP/2 将所有传输的信息分割为更小的消息和帧，并采用二进制格式对它们编码</p>
+<p>客户端和服务器会替我们完成必要的分帧工作</p>
+<p><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/http2_binary-f35023fde0a30249f6c95f9eafc25e7a.png" alt="http2"></p>
+<p>首先，HTTP/2 认为明文传输对机器而言太麻烦了，不方便计算机的解析，因为对于文本而言会有多义性的字符，比如回车换行到底是内容还是分隔符，在内部需要用到状态机去识别，效率比较低。于是 HTTP/2 干脆把报文全部换成二进制格式，全部传输01串，方便了机器的解析。</p>
+<p>原来Headers + Body的报文格式如今被拆分成了一个个二进制的帧，用Headers帧存放头部字段，Data帧存放请求体数据。分帧之后，服务器看到的不再是一个个完整的 HTTP 请求报文，而是一堆乱序的二进制帧。这些二进制帧不存在先后关系，因此也就不会排队等待，也就没有了 HTTP 的队头阻塞问题。</p>
+<p>通信双方都可以给对方发送二进制帧，这种二进制帧的双向传输的序列，也叫做流(Stream)。HTTP/2 用流来在一个 TCP 连接上来进行多个数据帧的通信，这就是多路复用的概念。</p>
+<p>可能你会有一个疑问，既然是乱序首发，那最后如何来处理这些乱序的数据帧呢？</p>
+<p>首先要声明的是，所谓的乱序，指的是不同 ID 的 Stream 是乱序的，但同一个 Stream ID 的帧一定是按顺序传输的。二进制帧到达后对方会将 Stream ID 相同的二进制帧组装成完整的请求报文和响应报文。当然，在二进制帧当中还有其他的一些字段，实现了优先级和流量控制等功能。</p>
+<p><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/image-20210930190805722.png" alt="image-20210930190805722"></p>
+<p>每个帧分为帧头和帧体。先是三个字节的帧长度，这个长度表示的是帧体的长度。</p>
+<p>然后是帧类型，大概可以分为数据帧和控制帧两种。数据帧用来存放 HTTP 报文，控制帧用来管理流的传输。</p>
+<p>接下来的一个字节是帧标志，里面一共有 8 个标志位，常用的有 END_HEADERS表示头数据结束，END_STREAM表示单方向数据发送结束。</p>
+<p>后 4 个字节是Stream ID, 也就是流标识符，有了它，接收方就能从乱序的二进制帧中选择出 ID 相同的帧，按顺序组装成请求/响应报文。</p>
+<h4 id="头部压缩"><a href="#头部压缩" class="headerlink" title="头部压缩"></a>头部压缩</h4><p>在 HTTP/1.1 及之前的时代，<strong>请求体</strong>一般会有响应的压缩编码过程，通过<code>Content-Encoding</code>头部字段来指定，但你有没有想过头部字段本身的压缩呢？当请求字段非常复杂的时候，尤其对于 GET 请求，请求报文几乎全是请求头，这个时候还是存在非常大的优化空间的。HTTP/2 针对头部字段，也采用了对应的压缩算法——HPACK，对请求头进行压缩。</p>
+<p><strong>HPACK</strong> 算法是专门为 HTTP/2 服务的，它主要的亮点有两个：</p>
+<ul>
+<li><p>首先是在服务器和客户端之间建立哈希表，将用到的字段存放在这张表中，那么在传输的时候对于之前出现过的值，只需要把<strong>索引</strong>(比如0，1，2，…)传给对方即可，对方拿到索引查表就行了。这种<strong>传索引</strong>的方式，可以说让请求头字段得到极大程度的精简和复用。</p>
+<p><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/image-20210930185310381.png" alt="image-20210930185310381"></p>
+<p>HTTP/2 当中废除了起始行的概念，将起始行中的请求方法、URI、状态码转换成了头字段，不过这些字段都有一个”:”前缀，用来和其它请求头区分开</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>概述</th>
+<th>请求/响应</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>:method</td>
+<td>目标URL模式部分</td>
+<td>请求</td>
+</tr>
+<tr>
+<td>:scheme</td>
+<td>目标URL模式部分</td>
+<td>请求</td>
+</tr>
+<tr>
+<td>:authority</td>
+<td>目标RUL认证部分</td>
+<td>请求</td>
+</tr>
+<tr>
+<td>:path</td>
+<td>目标URL的路径和查询部分（绝对路径产生式和一个跟着”？”字符的查询产生式）。</td>
+<td>请求</td>
+</tr>
+<tr>
+<td>:status</td>
+<td>响应头中的HTTP状态码部分</td>
+<td>响应</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>“:method” 伪头字段包含了 HTTP 方法 ([<a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc7231#section-4">RFC7231], Section 4</a>)。</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>“:scheme” 伪头字段包含了目标 URI 的一部分 scheme ([<a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc3986#section-3.1">RFC3986],第 3.1 节</a>)。”:scheme” 不限于 “http” 和 “https” scheme 的 URI。代理或网关可以对非 HTTP scheme 转换请求，从而使得 HTTP 与非 HTTP 服务进行交互。</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>“:authority” 伪头字段包含目标 URI 的部分权限([<a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc3986#section-3.2">RFC3986],第 3.2 节</a>)。权限不得包含 “http” 或 “https” scheme URI 的已弃用 “userinfo” 子组件。为了确保可以准确地再现 HTTP/1.1请求行，当从具有源或星号形式的请求目标的 HTTP/1.1 请求进行转换时，必须省略该伪头字段（参见[<a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc7230#section-5.3">RFC7230]，第 5.3 节</a>）。直接生成 HTTP/2 请求的客户端应该使用 “:authority” 伪头字段而不是 Host 头字段。将 HTTP/2 请求转换为 HTTP/1.1 的网络中间件必须通过复制 “:authority” 伪头字段的值来创建 Host 头字段（如果请求中不存在的话）。</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>“:path” 伪头字段包含目标 URI 的路径和查询部分。绝对路径和可选的 “?” 字符后的查询部分。（见[ <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc3986">RFC3986]</a>的第 3.3 和 3.4 节），星号形式的请求包括 “:path” 伪头字段的值 ‘*‘。对于 “http” 或 “https” 的 URI，此伪头字段不能为空；不包含路径组件的 “http” 或 “https” 的 URI 必须包含值 “/“。此规则的例外是对不包含路径组件的 “http” 或 “https” 的 URI 的 OPTIONS 请求；这些必须包含一个 “:path” 伪头字段，其值为 ‘*’（参见 [<a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc7230#section-5.3.4">RFC7230]，第 5.3.4 节</a>）。</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>其次是对于整数和字符串进行<strong>哈夫曼编码</strong>，哈夫曼编码的原理就是先将所有出现的字符建立一张索引表，然后让出现次数多的字符对应的索引尽可能短，传输的时候也是传输这样的<strong>索引序列</strong>，可以达到非常高的压缩率。</li>
+</ul>
+<h4 id="多路复用"><a href="#多路复用" class="headerlink" title="多路复用"></a>多路复用</h4><p>在 HTTP/1.x 中，如果客户端要想发起多个并行请求以提升性能，则必须使用多个 TCP 连接。这种模型也会导致队首阻塞，从而造成底层 TCP 连接的效率低下</p>
+<p><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/http2_connect-10d2a90e24da4d4321f9c4c033ccd388.png" alt="http2"></p>
+<p>将 HTTP 消息分解为独立的帧，交错发送，然后在另一端重新组装是 HTTP 2 最重要的一项增强。这个机制会在整个网络技术栈中引发一系列连锁反应，从而带来巨大的性能提升</p>
+<p><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/http2_tcp_connect-dcc05666996a4ee19256e09b8672042a.png" alt="http2"></p>
+<ol>
+<li>并行交错地发送多个请求，请求之间互不影响</li>
+<li>并行交错地发送多个响应，响应之间互不干扰</li>
+<li>使用一个连接并行发送多个请求和响应</li>
+<li>不必再为绕过 HTTP/1.x 限制而做很多工作</li>
+<li>消除不必要的延迟和提高现有网络容量的利用率，从而减少页面加载时间</li>
+</ol>
+<h4 id="服务器推送"><a href="#服务器推送" class="headerlink" title="服务器推送"></a>服务器推送</h4><p>HTTP/2 新增的另一个强大的新功能是，服务器可以对一个客户端请求发送多个响应。 换句话说，除了对最初请求的响应外，服务器还可以向客户端推送额外资源，而无需客户端明确地请求</p>
+<p>HTTP/2 打破了严格的请求-响应语义，支持一对多和服务器发起的推送工作流服务器已经知道客户端下一步要请求什么资源，这时服务器推送即可派上用场</p>
+<p><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/http2_server-a299db95b46532cf84d32f8961e593ed.png" alt="http2"></p>
+<p>推送资源可以进行以下处理</p>
+<ul>
+<li>由客户端缓存</li>
+<li>在不同页面之间重用</li>
+<li>与其他资源一起复用</li>
+<li>由服务器设定优先级</li>
+<li>被客户端拒绝</li>
+</ul>
+<h4 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h4><p>当然，HTTP/2 新增那么多的特性，是不是 HTTP 的语法要重新学呢？不需要，HTTP/2 完全兼容之前 HTTP 的语法和语义，如<strong>请求头、URI、状态码、头部字段</strong>都没有改变，完全不用担心。同时，在安全方面，HTTP 也支持 TLS，并且现在主流的浏览器都公开只支持加密的 HTTP/2, 因此你现在能看到的 HTTP/2 也基本上都是跑在 TLS 上面的了。最后放一张分层图给大家参考:</p>
+<p><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/image-20210930192000039.png" alt="image-20210930192000039"></p>
+<h3 id="了解HTTP-3"><a href="#了解HTTP-3" class="headerlink" title="了解HTTP 3"></a>了解HTTP 3</h3><p>运行在 QUIC 之上的 HTTP 协议被称为 HTTP/3（HTTP-over-QUIC）</p>
+<p>QUIC 协议（Quick UDP Internet Connection）基于 UDP，正是看中了UDP 的速度与效率。同时 QUIC 也整合了 TCP、TLS 和 HTTP/2 的优点，并加以优化</p>
+<p><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/http3-02fff5e5a0330aa26a3036a53113cc66.png" alt="http3"></p>
+<h4 id="HTTP-3特点"><a href="#HTTP-3特点" class="headerlink" title="HTTP 3特点"></a>HTTP 3特点</h4><ul>
+<li>减少了握手的延迟（1-RTT 或 0-RTT）</li>
+<li>多路复用，并且没有 TCP 的阻塞问题</li>
+<li>连接迁移，（主要是在客户端）当由 Wifi 转移到 4G 时，连接不会被断开</li>
+</ul>
+<p>HTTP 3与HTTP 1.1和HTTP 2没有直接的关系，也不是http2的扩展</p>
+<p>HTTP 3将会是一个全新的WEB协议</p>
+<p>HTTP 3目前处于制订和测试阶段</p>
+<p><a target="_blank" rel="noopener" href="https://www.chromium.org/quic">https://www.chromium.org/quic</a></p>
+<h3 id="队首阻塞问题"><a href="#队首阻塞问题" class="headerlink" title="队首阻塞问题"></a>队首阻塞问题</h3><p>HTTP/1.1 和 HTTP/2 都存在队头阻塞问题（Head of line blocking）</p>
+<p>HTTP/1.1 的队头阻塞。一个 TCP 连接同时传输 10 个请求，其中第 1、2、3 个请求已被客户端接收，但第 4 个请求丢失，那么后面第 5 - 10 个请求都被阻塞，需要等第 4 个请求处理完毕才能被处理，这样就浪费了带宽资源</p>
+<p><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/http1_block-2b0d469abc6282465e22834c94636fd7.png" alt="http1"></p>
+<blockquote>
+<p><strong>并发连接</strong></p>
+<p>对于一个域名允许分配多个长连接，那么相当于增加了任务队列，不至于一个队伍的任务阻塞其它所有任务。在RFC2616规定过客户端最多并发 2 个连接，不过事实上在现在的浏览器标准中，这个上限要多很多，Chrome 中是 6 个。</p>
+<p>但其实，即使是提高了并发连接，还是不能满足人们对性能的需求。</p>
+<p><strong>域名分片</strong></p>
+<p>一个域名不是可以并发 6 个长连接吗？那我就多分几个域名。</p>
+<p>比如 content1.cnki.net 、content2.cnki.net。</p>
+<p>这样一个cnki.com域名下可以分出非常多的二级域名，而它们都指向同样的一台服务器，能够并发的长连接数更多了，事实上也更好地解决了队头阻塞的问题。</p>
+<p>虽然有<strong>并发连接</strong>和<strong>域名分片</strong>的方式来解决这个问题，但这并没有真正从 HTTP 本身的层面解决问题，只是增加了 TCP 连接，分摊风险而已。而且这么做也有弊端，多条 TCP 连接会竞争<strong>有限的带宽</strong>，让真正优先级高的请求不能优先处理。</p>
+<p>而 HTTP/2 便从 HTTP 协议本身解决了<code>队头阻塞</code>问题。注意，这里并不是指的<code>TCP队头阻塞</code>，而是<code>HTTP队头阻塞</code>，两者并不是一回事。TCP 的队头阻塞是在<code>数据包</code>层面，单位是<code>数据包</code>，前一个报文没有收到便不会将后面收到的报文上传给 HTTP，而HTTP 的队头阻塞是在 <code>HTTP 请求-响应</code>层面，前一个请求没处理完，后面的请求就要阻塞住。两者所在的层次不一样。</p>
+</blockquote>
+<p>正如我们上面所说，HTTP/2 的多路复用虽然可以解决“请求”这个粒度的阻塞，但 HTTP/2 的基础 TCP 协议本身却也存在着队头阻塞的问题</p>
+<p>由于 HTTP/2 必须使用 HTTPS，而 HTTPS 使用的 TLS 协议也存在队头阻塞问题</p>
+<p>队头阻塞会导致 HTTP/2 在更容易丢包的弱网络环境下比 HTTP/1.1 更慢</p>
+<p><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/http2_block-764d4f205d6c9370707362b4ce95d401.png" alt="http2"></p>
+<p><strong>那 QUIC 解决队头阻塞问题的的方法</strong>:</p>
+<p><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/http3_block-29c0762e92f36a5d03a9ff9c5e630cf3.png" alt="http3"></p>
+<ul>
+<li>QUIC 的传输单元是 Packet，加密单元也是 Packet，整个加密、传输、解密都基于 Packet，这样就能避免 TLS 的队头阻塞问题</li>
+<li>QUIC 基于 UDP，UDP 的数据包在接收端没有处理顺序，即使中间丢失一个包，也不会阻塞整条连接，其他的资源会被正常处理</li>
+</ul>
+<h3 id="HTTP与代理"><a href="#HTTP与代理" class="headerlink" title="HTTP与代理"></a>HTTP与代理</h3><p><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/http_proxy-250231a05e0a92bd394aaa428c61f5a6.png" alt="http3"></p>
+<h4 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h4><p>正向代理代理一般是指代理客户端，为客户端收发请求，使真实客户端对服务器不可见</p>
+<h4 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h4><p>反向代理是代理服务器端，为服务器收发请求，使真实服务器对客户端不可见</p>
+<h5 id="反向代理的用途"><a href="#反向代理的用途" class="headerlink" title="反向代理的用途"></a>反向代理的用途</h5><ul>
+<li>加密和SSL加速</li>
+<li>负载均衡</li>
+<li>缓存静态内容</li>
+<li>压缩</li>
+<li>减速上传</li>
+<li>安全</li>
+<li>外网发布</li>
+</ul>
+<h4 id="反向代理做负载均衡"><a href="#反向代理做负载均衡" class="headerlink" title="反向代理做负载均衡"></a>反向代理做负载均衡</h4><p>反向代理服务器位于用户与目标服务器之间，但是对于用户而言，反向代理服务器就相当于目标服务器，即用户直接访问反向代理服务器就可以获得目标服务器的资源。同时，用户不需要知道目标服务器的地址，也无须在用户端作任何设定。反向代理服务器通常可用来作为Web加速，即使用反向代理作为Web服务器的前置机来降低网络和服务器的负载，提高访问效率;</p>
+<p><img src="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/proxy_1-416e575e3a462b8e3d21c58f05d6bb1f.png" alt="http3"></p>
+
+        
+                <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+                    <p><strong>
+                         
+                            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a>
+                        </strong>
+                        <br>
+                        <strong>本文链接：</strong><a href="http://lo-que.github.io/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/">http://lo-que.github.io/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/</a>
+                    </p>
+                </blockquote>
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2021/09/25/ts%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新的文章
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2021/07/24/%E4%BD%A0%E7%BB%99%E6%88%91%E7%BF%BB%E8%AF%91%E7%BF%BB%E8%AF%91%EF%BC%8C%E4%BB%80%E4%B9%88%E4%BB%96%E5%A6%88%E7%9A%84%E6%98%AF%E4%BB%96%E5%A6%88%E7%9A%84dom-diff/" id="post_nav-older" class="next-content">
+            旧的文章
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="屈东奇's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        lo-que@foxmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:Lo-que@foxmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/06/">六月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/04/">四月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/01/">一月 2017<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Tags  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">label</i>
+                
+                标签
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-none-link" href="/tags/GC-VO-AO-CalleeStack/" rel="tag">GC VO AO CalleeStack<span class="sidebar_archives-none-count">1</span></a></li><li><a class="sidebar_archives-none-link" href="/tags/Learning-Note/" rel="tag">Learning Note<span class="sidebar_archives-none-count">12</span></a></li><li><a class="sidebar_archives-none-link" href="/tags/Learning-summary/" rel="tag">Learning summary<span class="sidebar_archives-none-count">1</span></a></li><li><a class="sidebar_archives-none-link" href="/tags/Math/" rel="tag">Math<span class="sidebar_archives-none-count">1</span></a></li><li><a class="sidebar_archives-none-link" href="/tags/Picking-up/" rel="tag">Picking up<span class="sidebar_archives-none-count">5</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/Computer-basis/">Computer basis<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/css/">css<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/html/">html<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/http/">http<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/jade/">jade<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/javascript/">javascript<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/categories/network/">network<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/nodejs/">nodejs<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/picking-up/">picking up<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">24</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/Lo-que" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2017&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">人生若只如初见</div>
+                <div class="footer-develop-div">何事秋风悲画扇</div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.info("%c如有疑虑请联系：\n"+'Lo-que@foxmail.com'+'%c\n or http://github.com/Lo-que/Lo-que.github.io',"font-size: 14px;color: #3F51B5;","color: #448AFF;text-decoration: none");
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

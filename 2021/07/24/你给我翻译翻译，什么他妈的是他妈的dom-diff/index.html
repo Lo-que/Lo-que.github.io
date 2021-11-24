@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            你给我翻译翻译，什么他妈的是他妈的dom diff | 
+        
+        Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="qudongqi&#39;s personal blog">
+    <meta name="keywords" content="qudongqi,blog,hexo,FE,vue diff, react diff">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Blog">
+    <meta name="msapplication-starturl" content="http://lo-que.github.io/2021/07/24/%E4%BD%A0%E7%BB%99%E6%88%91%E7%BF%BB%E8%AF%91%E7%BF%BB%E8%AF%91%EF%BC%8C%E4%BB%80%E4%B9%88%E4%BB%96%E5%A6%88%E7%9A%84%E6%98%AF%E4%BB%96%E5%A6%88%E7%9A%84dom-diff/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://lo-que.github.io/2021/07/24/%E4%BD%A0%E7%BB%99%E6%88%91%E7%BF%BB%E8%AF%91%E7%BF%BB%E8%AF%91%EF%BC%8C%E4%BB%80%E4%B9%88%E4%BB%96%E5%A6%88%E7%9A%84%E6%98%AF%E4%BB%96%E5%A6%88%E7%9A%84dom-diff/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="你给我翻译翻译，什么他妈的是他妈的dom diff | Blog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="qudongqi&#39;s personal blog">
+    <meta property="og:article:tag" content="vue diff, react diff"> 
+
+    
+        <meta property="article:published_time" content="Sat Jul 24 2021 11:40:21 GMT+0800">
+        <meta property="article:modified_time" content="Wed Nov 24 2021 16:03:14 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://lo-que.github.io/2021/07/24/%E4%BD%A0%E7%BB%99%E6%88%91%E7%BF%BB%E8%AF%91%E7%BF%BB%E8%AF%91%EF%BC%8C%E4%BB%80%E4%B9%88%E4%BB%96%E5%A6%88%E7%9A%84%E6%98%AF%E4%BB%96%E5%A6%88%E7%9A%84dom-diff/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://lo-que.github.io/2021/07/24/%E4%BD%A0%E7%BB%99%E6%88%91%E7%BF%BB%E8%AF%91%E7%BF%BB%E8%AF%91%EF%BC%8C%E4%BB%80%E4%B9%88%E4%BB%96%E5%A6%88%E7%9A%84%E6%98%AF%E4%BB%96%E5%A6%88%E7%9A%84dom-diff/index.html",
+    "headline": "你给我翻译翻译，什么他妈的是他妈的dom diff",
+    "datePublished": "Sat Jul 24 2021 11:40:21 GMT+0800",
+    "dateModified": "Wed Nov 24 2021 16:03:14 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "屈东奇",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "自童年起，我便独自一人，照顾着历代星辰。"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",vue diff, react diffqudongqi,blog,hexo,FE",
+    "description": "qudongqi&#39;s personal blog",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%B8%8A%E4%B8%80%E6%AC%A1%E8%AF%B4%E5%BA%9F%E8%AF%9D%E8%BF%98%E6%98%AF%E5%9C%A8%E4%B8%8A%E4%B8%80%E6%AC%A1"><span class="post-toc-number">1.</span> <span class="post-toc-text">上一次说废话还是在上一次</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%89%80%E4%BB%A5%EF%BC%8Cvue3%E7%9A%84diff%E6%98%AF%E6%80%8E%E4%B9%88%E5%81%9A%E7%9A%84%EF%BC%9F"><span class="post-toc-number">2.</span> <span class="post-toc-text">所以，vue3的diff是怎么做的？</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E9%82%A3%E4%B9%88React%E7%9A%84%E6%98%AF%EF%BC%9F"><span class="post-toc-number">3.</span> <span class="post-toc-text">那么React的是？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E5%8D%95%E8%8A%82%E7%82%B9diff"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">单节点diff</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E5%A4%9A%E8%8A%82%E7%82%B9diff"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">多节点diff</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                你给我翻译翻译，什么他妈的是他妈的dom diff
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>屈东奇</strong>
+        <span>7月 24, 2021</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,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">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-none-link" href="/tags/vue-diff-react-diff/" rel="tag">vue diff, react diff</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=你给我翻译翻译，什么他妈的是他妈的dom diff&url=http://lo-que.github.io/2021/07/24/%E4%BD%A0%E7%BB%99%E6%88%91%E7%BF%BB%E8%AF%91%E7%BF%BB%E8%AF%91%EF%BC%8C%E4%BB%80%E4%B9%88%E4%BB%96%E5%A6%88%E7%9A%84%E6%98%AF%E4%BB%96%E5%A6%88%E7%9A%84dom-diff/index.html&pic=http://lo-que.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=你给我翻译翻译，什么他妈的是他妈的dom diff&url=http://lo-que.github.io/2021/07/24/%E4%BD%A0%E7%BB%99%E6%88%91%E7%BF%BB%E8%AF%91%E7%BF%BB%E8%AF%91%EF%BC%8C%E4%BB%80%E4%B9%88%E4%BB%96%E5%A6%88%E7%9A%84%E6%98%AF%E4%BB%96%E5%A6%88%E7%9A%84dom-diff/index.html&via=屈东奇" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://lo-que.github.io/2021/07/24/%E4%BD%A0%E7%BB%99%E6%88%91%E7%BF%BB%E8%AF%91%E7%BF%BB%E8%AF%91%EF%BC%8C%E4%BB%80%E4%B9%88%E4%BB%96%E5%A6%88%E7%9A%84%E6%98%AF%E4%BB%96%E5%A6%88%E7%9A%84dom-diff/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://lo-que.github.io/2021/07/24/%E4%BD%A0%E7%BB%99%E6%88%91%E7%BF%BB%E8%AF%91%E7%BF%BB%E8%AF%91%EF%BC%8C%E4%BB%80%E4%B9%88%E4%BB%96%E5%A6%88%E7%9A%84%E6%98%AF%E4%BB%96%E5%A6%88%E7%9A%84dom-diff/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Blog&title=你给我翻译翻译，什么他妈的是他妈的dom diff&summary=qudongqi&#39;s personal blog&pics=http://lo-que.github.io/img/favicon.png&url=http://lo-que.github.io/2021/07/24/%E4%BD%A0%E7%BB%99%E6%88%91%E7%BF%BB%E8%AF%91%E7%BF%BB%E8%AF%91%EF%BC%8C%E4%BB%80%E4%B9%88%E4%BB%96%E5%A6%88%E7%9A%84%E6%98%AF%E4%BB%96%E5%A6%88%E7%9A%84dom-diff/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+        <a class="post_share-link" href="https://telegram.me/share/url?url=http://lo-que.github.io/2021/07/24/%E4%BD%A0%E7%BB%99%E6%88%91%E7%BF%BB%E8%AF%91%E7%BF%BB%E8%AF%91%EF%BC%8C%E4%BB%80%E4%B9%88%E4%BB%96%E5%A6%88%E7%9A%84%E6%98%AF%E4%BB%96%E5%A6%88%E7%9A%84dom-diff/index.html&text=你给我翻译翻译，什么他妈的是他妈的dom diff" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h4 id="上一次说废话还是在上一次"><a href="#上一次说废话还是在上一次" class="headerlink" title="上一次说废话还是在上一次"></a>上一次说废话还是在上一次</h4><p>近两年确实很少有人再分享dom diff原理(因为默认你必须得会)，但是想要完全的理解现在流行的使用Virtual DOM的前端框架，这也确是一个必须迈过去的坎。</p>
+<p>比较两棵DOM树的差异是 Virtual DOM 算法最核心的部分，这也是所谓的 Virtual DOM 的 diff 算法。</p>
+<p>两个树的完全的 diff 算法是一个时间复杂度为 O(n^3) 的问题。但是在前端当中，你很少会跨越层级地移动DOM元素。所以 Virtual DOM 只会对同一个层级 的元素进行对比。下面的div只会和同一层级的div对比，第二层级的只会跟第二层级对比。这样算法复杂度就可以达到 O(n)。</p>
+<p><img src="/2021/07/24/%E4%BD%A0%E7%BB%99%E6%88%91%E7%BF%BB%E8%AF%91%E7%BF%BB%E8%AF%91%EF%BC%8C%E4%BB%80%E4%B9%88%E4%BB%96%E5%A6%88%E7%9A%84%E6%98%AF%E4%BB%96%E5%A6%88%E7%9A%84dom-diff/image-20210824215312655.png" alt="image-20210824215312655"></p>
+<p>实际的代码中,会对新旧两棵树进行一个深度优先的遍历,这样每个节点都会有一个唯一的标记,在深度优先遍历的时候,每遍历到一个节点就把该节点和新的的树进行对比。如果有差异的话就记录到一个对象里面。p是patches[1],ul是patches[3],类推。</p>
+<p><img src="/2021/07/24/%E4%BD%A0%E7%BB%99%E6%88%91%E7%BF%BB%E8%AF%91%E7%BF%BB%E8%AF%91%EF%BC%8C%E4%BB%80%E4%B9%88%E4%BB%96%E5%A6%88%E7%9A%84%E6%98%AF%E4%BB%96%E5%A6%88%E7%9A%84dom-diff/image-20210824215345152.png" alt="image-20210824215345152"></p>
+<p>上边是diff的大致原理，各位看官看完了估计想骂街。就这？</p>
+<p>也是，这是烂大街的原理，接下来我们深度剖析一下。</p>
+<p>vue2的dom diff我们就不去看了，毕竟vue3都出来了，还表示对diff进行了优化，所以原先的从头尾同时开始的diff明显被遗弃了。</p>
+<h4 id="所以，vue3的diff是怎么做的？"><a href="#所以，vue3的diff是怎么做的？" class="headerlink" title="所以，vue3的diff是怎么做的？"></a>所以，vue3的diff是怎么做的？</h4><ol>
+<li><p>去除双指针（罪过，我又鞭尸了）</p>
+</li>
+<li><p>C1:[“a”,”b”,”c”,”d”,”g”,”f”] ✎ C2:[“a”,”e”,”b”,”d”,”c”,”f”]</p>
+<ol>
+<li><p>从前往后比较,相同节点 [“a”] 进行 patch,遇到不相同的节点停止比较 </p>
+</li>
+<li><p>从后往前比较,相同节点 [“f”] 进行 patch,遇到不相同的节点停止比较 </p>
+</li>
+<li><p>如果 c1 中的所有节点都已经比较完了,c2 中剩余没有比较的节点都是新数据,执行 mount </p>
+</li>
+<li><p>如果 c2 中的所有节点都已经比较完了,c1 中剩余没有比较的节点都是需要删除的,执行 unmount </p>
+</li>
+<li><p>如果 c1 和 c2 中都有剩余节点,对剩余节点进行比较 </p>
+<ol>
+<li><p>找出需要删除的节点,执行 unmount </p>
+</li>
+<li><p>找出新、旧节点的对应关系,利用 “最长递增子序列” 优化节点的移动、新增。这一步是 diff 算法的核心</p>
+<blockquote>
+<ol>
+<li>新元素没有比较完成的 keyToNewIndexMap[d:2,f:3,c:4,e:5,x:6,y:7] </li>
+<li>根据未比较完的数据长度,建一个填充 0 的数组 [0,0,0,0,0,0] </li>
+<li>老元素没有比较完成的 newIndexToOldIndexMap[4(d),6(f),3(c),5(e),0,0] </li>
+<li>尾到头循环一下newIndexToOldIndexMap 是 0 的,说明是新增的数据,就 mount 进去非 0 的, 说明在旧数据里,我们只要把    它们移动到对应index的前面就行了 </li>
+<li>把 c 移动到 e 之前、把 f 移动到 c 之前、把 d 移动到 f 之前 </li>
+<li>上面很啰嗦 newIndexToOldIndexMap找到最长递增子序列 我们的 [4(d),6(f),3(c),5(e),0,0] 很明显能找到 [3,5] 是    数组中的最长递增子序列 于是乎 [3,5] 都不需要移动</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<ul>
+<li><p>最长递增子序列  ✄ patchKeyedChildren </p>
+<pre><code class="javascript">//  c1 旧数据 
+[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;,&quot;e&quot;,&quot;f&quot;,&quot;g&quot;] 
+
+// c2 新数据 
+[&quot;a&quot;,&quot;c&quot;,&quot;d&quot;,&quot;b&quot;,&quot;f&quot;,&quot;i&quot;,&quot;g&quot;] 
+</code></pre>
+</li>
+</ul>
+<p>​    要将 [“b”, “c” ,”d”] 变成 [“c”, “d”, “b”], c 、 d 不用动, 只需要将 b 移动到 d 之后就可以了,不需要将 c 和 d 分别移动到 b 之前。 </p>
+<ul>
+<li>最长递增子序列(longest increasing subsequence)问题是指,在一个给定的数值序列中,找到一个子序列,使得这个子序列元素的数值依次递增,并且这个子序列的长度尽可能地大。最长递增子序列中的元素在原序列中不一定是连续的。</li>
+</ul>
+<h4 id="那么React的是？"><a href="#那么React的是？" class="headerlink" title="那么React的是？"></a>那么React的是？</h4><p>React Diff 会预设几个规则: </p>
+<ol>
+<li>只对同级节点,进行比较</li>
+<li>节点变化,直接删除,然后重建</li>
+<li>存在key值,对比节点的key值</li>
+</ol>
+<h5 id="单节点diff"><a href="#单节点diff" class="headerlink" title="单节点diff"></a>单节点diff</h5><ol>
+<li>判断存在对应节点,key值是否相同,节点类型一致,可以复用</li>
+<li>存在对应节点,key值是否相同,节点类型不一致,标记删除 (div =&gt; p/span  会删除) </li>
+<li>存在对应节点,key值不同,标记删除</li>
+<li>不存在对应节点,创建新节点</li>
+</ol>
+<h5 id="多节点diff"><a href="#多节点diff" class="headerlink" title="多节点diff"></a>多节点diff</h5><ol>
+<li>对比新旧children相同index的对象的key是否相等, 如果是,返回该对象,如果不是,返回null </li>
+<li>key值不等,不用对比下去了,节点不能复用,跳出 </li>
+<li>判断节点是否存在移动,存在则返回新位置 </li>
+<li>但可能存在新的数组小于老数组的情况,即老数组后面有剩余的,所以要删除 </li>
+<li>新数组存在新增的节点,创建新阶段 </li>
+<li>创建一个existingChildren代表所有剩余没有匹配掉的节点,然后新的数组根据key从这个 map 里面查找,如果有则复用,没有则新建 </li>
+</ol>
+
+        
+                <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+                    <p><strong>
+                         
+                            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a>
+                        </strong>
+                        <br>
+                        <strong>本文链接：</strong><a href="http://lo-que.github.io/2021/07/24/%E4%BD%A0%E7%BB%99%E6%88%91%E7%BF%BB%E8%AF%91%E7%BF%BB%E8%AF%91%EF%BC%8C%E4%BB%80%E4%B9%88%E4%BB%96%E5%A6%88%E7%9A%84%E6%98%AF%E4%BB%96%E5%A6%88%E7%9A%84dom-diff/">http://lo-que.github.io/2021/07/24/%E4%BD%A0%E7%BB%99%E6%88%91%E7%BF%BB%E8%AF%91%E7%BF%BB%E8%AF%91%EF%BC%8C%E4%BB%80%E4%B9%88%E4%BB%96%E5%A6%88%E7%9A%84%E6%98%AF%E4%BB%96%E5%A6%88%E7%9A%84dom-diff/</a>
+                    </p>
+                </blockquote>
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2021/08/11/http%E5%8D%8F%E8%AE%AE%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新的文章
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2021/06/18/javascript%E6%89%A7%E8%A1%8C%E5%A0%86%E6%A0%88/" id="post_nav-older" class="next-content">
+            旧的文章
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="屈东奇's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        lo-que@foxmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:Lo-que@foxmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2021/09/">九月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/08/">八月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/07/">七月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/06/">六月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/04/">四月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/01/">一月 2017<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Tags  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">label</i>
+                
+                标签
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-none-link" href="/tags/GC-VO-AO-CalleeStack/" rel="tag">GC VO AO CalleeStack<span class="sidebar_archives-none-count">1</span></a></li><li><a class="sidebar_archives-none-link" href="/tags/Learning-Note/" rel="tag">Learning Note<span class="sidebar_archives-none-count">12</span></a></li><li><a class="sidebar_archives-none-link" href="/tags/Learning-summary/" rel="tag">Learning summary<span class="sidebar_archives-none-count">1</span></a></li><li><a class="sidebar_archives-none-link" href="/tags/Math/" rel="tag">Math<span class="sidebar_archives-none-count">1</span></a></li><li><a class="sidebar_archives-none-link" href="/tags/Picking-up/" rel="tag">Picking up<span class="sidebar_archives-none-count">5</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/Computer-basis/">Computer basis<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/css/">css<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/html/">html<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/http/">http<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/jade/">jade<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/javascript/">javascript<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/categories/network/">network<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/nodejs/">nodejs<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/picking-up/">picking up<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">24</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/Lo-que" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2017&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">人生若只如初见</div>
+                <div class="footer-develop-div">何事秋风悲画扇</div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.info("%c如有疑虑请联系：\n"+'Lo-que@foxmail.com'+'%c\n or http://github.com/Lo-que/Lo-que.github.io',"font-size: 14px;color: #3F51B5;","color: #448AFF;text-decoration: none");
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
