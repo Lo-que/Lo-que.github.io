@@ -6,7 +6,7 @@ function App() {
   const [num, setNum] = useState(0)
 
   useEffect(() => {
-    fetch(`https://https://cloud-flare-1.tungchic.workers.dev/status`).then(
+    fetch(`https://cloud-flare-1.tungchic.workers.dev/status`).then(
       (response) => {
         console.log(response)
         setNum(response.status)
