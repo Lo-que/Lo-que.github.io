@@ -2,18 +2,17 @@ import React, { useState, useCallback, useEffect } from 'react'
 import logo from './logo.svg'
 import './App.css'
 
-const [num, setNum] = useState(0)
-
-useEffect(() => {
-  fetch(`https://https://cloud-flare-1.tungchic.workers.dev/status`).then(
-    (response) => {
-      console.log(response)
-      setNum(response.status)
-    }
-  )
-}, [])
-
 function App() {
+  const [num, setNum] = useState(0)
+
+  useEffect(() => {
+    fetch(`https://https://cloud-flare-1.tungchic.workers.dev/status`).then(
+      (response) => {
+        console.log(response)
+        setNum(response.status)
+      }
+    )
+  }, [])
   return (
     <div className="App">
       <header className="App-header">
