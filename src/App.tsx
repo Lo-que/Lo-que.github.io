@@ -3,13 +3,13 @@ import logo from './logo.svg'
 import './App.css'
 
 function App() {
-  const [num, setNum] = useState(0)
+  const [num, setNum] = useState('0')
 
   useEffect(() => {
     fetch(`https://cloud-flare-1.tungchic.workers.dev/todos?user=data`).then(
       (response) => {
         console.log(response)
-        setNum(response.status)
+        setNum(response.statusText)
       }
     )
   }, [])
