@@ -1,6 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useCallback, useEffect } from 'react'
+import logo from './logo.svg'
+import './App.css'
+
+const [num, setNum] = useState(0)
+
+useEffect(() => {
+  fetch(`https://https://cloud-flare-1.tungchic.workers.dev/status`).then(
+    (response) => {
+      console.log(response)
+      setNum(response.status)
+    }
+  )
+}, [])
 
 function App() {
   return (
@@ -19,8 +30,9 @@ function App() {
           Learn React
         </a>
       </header>
+      <div>{`num: ${num}`}</div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
