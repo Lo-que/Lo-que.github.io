@@ -1,35 +1,50 @@
 import React, { useState, useCallback, useEffect } from 'react'
-import logo from './logo.svg'
 import './App.css'
 
 function App() {
-  const [num, setNum] = useState('0')
-
-  useEffect(() => {
+  const cloudFlareFetch = async () => {
     fetch(`https://cloud-flare-1.tungchic.workers.dev/todos?user=data`).then(
       (response) => {
         console.log(response)
-        setNum(response.statusText)
       }
     )
+  }
+
+  const [numbers, setNumbers] = useState<string[]>([])
+  const [input, setInput] = useState('')
+
+  useEffect(() => {
+    cloudFlareFetch()
   }, [])
+
+  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInput(e.target.value)
+  }
+  const handleSubmit = () => {
+    const newArray = numbers
+    newArray.push(input)
+    setNumbers(newArray)
+    setInput('')
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <div>{`num: ${num}`}</div>
+      <div>
+        numbers:
+        {numbers.length > 0 &&
+          numbers.map((number, index) => {
+            if (index < numbers.length - 1) {
+              return <React.Fragment key={index}>{number}, </React.Fragment>
+            } else {
+              return <React.Fragment key={index}>{number}</React.Fragment>
+            }
+          })}
+      </div>
+      <br />
+      <div>
+        <label htmlFor="insert">Insert: </label>
+        <input id="insert" type="number" value={input} onChange={handleInput} />
+        <button onClick={handleSubmit}>Submit</button>
+      </div>
     </div>
   )
 }
