@@ -10,7 +10,7 @@
     "images": "imagemin src/assets build",
     "copy": "cp -r src/assets build",
     "clear": "rm -rf build",
-    "build": "npm run clear && npm run copy && npm run javascript && npm run html && npm run css",
+    "build": "npm run clear && npm run javascript && npm run html && npm run css",
     "start": "serve build"
   },
   "keywords": [],
