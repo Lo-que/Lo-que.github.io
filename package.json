@@ -1,57 +1,34 @@
 {
-  "name": "cloud-flare",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "@types/jest": "^26.0.15",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.53",
-    "@types/react-dom": "^17.0.14",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-scripts": "5.0.0",
-    "serve": "^13.0.2",
-    "typescript": "^4.0.3",
-    "web-vitals": "^0.2.4",
-    "workbox-background-sync": "^5.1.3",
-    "workbox-broadcast-update": "^5.1.3",
-    "workbox-cacheable-response": "^5.1.3",
-    "workbox-core": "^5.1.3",
-    "workbox-expiration": "^5.1.3",
-    "workbox-google-analytics": "^5.1.3",
-    "workbox-navigation-preload": "^5.1.3",
-    "workbox-precaching": "^5.1.3",
-    "workbox-range-requests": "^5.1.3",
-    "workbox-routing": "^5.1.3",
-    "workbox-strategies": "^5.1.3",
-    "workbox-streams": "^5.1.3"
-  },
+  "name": "sense-of-perspective",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "buildnserve": "react-scripts build && serve -s build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "javascript": "browserify -p [ tsify --noImplicitAny ] src/index.ts > build/index.js",
+    "html": "minify src/index.html > build/index.html",
+    "css": "minify src/index.css > build/index.css",
+    "images": "imagemin src/assets build",
+    "copy": "cp -r src/assets build",
+    "clear": "rm -rf build",
+    "build": "npm run clear && npm run copy && npm run javascript && npm run html && npm run css",
+    "start": "serve build"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^17.0.26",
+    "@typescript-eslint/eslint-plugin": "^5.20.0",
+    "@typescript-eslint/parser": "^5.20.0",
+    "browserify": "^17.0.0",
+    "eslint": "^8.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "imagemin-cli": "^7.0.0",
+    "minify": "^8.0.4",
+    "prettier": "^2.6.2",
+    "serve": "^13.0.2",
+    "tsify": "^5.0.4",
+    "typescript": "^4.6.3"
   }
 }
