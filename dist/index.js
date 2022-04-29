@@ -12,7 +12,7 @@ const DAY = HOUR * 24;
 const YEAR = DAY * 365.25;
 function getDistance(now, target) {
     let distance = now.getTime() - target.getTime();
-    distance = Math.floor(distance / 1000 / 60 / 60 / 24);
+    distance = Math.floor(distance / 1000 / 60 / 60 / 24) + 1;
     return distance < 0 ? 0 : distance;
 }
 function render(el, now, milestone, percentage, isPrimary) {
@@ -54,9 +54,23 @@ function update() {
     render(fEl, now, fBirthday, duration / fAge, false);
     setTimeout(update, 60);
 }
-setup(primaryEL);
-setup(qEl);
-setup(fEl);
-update();
+const weixin = document.querySelector('.js-weixin');
+const xiaohongshu = document.querySelector('.js-xiaohongshu');
+const rili = document.querySelector('.js-rili');
+rili.addEventListener('click', () => {
+    rili.classList.toggle('clicked');
+    setup(primaryEL);
+    setup(qEl);
+    setup(fEl);
+    update();
+});
+xiaohongshu.addEventListener('click', () => {
+    const newUrl = window.open('/playground.html', '_blank');
+    newUrl.opener = null;
+});
+weixin.addEventListener('click', () => {
+    const newUrl = window.open('/wechat.html', '_blank');
+    newUrl.opener = null;
+});
 
 },{}]},{},[1]);

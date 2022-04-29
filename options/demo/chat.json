@@ -1,0 +1,54 @@
+[
+  {
+    "msgs": ["<letter src='options/demo/letters/test.json'/>"],
+    "triggerNextAction": { "type": "componentClose" }
+  },
+  { "msgs": ["接下来是一些通用测试"], "msgInputSpeed": 80 },
+  {
+    "msgs": ["有些心里话，你想听吗？"],
+    "msgInputSpeed": 40,
+    "triggerNextAction": {
+      "type": "userInput",
+      "options": {
+        "resolveKeyTexts": ["好的", "可以", "同意", "愿意", "想", "想听", "是"],
+        "rejectKeyTexts": ["不想"],
+        "rejectHitTexts": [
+          "不听？信不信我分分钟出 bug 给你看？",
+          "好吧，既然你实在不想听，那我就讲给你听吧～"
+        ]
+      }
+    }
+  },
+  { "msgs": ["心里话都在这封信里"], "msgInputSpeed": 80 },
+  {
+    "msgs": ["<letter src='options/demo/letters/test.json'/>"],
+    "triggerNextAction": { "type": "componentClose" }
+  },
+  {
+    "msgs": ["你猜我在想什么？"],
+    "msgInputSpeed": 80,
+    "triggerNextAction": {
+      "type": "userInput",
+      "options": {
+        "resolveKeyTexts": ["想我"],
+        "rejectKeyTexts": ["不知道"],
+        "rejectHitTexts": [
+          "你猜错了～",
+          ["给你提示一下～", "是个人~"],
+          "这都猜不中？？？",
+          ["好吧，看图吧。", "<img src='options/demo/imgs/test.png'>"]
+        ]
+      }
+    }
+  },
+  { "msgs": ["我是在想打游戏", "我是在想你呢"], "msgInputSpeed": 80 },
+  { "msgs": ["看看这个视频"], "msgInputSpeed": 80 },
+  {
+    "msgs": ["<vlog src='options/demo/vlogs/test.mp4'/>"],
+    "triggerNextAction": { "type": "componentClose" }
+  },
+  {
+    "msgs": ["测试结束，广告位招租"],
+    "msgInputSpeed": 80
+  }
+]

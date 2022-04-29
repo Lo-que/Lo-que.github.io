@@ -1,0 +1,8 @@
+{
+  "openTip": "Lover",
+  "title": "给xx的一封信",
+  "speed": 10,
+  "paragraphs": [
+    "<video  id='vlogPlayer' ref='vlogPlayer' class=vlog-'playe' style='width:100%; height:100%; object-fit: fill' autoplay='autoplay' playsinline='true' webkit-playsinline='true' x-webkit-airplay='allow' airplay='allow' loop='loop' x5-video-player-type='h5' x5-video-player-fullscreen='true' x5-video-orientation='portrait' src='options/demo/vlogs/test.mp4'/>"
+  ]
+}
